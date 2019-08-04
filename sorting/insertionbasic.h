@@ -1,9 +1,7 @@
 #ifndef INSERTIONBASIC_H_INCLUDED
 #define INSERTIONBASIC_H_INCLUDED
 
-using namespace std;
-
-void insertion_basic_sort(vector<int> &arr, int n, int ele){
+void insertion_basic_sort(std::vector<int> &arr, int n, int ele){
     int i=n-1;
     while(i>=0 && arr[i]>ele){
         i--;
