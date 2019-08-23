@@ -20,8 +20,8 @@ int rand_partition(vector<int> &arr, int left, int right){
 void quick_rand_sort(vector<int> &arr, int left, int right){
     if(left<right){
         int pivot=rand_partition(arr, left, right);
-        quick_basic_sort(arr, left, pivot-1);
-        quick_basic_sort(arr, pivot+1, right);
+        quick_rand_sort(arr, left, pivot-1);
+        quick_rand_sort(arr, pivot+1, right);
     }
     return;
 }
