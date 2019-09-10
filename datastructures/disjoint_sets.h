@@ -20,8 +20,8 @@ T find_parent(vector<T> &parent, T x){
 }
 
 template <typename T>
-bool has_same_parent(T x, T y){
-    if(find_parent(x)==find_parent(y)){
+bool has_same_parent(vector<T> &parent, T x, T y){
+    if(find_parent(parent, x)==find_parent(parent, y)){
         return true;
     }else{
         return false;
