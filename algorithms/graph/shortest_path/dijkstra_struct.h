@@ -3,172 +3,245 @@
 
 #pragma GCC optimize("Ofast")
 #include <iostream>
-#include <stdlib.h>
-#include <algorithm>
-#include <vector>
 #include <bits/stdc++.h>
-
+#define GraphNode T
 using namespace std;
 
-template <typename T>
-struct Heap{
-    bool isMaxHeap;
-    int *pos;
+struct Edge{
+    int src_node;
+    int weight;
+    int dest_node;
+    struct Edge* next_edge;
+};
+
+struct GraphNode{
+    bool visited;
+    int weight;
+    int cur_node;
+    struct Edge* edges_list_head;
+};
+
+// graph_nodes_list - This is "0" based.
+struct Graph{
+    int num_of_nodes;
+    struct GraphNode* graph_nodes_list;
+};
+
+struct Edge* create_edge(int src, int weight, int dst){
+    struct Edge* new_edge=(struct Edge*)malloc(sizeof(struct Edge));
+    new_edge->src_node=src;
+    new_edge->dest_node=dst;
+    new_edge->weight=weight;
+    new_edge->next_edge=NULL;
+    return new_edge;
+}
+
+struct Graph* create_graph(int num_of_nodes){
+    struct Graph* newGraph=(struct Graph*)malloc(sizeof(struct Graph));
+    newGraph->num_of_nodes=num_of_nodes;
+    newGraph->graph_nodes_list=(struct GraphNode*)malloc(num_of_nodes*sizeof(struct GraphNode));
+    for(int i=0; i<num_of_nodes; i++){
+        newGraph->graph_nodes_list[i].visited=false;
+        newGraph->graph_nodes_list[i].weight=INT_MAX;
+        newGraph->graph_nodes_list[i].edges_list_head=NULL;
+    }
+    return newGraph;
+}
+
+// src/dst - These are "0" based. If question is "1" based send "src-1".
+struct Edge* add_graph_edge(struct Graph* graph, int src, int dst, int weight){
+    struct GraphNode* src_node=&(graph->graph_nodes_list[src]);
+    src_node->cur_node=src;
+    struct Edge* edge=create_edge(src, weight, dst);
+    edge->next_edge=src_node->edges_list_head;
+    src_node->edges_list_head=edge;
+    return edge;
+}
+
+// node_index - To uniquely identify each node, helpful in "update" operations.
+// Heap->node_pos index and HeapNode->node_index are same.
+struct HeapNode {
+    int node_index;
+    T* node;
+};
+
+struct Heap {
+    bool is_max_heap;
     int heap_size;
     int heap_capacity;
-    T **heap_store;
+    // specifies the position of nodes(index represent the nodes) in heap_array.
+    int* node_pos;
+    struct HeapNode** heap_array;
 };
 
-template <typename T>
-struct Heap<T>* createHeap(int capacity){
-    struct Heap<T>* h=(struct Heap<T>*)malloc(sizeof(struct Heap<T>));
-    h->pos=(int *)malloc(capacity*sizeof(int));
-    h->heap_size=0;
-    h->heap_capacity=capacity;
-    h->heap_store=(T**)malloc(capacity*sizeof(T*));
-    return h;
+struct Heap* create_heap(bool is_max_heap, int capacity){
+    struct Heap* heap=(struct Heap*)malloc(sizeof(struct Heap));
+    heap->is_max_heap=is_max_heap;
+    heap->heap_size=0;
+    heap->heap_capacity=capacity;
+    heap->node_pos=(int*)malloc(capacity*sizeof(int));
+    heap->heap_array=(struct HeapNode**)malloc(capacity*sizeof(struct HeapNode*));
+    return heap;
 }
 
-template <typename T>
-void swapHeapNode(T** a, T** b){
-    T* t = *a;
-    *a = *b;
-    *b = t;
+void swap_heap_nodes(struct HeapNode** node_a, struct HeapNode** node_b){
+    struct HeapNode* temp=*node_a;
+    *node_a=*node_b;
+    *node_b=temp;
 }
 
-template <typename T>
-bool isInMinHeap(struct Heap<T> *heap, int v) {
-   if (heap->pos[v] < heap->heap_size)
-     return true;
-   return false;
-}
+void heapify(struct Heap* heap, int index){
+    int left=(2*index)+1;
+    int right=(2*index)+2;
 
-template <typename T>
-void heapify(struct Heap<T>* h, int index){
-    int smallest, left, right;
-    smallest = index;
-    left = (2*index)+1;
-    right = (2*index)+2;
+    if(!heap->is_max_heap){
+        int smallest=index;
+        // Change "weight" with your choice of comparison attribute.
+        if(left<heap->heap_size && heap->heap_array[left]->node->weight<heap->heap_array[smallest]->node->weight){
+            smallest=left;
+        }
 
-    if (left<h->heap_size &&
-            h->heap_store[left]->dist < h->heap_store[smallest]->dist )
-      smallest = left;
+        // Change "weight" with your choice of comparison attribute.
+        if(right<heap->heap_size && heap->heap_array[right]->node->weight<heap->heap_array[smallest]->node->weight){
+            smallest=right;
+        }
 
-    if (right<h->heap_size &&
-            h->heap_store[right]->dist < h->heap_store[smallest]->dist )
-      smallest = right;
+        if(smallest!=index){
+            heap->node_pos[heap->heap_array[smallest]->node_index]=index;
+            heap->node_pos[heap->heap_array[index]->node_index]=smallest;
+            swap_heap_nodes(&(heap->heap_array[smallest]), &(heap->heap_array[index]));
+            heapify(heap, smallest);
+        }
+    }else{
+        int largest=index;
+        // Change "weight" with your choice of comparison attribute.
+        if(left<heap->heap_size && heap->heap_array[left]->node->weight>heap->heap_array[largest]->node->weight){
+            largest=left;
+        }
 
-    if (smallest!=index){
-        T* smallestNode = h->heap_store[smallest];
-        T* idxNode = h->heap_store[index];
+        // Change "weight" with your choice of comparison attribute.
+        if(right<heap->heap_size && heap->heap_array[right]->node->weight>heap->heap_array[largest]->node->weight){
+            largest=right;
+        }
 
-        h->pos[smallestNode->v] = index;
-        h->pos[idxNode->v] = smallest;
-
-        swapHeapNode(&h->heap_store[smallest], &h->heap_store[index]);
-        heapify(h, smallest);
-    }
-}
-
-template <typename T>
-int isEmpty(struct Heap<T>* heap){
-    return heap->heap_size == 0;
-}
-
-template <typename T>
-T* extractMin(struct Heap<T>* heap){
-    if (isEmpty(heap))
-        return NULL;
-
-    // Store the root node
-    T* root = heap->heap_store[0];
-
-    // Replace root node with last node
-    T* lastNode = heap->heap_store[heap->heap_size - 1];
-    heap->heap_store[0] = lastNode;
-
-    // Update position of last node
-    heap->pos[root->v] = heap->heap_size-1;
-    heap->pos[lastNode->v] = 0;
-
-    // Reduce heap size and heapify root
-    --heap->heap_size;
-    heapify(heap, 0);
-
-    return root;
-}
-
-template <typename T>
-void updateKey(struct Heap<T>* heap, int v, int dist){
-    // Get the index of v in  heap array
-    int i = heap->pos[v];
-
-    // Get the node and update its dist value
-    heap->heap_store[i]->dist = dist;
-
-    // Travel up while the complete tree is not heapified.
-    // This is a O(Logn) loop
-    while (i && heap->heap_store[i]->dist < heap->heap_store[(i-1)/2]->dist){
-        // Swap this node with its parent
-        heap->pos[heap->heap_store[i]->v] = (i-1)/2;
-        heap->pos[heap->heap_store[(i-1)/2]->v] = i;
-        swapHeapNode(&heap->heap_store[i],  &heap->heap_store[(i-1)/2]);
-
-        // move to parent index
-        i=(i-1)/2;
-    }
-}
-
-struct graph_node{
-    int v;
-    int dist;
-    vector<pair<int,int> > neighbors;
-};
-
-int main(){
-    std::ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int n, m, a, b, w;
-    cin>>n>>m;
-
-    struct Heap<struct graph_node>* hp = createHeap<struct graph_node>(n);
-
-    for(int i=0; i<n+1; i++){
-        hp->heap_store[i]=new struct graph_node();
-    }
-
-    for(int i=0; i<m; i++){
-        cin>>a>>b>>w;
-        a-=1;
-        b-=1;
-        hp->heap_store[a]->v=a;
-        hp->heap_store[a]->dist=INT_MAX;
-        hp->heap_store[a]->neighbors.push_back(make_pair(w, b));
-
-        hp->heap_store[b]->v=b;
-        hp->heap_store[b]->dist=INT_MAX;
-        hp->heap_store[b]->neighbors.push_back(make_pair(w, a));
-    }
-
-    int src_node=0;
-    updateKey(hp, src_node, 0);
-    hp->heap_size=n;
-
-    while(!isEmpty(hp)){
-        struct graph_node* gn = extractMin(hp);
-        for(int j=0; j<gn->neighbors.size(); j++){
-            int v=gn->neighbors[j].second;
-            int w=gn->neighbors[j].first;
-
-            if((gn->dist+w)<hp->heap_store[v]->dist){
-                updateKey(hp, v, (gn->dist+w));
-            }
+        if(largest!=index){
+            heap->node_pos[heap->heap_array[largest]->node_index]=index;
+            heap->node_pos[heap->heap_array[index]->node_index]=largest;
+            swap_heap_nodes(&(heap->heap_array[largest]), &(heap->heap_array[index]));
+            heapify(heap, largest);
         }
     }
-
-    return 0;
 }
 
+bool is_heap_empty(struct Heap* heap){
+    if(heap->heap_size==0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+struct HeapNode* extract_top(struct Heap* heap){
+    if(is_heap_empty(heap)){
+        return NULL;
+    }
+
+    struct HeapNode* root_node=heap->heap_array[0];
+    struct HeapNode* last_node=heap->heap_array[heap->heap_size-1];
+
+    heap->heap_array[0]=last_node;
+    heap->node_pos[root_node->node_index]=heap->heap_size-1;
+    heap->node_pos[last_node->node_index]=0;
+
+    --(heap->heap_size);
+    heapify(heap, 0);
+    return root_node;
+}
+
+void print_heap(struct Heap* heap, int n){
+    cout<<"Printing heap node positions: "<<endl;
+    for(int i=0; i<n; i++){
+        cout<<"Node: "<<i<<" ";
+        cout<<"Node Pos: "<<heap->node_pos[i];
+        cout<<endl;
+    }
+    cout<<"Printing Heap:"<<endl;
+    for(int i=0; i<n; i++){
+        cout<<"Node: "<<heap->heap_array[i]->node->cur_node<<" ";
+        cout<<"Weight: "<<heap->heap_array[i]->node->weight;
+        cout<<endl;
+    }
+}
+
+void update_value(struct Heap* heap, int index, int new_value){
+    int i=heap->node_pos[index];
+    heap->heap_array[i]->node->weight=new_value;
+
+    if(!heap->is_max_heap){
+        while(i>0 && (heap->heap_array[i]->node->weight)<(heap->heap_array[(i-1)/2]->node->weight)){
+            heap->node_pos[heap->heap_array[i]->node_index]=(i-1)/2;
+            heap->node_pos[heap->heap_array[(i-1)/2]->node_index]=i;
+            swap_heap_nodes(&heap->heap_array[i], &heap->heap_array[(i-1)/2]);
+            i=(i-1)/2;
+        }
+    }else{
+        while(i>0 && heap->heap_array[i]->node->weight>heap->heap_array[(i-1)/2]->node->weight){
+            heap->node_pos[heap->heap_array[i]->node_index]=(i-1)/2;
+            heap->node_pos[heap->heap_array[(i-1)/2]->node_index]=i;
+            swap_heap_nodes(&(heap->heap_array[i]), &(heap->heap_array[(i-1)/2]));
+            i=(i-1)/2;
+        }
+    }
+}
+
+//int main(){
+//    std::ios::sync_with_stdio(false);
+//    cin.tie(NULL);
+//
+//    int n, m, a, b, w;
+//    cin>>n>>m;
+//
+//    struct Graph* graph=create_graph(n);
+//    struct Heap* heap=create_heap(false, n);
+//
+//    struct HeapNode* hn;
+//    for(int i=1; i<=n; i++){
+//        hn=(struct HeapNode*)malloc(sizeof(struct HeapNode));
+//        hn->node_index=i-1;
+//        hn->node=&(graph->graph_nodes_list[i-1]);
+//        heap->heap_size++;
+//        heap->node_pos[i-1]=i-1;
+//        heap->heap_array[i-1]=hn;
+//    }
+//
+//    for(int i=1; i<=m; i++){
+//        cin>>a>>b>>w;
+//        add_graph_edge(graph, a-1, b-1, w);
+//    }
+//
+//    for(int i=n/2-1; i>=0; i--){
+//        heapify(heap, i);
+//    }
+//
+//    update_value(heap, 0, 0);
+//
+//    while(!is_heap_empty(heap)){
+//        struct HeapNode* min_node=extract_top(heap);
+//        graph->graph_nodes_list[min_node->node->cur_node].visited=true;
+//        for(struct Edge* ne=min_node->node->edges_list_head; ne!=NULL; ne=ne->next_edge){
+//            if(!graph->graph_nodes_list[ne->dest_node].visited){
+//                if(graph->graph_nodes_list[ne->dest_node].weight>(graph->graph_nodes_list[min_node->node->cur_node].weight+ne->weight)){
+//                    update_value(heap, ne->dest_node, (graph->graph_nodes_list[min_node->node->cur_node].weight+ne->weight));
+//                }
+//            }
+//        }
+//    }
+//
+//    for(int i=1; i<n; i++){
+//        cout<<graph->graph_nodes_list[i].weight<<" ";
+//    }
+//
+//    return 0;
+//}
 
 #endif // DIJKSTRA_H_INCLUDED
