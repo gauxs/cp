@@ -1,6 +1,6 @@
-#include "problems/codechef/DRGNDEN/drgnden.h"
+#include "problems/codechef/CHEFWED/chefwed.h"
 
 int main(){
-    drgden();
+    chefwed();
     return 0;
 }
