@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-I C:\programming\competetive_programming\cp\" />
+					<Add directory="C:/programming/competetive_programming/cp/" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -32,7 +34,34 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="algorithms/basic_convex_hull.cpp" />
+		<Unit filename="algorithms/graph/shortest_path/bellman_struct.h" />
+		<Unit filename="algorithms/graph/shortest_path/dijkstra_struct.h" />
+		<Unit filename="algorithms/graph/spanning_trees/kruskals_struct.h" />
+		<Unit filename="algorithms/graph/spanning_trees/prims_struct.h" />
+		<Unit filename="algorithms/math/find_sqrt_floor.h" />
+		<Unit filename="algorithms/searching/binary_search_basic.h" />
+		<Unit filename="algorithms/sorting/bubblebasic.h" />
+		<Unit filename="algorithms/sorting/heapbasic.h" />
+		<Unit filename="algorithms/sorting/insertionbasic.h" />
+		<Unit filename="algorithms/sorting/mergebasic.h" />
+		<Unit filename="algorithms/sorting/mergelinkedlist.h" />
+		<Unit filename="algorithms/sorting/quickbasic.h" />
+		<Unit filename="algorithms/sorting/selectionbasic.h" />
+		<Unit filename="algorithms/string/kmp_basic.h" />
+		<Unit filename="algorithms/string/z_basic.h" />
+		<Unit filename="datastructures/avl_tree_basic.h" />
+		<Unit filename="datastructures/difference_array.h" />
+		<Unit filename="datastructures/disjoint_sets.h" />
+		<Unit filename="datastructures/min_segment_tree_basic.h" />
+		<Unit filename="datastructures/priority_queue/heap/binary/SUBSFREQ/node.h" />
+		<Unit filename="datastructures/priority_queue/heap/binary/SUBSFREQ/priority_queue.h" />
+		<Unit filename="datastructures/sum_segment_tree_basic.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="problems/codechef/CHEFWED/chefwed.h" />
+		<Unit filename="problems/codechef/DRGNDEN/drgnden.h" />
+		<Unit filename="problems/codechef/SKMP/skmp.h" />
+		<Unit filename="problems/codechef/SUBSFREQ/subsfreq.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

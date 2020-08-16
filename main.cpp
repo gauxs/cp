@@ -1,6 +1,7 @@
-#include "problems/codechef/CHEFWED/chefwed.h"
+#include "problems/codechef/SUBSFREQ/subsfreq.h"
+using namespace std;
 
 int main(){
-    chefwed();
+    subsfreq();
     return 0;
 }
