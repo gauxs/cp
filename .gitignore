@@ -1,8 +1,1 @@
-# Ignore bin file created by codeblocks while compiling
-/bin
-
-# Ignore obj file created by codeblocks while compiling
-/obj
-
-# Ignoring dependency files created by codeblocks while compiling
-*.depend
+*.obj

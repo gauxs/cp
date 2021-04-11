@@ -1,12 +1,17 @@
-#ifndef MERGELINKEDLIST_H_INCLUDED
-#define MERGELINKEDLIST_H_INCLUDED
+#include <vector>
+#include <iostream>
+
+#include "utils/basic.h"
+
+#ifndef MERGE_LINKEDLIST_H_INCLUDED
+#define MERGE_LINKEDLIST_H_INCLUDED
 
 void print_linked_list(struct node* root){
     while(root!=NULL){
-        cout<<root->data<<" ";
+        std::cout<<root->data<<" ";
         root=root->next;
     }
-    cout<<endl;
+    std::cout<<endl;
     return;
 }
 
@@ -75,7 +80,7 @@ struct node* merge_sort_linked_list(struct node* root){
     }else{
         struct node* mid=NULL;
         mid=divide_linked_list(root);
-        //cout<<"Mid at ele: "<<mid->data<<endl;
+        //std::cout<<"Mid at ele: "<<mid->data<<endl;
         root=merge_sort_linked_list(root);
         mid=merge_sort_linked_list(mid);
 
@@ -85,4 +90,4 @@ struct node* merge_sort_linked_list(struct node* root){
     }
 }
 
-#endif // MERGELINKEDLIST_H_INCLUDED
+#endif // MERGE_LINKEDLIST_H_INCLUDED

@@ -1,7 +1,8 @@
-#include "problems/codechef/SUBSFREQ/subsfreq.h"
+#include "algorithms/sort/comparison_based/heap_basic.h"
+
 using namespace std;
 
 int main(){
-    subsfreq();
+    heap_basic();
     return 0;
 }
