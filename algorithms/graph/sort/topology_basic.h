@@ -1,12 +1,12 @@
+#ifndef TOPOLOGY_BASIC_H_INCLUDED
+#define TOPOLOGY_BASIC_H_INCLUDED
+
+#pragma GCC optimize("Ofast")
 #include <stack>
 #include <vector>
 #include <iostream>
 #include <unordered_map>
-
 #include "utils/basic.h"
-
-#ifndef TOPOLOGY_BASIC_H_INCLUDED
-#define TOPOLOGY_BASIC_H_INCLUDED
 
 /*
     Time complexity:    O(V+E)

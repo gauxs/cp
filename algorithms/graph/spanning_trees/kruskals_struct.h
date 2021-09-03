@@ -1,9 +1,11 @@
 #ifndef KRUSKALS_MST_H_INCLUDED
 #define KRUSKALS_MST_H_INCLUDED
+
 #pragma GCC optimize("Ofast")
 #include <iostream>
 #include <bits/stdc++.h>
 #define Edge T
+
 using namespace std;
 
 struct Edge{

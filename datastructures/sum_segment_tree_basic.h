@@ -1,6 +1,10 @@
 #ifndef SEGMENT_TREE_BASIC_H_INCLUDED
 #define SEGMENT_TREE_BASIC_H_INCLUDED
 
+#pragma GCC optimize("Ofast")
+#include <vector>
+#include <cmath>
+
 /*
     Number of leaf nodes has to be in the power of two.
     If N=10, then number of leaf nodes will be next power of 2 i.e.16
@@ -14,7 +18,7 @@ int find_seg_tree_size(int num_of_nodes){
     return seg_tree_size;
 }
 
-void update_val_util(vector<int> &segment_tree, int segment_l, int segment_r,
+void update_val_util(std::vector<int> &segment_tree, int segment_l, int segment_r,
                      int update_index, int diff, int segment_index){
     if(update_index<segment_l || update_index>segment_r){
         return;
@@ -27,7 +31,7 @@ void update_val_util(vector<int> &segment_tree, int segment_l, int segment_r,
     }
 }
 
-void update_val(vector<int> &input, vector<int> &segment_tree, int index, int new_val){
+void update_val(std::vector<int> &input, std::vector<int> &segment_tree, int index, int new_val){
     int input_size = input.size();
     int segment_tree_size = segment_tree.size();
     if(index<0 || index>=input_size){
@@ -39,7 +43,7 @@ void update_val(vector<int> &input, vector<int> &segment_tree, int index, int ne
     return;
 }
 
-int get_sum_util(vector<int> &segment_tree, int seg_tree_l, int seg_tree_r, int q_l, int q_r, int seg_index){
+int get_sum_util(std::vector<int> &segment_tree, int seg_tree_l, int seg_tree_r, int q_l, int q_r, int seg_index){
     //totally inside range.
     if(q_l<=seg_tree_l && q_r>=seg_tree_r){
         return segment_tree[seg_index];
@@ -54,7 +58,7 @@ int get_sum_util(vector<int> &segment_tree, int seg_tree_l, int seg_tree_r, int 
             get_sum_util(segment_tree, mid+1, seg_tree_r, q_l, q_r, 2*seg_index+2);
 }
 
-int get_sum(vector<int> &segment_tree, int query_l, int query_r){
+int get_sum(std::vector<int> &segment_tree, int query_l, int query_r){
     int n = segment_tree.size();
     if(query_l<0 || query_r>=n || query_l>query_r){
         return -1;
@@ -62,8 +66,8 @@ int get_sum(vector<int> &segment_tree, int query_l, int query_r){
     return get_sum_util(segment_tree, 0, n-1, query_l, query_r, 0);
 }
 
-int construct_sum_segment_tree_util(vector<int> &input, int inp_node_start,
-                                      int inp_node_end, vector<int> &segment_tree, int seg_node_index){
+int construct_sum_segment_tree_util(std::vector<int> &input, int inp_node_start,
+                                      int inp_node_end, std::vector<int> &segment_tree, int seg_node_index){
     if(inp_node_start == inp_node_end){
         segment_tree[seg_node_index] = input[inp_node_start];
         return segment_tree[seg_node_index];
@@ -76,7 +80,7 @@ int construct_sum_segment_tree_util(vector<int> &input, int inp_node_start,
     return segment_tree[seg_node_index];
 }
 
-void construct_sum_segment_tree(vector<int> &input, vector<int> &segment_tree){
+void construct_sum_segment_tree(std::vector<int> &input, std::vector<int> &segment_tree){
     construct_sum_segment_tree_util(input, 0, input.size()-1, segment_tree, 0);
     return;
 }

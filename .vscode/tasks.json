@@ -11,7 +11,7 @@
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}.obj",
 				"-I",
-				"/home/gaux/src/cp",
+				"/home/gaux/src/cp"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"

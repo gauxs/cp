@@ -5,6 +5,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #define GraphNode T
+
 using namespace std;
 
 struct Edge{
