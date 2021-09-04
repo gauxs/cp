@@ -1,7 +1,6 @@
 #ifndef JUMP_SEARCH_BASIC_H_INCLUDED
 #define JUMP_SEARCH_BASIC_H_INCLUDED
 
-#pragma GCC optimize("Ofast")
 #include <vector>
 #include <math.h>
 

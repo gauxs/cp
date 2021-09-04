@@ -1,24 +1,30 @@
+#ifndef MERGE_SORT_LINKEDLIST_H_INCLUDED
+#define MERGE_SORT_LINKEDLIST_H_INCLUDED
+
 #include <vector>
 #include <iostream>
-
 #include "utils/basic.h"
 
-#ifndef MERGE_LINKEDLIST_H_INCLUDED
-#define MERGE_LINKEDLIST_H_INCLUDED
+struct Node{
+    int data;
+    Node* next;
+};
 
-void print_linked_list(struct node* root){
+void print_linked_list(Node* root){
     while(root!=NULL){
         std::cout<<root->data<<" ";
         root=root->next;
     }
-    std::cout<<endl;
+    std::cout<<std::endl;
+
     return;
 }
 
-struct node* divide_linked_list(struct node* root){
-    struct node* slow=root;
-    struct node* fast=root->next;
-    struct node* mid=NULL;
+struct Node* divide_linked_list(Node* root){
+    Node* slow=root;
+    Node* fast=root->next;
+    Node* mid=NULL;
+
     while(fast!=NULL){
         fast=fast->next;
         if(fast!=NULL){
@@ -28,12 +34,14 @@ struct node* divide_linked_list(struct node* root){
     }
     mid=slow->next;
     slow->next=NULL;
+
     return mid;
 }
 
-struct node* merge_linked_list(struct node* left, struct node* right){
-    struct node* root=NULL;
-    struct node* prev_root=NULL;
+Node* merge_linked_list(Node* left, Node* right){
+    Node* root=NULL;
+    Node* prev_root=NULL;
+
     if(left->data<=right->data){
         root=left;
         left=left->next;
@@ -41,6 +49,7 @@ struct node* merge_linked_list(struct node* left, struct node* right){
         root=right;
         right=right->next;
     }
+
     root->next=NULL;
     prev_root=root;
     while(left!=NULL && right!=NULL){
@@ -74,20 +83,16 @@ struct node* merge_linked_list(struct node* left, struct node* right){
     return root;
 }
 
-struct node* merge_sort_linked_list(struct node* root){
+Node* merge_sort_linked_list(Node* root){
     if(root==NULL || root->next==NULL){
         return root;
     }else{
-        struct node* mid=NULL;
-        mid=divide_linked_list(root);
-        //std::cout<<"Mid at ele: "<<mid->data<<endl;
-        root=merge_sort_linked_list(root);
-        mid=merge_sort_linked_list(mid);
-
-        root=merge_linked_list(root, mid);
-        //print_linked_list(root);
+        Node* mid = divide_linked_list(root);
+        root = merge_sort_linked_list(root);
+        mid = merge_sort_linked_list(mid);
+        root = merge_linked_list(root, mid);
         return root;
     }
 }
 
-#endif // MERGE_LINKEDLIST_H_INCLUDED
+#endif // MERGE_SORT_LINKEDLIST_H_INCLUDED

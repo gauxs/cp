@@ -1,31 +1,14 @@
+#ifndef HEAP_SORT_H_INCLUDED
+#define HEAP_SORT_H_INCLUDED
+
 #include <vector>
 #include <iostream>
-
 #include "utils/basic.h"
-
-#ifndef HEAP_BASIC_H_INCLUDED
-#define HEAP_BASIC_H_INCLUDED
 
 /*
     Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to
     selection sort where we first find the minimum element and place the minimum element at the beginning.
-
-    Pusedo-code:
-    1.  Build a max heap from the input data. 
-    2.  At this point, the largest item is stored at the root of the heap. Replace it with the last item of
-        the heap followed by reducing the size of heap by 1. Finally, heapify the root of the tree. 
-    3.  Repeat step 2 while size of heap is greater than 1.
-
-    Time complexity:     
-    1.  Worst: O(n * log(n))
-    2.  Average: O(n * log(n))
-    3.  Best: O(n * log(n))
-
-    Space complexity: O(1)
-
-    Inplace sorting: Yes
-    Stable sorting: Typically No, but can be made stable(Reference: https://www.geeksforgeeks.org/stability-in-sorting-algorithms/) 
-        
+    
     Reference: https://www.geeksforgeeks.org/heap-sort/
 */
 
@@ -65,7 +48,18 @@ void min_heapify(std::vector<int> &arr, int n, int i){
     return;
 }
 
-void heap_basic_sort(std::vector<int> &arr, int n){
+/*
+    Time complexity:     
+    1.  Worst: O(n * log(n))
+    2.  Average: O(n * log(n))
+    3.  Best: O(n * log(n))
+
+    Space complexity: O(1)
+
+    Inplace sorting: Yes
+    Stable sorting: Typically No, but can be made stable(Reference: https://www.geeksforgeeks.org/stability-in-sorting-algorithms/) 
+*/
+void heap_sort(std::vector<int> &arr, int n){
     for(int i=n/2-1; i>=0; i--){
         max_heapify(arr, n, i);
     }
@@ -78,16 +72,15 @@ void heap_basic_sort(std::vector<int> &arr, int n){
     return;
 }
 
+#endif // HEAP_SORT_H_INCLUDED
 
-void heap_basic(){
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    std::cout.tie(NULL);
+// int main(){
+//     std::ios::sync_with_stdio(false);
+//     std::cin.tie(NULL);
+//     std::cout.tie(NULL);
 
-    std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
-    heap_basic_sort(input, input.size()-1);
+//     std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
+//     heap_sort(input, input.size()-1);
 
-    myutils::myprint::print(input, input.size());
-}
-
-#endif // HEAP_BASIC_H_INCLUDED
+//     myutils::myprint::print(input, input.size());
+// }

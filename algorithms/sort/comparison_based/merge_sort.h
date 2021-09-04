@@ -1,25 +1,14 @@
+#ifndef MERGE_SORT_H_INCLUDED
+#define MERGE_SORT_H_INCLUDED
+
 #include <vector>
 #include <iostream>
-
 #include "utils/basic.h"
-
-#ifndef MERGE_BASIC_H_INCLUDED
-#define MERGE_BASIC_H_INCLUDED
 
 /*
     Its's a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves,
     and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r)
     is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. 
-
-    Time complexity:    T(n) = 2T(n/2) + θ(n)
-    1.  Worst: O(n * log(n))
-    2.  Average: O(n * log(n))
-    3.  Best: O(n * log(n))
-
-    Space complexity: O(n)
-
-    Inplace sorting: No
-    Stable sorting: yes
 
     Drawbacks:
     1.  Slower comparative to the other sort algorithms for smaller tasks.
@@ -61,26 +50,37 @@ void merge_array(std::vector<int> &arr, int left, int mid, int right){
     return;
 }
 
-void merge_basic_sort(std::vector<int> &arr, int left, int right){
+/*
+    Time complexity:    T(n) = 2T(n/2) + θ(n)
+    1.  Worst: O(n * log(n))
+    2.  Average: O(n * log(n))
+    3.  Best: O(n * log(n))
+
+    Space complexity: O(n)
+
+    Inplace sorting: No
+    Stable sorting: yes
+*/
+void merge_sort(std::vector<int> &arr, int left, int right){
     if(left<right){
         int mid=(left+right)/2;
-        merge_basic_sort(arr, left, mid);
-        merge_basic_sort(arr, mid+1, right);
+        merge_sort(arr, left, mid);
+        merge_sort(arr, mid+1, right);
         merge_array(arr, left, mid, right);
     }
 
     return;
 }
 
-void merge_basic(){
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    std::cout.tie(NULL);
+#endif // MERGE_SORT_H_INCLUDED
 
-    std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
-    merge_basic_sort(input, 0, input.size()-1);
+// int main(){
+//     std::ios::sync_with_stdio(false);
+//     std::cin.tie(NULL);
+//     std::cout.tie(NULL);
 
-    myutils::myprint::print(input, input.size());
-}
+//     std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
+//     merge_sort(input, 0, input.size()-1);
 
-#endif // MERGE_BASIC_H_INCLUDED
+//     myutils::myprint::print(input, input.size());
+// }

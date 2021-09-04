@@ -1,7 +1,6 @@
 #ifndef EXPONENTIAL_SEARCH_BASIC_H_INCLUDED
 #define EXPONENTIAL_SEARCH_BASIC_H_INCLUDED
 
-#pragma GCC optimize("Ofast")
 #include <vector>
 #include <algorithms/search/binary_search.h>
 

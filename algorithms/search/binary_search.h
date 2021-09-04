@@ -1,7 +1,6 @@
 #ifndef BINARY_SEARCH_BASIC_H_INCLUDED
 #define BINARY_SEARCH_BASIC_H_INCLUDED
 
-#pragma GCC optimize("Ofast")
 #include <vector>
 
 /*
