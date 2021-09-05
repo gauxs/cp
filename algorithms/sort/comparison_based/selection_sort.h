@@ -1,25 +1,18 @@
+#ifndef SELECTION_SORT_H_INCLUDED
+#define SELECTION_SORT_H_INCLUDED
+
 #include <vector>
 #include <iostream>
 #include <bits/stdc++.h>
-
 #include "utils/basic.h"
-
-#ifndef SELECTION_BASIC_H_INCLUDED
-#define SELECTION_BASIC_H_INCLUDED
 
 /*
     Sorts an array by repeatedly finding the minimum element (considering ascending order)
     from unsorted part and putting it at the beginning.
 
-    Time complexity:
-    1.  Worst: O(n*n)
-    2.  Average: O(n*n)
-    3.  Best: O(n*n)
-
-    Space complexity: O(1)
-
-    Inplace sorting: yes
-    Stable sorting: No, but can be made stable.
+    NOTE:
+    1 - The good thing about selection sort is it never makes more than O(n) swaps and can
+        be useful when memory write is a costly operation. 
 
     Stable selection sort:
     Selection sort can be made Stable if instead of swapping, the minimum element is placed in 
@@ -34,7 +27,17 @@
     Reference:  https://www.geeksforgeeks.org/selection-sort/ 
 */
 
-void selection_basic_sort(std::vector<int> &arr, int n){
+/*
+    Time complexity:
+    1.  Worst: O(n*n)
+    2.  Average: O(n*n)
+    3.  Best: O(n*n)
+
+    Space complexity: O(1)
+    Inplace sorting: yes
+    Stable sorting: No, but can be made stable.
+*/
+void selection_sort(std::vector<int> &arr, int n){
     for(int i=0; i<n; i++){
         int min_index=-1;
         int min_v=INT_MAX;
@@ -51,15 +54,17 @@ void selection_basic_sort(std::vector<int> &arr, int n){
     return;
 }
 
-void selection_basic(){
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    std::cout.tie(NULL);
+#endif // SELECTION_SORT_H_INCLUDED
 
-    std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
-    selection_basic_sort(input, input.size());
+// int main(){
+//     std::ios::sync_with_stdio(false);
+//     std::cin.tie(NULL);
+//     std::cout.tie(NULL);
 
-    myutils::myprint::print(input, input.size());
-}
+//     std::vector<int> input{5, 2, 4, 3, -2, -4, 1};
+//     selection_sort(input, input.size());
 
-#endif // SELECTION_BASIC_H_INCLUDED
+//     myutils::myprint::print(input, input.size());
+
+//     return 0;
+// }
