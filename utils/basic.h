@@ -31,8 +31,12 @@ namespace myutils{
 
     namespace mymath{
         int get_max(std::vector<int> &input){
-            int max = INT32_MIN;
-            for(int i=0; i<input.size(); i++){
+            if(input.size()==0){
+                return 0;
+            }
+
+            int max = input[0];
+            for(int i=1; i<input.size(); i++){
                 if(input[i]>max){
                     max = input[i];
                 }

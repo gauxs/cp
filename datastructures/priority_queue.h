@@ -1,10 +1,16 @@
+#include <vector>
 #include <unordered_map>
-#include "datastructures/priority_queue/heap/binary/SUBSFREQ/node.h"
 
 #ifndef GENERIC_PRIORITY_QUEUE_H_INCLUDED
 #define GENERIC_PRIORITY_QUEUE_H_INCLUDED
 
 using namespace std;
+
+struct Node {
+    int value;
+    int value_frequency;
+    Node *left, *right;
+};
 
 class PriorityQueue{
 private:

@@ -31,7 +31,8 @@ void counting_sort(std::vector<int> &input, int exp){
         count[i] += count[i-1];
     }
 
-    for(int i=0; i<input.size(); i++){
+    // to make it stable we are operating in reverse order.
+    for(int i=input.size(); i>=0; i--){
         output[count[(input[i]/exp)%10]-1] = input[i];
         count[(input[i]/exp)%10]--;
     }

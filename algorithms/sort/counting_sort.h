@@ -35,10 +35,9 @@ void counting_sort(std::vector<int> &input, int min_ele, int max_ele, std::vecto
         count[i] += count[i-1];
     }
 
-    // its a stable algorithm since we are keeping
-    // elements in the order they appeared in input
+    // to make it stable we are operating in reverse order.
     // O(n)
-    for(int i=0; i<input_len; i++){
+    for(int i=input_len-1; i>=0; i--){
         output[count[input[i]-min_ele]-1] = input[i];
         count[input[i]-min_ele]--;
     }
