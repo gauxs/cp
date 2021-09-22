@@ -5,7 +5,7 @@
 #include <vector>
 
 /*
-    1 - he basic idea behind KMP’s algorithm is: whenever we detect a mismatch (after some matches), we already know some
+    1 - The basic idea behind KMP’s algorithm is: whenever we detect a mismatch (after some matches), we already know some
         of the characters in the text of the next window. We take advantage of this information to avoid matching the characters
         that we know will anyway match. 
     2 - The prefix function for this string is defined as an array π of length n, where π[i] is the length of the longest 
@@ -28,7 +28,7 @@ std::vector<int> kmp(std::string const &str){
         int j = proper_prefix_function[i-1];
         while(j>0 && str[i]!=str[j])
             j = proper_prefix_function[j-1];
-        if(str[i]!=str[j])
+        if(str[i]==str[j])
             j++;
         proper_prefix_function[i] = j;
     }

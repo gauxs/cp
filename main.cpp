@@ -1,113 +1,102 @@
-#pragma GCC optimize("Ofast")
+// #pragma GCC optimize("Ofast")
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <algorithm>
 #include <deque>
 #include <utils/basic.h>
+#include <utils/expression_parsing.h>
 
 using namespace std;
 
-bool myComp(string s1, string s2){
-        int len_s1 = s1.length();
-        int len_s2 = s2.length();
-        
-        if(len_s1==len_s2){
-            for(int i=0; i<len_s1; i++){
-                if(s1[i]>s2[i]){
-                    return true;
-                }else if(s1[i]<s2[i]){
-                    return false;
-                }
-            }
-            return true;
-        }else{
-            if(len_s1<len_s2){
-                for(int i=0; i<len_s1; i++){
-                    if(s1[i]>s2[i]){
-                        return true;
-                    }else if(s1[i]<s2[i]){
-                        return false;
-                    }
-                }
-                int j=0;
-                for(int i=len_s1; i<len_s2; i++, j++){
-                    if(s2[i]>s2[j]){
-                        return false;
-                    }else if(s2[i]<s2[j]){
-                        return true;
-                    }
-                }
-                
-                for(int i=0; i<len_s1 && j<len_s2; i++, j++){
-                    if(s2[j]<s1[i]){
-                        return false;
-                    }else if(s2[j]>s1[i]){
-                        return true;
-                    }
-                }
-                return false;
-            }else{
-                for(int i=0; i<len_s2; i++){
-                    if(s1[i]>s2[i]){
-                        return true;
-                    }else if(s1[i]<s2[i]){
-                        return false;
-                    }
-                }
-                int j=0;
-                for(int i=len_s2; i<len_s1; i++, j++){
-                    if(s1[i]>s1[j]){
-                        return true;
-                    }else if(s1[i]<s1[j]){
-                        return false;
-                    }
-                }
-                
-                for(int i=0; i<len_s2 && j<len_s1; i++, j++){
-                    if(s1[j]<s2[i]){
-                        return true;
-                    }else if(s1[j]>s2[i]){
-                        return false;
-                    }
-                }
-                
-                return true;
-            }
-        }
-    }
-
 class Solution {
 public:
-       
-    string largestNumber(vector<int>& nums) {
-        string answer;
-        vector<string> str(nums.size());
-        
-        for(int i=0; i<nums.size(); i++){
-            str[i] = to_string(nums[i]);
+    int findBalanced(string s, int n, int times, int left, int right, vector<int> &occur){
+        if(left>right){
+            return 0;
         }
         
-        sort(str.begin(), str.end(), myComp);
+        int leftIndex=0, rightIndex=0;
+        bool leftCanBePicked=false, rightCanBePicked=false;
         
-        for(int i=0; i<str.size(); i++){
-            answer += str[i];
-        }
-        
-        bool allZero = true;
-        cout<<answer<<endl;
-        for(int i=0; i<answer.length(); i++){
-            if(answer[i]!='0'){
-                allZero=false;
+        switch(s[left]){
+            case 'Q':
+                leftIndex = 0;
                 break;
-            }    
+            case 'W':
+                leftIndex = 1;
+                break;
+            case 'E':
+                leftIndex = 2;
+                break;
+            case 'R':
+                leftIndex = 3;
+                break;
         }
         
-        if(allZero){
-            answer="0";
+        switch(s[right]){
+            case 'Q':
+                rightIndex = 0;
+                break;
+            case 'W':
+                rightIndex = 1;
+                break;
+            case 'E':
+                rightIndex = 2;
+                break;
+            case 'R':
+                rightIndex = 3;
+                break;
         }
         
-        return answer;
+        if((occur[leftIndex]+1)<=times){
+            leftCanBePicked = true;
+        }
+
+        if((occur[rightIndex]+1)<=times){
+            rightCanBePicked = true;
+        }
+        
+        if(!leftCanBePicked && !rightCanBePicked){
+            cout<<"left: "<<left<<"| right: "<<right<<endl;
+            return right-left+1;
+        }
+        
+        int a=1000000, b=1000000, c=1000000;
+        if(leftCanBePicked && rightCanBePicked){
+            occur[leftIndex]++;
+            a = findBalanced(s, n, times, left+1, right, occur);            
+            occur[leftIndex]--;
+            
+            occur[rightIndex]++;
+            b = findBalanced(s, n, times, left, right-1, occur);
+            occur[rightIndex]--;
+            
+            occur[leftIndex]++;
+            occur[rightIndex]++;
+            c = findBalanced(s, n, times, left+1, right-1, occur);
+            occur[leftIndex]--;
+            occur[rightIndex]--;
+        }else if(!leftCanBePicked){
+            occur[rightIndex]++;
+            a = findBalanced(s, n, times, left, right-1, occur);
+            occur[rightIndex]--;
+        }else if(!rightCanBePicked){
+            occur[leftIndex]++;
+            a = findBalanced(s, n, times, left+1, right, occur);
+            occur[leftIndex]--;
+        }
+        
+        return min(c, min(a, b));
+    }
+    
+    int balancedString(string s) {
+        int s_len = s.length();
+        int left=0, right=s_len-1;
+        int times = s_len/4;
+        vector<int> occur(4, 0);
+        
+        return findBalanced(s, s_len, times, left, right, occur);
     }
 };
 
@@ -116,10 +105,10 @@ int main(){
     std::cin.tie(NULL);
     std::cout.tie(NULL);
 
-    std::vector<int> input{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    // Solution obj;
-    // cout<<obj.largestNumber(input)<<endl;
-    cout<<(7<<3)<<endl;
+    string expression = "-2+1";
+    cout<<expression_parsing(expression)<<endl;
+    Solution obj;
+    obj.balancedString("QQWE");
 
     return 0;
 }
