@@ -1,11 +1,10 @@
-#ifndef PRIMS_MST_H_INCLUDED
-#define PRIMS_MST_H_INCLUDED
+#ifndef GRAPH_H_INCLUDED
+#define GRAPH_H_INCLUDED
 
-#pragma GCC optimize("Ofast")
+
 #include <iostream>
 #include <bits/stdc++.h>
 #define GraphNode T
-
 using namespace std;
 
 struct Edge{
@@ -218,7 +217,6 @@ void update_value(struct Heap* heap, int index, int new_value){
 //    for(int i=1; i<=m; i++){
 //        cin>>a>>b>>w;
 //        add_graph_edge(graph, a-1, b-1, w);
-//        add_graph_edge(graph, b-1, a-1, w);
 //    }
 //
 //    for(int i=n/2-1; i>=0; i--){
@@ -227,22 +225,23 @@ void update_value(struct Heap* heap, int index, int new_value){
 //
 //    update_value(heap, 0, 0);
 //
-//    int cost=0;
 //    while(!is_heap_empty(heap)){
 //        struct HeapNode* min_node=extract_top(heap);
 //        graph->graph_nodes_list[min_node->node->cur_node].visited=true;
-//        cost+=graph->graph_nodes_list[min_node->node->cur_node].weight;
 //        for(struct Edge* ne=min_node->node->edges_list_head; ne!=NULL; ne=ne->next_edge){
 //            if(!graph->graph_nodes_list[ne->dest_node].visited){
-//                if(graph->graph_nodes_list[ne->dest_node].weight>ne->weight){
-//                    update_value(heap, ne->dest_node, ne->weight);
+//                if(graph->graph_nodes_list[ne->dest_node].weight>(graph->graph_nodes_list[min_node->node->cur_node].weight+ne->weight)){
+//                    update_value(heap, ne->dest_node, (graph->graph_nodes_list[min_node->node->cur_node].weight+ne->weight));
 //                }
 //            }
 //        }
 //    }
-//    cout<<cost<<endl;
+//
+//    for(int i=1; i<n; i++){
+//        cout<<graph->graph_nodes_list[i].weight<<" ";
+//    }
 //
 //    return 0;
 //}
 
-#endif // PRIMS_MST_H_INCLUDED
+#endif // GRAPH_H_INCLUDED

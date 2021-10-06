@@ -1,114 +1,56 @@
-// #pragma GCC optimize("Ofast")
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include <deque>
-#include <utils/basic.h>
-#include <utils/expression_parsing.h>
+// { Driver Code Starts
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
+using namespace __gnu_pbds;
 using namespace std;
 
 class Solution {
 public:
-    int findBalanced(string s, int n, int times, int left, int right, vector<int> &occur){
-        if(left>right){
-            return 0;
-        }
+    int min_i, max_i, min_j, max_j;
+    void answer(vector<vector<char>>& board, vector<vector<bool>>& visited, int m, int n, int i, int j, vector<pair<int, int>> &nodes){
+        if(board[i][j]=='X' || visited[i][j] || i>=m || j>=n)
+            return;
         
-        int leftIndex=0, rightIndex=0;
-        bool leftCanBePicked=false, rightCanBePicked=false;
-        
-        switch(s[left]){
-            case 'Q':
-                leftIndex = 0;
-                break;
-            case 'W':
-                leftIndex = 1;
-                break;
-            case 'E':
-                leftIndex = 2;
-                break;
-            case 'R':
-                leftIndex = 3;
-                break;
-        }
-        
-        switch(s[right]){
-            case 'Q':
-                rightIndex = 0;
-                break;
-            case 'W':
-                rightIndex = 1;
-                break;
-            case 'E':
-                rightIndex = 2;
-                break;
-            case 'R':
-                rightIndex = 3;
-                break;
-        }
-        
-        if((occur[leftIndex]+1)<=times){
-            leftCanBePicked = true;
-        }
-
-        if((occur[rightIndex]+1)<=times){
-            rightCanBePicked = true;
-        }
-        
-        if(!leftCanBePicked && !rightCanBePicked){
-            cout<<"left: "<<left<<"| right: "<<right<<endl;
-            return right-left+1;
-        }
-        
-        int a=1000000, b=1000000, c=1000000;
-        if(leftCanBePicked && rightCanBePicked){
-            occur[leftIndex]++;
-            a = findBalanced(s, n, times, left+1, right, occur);            
-            occur[leftIndex]--;
-            
-            occur[rightIndex]++;
-            b = findBalanced(s, n, times, left, right-1, occur);
-            occur[rightIndex]--;
-            
-            occur[leftIndex]++;
-            occur[rightIndex]++;
-            c = findBalanced(s, n, times, left+1, right-1, occur);
-            occur[leftIndex]--;
-            occur[rightIndex]--;
-        }else if(!leftCanBePicked){
-            occur[rightIndex]++;
-            a = findBalanced(s, n, times, left, right-1, occur);
-            occur[rightIndex]--;
-        }else if(!rightCanBePicked){
-            occur[leftIndex]++;
-            a = findBalanced(s, n, times, left+1, right, occur);
-            occur[leftIndex]--;
-        }
-        
-        return min(c, min(a, b));
+        visited[i][j] = true;
+        min_i = min(min_i, i); max_i = max(max_i, i);
+        min_j = min(min_j, j); max_j = max(max_j, j);
+        nodes.push_back(make_pair(i, j));
+        answer(board, visited, m, n, i+1, j, nodes);
+        answer(board, visited, m, n, i, j+1, nodes);
     }
     
-    int balancedString(string s) {
-        int s_len = s.length();
-        int left=0, right=s_len-1;
-        int times = s_len/4;
-        vector<int> occur(4, 0);
+    void solve(vector<vector<char>>& board) {
+        int m = board.size();
+        int n = board[0].size();
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        vector<pair<int, int>> nodes;
         
-        return findBalanced(s, s_len, times, left, right, occur);
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(board[i][j]=='O' && !visited[i][j]){
+                    min_i = i; max_i = i;
+                    min_j = j; max_j = j;
+                    answer(board, visited, m, n, i, j, nodes);
+                    if(min_i>0 && max_i<m-1 && min_j>0 && max_j<n-1){
+                        for(auto p: nodes){
+                            board[p.first][p.second] = 'X';
+                        }
+                    }
+                    nodes.clear();
+                }
+            }
+        }
+        
+        return;
     }
 };
-
-int main(){
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    std::cout.tie(NULL);
-
-    string expression = "-2+1";
-    cout<<expression_parsing(expression)<<endl;
-    Solution obj;
-    obj.balancedString("QQWE");
+int main() {
+    vector<vector<char>> board{{'X','X','X','X'}, {'X','O','O','X'}, {'X','X','O','X'}, {'X','O','X','X'}};
+    Solution ob;
+    ob.solve(board);
 
     return 0;
 }
+  // } Driver Code Ends
