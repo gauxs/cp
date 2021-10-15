@@ -6,50 +6,53 @@
 using namespace __gnu_pbds;
 using namespace std;
 
+bool my_sort(vector<int> &a, vector<int> &b){
+    return a[0]>b[0]?true:a[1]>b[1]?true:a[2]>b[2];
+}
+
 class Solution {
 public:
-    int min_i, max_i, min_j, max_j;
-    void answer(vector<vector<char>>& board, vector<vector<bool>>& visited, int m, int n, int i, int j, vector<pair<int, int>> &nodes){
-        if(board[i][j]=='X' || visited[i][j] || i>=m || j>=n)
-            return;
+    int answer(vector<vector<int>> &cuboids, int n, vector<int> &mem, int cur_cuboid){
+        if(cur_cuboid>=n){
+            return 0;
+        }
         
-        visited[i][j] = true;
-        min_i = min(min_i, i); max_i = max(max_i, i);
-        min_j = min(min_j, j); max_j = max(max_j, j);
-        nodes.push_back(make_pair(i, j));
-        answer(board, visited, m, n, i+1, j, nodes);
-        answer(board, visited, m, n, i, j+1, nodes);
-    }
-    
-    void solve(vector<vector<char>>& board) {
-        int m = board.size();
-        int n = board[0].size();
-        vector<vector<bool>> visited(m, vector<bool>(n, false));
-        vector<pair<int, int>> nodes;
-        
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
-                if(board[i][j]=='O' && !visited[i][j]){
-                    min_i = i; max_i = i;
-                    min_j = j; max_j = j;
-                    answer(board, visited, m, n, i, j, nodes);
-                    if(min_i>0 && max_i<m-1 && min_j>0 && max_j<n-1){
-                        for(auto p: nodes){
-                            board[p.first][p.second] = 'X';
-                        }
-                    }
-                    nodes.clear();
-                }
+        int max_height = 0, local_height;
+        for(int i=cur_cuboid+1; i<n; i++){
+            if(cuboids[i][0]<=cuboids[cur_cuboid][0] && cuboids[i][1]<=cuboids[cur_cuboid][1] && cuboids[i][2]<=cuboids[cur_cuboid][2]){
+                local_height = answer(cuboids, n, mem, i); 
+                if(local_height>max_height)
+                    max_height = local_height;
             }
         }
         
-        return;
+        return max_height + max(cuboids[cur_cuboid][0], max(cuboids[cur_cuboid][1], cuboids[cur_cuboid][2]));
+    }
+    
+    int maxHeight(vector<vector<int>>& cuboids) {
+        int n = cuboids.size();
+        vector<int> mem(n, -1);
+        
+        sort(cuboids.begin(), cuboids.end(), my_sort);
+        
+        for(int i=0; i<n; i++){
+            cout<<cuboids[i][0]<<cuboids[i][1]<<cuboids[i][2]<<endl;
+        }
+        
+        int ans=0;
+        for(int i=0; i<n; i++){
+            ans = max(ans, answer(cuboids, n, mem, i));
+            cout<<ans<<endl;
+        }
+        
+        return ans;
     }
 };
+
 int main() {
-    vector<vector<char>> board{{'X','X','X','X'}, {'X','O','O','X'}, {'X','X','O','X'}, {'X','O','X','X'}};
+    vector<vector<int>> board{{50,45,20},{95,37,53},{45,23,12}};
     Solution ob;
-    ob.solve(board);
+    ob.maxHeight(board);
 
     return 0;
 }
