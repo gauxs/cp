@@ -22,6 +22,16 @@ void floyd_warshal(
         }
     }
 
+    for(int k=0; k<n; k++){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(distances[i][k]<INF && distances[k][k]<0 && distances[k][j]<INF){    // distances[k][k]<0 if there exists a negative length path from k to k
+                    distances[i][j] = -INF;                                             // -INF denotes that no shortest path exists between (i, j)
+                }
+            }
+        }
+    }
+
     return;
 }
 
