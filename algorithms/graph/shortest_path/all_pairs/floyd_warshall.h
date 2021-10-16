@@ -6,13 +6,15 @@
 
 #define INF INT_MAX
 
-void floyd_warshal(std::vector<std::vector<int>> &distances, std::vector<std::vector<int>> &ancestors, int n){
+void floyd_warshal(
+    std::vector<std::vector<int>> &distances, 
+        std::vector<std::vector<int>> &ancestors, 
+            int n){
+                
     for(int k=0; k<n; k++){
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                // if there are negative weight edges in the graph, special measures have to be taken, 
-                // Otherwise the resulting values in matrix may be of the form INF−1, INF−2.
-                if(distances[i][k]<INF && distances[k][j]<INF){
+                if(distances[i][k]<INF && distances[k][j]<INF){ // stops from performing transitions using paths that don't exist
                     distances[i][j] = std::min(distances[i][j], (distances[i][k] + distances[k][j]));
                     ancestors[i][j] = k;
                 }

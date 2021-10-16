@@ -1,8 +1,7 @@
 # All Pair Shortest Path Algorithms
-
-## Floyd Warshall
 Given a directed or an undirected weighted graph G with n vertices. The task is to find the length of the shortest path d[i][j] (d is the distance matrix) between each pair of vertices i and j. The graph may have negative weight edges, but ***no negative weight cycles***.
 
+## Floyd Warshall
 This algorithm can also be used to detect the presence of negative cycles. The graph has a negative cycle if at the end of the algorithm, the distance from a vertex v to itself is negative.
 
 Formally, the Floyd-Warshall algorithm does not apply to graphs containing negative weight cycle(s). But for all pairs of vertices i and j for which there doesn't exist a path starting at i, visiting a negative cycle, and end at j, the algorithm will still work correctly.
@@ -18,6 +17,9 @@ N - number of graph nodes
 Time Complexity:    O(N^3)
 Space Complexity:   O(N^2)      // if storing ancestors
 ```
+
+### References
+- https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html
 
 ### Pending
 - [ ] Fix the logic of `print_path`
