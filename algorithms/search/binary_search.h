@@ -31,7 +31,7 @@ int binary_search_iterative(std::vector<int> &input, int low, int high, int ele)
 // Returns the index of the element if found, else -1
 int binary_search_recursive(std::vector<int> &input, int left, int right, int ele){
     if(left<=right){
-        int mid = left - (right - left)/2;
+        int mid = left + (right - left)/2;
         if(input[mid] == ele){
             return mid;
         }else if(input[mid] > ele){
