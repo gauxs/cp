@@ -6,14 +6,15 @@ If we store keys in binary search tree, a well balanced BST will need time propo
 ## Algorithm Analysis
 The maximum number of children of a node is equal to the size of the alphabet.
 ```
-L is the length of the key
+L is the average length of key(s)
+K is the number of unique symbols i.e. alphabets, digits, etc
 
 Time Complexity:   
     1. Search:  O(L)
     2. Insert:  O(L)
     3. Delete:  O(L)
 
-Space Complexity:   O(number of unique symbols) // symbols - alphabets, digits, etc
+Space Complexity:   O(K^L)
 ```
 
 ## Advantages
@@ -34,7 +35,7 @@ Space Complexity:   O(number of unique symbols) // symbols - alphabets, digits, 
 - https://www.geeksforgeeks.org/trie-delete/
 - https://www.geeksforgeeks.org/advantages-trie-data-structure/
 
-## Practice Problems
+## Warmup Problems
 1. https://leetcode.com/problems/word-break/
 
-## Interesting Problems (Solve only after warmup)
+## Quality Problems
