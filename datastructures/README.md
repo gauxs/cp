@@ -39,3 +39,13 @@ Space Complexity:   O(K^L)
 1. https://leetcode.com/problems/word-break/
 
 ## Quality Problems
+1. 
+
+
+# Heap(Priority Queue)
+
+## Warmup Problems
+1. https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+## Quality Problems
+1. 
