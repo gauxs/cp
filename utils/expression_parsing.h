@@ -5,10 +5,6 @@
 #include <stack>
 #include <algorithm>
 
-/*
-    Reference: https://cp-algorithms.com/string/expression_parsing.html
-*/
-
 bool isOperator(char c){
     return c=='+' || c=='-' || c=='*' || c=='/';
 }
@@ -76,10 +72,8 @@ void performOperationOnOperands(char op,  std::stack<long long int> &operands){
 }
 
 /*
-    Left-associative(if the priorities are equal, they get executed from left to right)
     
-    Time complexity: O(n)   // n is string length
-    Space complexity: O(n)
+    
 */
 long long int expression_parsing(std::string str){
     std::stack<long long int> operands;

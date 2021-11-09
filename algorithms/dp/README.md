@@ -1,0 +1,2 @@
+# Some learning on Dynamic Programming
+1. When memoizing we cannot bring previous state(previous recursion results) to current one(current recursion), instead always try to start fresh state from each recusrsion. Example: https://leetcode.com/problems/decode-ways/
