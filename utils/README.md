@@ -1,4 +1,4 @@
-## Expression Parsing
+# Expression Parsing
 In comparison, testing of reverse Polish notation with algebraic notation, ***reverse Polish has been found to lead to faster calculations***, for two reasons. 
 1. The first reason is that reverse Polish calculators do not need expressions to be parenthesized, so fewer operations need to be entered to perform typical calculations.
 2. Additionally, users of reverse Polish calculators made fewer mistakes than for other types of calculators.
@@ -24,4 +24,4 @@ Space Complexity:        O(N)
 ## Quality Problems
 1. 
 
-## Something
+# Something
