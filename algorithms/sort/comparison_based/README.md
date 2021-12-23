@@ -30,4 +30,14 @@ Space Complexity:   O(n)
 1. https://leetcode.com/problems/sort-list/
 
 
-## Quick Sort
+## Patience Sort
+Not sure what this algorithm is but i found a [question](https://leetcode.com/problems/longest-increasing-subsequence/) which gets solved using dp in O(N^2) but using ideas from this algorithm reduces to O(NlogN).
+
+### References
+- https://en.wikipedia.org/wiki/Patience_sorting
+- 
+
+### Quality Problems
+1. https://leetcode.com/problems/longest-increasing-subsequence/ - [Reference](https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/)
+2. https://leetcode.com/problems/largest-divisible-subset/
+3. https://leetcode.com/problems/increasing-triplet-subsequence/

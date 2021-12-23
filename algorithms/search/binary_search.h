@@ -12,7 +12,7 @@
 // Space complexity: No extra space
 // Returns the index of the element if found, else -1
 int binary_search_iterative(std::vector<int> &input, int low, int high, int ele){
-    while(low<=high){
+    while(low<=high){   // for checking low==high cases
         int mid=low+(high-low)/2;;
         if(input[mid]==ele){
             return mid;

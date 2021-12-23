@@ -4,7 +4,7 @@ Trie is an efficient information reTrieval data structure. Using Trie, search co
 If we store keys in binary search tree, a well balanced BST will need time proportional to M * log N, where M is maximum string length and N is number of keys in tree. Using Trie, we can search the key in O(M) time. However the penalty is on Trie storage requirements.
 
 ## Algorithm Analysis
-The maximum number of children of a node is equal to the size of the alphabet.
+The implementation can be optimized if we use array instead of maps. The maximum number of children of a node is equal to the size of the alphabet.
 ```
 L is the average length of key(s)
 K is the number of unique symbols i.e. alphabets, digits, etc
@@ -36,7 +36,8 @@ Space Complexity:   O(K^L)
 - https://www.geeksforgeeks.org/advantages-trie-data-structure/
 
 ## Warmup Problems
-1. https://leetcode.com/problems/word-break/
+1. https://leetcode.com/problems/implement-trie-prefix-tree/
+2. https://leetcode.com/problems/word-break/
 
 ## Quality Problems
 1. 
@@ -49,3 +50,28 @@ Space Complexity:   O(K^L)
 
 ## Quality Problems
 1. 
+
+# Monotonic Queue/Stack
+
+## References
+- https://1e9.medium.com/monotonic-queue-notes-980a019d5793
+- https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step
+- https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
+
+## Warmup Problems
+1. https://leetcode.com/problems/daily-temperatures/
+
+## Quality Problems
+1. 
+
+# Linked List
+Some problems in this can be very complicated. 
+
+## References
+- 
+
+## Warmup Problems
+1. 
+
+## Quality Problems
+1. https://leetcode.com/problems/reverse-nodes-in-even-length-groups/ - Real heavy implementation
