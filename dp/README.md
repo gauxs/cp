@@ -2,38 +2,54 @@
 1. [A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
 2. When memoizing we cannot bring previous state(previous recursion results) to current one(current recursion), instead always try to start fresh state from each recusrsion. Example: https://leetcode.com/problems/decode-ways/
 3. The complexity of DP problems is ***NOT*** always O(size of memoization array), it can sometimes be higher as it can be seen in following question, the memoization array is O(n) but the worst case runtime is still O(n^2). Example: https://leetcode.com/problems/longest-increasing-subsequence/
-4. When converting top-down to bottom-up, we have to be careful about certain things:
-    - We can make our base case in top-down approach **WEAK**, this makes creating base case for bottom-up really difficult
-    - Important thing to notice here is that the top-down solution gets easier if we make weaker base case but with a big caveat that if we are      aiming to further solve the problem in bottom-up approach, we will have to spend extra time in coming up with **TIGHTER** base case
-    - Example: Top-down approach for [Edit Distance](https://leetcode.com/problems/edit-distance/)
-        - Weaker base case:
+4. Top-down approach can be converted to bottom-up approach just by mimicing the recursion and base case, if we have a weak base case(s) in top-down, same will work for bottom-up too.
+    - What is **WEAK** and **TIGHT** base case(s)?
+        - Weak base case generally, fills all cells of a memoization array, whereas tighter base case(s) tends to minimise filling all the cells.
+    - Example: [Edit Distance](https://leetcode.com/problems/edit-distance/)
+        - Weaker base case: If index1==n1 && index2 is much lesser than n2, then all the ***insert*** branches will still open till index2==n2 and will break then. Imagine filling the memoization array's last row moving column by column.
         ```
-        int func(string word1, string word2, int n, int m , int i, int j, vector<vector<int> >& dp) {
-            if(i == n && j == m) {
+        int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
+            if(index1==n1 && index2==n2)
                 return 0;
-            }
-            
-            if(i > n || j > m) {
-                return 10000;   // This is weaker base case and will cause extra branches to open, which simplifies the solution though
-            }
-            
-            if(dp[i][j] != 10000) {
-                return dp[i][j];
-            }
+
+            if(index1>n1 || index2>n2)
+                return 10000;
+            ...
+            ...
+            if(word1[index1]==word2[index2]){
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem));
+            }else{
+                // insert
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1, word2, n2, index2+1, mem) + 1);
+                // delete
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2, mem) + 1);
+                // replace
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem) + 1);
+            ...
             ...
         }
         ```
-        - Tighter base case: 
+        - Tighter base case: If index1==n1 && index2 is much lesser than n2, in these base case we ***don't open*** insert branches(i.e. avoids filling some of the last row cells) but instead return (n2-index2)
         ```
         int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
-            if(index1==n1 || index2==n2){
-                if(index1==n1 && index2==n2)
-                    return 0;
-                if(index1!=n1 && index2==n2)
-                    return n1-index1;
-                if(index1==n1 && index2!=n2)
-                    return n2-index2;
-            }
+            if(index1==n1 && index2==n2)
+                return 0;
+            if(index1!=n1 && index2==n2)
+                return n1-index1;
+            if(index1==n1 && index2!=n2)
+                return n2-index2;
+            ...
+            ...
+            if(word1[index1]==word2[index2]){
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem));
+            }else{
+                // insert
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1, word2, n2, index2+1, mem) + 1);
+                // delete
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2, mem) + 1);
+                // replace
+                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem) + 1);
+            ...
             ...
         }
         ```
