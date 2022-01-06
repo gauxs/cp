@@ -60,6 +60,7 @@
             ...
         }
         ```
+7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) pattern requires additional practice.
 
 # Reference
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)

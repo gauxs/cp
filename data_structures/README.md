@@ -51,19 +51,6 @@ Space Complexity:   O(K^L)
 ## Quality Problems
 1. 
 
-# Monotonic Queue/Stack
-
-## References
-- https://1e9.medium.com/monotonic-queue-notes-980a019d5793
-- https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step
-- https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
-
-## Warmup Problems
-1. https://leetcode.com/problems/daily-temperatures/
-
-## Quality Problems
-1. 
-
 # Linked List
 Some problems in this can be very complicated. 
 
