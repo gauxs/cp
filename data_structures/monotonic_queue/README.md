@@ -6,7 +6,7 @@ Monotonic Queue is a data structure that keeps it’s elements either entirely i
     - is monotonically decreasing
     - respects the FIFO ordering of the input
     - includes the last item stacked (i.e. it can purge items greater than it).
-2. A monotonic queue, also known as a double-ended queue, refers to a data structure in which each element monotonically increases or decreases with its subscript. The elements can be deleted at both the beginning and end of the queue, but they can only be inserted at the end. Since the elements are monotonic, the head element is either the maximum or minimum value depending on which monotonic queue you are constructing (decreasing or increasing order). Due to the nature of the double-ended queue, each element is enqueued once and dequeued at most once. Thus, the computational complexity of maintaining a monotonic queue is O(n). Reference: 
+2. A monotonic queue, also known as a double-ended queue, refers to a data structure in which each element monotonically increases or decreases with its subscript. The elements can be deleted at both the beginning and end of the queue, but they can only be inserted at the end. Since the elements are monotonic, the head element is either the maximum or minimum value depending on which monotonic queue you are constructing (decreasing or increasing order, *see elements from front to end of the queue*). Due to the nature of the double-ended queue, each element is enqueued once and dequeued at most once. Thus, the computational complexity of maintaining a monotonic queue is O(n).
 
 ## Practice Problems
 1. Warmup problems
