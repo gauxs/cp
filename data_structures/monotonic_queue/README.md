@@ -14,6 +14,7 @@ Monotonic Queue is a data structure that keeps it’s elements either entirely i
     - https://leetcode.com/problems/daily-temperatures/
     - https://leetcode.com/problems/132-pattern/
 2. Quality problems
+    - [132 pattern - Truly amazing problem](https://leetcode.com/problems/132-pattern/)
     - https://leetcode.com/problems/remove-k-digits/
     - https://leetcode.com/problems/sliding-window-maximum/
     - https://leetcode.com/problems/largest-rectangle-in-histogram/

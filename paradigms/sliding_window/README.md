@@ -3,6 +3,7 @@
 ## Practice Problems
 1. Warmup problems
     - https://leetcode.com/problems/max-consecutive-ones-iii/
+    - https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
 2. Quality problems
     - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 3. Complete List: https://leetcode.com/tag/sliding-window/
