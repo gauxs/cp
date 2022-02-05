@@ -61,6 +61,8 @@
         }
         ```
 7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) pattern requires additional practice.
+8. Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/)
+9. Memory optimization DP, in these question we have to optimise memory for submission - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 
 # Reference
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)
