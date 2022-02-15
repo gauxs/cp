@@ -1,4 +1,4 @@
-# Some learning on Dynamic Programming
+#### Some learning on Dynamic Programming
 1. [A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
 
 2. Some DP questions require us ***NOT*** to bring previous state(previous recursion results) to current one(current recursion), instead always try to start fresh state from each recursion. Example: https://leetcode.com/problems/decode-ways/
@@ -64,7 +64,7 @@
 8. Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
 9. Memory optimization DP, in these question we have to optimise memory for submission - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 
-# Reference
+## Reference
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)
 2. [Leetcode - Dynamic Programming is simple-I | How to approach DP questions explained using easy example](https://leetcode.com/discuss/study-guide/1490172/Dynamic-programming-is-simple) by [@omgitspavel](https://leetcode.com/omgitspavel)
 3. [Leetcode - Dynamic Programming is simple-II | How to approach DP questions explained using hard example](https://leetcode.com/discuss/study-guide/1508238/Dynamic-programming-is-simple-2) by [@omgitspavel](https://leetcode.com/omgitspavel)
