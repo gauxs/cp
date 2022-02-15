@@ -32,7 +32,8 @@ Space Complexity - dijkstra_set:    O(N)
 ```
 
 ### References
-- https://cp-algorithms.com/graph/dijkstra.html
+1. https://cp-algorithms.com/graph/dijkstra.html
+2. [A noob's guide to Djikstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/)
 
 
 ## Bellman Ford

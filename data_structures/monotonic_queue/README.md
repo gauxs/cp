@@ -1,24 +1,13 @@
 # Monotonic Queue/Stack
 Monotonic Queue is a data structure that keeps it’s elements either entirely in non-increasing, or entirely in non-decreasing order. For some problems just a stack can be of use, although for a more standardized approach we can apply queue (or deque).
 
-## Learnings
 1. A monotonic decreasing stack is a stack that will produce, when popping its elements a sequence that:
     - is monotonically decreasing
     - respects the FIFO ordering of the input
     - includes the last item stacked (i.e. it can purge items greater than it).
 2. A monotonic queue, also known as a double-ended queue, refers to a data structure in which each element monotonically increases or decreases with its subscript. ***The elements can be deleted at both the beginning and end of the queue, but they can only be inserted at the end (i.e. back of the deque).*** Since the elements are monotonic, the head element is either the maximum or minimum value depending on which monotonic queue you are constructing (decreasing or increasing order, *the order of elements is from front to end of the deque*). Due to the nature of the double-ended queue, each element is enqueued once and dequeued at most once. Thus, the computational complexity of maintaining a monotonic queue is O(n).
 3. Since a monotonic stack can be implemented via a deque, generally deque's are used for solving these questions.
-
-## Practice Problems
-1. Warmup problems
-    - https://leetcode.com/problems/daily-temperatures/
-    - https://leetcode.com/problems/132-pattern/
-2. Quality problems
-    - [132 pattern - Truly amazing problem](https://leetcode.com/problems/132-pattern/)
-    - https://leetcode.com/problems/remove-k-digits/
-    - https://leetcode.com/problems/sliding-window-maximum/
-    - https://leetcode.com/problems/largest-rectangle-in-histogram/
-3. [My monotonic queue questions list](https://leetcode.com/list/9i2dcaum)
+4. [My monotonic queue questions list](https://leetcode.com/list/9i2dcaum)
 
 ## References
 - [Monotonic Queues and Monotonic Optimization in Dynamic Programming](https://activities.tjhsst.edu/sct/lectures/1920/2020_2_21_Monotonic_Queues.pdf)
