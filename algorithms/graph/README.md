@@ -17,4 +17,5 @@ Must know graph algorithms
 15. Ford-Fulkerson Algorithm
 
 ## References
-1. 
+1. [Topic wise graph problems](https://leetcode.com/discuss/general-discussion/655708/graph-for-beginners-problems-pattern-sample-solutions/) by [@wh0ami](https://leetcode.com/wh0ami/)
+2. 
