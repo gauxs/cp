@@ -1,4 +1,5 @@
-#### Some learning on Dynamic Programming
+# Dynamic Programming
+Important learnings on Dynamic Programming
 1. [A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
 
 2. Some DP questions require us ***NOT*** to bring previous state(previous recursion results) to current one(current recursion), instead always try to start fresh state from each recursion. Example: https://leetcode.com/problems/decode-ways/
