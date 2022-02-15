@@ -1,7 +1,7 @@
 # Graphs
 Must know graph algorithms
 1. BFS
-2. DFS
+2. DFS - [DFS for beginners](https://leetcode.com/problems/reconstruct-itinerary/discuss/78768/Short-Ruby-Python-Java-C%2B%2B) by [StefanPochmann](https://leetcode.com/StefanPochmann/)
 3. Dijkstra
 4. Bell man ford
 5. Floyd- warshall
