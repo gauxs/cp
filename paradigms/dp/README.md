@@ -61,8 +61,8 @@ Important learnings on Dynamic Programming
             ...
         }
         ```
-7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) pattern requires additional practice.
-8. Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
+7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) or [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern requires additional practice.
+8. Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
 9. Memory optimization DP, in these question we have to optimise memory for submission - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 
 ## References
