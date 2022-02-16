@@ -7,6 +7,13 @@
 
 #define INF INT_MAX
 
+/*
+    adj[i][j]           - node i's jth edge
+    adj[i][j].first     - jth edge's node other than i
+    adj[i][j].second    - jth edge's weight
+    distances[i]        - node i's distance from source_vertex
+    predecessor[i]      - node from which we can reach node 'i' in minimum cost (after algorithm finishes)
+*/
 void bfs_01(
     std::vector<std::vector<std::pair<int, int>>> &adj,
         std::vector<int> &distances,
@@ -22,6 +29,7 @@ void bfs_01(
     distances[source_vertex] = 0;
     q.push_front(source_vertex);
     for(int i=0; i<n; i++){
+        // relaxing min_vertex
         int min_vertex = q.front();
         q.pop_front();
 
@@ -32,6 +40,10 @@ void bfs_01(
             if(distances[to_vertex]>(distances[min_vertex] + weight)){
                 distances[to_vertex] = distances[min_vertex] + weight;
                 predecessor[to_vertex] = min_vertex;
+                // since we always need minimum distance vertex
+                // instead of keeping priority_queue/set, we can
+                // push 0 weight edges to front, thus queue automatically
+                // remains sorted
                 if(weight==1)
                     q.push_back(to_vertex);
                 else
