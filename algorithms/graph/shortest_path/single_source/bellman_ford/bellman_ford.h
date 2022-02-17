@@ -5,8 +5,6 @@
 #include <limits.h>
 #include <algorithm>
 
-#define INF 100000000
-
 struct edge{
     int from, to, weight;
 };
@@ -30,10 +28,10 @@ std::vector<int> bellman_ford(
     for(int i=0; i<n; i++){
         last_vertex_relaxed = -1;
         for(int j=0; j<m; j++){
-            // if the vertex is yet not relaxed then it's distance will be INF and should be skipped
-            // if the graph has -ve weight, we can get distances like INT_MAX-1, INT_MAX-X etc. these cases
-            // should also be skipped, since INF<<INT_MAX these invalid cases will be skipped because of this check
-            if(distances[edges[j].from]<INF){    
+            // if the vertex is yet not relaxed then it's distance will be INT_MAX and should be skipped
+            // if the graph has -ve weight, we can get distances like INT_MAX-1, INT_MAX-X etc. these 
+            // invalid cases will also be skipped, because of this check
+            if(distances[edges[j].from]<INT_MAX){    
                 if(distances[edges[j].to] > (distances[edges[j].from] + edges[j].weight)){
                     distances[edges[j].to] = distances[edges[j].from] + edges[j].weight;
                     predecessor[edges[j].to] = edges[j].from;
