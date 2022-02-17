@@ -4,8 +4,8 @@ You are given a directed or undirected weighted graph with **V** vertices and **
 <img src="https://github.com/gauxs/cp/blob/master/media/images/dijkstra.jpg?raw=true" width="800" height="600">
 
 Following are some important observation on the algorithm:
-1. Once a vertex is ***relaxed*** it will not be picked again (by design and not by implementation). This means that algorithm is sure that there are no other ***shorter path*** to this vertex present in graph. Why can't we find a more shorter path?
-2. If we modify this algorithm and pick any vertex(instead of minimum), the algorithm will still work but time complexity will increase. This is because we can keep finding ***shorter paths*** to this vertex in future iterations. Why will the complexity increase?
+1. Once a vertex is ***relaxed*** it will not be picked again (by design and not by implementation). This means that algorithm is sure that there are no other ***shorter path*** to this vertex present in graph. Think, why can't we find a more shorter path?
+2. If we modify this algorithm and pick any vertex(instead of minimum), the algorithm will still work but time complexity will increase. This is because we can keep finding ***shorter paths*** to this vertex in future iterations. Think, why will the complexity increase?
 
 
 ### Algorithm analysis
