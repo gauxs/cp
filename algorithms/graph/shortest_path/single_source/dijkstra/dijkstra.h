@@ -8,6 +8,14 @@
 
 #define INF INT_MAX
 
+/*
+    adj[i][j]           - vertex i's jth edge
+    adj[i][j].first     - jth edge's vertex other than i'th vertex
+    adj[i][j].second    - jth edge's weight
+    distances[i]        - vertex i's distance from source_vertex
+    predecessor[i]      - vertex from which we can reach vertex 'i' in minimum cost (after algorithm finishes)
+    picked[i]           - relaxation of ith vertex is done    
+*/
 void dijkstra(
     std::vector<std::vector<std::pair<int, int>>> &adj,
         std::vector<int> &distances, std::vector<int> &predecessor, 
@@ -19,16 +27,19 @@ void dijkstra(
         predecessor[i] = -1;
     }
 
+    // distance to reach source_vertex
+    // from source_vertex is 0
     distances[source_vertex] = 0;
     for(int i=0; i<n; i++){         
         int min_vertex = -1;
-        for(int j=0; j<n; j++){     // finding the vertex with smallest distance from source_vertex
+        // finding the vertex with smallest distance from source_vertex
+        for(int j=0; j<n; j++){     
             if(!picked[j] &&
                 (min_vertex==-1 || distances[j]<distances[min_vertex]))
             min_vertex = i;
         }
 
-        if(distances[min_vertex]==INF)
+        if(min_vertex==-1 || distances[min_vertex]==INF)
             break;
 
         picked[min_vertex] = true;
@@ -46,6 +57,12 @@ void dijkstra(
     return;
 }
 
+/*
+    Dijkstra implemented via set.
+    
+    picked[i] is not required since we are removing elements from set once
+    their relaxation is done.
+*/
 void dijkstra_set(
     std::vector<std::vector<std::pair<int, int>>> &adj,
         std::vector<int> &distances,
