@@ -5,13 +5,15 @@
 #include <limits.h>
 #include <algorithm>
 
-#define INF INT_MAX
+#define INF 100000000
 
 struct edge{
     int from, to, weight;
 };
 
-// returns negative cycle if it exists
+/*
+    returns negative cycle, if it exists
+*/ 
 std::vector<int> bellman_ford(
     std::vector<edge> &edges,
         std::vector<int> &distances,
@@ -19,7 +21,7 @@ std::vector<int> bellman_ford(
                 int n, int m, int vertex){
 
     for(int i=0; i<n; i++){
-        distances[i] = INF;
+        distances[i] = INT_MAX;
         predecessor[i] = -1;
     }
 
@@ -28,7 +30,10 @@ std::vector<int> bellman_ford(
     for(int i=0; i<n; i++){
         last_vertex_relaxed = -1;
         for(int j=0; j<m; j++){
-            if(distances[edges[j].from]<INF){    // needed only if the graph contains negative weight edges
+            // if the vertex is yet not relaxed then it's distance will be INF and should be skipped
+            // if the graph has -ve weight, we can get distances like INT_MAX-1, INT_MAX-X etc. these cases
+            // should also be skipped, since INF<<INT_MAX these invalid cases will be skipped because of this check
+            if(distances[edges[j].from]<INF){    
                 if(distances[edges[j].to] > (distances[edges[j].from] + edges[j].weight)){
                     distances[edges[j].to] = distances[edges[j].from] + edges[j].weight;
                     predecessor[edges[j].to] = edges[j].from;
@@ -42,10 +47,12 @@ std::vector<int> bellman_ford(
     }
 
     std::vector<int> negative_cycle;
-    if(last_vertex_relaxed != -1){      // negative cycle exists
+    // negative cycle exists
+    if(last_vertex_relaxed != -1){      
         int y = last_vertex_relaxed;
         
-        for(int i=0; i<n; i++){ // reaching(trying to come inside) the negative cycle
+        // reaching(trying to come inside) the negative cycle
+        for(int i=0; i<n; i++){ 
             y = predecessor[y];
         }
 

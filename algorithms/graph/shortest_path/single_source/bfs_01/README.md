@@ -6,7 +6,7 @@ We can interpret such a graph also as a weighted graph, where every edge has the
 Following are some important observation on the algorithm:
 1. At a particular moment, the queue can have only those vertex whose distance from source vertex are x or x+1. **Think, why can't queue have vertex x+2 along with x?**
 2. **Can this algorithm be used in a graph where edge weight are 0 and x(x>=0)? Why so?**
-3. **Can this algorithm be used in a graph where edge weight are x and x+1(x>=0)? Why so?**
+3. **Can this algorithm be used in a graph where edge weight are x and x+1(x>=0) i.e. can this algorithm be called 0-X BFS? Why so?**
 4. **Can this algorithm be used in a graph where edge weight are x and y(x,y>=0)? Why so?**
 5. We can extend this even further if we allow the weights of the edges to be even bigger. If every edge in the graph has a weight **<=K**, then the distances of vertices in the queue will differ by at most **K** from the source. So we can keep  buckets for the vertices in the queue, and whenever the bucket corresponding to the smallest distance gets empty, we make a cyclic shift to get the bucket with the next higher distance. This extension is called **Dial's algorithm**.
 
