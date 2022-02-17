@@ -1,7 +1,7 @@
 # Dijkstra
 You are given a directed or undirected weighted graph with **V** vertices and **E** edges. The weights of all edges are ***non-negative***. You are also given a starting vertex ***s***. Find the lengths of the shortest paths from a starting vertex ***s*** to all other vertices. The basics and working of the algorithm can be learned from ***references*** below.
 
-<img src="https://github.com/gauxs/cp/blob/master/media/images/dijkstra.jpg?raw=true" width="600" height="400">
+<img src="https://github.com/gauxs/cp/blob/master/media/images/dijkstra.jpg?raw=true" width="800" height="600">
 
 Following are some important observation on the algorithm:
 1. Once a vertex is ***relaxed*** it will not be picked again (by design and not by implementation). This means that algorithm is sure that there are no other ***shorter path*** to this vertex present in graph. Why can't we find a more shorter path?
