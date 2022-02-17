@@ -10,6 +10,8 @@ Following are some important observation on the algorithm:
 
 4. **Think, why doesn't this algorithm work on *-ve edges* and on *-ve cycles*?**
 
+5. **For any implementation, think why we always pick minimum vertex? What if we pick random or maximum vertex? Will the algorithm still work?**
+
 
 ### Algorithm analysis
 ```
@@ -28,9 +30,9 @@ Dijkstra is a **greedy** algorithm. It is clear, that the complexity of first al
 To accomplish this we can use a variation of multiple auxiliary data structures like set (implemented in dijkstra_set()), priority queue, fibonacci heaps.
 1. If we implement this algorithm via **min heap**, it will not be trivial to remove a vertex from min heap once its distance is further reduced. To do this we will have to implement **custom min heap** with delete operation, which is not trivial. When implementing this algorithm generally deleting a node which is further relaxed is **SKIPPED**, thus allowing us to use standard library implementations of min heap. These undeleted nodes are called **dead nodes**, and their existense in the min heap **practically** increases the complexity. **Think, how do we handle a case when a *dead node* is picked for relaxation?**
 
-2. Since we need to store vertices ordered by their values **distances[]**, it is convenient to store actual pairs: the distance and the index of the vertex. As a result in a set, pairs are automatically sorted by their distances.
+2. Since we need to store vertices ordered by their values **distances[]**, it is convenient to store actual pairs: the distance and the index of the vertex. As a result in set implementation, pairs are automatically sorted by their distances.
 
-3. We don't need the vector **picked**. We will use the set to store that information, and also find the vertex with the shortest distance with it.
+3. In set implementation, We don't need the vector **picked**. We will use the set to store that information, and also find the vertex with the shortest distance with it.
 
 ## References
 1. [A noob's guide to Djikstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/)
