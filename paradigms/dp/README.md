@@ -15,7 +15,7 @@ Important learnings on Dynamic Programming
         - Weak base case generally, fills all cells of a memoization array, whereas tighter base case(s) tends to minimise filling all the cells
     - Example: [Edit Distance](https://leetcode.com/problems/edit-distance/)
         - Weaker base case: If index1==n1 && index2 is much lesser than n2, then all the ***insert*** branches will still open till index2==n2 and will break then. Imagine filling the memoization array's last row moving column by column.
-        ```
+        ```cpp
         int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
             if(index1==n1 && index2==n2)
                 return 0;
@@ -38,7 +38,7 @@ Important learnings on Dynamic Programming
         }
         ```
         - Tighter base case: If index1==n1 && index2 is much lesser than n2, in these base case we ***don't open*** insert branches(i.e. avoids filling some of the last row cells) but instead return (n2-index2)
-        ```
+        ```cpp
         int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
             if(index1==n1 && index2==n2)
                 return 0;
