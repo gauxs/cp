@@ -72,7 +72,7 @@ std::vector<int> print_path(
             int n, int source, int vertex){
 
     std::vector<int> path;
-    if(distances[vertex]!=INF){
+    if(distances[vertex]!=INT_MAX){
         while(vertex!=-1){
             path.push_back(vertex);
             vertex = predecessor[vertex];
