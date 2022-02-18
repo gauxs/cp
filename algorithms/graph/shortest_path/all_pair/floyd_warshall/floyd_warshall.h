@@ -6,6 +6,10 @@
 
 #define INF INT_MAX
 
+/*
+    It is assumed that if there is no edge between any two vertices i and j, ditances[i][j] contains a large number
+    (large enough so that it is greater than the length of any path in this graph).
+*/
 void floyd_warshal(
     std::vector<std::vector<int>> &distances, 
         std::vector<std::vector<int>> &ancestors, 
@@ -14,7 +18,8 @@ void floyd_warshal(
     for(int k=0; k<n; k++){
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                if(distances[i][k]<INF && distances[k][j]<INF){ // stops from performing transitions using paths that don't exist
+                // stops from performing transitions using paths that don't exist
+                if(distances[i][k]<INF && distances[k][j]<INF){ 
                     distances[i][j] = std::min(distances[i][j], (distances[i][k] + distances[k][j]));
                     ancestors[i][j] = k;
                 }
@@ -25,8 +30,11 @@ void floyd_warshal(
     for(int k=0; k<n; k++){
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                if(distances[i][k]<INF && distances[k][k]<0 && distances[k][j]<INF){    // distances[k][k]<0 if there exists a negative length path from k to k
-                    distances[i][j] = -INF;                                             // -INF denotes that no shortest path exists between (i, j)
+                // if distances[k][k]<0 i.e.is part of a cycle of negative weight, k
+                // can be reached from i and j can be reached from . Then the path from
+                // i to j can have arbitrarily small weight. We will denote this with -INF.
+                if(distances[i][k]<INF && distances[k][k]<0 && distances[k][j]<INF){    
+                    distances[i][j] = -INF;                                             
                 }
             }
         }
