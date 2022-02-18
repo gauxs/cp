@@ -12,6 +12,7 @@ Following are some important observation on the algorithm:
 
 5. **For any implementation, think why we always pick minimum vertex? What if we pick random or maximum vertex? Will the algorithm still work?**
 
+6. **Think, why does this algorithm work on both directed and undirected graphs?**
 
 ### Algorithm analysis
 ```
