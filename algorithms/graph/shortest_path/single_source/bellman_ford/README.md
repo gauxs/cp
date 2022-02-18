@@ -9,6 +9,9 @@ Following are some important observation on the algorithm:
 1. **Think, why does this algorithm work on -ve edges?**
 2. **Think, will this algorithm work on graph with undirected edges if edges can have both -ve and +ve weights? If not, why?**
 3. **Think, will this algorithm work on graph with undirected edges if edges have only +ve weights?**
+4. **If -ve cycle exists, after N iterations will the last_relaxed_vertex always be inside the -ve cycle? If not, why?**
+5. **While finding -ve cycle, we go back N times to come inside the -ve cycle? Why does this work?**
+6. **After going back N times, the vertex on which we land, will its previous edge always be -ve? If not, why?**
 
 ### Algorithm Analysis
 ```
