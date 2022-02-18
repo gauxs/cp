@@ -6,7 +6,7 @@ Unlike the Dijkstra algorithm, this algorithm can also be applied to graphs cont
 If the graph contains a **negative cycle**, then, clearly, the shortest path to some vertices may not exist (due to the fact that the weight of the shortest path must be equal to minus infinity), however this algorithm can be modified to signal the presence of a cycle of negative weight, or even deduce this cycle. 
 
 Following are some important observation on the algorithm:
-1. **Why does it work on -ve edges?**
+1. **Think, why does it work on -ve edges?**
 
 ### Algorithm Analysis
 ```
