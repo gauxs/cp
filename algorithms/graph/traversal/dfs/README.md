@@ -1,4 +1,4 @@
-# Breadth First Search
+# Depth First Search
 Breadth first search is one of the basic and essential searching algorithms on graphs. The algorithm works on both directed and undirected graph. The path found by breadth first search to any node is the **shortest path** to that node, i.e the path that contains the smallest number of edges in unweighted graphs.
 
 The algorithm can be understood as a fire spreading on the graph: at the zeroth step only the source vertex is on fire. At each step, the fire burning at each vertex spreads to all of its neighbors. In one iteration of the algorithm, the **ring of fire** is expanded in width by one unit (hence the name of the algorithm).
