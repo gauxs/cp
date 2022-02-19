@@ -16,7 +16,10 @@ Following are some important observation on the algorithm:
 ```
 
 ## Applications
-1. 
+1. Find the shortest path from a source to other vertices in an unweighted graph.
+
+2. Find all connected components in an undirected graph in O(V+E) time <br>
+   **Reason**: 
 
 ## Practice
 - [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/)
