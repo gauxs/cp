@@ -5,21 +5,25 @@
 #include <queue>
 #include <bits/stdc++.h>
 
-void bfs(std::vector<std::vector<int>> &adj, int n, std::vector<int> &parents,
-            std::vector<int> &distance, std::vector<bool> &picked, int source){
+void bfs(
+    std::vector<std::vector<int>> &adj,
+        std::vector<int> &parents, 
+            std::vector<int> &distance,
+                std::vector<bool> &picked,
+                    int n, int source){
 
     std::queue<int> q;
     picked[source] = true;
     parents[source] = -1;
     q.push(source);
     while(!q.empty()){
-        int curVertex = q.front();
+        int cur_vertex = q.front();
         q.pop();
         for(int i=0; i<n; i++){
-            if(!picked[i] && adj[curVertex][i]!=0){
+            if(!picked[i] && adj[cur_vertex][i]!=0){
                 picked[i] = true;
-                parents[i] = curVertex;
-                distance[i] = distance[curVertex] + 1;
+                parents[i] = cur_vertex;
+                distance[i] = distance[cur_vertex] + 1;
                 q.push(i);
             }
         }
@@ -28,7 +32,10 @@ void bfs(std::vector<std::vector<int>> &adj, int n, std::vector<int> &parents,
     return;
 }
 
-std::vector<int> get_path(std::vector<int> &parents, std::vector<bool> &picked, int v){
+std::vector<int> get_path(
+    std::vector<int> &parents, 
+        std::vector<bool> &picked, int v){
+    
     std::vector<int> path;
     if(picked[v]){
         while(v!=-1){

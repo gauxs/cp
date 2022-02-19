@@ -1,20 +1,21 @@
 # Dynamic Programming
-Important learnings on Dynamic Programming
-1. [A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
+Dynamic Programming is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using Dynamic Programming. The idea is to simply store the results of subproblems, so that we do not have to re-compute them when needed later. This simple optimization reduces time complexities from exponential to polynomial.
 
-2. Some DP questions require us ***NOT*** to bring previous state(previous recursion results) to current one(current recursion), instead always try to start fresh state from each recursion. Example: https://leetcode.com/problems/decode-ways/
+[A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
 
-3. While some DP questions ***WANTS*** us to bring previous state(previous recursion results) to current one(current recursion) and use it to perform indexing on memoization array. Example: https://leetcode.com/problems/partition-equal-subset-sum/ 
+Following are some important observation:
+1. Some DP questions require us **NOT** to bring previous state(previous recursions result) to current recursion, instead always try to start fresh state from each recursion. Example: [Decode ways](https://leetcode.com/problems/decode-ways/)
 
-4. [Leetcode - Iterative subset sum approach](https://leetcode.com/problems/target-sum/discuss/97334/java-15-ms-c-3-ms-ons-iterative-dp-solution-using-subset-sum-with-explanation) by [@yuxiangmusic](https://leetcode.com/yuxiangmusic) and [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/) teaches important concept of DP questions which require us to use previous state variables in memoizing current state. Its recommended to go through these question and all its solution i.e. top-dow, bottom-up(2d), bottom-up(1d) and bit set. Do go through [my submission](https://leetcode.com/submissions/detail/609838238/) in **Partition equal subset sum** question as it is very intuitive(compared to others solution), in my solution i have directly converted top-down to bottom-up without much modification, since deviation is less, chances of solving in interview is higher.
+2. While some DP questions **WANTS** us to bring previous state(previous recursions results) to current recursion and use it memoize. Example: [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/). Do go through [my submission](https://leetcode.com/submissions/detail/609838238/) for **Partition equal subset sum** question as it is very intuitive(compared to other solution), int this i have directly converted top-down to bottom-up without much modification, since deviation is less, chances of solving in interview is higher along with better intuition.
 
-5. The complexity of DP problems is ***NOT*** always O(size of memoization array), it can sometimes be higher as it can be seen in following question, the memoization array is O(n) but the worst case runtime is still O(n^2). Example: https://leetcode.com/problems/longest-increasing-subsequence/
+3. [Leetcode - Iterative subset sum approach](https://leetcode.com/problems/target-sum/discuss/97334/java-15-ms-c-3-ms-ons-iterative-dp-solution-using-subset-sum-with-explanation) by [@yuxiangmusic](https://leetcode.com/yuxiangmusic) and [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/) teaches important concept which require us to use previous state variables in memoizing current state. Its recommended to go through these question and all its solution i.e. top-dow, bottom-up(2d), bottom-up(1d) and bit set. 
 
-6. Top-down approach can be converted to bottom-up approach just by mimicing the recursion and base case(even for DP questions which require us to bring previous state variables in current state example: [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)), if we have a weak base case(s) in top-down, same will work for bottom-up to
-    - What is **WEAK** and **TIGHT** base case(s)?
-        - Weak base case generally, fills all cells of a memoization array, whereas tighter base case(s) tends to minimise filling all the cells
-    - Example: [Edit Distance](https://leetcode.com/problems/edit-distance/)
-        - Weaker base case: If index1==n1 && index2 is much lesser than n2, then all the ***insert*** branches will still open till index2==n2 and will break then. Imagine filling the memoization array's last row moving column by column.
+4. The complexity of DP problems is **NOT** always **O(size of memoization array)**, it can sometimes be higher as it can be seen in following question, the memoization array is **O(N)** but the worst case runtime is still **O(N^2)**. Example: [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+
+5. Top-down approach can be converted to bottom-up approach just by mimicing the recursion and base case(even for DP questions which require us to bring previous state variables in current state like [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)), if we have a weak base case(s) in top-down, same will work for bottom-up too.
+
+6. What are **WEAK** and **TIGHT** base case(s)? Weak base case generally, fills all cells of a memoization array, whereas tighter base case(s) tends to minimise filling all the cells.
+    - **Weak base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/) for a state(recursion) when index1==n1 && index2 is much lesser than n2, then all the **insert** branches will still open till index2==n2 and then return. Another way of Imagine filling the memoization array's last row moving column by column.
         ```cpp
         int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
             if(index1==n1 && index2==n2)
@@ -37,7 +38,7 @@ Important learnings on Dynamic Programming
             ...
         }
         ```
-        - Tighter base case: If index1==n1 && index2 is much lesser than n2, in these base case we ***don't open*** insert branches(i.e. avoids filling some of the last row cells) but instead return (n2-index2)
+    - **Tight base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/) for a state(recursion) index1==n1 && index2 is much lesser than n2, in this base case we **don't open** insert branches(i.e. avoids filling some of the last row cells) but instead return (n2-index2).
         ```cpp
         int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
             if(index1==n1 && index2==n2)
@@ -61,9 +62,14 @@ Important learnings on Dynamic Programming
             ...
         }
         ```
-7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) or [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern requires additional practice.
-8. Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
-9. Memory optimization DP, in these question we have to optimise memory for submission - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
+
+6. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) / [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern is not trivial and requires good amount of practice.
+
+7. **Memory optimization DP**, problems in which we have to optimise memory - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
+
+## Practice
+- [Leetcode - Dynamic Programming](https://leetcode.com/tag/dynamic-programming/)
+- Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
 
 ## References
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)
