@@ -12,14 +12,25 @@ Following are some important observation on the algorithm:
     E - number of edges
 
     Time complexity:    O(V+E)
-    Space complexity:   O(V)        // when first node is connected to all the other unvisited nodes.
+    Space complexity:   O(V)        // when first vertex is connected to all the other unvisited vertex
 ```
 
 ## Applications
 1. Find the shortest path from a source to other vertices in an unweighted graph.
 
-2. Find all connected components in an undirected graph in O(V+E) time <br>
-   **Reason**: 
+2. Find all connected components in an undirected graph in O(V+E) time.
+
+3. Finding a solution to a problem or a game with the least number of moves, if each state of the game can be represented by a vertex of the graph, and the transitions from one state to the other are the edges of the graph.
+
+4. Finding the shortest path in a graph with weights 0,1 or 0,x i.e. [01-BFS](https://github.com/gauxs/cp/blob/master/algorithms/graph/shortest_path/single_source/bfs_01)
+
+5. Finding the shortest cycle in a directed unweighted graph.
+
+6. Find all the edges that lie on any shortest path between a given pair of vertices (a,b).
+
+7. Find all the vertices on any shortest path between a given pair of vertices (a,b).
+
+8. Find the shortest path of even length from a source vertex **s** to a target vertex **t** in an unweighted graph.
 
 ## Practice
 - [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/)
