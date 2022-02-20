@@ -34,7 +34,7 @@ Following are some important observation on the algorithm:
 
 ## Practice
 - [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/)
-- Good questions - [Jump Game IV](https://leetcode.com/problems/jump-game-iv/) | [Perfect Squares](https://leetcode.com/problems/perfect-squares/)
+- Good questions - [01 Matrix](https://leetcode.com/problems/01-matrix/) | [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/)
 
 ## References
 1. [CP Algorithms - BFS](https://cp-algorithms.com/graph/breadth-first-search.html)

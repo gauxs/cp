@@ -45,7 +45,7 @@ If **v** is visited before **u**:
 
 ## Practice
 - [Leetcode - Depth First Search](https://leetcode.com/tag/depth-first-search/)
-- Good questions - 
+- Good questions - [Number of enclaves](https://leetcode.com/problems/number-of-enclaves/) | [Find eventual safe states](https://leetcode.com/problems/find-eventual-safe-states/)
 
 ## References
 1. [CP Algorithms - DFS](https://cp-algorithms.com/graph/depth-first-search.html)
