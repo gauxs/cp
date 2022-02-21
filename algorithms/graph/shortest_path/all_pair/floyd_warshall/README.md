@@ -26,8 +26,8 @@ Space Complexity:   O(V^2)      // if storing ancestors
 ```
 
 ## References
-- [CP Algorithms - Floyd Warshall](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)
-- [CP Algorithms - Finding -ve cycle via Floyd Warshall](https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html)
+1. [CP Algorithms - Floyd Warshall](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)
+2. [CP Algorithms - Finding -ve cycle via Floyd Warshall](https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html)
 
 ## Pending
 - [ ] Fix the logic of `print_path`
