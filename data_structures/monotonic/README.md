@@ -7,7 +7,9 @@ Monotonic Queue is a data structure that keeps it’s elements either entirely i
     - includes the last item stacked (i.e. it can purge items greater than it).
 2. A monotonic queue, also known as a double-ended queue, refers to a data structure in which each element monotonically increases or decreases with its subscript. ***The elements can be deleted at both the beginning and end of the queue, but they can only be inserted at the end (i.e. back of the deque).*** Since the elements are monotonic, the head element is either the maximum or minimum value depending on which monotonic queue you are constructing (decreasing or increasing order, *the order of elements is from front to end of the deque*). Due to the nature of the double-ended queue, each element is enqueued once and dequeued at most once. Thus, the computational complexity of maintaining a monotonic queue is O(n).
 3. Since a monotonic stack can be implemented via a deque, generally deque's are used for solving these questions.
-4. [My monotonic queue questions list](https://leetcode.com/list/9i2dcaum)
+
+## Practice
+1. [My monotonic queue questions list](https://leetcode.com/list/9i2dcaum)
 
 ## References
 - [Monotonic Queues and Monotonic Optimization in Dynamic Programming](https://activities.tjhsst.edu/sct/lectures/1920/2020_2_21_Monotonic_Queues.pdf)

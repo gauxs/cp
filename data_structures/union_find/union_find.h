@@ -10,11 +10,17 @@ void initialize(std::vector<int> &parent, std::vector<int> &size, int n){
     }
 }
 
+/*
+    creates a new set consisting of the new element
+*/
 void make_set(std::vector<int> &parent, std::vector<int> &size, int v){
     parent[v] = v;
     size[v] = 1;
 }
 
+/*
+    returns the representative (also called leader) of the set that contains the element x 
+*/
 int find_set(std::vector<int> &parent, int x){
     while(parent[x]!=x){
         parent[x]=parent[parent[x]];
@@ -24,6 +30,9 @@ int find_set(std::vector<int> &parent, int x){
     return x;
 }
 
+/*
+    merges the two specified sets (the set in which the element a is located, and the set in which the element b is located)
+*/
 void union_sets(std::vector<int> &parent, std::vector<int> &size, int a, int b){
     int parent_a = find_set(parent, a);
     int parent_b = find_set(parent, b);
