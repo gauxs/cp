@@ -22,7 +22,7 @@ Thus the basic interface of this data structure consists of only three operation
 
 ## Practice
 1. Practice questions - [Number of provinces](https://leetcode.com/problems/number-of-provinces/) | [Redundant connection](https://leetcode.com/problems/redundant-connection/)
-2. Good questions - [Redundant connection-II](https://leetcode.com/problems/redundant-connection-ii/)
+2. Good questions - [Most stones removed with same row or column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | [Redundant connection-II](https://leetcode.com/problems/redundant-connection-ii/)
 
 ## References
 1. [CP Algorithms - Disjoint set union](https://cp-algorithms.com/data_structures/disjoint_set_union.html)
