@@ -22,5 +22,9 @@ Time Complexity:    O(V * E) = O(V^3)     // for dense graph E ≈ V^2
 Space Complexity:   O(V)
 ```
 
+## Practice
+1. Practice questions - [Network delay time](https://leetcode.com/problems/network-delay-time/)
+2. Good questions - 
+
 ## References
 1. [CP Algorithms - Bellman Ford](https://cp-algorithms.com/graph/bellman_ford.html)

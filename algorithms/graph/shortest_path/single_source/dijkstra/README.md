@@ -14,7 +14,7 @@ Following are some important observation on the algorithm:
 
 6. **Think, why does this algorithm work on both directed and undirected graphs?**
 
-### Algorithm analysis
+### Algorithm Analysis
 ```
 N - number of graph nodes
 M - number of edges
@@ -34,6 +34,10 @@ To accomplish this we can use a variation of multiple auxiliary data structures 
 2. Since we need to store vertices ordered by their values **distances[]**, it is convenient to store actual pairs: the distance and the index of the vertex. As a result in set implementation, pairs are automatically sorted by their distances.
 
 3. In set implementation, We don't need the vector **picked**. We will use the set to store that information, and also find the vertex with the shortest distance with it.
+
+## Practice
+1. Practice questions - [Network delay time](https://leetcode.com/problems/network-delay-time/) | [Cheapest flights within k stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
+2. Good questions - 
 
 ## References
 1. [A noob's guide to Djikstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/)

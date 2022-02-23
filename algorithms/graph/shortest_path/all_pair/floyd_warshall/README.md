@@ -25,6 +25,10 @@ Time Complexity:    O(V^3)
 Space Complexity:   O(V^2)      // if storing ancestors
 ```
 
+## Practice
+1. Practice questions - [Find the city with the smallest number of neighbors at a threshold distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) | [Network delay time](https://leetcode.com/problems/network-delay-time/)
+2. Good questions - 
+
 ## References
 1. [CP Algorithms - Floyd Warshall](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)
 2. [CP Algorithms - Finding -ve cycle via Floyd Warshall](https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html)
