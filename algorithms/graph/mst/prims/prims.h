@@ -31,7 +31,7 @@ void prims(
         int smallest_weight = INF;
         for(std::pair<int, int> edge: graph[vertex]){  
             int other_vertex = edge.second;
-            if(!visited[other_vertex]){     // add one more state "picked" to avoid adding same vertex twice
+            if(!visited[other_vertex]){
                 pq.push(edge);
                 if(edge.first < smallest_weight){
                     parent[other_vertex] = vertex;
