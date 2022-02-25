@@ -11,6 +11,7 @@ E - number of edges
 Time Complexity:         O((V + E)logV)
 Space Complexity:        O(V)               // to store parent
 ```
+**NOTE:** The complexity at [Hackerearth - Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/) is NOT O((V+E)logV), because the edges are not being deleted from min heap
 
 ## References
 1. [CP Algorithms - Prims](https://cp-algorithms.com/graph/mst_prim.html)
