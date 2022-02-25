@@ -5,11 +5,11 @@ In the end the constructed spanning tree will be minimal. If the graph was origi
 
 ### Algorithm Analysis
 ```
-N - number of graph nodes
-M - number of edges
+V - number of graph nodes
+E - number of edges
 
-Time Complexity:         O((N + M)logV)
-Space Complexity:        O(N)           // to store parent
+Time Complexity:         O((V + E)logV)
+Space Complexity:        O(V)               // to store parent
 ```
 
 ## References
