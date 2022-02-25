@@ -21,7 +21,7 @@ Thus the basic interface of this data structure consists of only three operation
 ```
 
 ## Practice
-1. Practice questions - [Number of provinces](https://leetcode.com/problems/number-of-provinces/) | [Redundant connection](https://leetcode.com/problems/redundant-connection/)
+1. Practice questions - [Leetcode - UnionFind](https://leetcode.com/tag/union-find/)
 2. Good questions - [Most stones removed with same row or column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | [Satisfiability of equality equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | [Redundant connection-II](https://leetcode.com/problems/redundant-connection-ii/)
 
 ## References
