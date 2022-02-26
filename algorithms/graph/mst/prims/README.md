@@ -13,6 +13,10 @@ Space Complexity:        O(V)               // to store parent
 ```
 **NOTE:** The complexity at [Hackerearth - Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/) is NOT O((V+E)logV), because the edges are not being deleted from min heap
 
+## Practice
+1. Practice questions - [Leetcode - Minimum Spanning trees](https://leetcode.com/tag/minimum-spanning-tree/)
+2. Good questions - 
+
 ## References
 1. [CP Algorithms - Prims](https://cp-algorithms.com/graph/mst_prim.html)
 2. [Hackerearth - Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/)

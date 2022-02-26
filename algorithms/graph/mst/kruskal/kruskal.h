@@ -1,17 +1,13 @@
 #ifndef KRUSKAL_H_INCLUDED
 #define KRUSKAL_H_INCLUDED
 
-/*
-    Reference: https://cp-algorithms.com/graph/mst_kruskal.html
-*/
+#include <set>
+#include <vector>
+#include <limits.h>
+
+#define INF INT_MAX
+
 void kruskal(){
-
-}
-
-/*
-    Reference: https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html
-*/
-void kruskal_disjoint_set(){
 
 }
 

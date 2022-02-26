@@ -3,7 +3,7 @@
 
 #include <set>
 #include <vector>
-#include <iostream>>
+#include <iostream>
 #include <limits.h>
 
 #define INF INT_MAX
@@ -42,7 +42,7 @@ void prims(
         mst_cost += s.begin()->weight;
         s.erase(s.begin());
 
-        // check for start vertex, as no parent edge exists for it
+        // this check is for start_vertex, as no parent edge exists for it
         if(min_edge[cur_vertex].to_vertex!=-1){
             // MST edge
             std::cout<<cur_vertex<<","<<min_edge[cur_vertex].to_vertex<<std::endl;
