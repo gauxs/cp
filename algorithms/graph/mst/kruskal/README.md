@@ -8,8 +8,8 @@ In the end the constructed spanning tree will be minimal. If the graph was origi
 V - number of graph nodes
 E - number of edges
 
-Time Complexity:         O((V + E)logV)
-Space Complexity:        O(V)               // to store parent
+Time Complexity:         O(ElogE) ≈ O(ElogV)    // E = V^2
+Space Complexity:        O(V)                   // to store parent
 ```
 
 ## Practice
