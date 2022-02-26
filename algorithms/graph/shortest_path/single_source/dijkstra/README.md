@@ -37,7 +37,7 @@ To accomplish this we can use a variation of multiple auxiliary data structures 
 
 ## Practice
 1. Practice questions - [Network delay time](https://leetcode.com/problems/network-delay-time/)
-2. Good questions - [Cheapest flights within k stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
+2. Good questions - [Cheapest flights within k stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | [Number of ways to arrive at destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/)
 
 ## References
 1. [A noob's guide to Djikstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/)
