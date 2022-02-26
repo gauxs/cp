@@ -10,7 +10,7 @@ void dfs(
             std::vector<int> &topological_order,
                 int cur_vertex){
 
-    visited[cur_vertex] = false;
+    visited[cur_vertex] = true;
     for(int neighbor: adj[cur_vertex]){
         if(!visited[neighbor])
             dfs(adj, visited, topological_order, neighbor);

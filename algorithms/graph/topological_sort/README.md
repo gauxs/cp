@@ -21,12 +21,16 @@ Space Complexity:        O(V)
 
 ### Applications
 Topological Sorting is mainly used for scheduling jobs from the given dependencies among jobs. In computer science, applications of this type arise in:
-1. logic synthesis
-2. data serialization
-3. instruction scheduling
-4. resolving symbol dependencies in linkers\
-5. determining the order of compilation tasks to perform in make files
-6. ordering of formula cell evaluation when recomputing formula values in spreadsheets
+1. Logic synthesis
+2. Data serialization
+3. Instruction scheduling
+4. Resolving symbol dependencies in linkers\
+5. Determining the order of compilation tasks to perform in make files
+6. Ordering of formula cell evaluation when recomputing formula values in spreadsheets
+
+## Practice
+1. Practice questions - [Leetcode - Topological Sort](https://leetcode.com/tag/topological-sort/)
+2. Good questions - 
 
 ## References
 1. [CP Algorithms - Topological sort](https://cp-algorithms.com/graph/topological-sort.html)
