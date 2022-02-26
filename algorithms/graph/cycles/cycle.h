@@ -1,10 +1,12 @@
-#ifndef FIND_CYCLE_H_INCLUDED
-#define FIND_CYCLE_H_INCLUDED
+#ifndef CYCLE_H_INCLUDED
+#define CYCLE_H_INCLUDED
 
 #include <vector>
 #include <algorithm>
 
-// using DFS algorithm
+/*
+    Using DFS
+*/
 bool has_cycle_directed(
         std::vector<std::vector<int>> &adj,
             std::vector<int> &color,
@@ -29,7 +31,7 @@ bool has_cycle_directed(
     return false;
 }
 
-std::vector<int> find_cycle_directed(
+std::vector<int> cycle_directed(
                     std::vector<std::vector<int>> &adj,
                         int n){
 
@@ -55,7 +57,9 @@ std::vector<int> find_cycle_directed(
     return cycle;
 }
 
-// using DFS algorithm
+/* 
+    using DFS
+*/
 bool has_cycle_undirected(
         std::vector<std::vector<int>> &adj,
             std::vector<bool> &visited,
@@ -108,4 +112,4 @@ std::vector<int> find_cycle_undirected(
     return cycle;
 }
 
-#endif // FIND_CYCLE_H_INCLUDED
+#endif // CYCLE_H_INCLUDED

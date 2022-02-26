@@ -8,14 +8,14 @@ In the end the constructed spanning tree will be minimal. If the graph was origi
 V - number of graph nodes
 E - number of edges
 
-Time Complexity:         O((V + E)logV)
-Space Complexity:        O(V)               // to store parent
+Time Complexity:         O((V + E)logV)                     // when we delete edges for vertex which are relaxed multiple times
+Time Complexity:         O((V + E)logE) ≈ O((V + E)logV)    // E = V^2, when we DON'T delete edges e.g. Hackerearth - Minimum Spanning Tree
+Space Complexity:        O(V)                               // to store parent
 ```
-**NOTE:** The complexity at [Hackerearth - Minimum Spanning Tree](https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/) is NOT O((V+E)logV), because the edges are not being deleted from min heap
 
 ## Practice
 1. Practice questions - [Leetcode - Minimum Spanning trees](https://leetcode.com/tag/minimum-spanning-tree/)
-2. Good questions - 
+2. Good questions - [Find critical and pseudo critical edges in minimum spanning tree](https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/)
 
 ## References
 1. [CP Algorithms - Prims](https://cp-algorithms.com/graph/mst_prim.html)

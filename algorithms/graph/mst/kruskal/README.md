@@ -14,7 +14,7 @@ Space Complexity:        O(V)                   // to store parent
 
 ## Practice
 1. Practice questions - [Leetcode - Minimum Spanning trees](https://leetcode.com/tag/minimum-spanning-tree/)
-2. Good questions - 
+2. Good questions - [Find critical and pseudo critical edges in minimum spanning tree](https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/)
 
 ## References
 1. [CP Algorithms - Kruskal](https://cp-algorithms.com/graph/mst_kruskal.html)
