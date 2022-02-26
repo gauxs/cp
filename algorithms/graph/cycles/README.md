@@ -1,4 +1,4 @@
-# Finding cycles in a graph
+# Cycles in a graph
 Consider a directed or undirected graph without loops and multiple edges. We have to check whether it is acyclic, and if it is not, then find any cycle.
 
 We can use DFS to find cycles. But why do we need 2 colors in undirected graph but 3 color in directed graph?
