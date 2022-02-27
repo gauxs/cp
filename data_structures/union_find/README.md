@@ -8,7 +8,7 @@ Thus the basic interface of this data structure consists of only three operation
 
 **Applications** of this data structure are mentioned in one of the refrences.
 
-## Algorithm Analysis
+## Data strucutre Analysis
 ```
     N - number of elements
 

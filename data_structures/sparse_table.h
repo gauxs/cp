@@ -1,7 +1,6 @@
 #ifndef SPARSE_TABLE_H_INCLUDED
 #define SPARSE_TABLE_H_INCLUDED
 
-#pragma GCC optimize("Ofast")
 #include <vector>
 #include <cmath>
 
