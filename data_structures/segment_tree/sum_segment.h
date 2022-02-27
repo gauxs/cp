@@ -18,35 +18,45 @@ int find_tree_size(int input_len){
     return 2*(pow(2, tree_height))-1;
 }
 
-void single_update_seg(
-    std::vector<int> &seg_tree,
-        int seg_l, int seg_r,
-            int update_index, int diff,
+void propogate_update(
+        std::vector<int>& seg_tree,
+            std::vector<bool>& has_lazy_update,
                 int seg_index){
 
-    // update_index not in the range of current seg_tree node
-    if(update_index<seg_l || update_index>seg_r)
-        return;
-
-    seg_tree[seg_index] += diff;
-    if(seg_l!=seg_r){
-        int mid = seg_l+(seg_r-seg_l)/2;
-        single_update_seg(seg_tree, seg_l, mid, update_index, diff, 2*seg_index+1);
-        single_update_seg(seg_tree, mid+1, seg_r, update_index, diff, 2*seg_index+2);
+    if(has_lazy_update[seg_index]){
+        has_lazy_update[seg_index] = false;
+        has_lazy_update[2*seg_index+1] = true;
+        has_lazy_update[2*seg_index+2] = true;
+        seg_tree[2*seg_index+1] = seg_tree[seg_index];
+        seg_tree[2*seg_index+2] = seg_tree[seg_index];
     }
 }
 
 /*
-    index   -   index of input which will be updated
-*/
-void single_update_input(
-        std::vector<int> &input,
-            std::vector<int> &seg_tree,
-                int index, int new_val){
+    Updates that segment tree with new_val which represent the range [upd_l,upd_r] and also propogates previous
+    updates(lazy propogation)
 
-    int diff = new_val-input[index];
-    input[index] = new_val;
-    single_update_seg(seg_tree, 0, seg_tree.size()-1, index, diff, 0);
+    has_lazy_update -   true if there is an assignment update in this node which need to be propogated to children
+    upd_l, upd_r    -   input range which needs to be assigned to new_val
+*/
+void lazy_assignment(
+        std::vector<int>& seg_tree,
+            std::vector<bool>& has_lazy_update,
+                int seg_index, int seg_l, int seg_r,
+                    int upd_l, int upd_r, int new_val){
+
+    if(upd_l>upd_r)
+        return;
+
+    if(seg_l==upd_l && seg_r==upd_r){
+        seg_tree[seg_index] = new_val;
+        has_lazy_update[seg_index] = true;
+    }else {
+        int mid = seg_l+(seg_r-seg_l)/2;
+        propogate_update(seg_tree, has_lazy_update, seg_index);
+        lazy_assignment(seg_tree, has_lazy_update, 2*seg_index+1, seg_l, mid, upd_l, std::min(mid, upd_r), new_val);
+        lazy_assignment(seg_tree, has_lazy_update, 2*seg_index+2, mid+1, seg_r, std::max(upd_l, mid), upd_r, new_val);
+    }
 }
 
 /*
@@ -56,10 +66,10 @@ void single_update_input(
     seg_index       -   current index of segment tree
 */
 int get(
-    std::vector<int> &seg_tree,
-        int q_l, int q_r,
-            int seg_l, int seg_r,
-                int seg_index){
+        std::vector<int>& seg_tree,
+            int q_l, int q_r,
+                int seg_l, int seg_r,
+                    int seg_index){
 
     // completely inside range
     if(q_l<=seg_l && q_r>=seg_r)
@@ -76,16 +86,18 @@ int get(
 }
 
 /*
+    Builds a sum segment tree
+
     input           -   data on which segement tree is to be build
     seg_tree        -   segment tree on the input data
     left,right      -   range of input for which segment tree is to be build
     seg_node_index  -   index of segment tree which represents [left,right] of input
 */
-int construct_tree(
-    std::vector<int> &input,
-        std::vector<int> &seg_tree,
-        int left, int right,
-            int seg_node_index){
+int build(
+        std::vector<int>& input,
+            std::vector<int>& seg_tree,
+                int left, int right,
+                    int seg_node_index){
 
     if(left == right){
         seg_tree[seg_node_index] = input[left];
@@ -93,8 +105,8 @@ int construct_tree(
     }
 
     int mid = left+(right-left)/2;
-    seg_tree[seg_node_index] = construct_tree(input, seg_tree, left, mid, 2*seg_node_index+1) +
-                                        construct_tree(input, seg_tree, mid+1, right, 2*seg_node_index+2);
+    seg_tree[seg_node_index] = build(input, seg_tree, left, mid, 2*seg_node_index+1) +
+                                        build(input, seg_tree, mid+1, right, 2*seg_node_index+2);
 
     return seg_tree[seg_node_index];
 }
