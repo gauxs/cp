@@ -1,7 +1,7 @@
 # Depth First Search
 Depth First Search finds the lexicographical first path in the graph from a source vertex u to each vertex. Depth First Search will also find the shortest paths in a tree (because there only exists one simple path), but on general graphs this is not the case.
 
-## Algorithm Analysis
+### Algorithm Analysis
 ```
     V - number of vertices
     E - number of edges
@@ -10,7 +10,7 @@ Depth First Search finds the lexicographical first path in the graph from a sour
     Space complexity:   O(V)   
 ```
 
-## Applications
+### Applications
 1. Find any path in the graph from source vertex **s** to all vertices.
 
 2. Find lexicographical first path in the graph from source **s** to all vertices.
@@ -25,7 +25,7 @@ Depth First Search finds the lexicographical first path in the graph from a sour
 
 7. Find bridges in an undirected graph
 
-## Classification of edges
+### Classification of edges
 We can classify the edges using the entry and exit time of the end nodes **u** and **v** of the edges **(u, v)**. These classifications are often used for problems like finding **bridges** and **finding articulation points**. We perform a DFS and classify the encountered edges using the following rules:
 
 If **v** is not visited:
@@ -43,7 +43,7 @@ If **v** is visited before **u**:
 
 **Note:** Forward edges and cross edges only exist in directed graphs.
 
-## Practice
+### Practice
 1. Practice questions - [Leetcode - Depth First Search](https://leetcode.com/tag/depth-first-search/)
 2. Good questions - [Number of enclaves](https://leetcode.com/problems/number-of-enclaves/) | [Find eventual safe states](https://leetcode.com/problems/find-eventual-safe-states/)
 

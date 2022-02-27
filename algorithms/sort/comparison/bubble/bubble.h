@@ -6,17 +6,6 @@
 #include "utils/basic.h"
 
 /*
-    NOTES:
-    1.  One pass gives an impression of bringing the largest(smallest if sorting in decreasing order)
-        element towards the end of the list(if we traverse from 0).
-    2.  After first pass we know that last index element is at right place.
-    3.  In computer graphics it is popular for its capability to detect a very small error
-        (like swap of just two elements) in almost-sorted arrays and fix it with just linear complexity (2n).   
-
-    Reference:  https://www.geeksforgeeks.org/bubble-sort/
-*/
-
-/*
     Time complexity:
     1.  Worst: O(n*n)
     2.  Average: O(n*n)

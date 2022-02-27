@@ -6,7 +6,7 @@ The algorithm can be understood as a fire spreading on the graph: at the zeroth 
 Following are some important observation on the algorithm:
 1. The queue holding the vertex to be visited next, can only have vertices from current and next level or previous and current level. Queue will never hold vertices from more than two levels.
 
-## Algorithm Analysis
+### Algorithm Analysis
 ```
     V - number of vertices
     E - number of edges
@@ -15,7 +15,7 @@ Following are some important observation on the algorithm:
     Space complexity:   O(V)        // when first vertex is connected to all the other unvisited vertex
 ```
 
-## Applications
+### Applications
 1. Find the shortest path from a source to other vertices in an unweighted graph.
 
 2. Find all connected components in an undirected graph in O(V+E) time.
@@ -32,7 +32,7 @@ Following are some important observation on the algorithm:
 
 8. Find the shortest path of even length from a source vertex **s** to a target vertex **t** in an unweighted graph.
 
-## Practice
+### Practice
 1. Practice questions - [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/)
 2. Good questions - [01 Matrix](https://leetcode.com/problems/01-matrix/) | [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/)
 

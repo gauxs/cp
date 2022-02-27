@@ -18,7 +18,8 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 
 <br>
 
-3. Internal & external sorting - When all data that needs to be sorted cannot be placed in-memory at a time, the sorting is called external sorting. External Sorting is used for massive amount of data. Merge Sort and its variations are typically used for external sorting. Some external storage like hard-disk, CD, etc is used for external sorting. When all data is placed in-memory, then sorting is called internal sorting.
+### Internal & external sorting algorithms
+When all data that needs to be sorted cannot be placed in-memory at a time, the sorting is called external sorting. External Sorting is used for massive amount of data. Merge Sort and its variations are typically used for external sorting. Some external storage like hard-disk, CD, etc is used for external sorting. When all data is placed in-memory, then sorting is called internal sorting.
 
 ## Reference
 1. [GeeksForGeeks - Sorting](https://www.geeksforgeeks.org/sorting-algorithms/)
