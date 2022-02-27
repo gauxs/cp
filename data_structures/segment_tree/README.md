@@ -12,10 +12,10 @@ A Segment Tree is a data structure that allows answering range queries over an a
         1. construct_tree:      O(N_S)
         2. get:                 O(log(N_S))
         3. update_input:        O(log(N_S))
-        4. lazy_update_input:        O(log(N_S))
+        4. lazy_update_input:   O(log(N_S))
 
     Space complexity:
-        1. Height:                                      O(log(N_S))
+        1. Height:              O(log(N_S))
 ```
 
 Why is the complexity of this algorithm logN? To show this complexity we look at each level of the tree. It turns out, that for each level we only visit not more than four vertices. And since the height of the tree is , we receive the desired running time. We can show that this proposition (at most four vertices each level) is true by induction.
