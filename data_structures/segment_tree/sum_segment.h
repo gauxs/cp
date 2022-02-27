@@ -64,12 +64,13 @@ void lazy_assignment(
     q_l, q_r        -   query ranges
     seg_l, seg_r    -   segment tree range which is represented by 'seg_index'
     seg_index       -   current index of segment tree
+    has_lazy_update -   true if there is an assignment update in this node which need to be propogated to children
 */
 int get(
         std::vector<int>& seg_tree,
-            int q_l, int q_r,
-                int seg_l, int seg_r,
-                    int seg_index){
+            std::vector<bool>& has_lazy_update,
+                int q_l, int q_r, int seg_l,
+                    int seg_r, int seg_index){
 
     // completely inside range
     if(q_l<=seg_l && q_r>=seg_r)
@@ -79,10 +80,12 @@ int get(
     if(q_l>seg_r || q_r<seg_l)
         return 0;
 
+    propogate_update(seg_tree, has_lazy_update, seg_index);
+
     // partially in range
     int mid = seg_l+(seg_r-seg_l)/2;
-    return get(seg_tree, q_l, q_r, seg_l, mid, 2*seg_index+1) + 
-                get(seg_tree, q_l, q_r, mid+1, seg_r, 2*seg_index+2);
+    return get(seg_tree, has_lazy_update, q_l, q_r, seg_l, mid, 2*seg_index+1) + 
+                get(seg_tree, has_lazy_update, q_l, q_r, mid+1, seg_r, 2*seg_index+2);
 }
 
 /*
