@@ -22,3 +22,4 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 
 ## Reference
 1. [GeeksForGeeks - Sorting](https://www.geeksforgeeks.org/sorting-algorithms/)
+2. [Afteracademy - Comaprison of sorting algorithms](https://afteracademy.com/blog/comparison-of-sorting-algorithms)
