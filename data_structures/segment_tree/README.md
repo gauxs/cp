@@ -3,16 +3,16 @@ A Segment Tree is a data structure that allows answering range queries over an a
 
 ### Data strucutre Analysis
 ```
-    N - number of elements in input
-    N_S - number of elements in segment tree
+    N -     size of input
+    N_S -   size of segment tree
 
     N_S = (2*(2^(log(N)))-1)
 
     Time complexity:
-        1. construct_tree:      O(N_S)
-        2. get:                 O(log(N_S))
-        3. update_input:        O(log(N_S))
-        4. lazy_update_input:   O(log(N_S))
+        1. construct_tree:          O(N_S)
+        2. get:                     O(log(N_S))
+        3. single_update_input:     O(log(N_S))
+        4. range_update_input:      O(log(N_S))
 
     Space complexity:
         1. Height:              O(log(N_S))

@@ -9,16 +9,16 @@
     to represent data of size 'input_len'
 
     Number of leaf nodes has to be in the power of two.
-    If N=10, then number of leaf nodes will be next power of 2 i.e.16
-    by this logic total number of nodes(leaf + non-leaf) will be 2*16-1 
-    or (2*(2^(height)))-1 or (2*(2^(log(N)))-1).
+    If N=10, then number of leaf nodes of segment tree will be next power of 2 i.e.16
+    by this logic total number of nodes of sement tree (leaf + non-leaf) will be ((2*(16)-1) 
+    or (2*(2^(height)))-1 or (2*(2^(log(N)))-1) where N is input size
 */
 int find_tree_size(int input_len){
     int tree_height = (int)ceil(log2(input_len));
     return 2*(pow(2, tree_height))-1;
 }
 
-void update_seg(
+void single_update_seg(
     std::vector<int> &seg_tree,
         int seg_l, int seg_r,
             int update_index, int diff,
@@ -31,21 +31,22 @@ void update_seg(
     seg_tree[seg_index] += diff;
     if(seg_l!=seg_r){
         int mid = seg_l+(seg_r-seg_l)/2;
-        update_seg(seg_tree, seg_l, mid, update_index, diff, 2*seg_index+1);
-        update_seg(seg_tree, mid+1, seg_r, update_index, diff, 2*seg_index+2);
+        single_update_seg(seg_tree, seg_l, mid, update_index, diff, 2*seg_index+1);
+        single_update_seg(seg_tree, mid+1, seg_r, update_index, diff, 2*seg_index+2);
     }
 }
 
 /*
     index   -   index of input which will be updated
 */
-void update_input(
+void single_update_input(
         std::vector<int> &input,
             std::vector<int> &seg_tree,
                 int index, int new_val){
+
     int diff = new_val-input[index];
     input[index] = new_val;
-    update_seg(seg_tree, 0, seg_tree.size()-1, index, diff, 0);
+    single_update_seg(seg_tree, 0, seg_tree.size()-1, index, diff, 0);
 }
 
 /*
