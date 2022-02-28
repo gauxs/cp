@@ -1,5 +1,5 @@
-#ifndef MERGE_SORT_H_INCLUDED
-#define MERGE_SORT_H_INCLUDED
+#ifndef MERGE_H_INCLUDED
+#define MERGE_H_INCLUDED
 
 #include <vector>
 #include <iostream>
@@ -43,4 +43,4 @@ void merge_sort(std::vector<int> &arr, int left, int right){
     return;
 }
 
-#endif // MERGE_SORT_H_INCLUDED
+#endif // MERGE_H_INCLUDED
