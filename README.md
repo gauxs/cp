@@ -8,3 +8,4 @@ Algorithms i learned and implemented while solving competitive programming  ques
 # TODO
 - [ ] stl library primer readme - https://github.com/MAZHARMIK/Cpp-STL-Quick-Help
 - [ ] graph/lca/preprocess
+- [ ] use data_structre/heap in sorting/heap_sort
