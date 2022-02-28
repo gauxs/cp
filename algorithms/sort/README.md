@@ -23,7 +23,7 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 
 ### Practice
 1. Practice questions - [Leetcode - Sorting](https://leetcode.com/tag/sorting/)
-2. Good questions - 
+2. Good questions - [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) | [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)
 
 ## Reference
 1. [GeeksForGeeks - Sorting](https://www.geeksforgeeks.org/sorting-algorithms/)
