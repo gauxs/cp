@@ -9,7 +9,7 @@ int partition_rand(
         std::vector<int> &arr,
             int left, int right){
 
-    int j=left+1;
+    int j = left+1;
     int pivot_pos = left+rand()%(right-left+1);
     int pivot_val = arr[pivot_pos];
 
