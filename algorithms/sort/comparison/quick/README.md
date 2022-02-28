@@ -23,11 +23,13 @@ Following are some important observation on the algorithm:
 
     Time complexity:    T(N) = T(N) + T(N-K-1) + θ(N)
 
-    The first two terms are for two recursive calls, the last term is for the partition process. K is the number of elements which are smaller than pivot.The time taken by QuickSort depends upon the input array and partition strategy. Following are three cases:   
+    The first two terms are for two recursive calls, the last term is for the partition process. K is the number of elements which are smaller than pivot.
+    The time taken by QuickSort depends upon the input array and partition strategy. Following are three cases:   
     1.  Worst:      T(N) = T(0) + T(N-1) + θ(N)  ->  θ(N * N)
-    2.  Average:    T(N) = To do average case analysis, we need to consider all possible permutation of array and calculate time taken by every   
-                           permutation which doesn’t look easy. We can get an idea of average case by considering the case when partition puts O(N/9) 
-                           elements in one set and O(9N/10) elements in other set. T(N/9) + T(9N/10) + θ(N) ->  O(N * log(N))
+    2.  Average:    T(N) = T(N/9) + T(9N/10) + θ(N) ->  O(N * log(N))   // To do average case analysis, we need to consider all possible permutation 
+                                                                        // of array and calculate time taken by every permutation which doesn’t look easy. 
+                                                                        // We can get an idea of average case by considering the case when partition 
+                                                                        // puts O(N/9) elements in one set and O(9N/10) elements in other set. 
     3.  Best:       T(N) = 2T(N/2) + θ(N) ->  θ(N * log(N))
 
     Space complexity:   O(N)
