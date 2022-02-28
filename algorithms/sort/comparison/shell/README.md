@@ -1,6 +1,5 @@
 # Shell Sort
-Sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. Following are some important observation on the algorithm:
-1. The good thing about selection sort is it never makes more than O(n) swaps and can be useful when memory write is a costly operation. 
+ShellSort is mainly a variation of Insertion Sort. In insertion sort, we move elements only one position ahead. When an element has to be moved far ahead, many movements are involved. The idea of shellSort is to allow exchange of far items. In shellSort, we make the array h-sorted for a large value of h. We keep reducing the value of h until it becomes 1. An array is said to be h-sorted if all sublists of every h’th element is sorted.
 
 ### Algorithm Analysis
 ```
@@ -15,9 +14,6 @@ Sorts an array by repeatedly finding the minimum element (considering ascending 
     Inplace sorting:    yes
     Stable sorting:     yes
 ```
-
-### Stablity of selection sort
-Selection sort can be made Stable if instead of swapping, the minimum element is placed in its position without swapping i.e. by placing the number in its position by pushing every element one step forward. Example: 4A 5 3 2 4B 1 | First minimum element is 1, now instead of swapping. Insert 1 in its correct place and pushing every element one step forward i.e forward pushing.
 
 ## References
 1. [GeeksForGeeks - Shell Sort](https://www.geeksforgeeks.org/shellsort/)
