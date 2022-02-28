@@ -12,7 +12,7 @@ Is Radix Sort preferable to comparison based sorting algorithms like Quick-Sort?
     K - range of input(for counting sort) which is constant here i.e 10
 
     Time complexity:    O(D*(N+B))
-    What is the value of D? If k is the maximum possible value, then d would be O(logB(k)) (B is at log base). So overall time complexity is 
+    What is the value of D? If K is the maximum possible value, then D would be O(logB(K)) (B is at log base). So overall time complexity is 
     O((N+B)*logB(K)). Which looks more than the time complexity of comparison-based sorting algorithms for a large K. Let us first limit K. 
     Let K<=N^C where C is a constant. In that case, the complexity becomes O(N*logB(N)). But it still doesn’t beat comparison-based sorting 
     algorithms.
