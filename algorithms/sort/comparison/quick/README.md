@@ -15,7 +15,7 @@ Following are some important observation on the algorithm:
 
 2. MergeSort is preferred over QuickSort for Linked Lists.
 
-3. QuickSort can be optimised so that it takes O(LogN) extra space(recursion i.e.stack frames) in worst case scenario [GeeksForGeeks - Quicksort Tail Call Optimization](https://www.geeksforgeeks.org/quicksort-tail-call-optimization-reducing-worst-case-space-log-n/)
+3. QuickSort can be optimised so that it takes O(LogN) extra space(recursion i.e.stack frames) in **worst case scenario** [GeeksForGeeks - Quicksort Tail Call Optimization](https://www.geeksforgeeks.org/quicksort-tail-call-optimization-reducing-worst-case-space-log-n/)
 
 ### Algorithm Analysis
 ```
@@ -30,8 +30,7 @@ Following are some important observation on the algorithm:
                            elements in one set and O(9N/10) elements in other set. T(N/9) + T(9N/10) + θ(N) ->  O(N * log(N))
     3.  Best:       T(N) = 2T(N/2) + θ(N) ->  θ(N * log(N))
 
-    Space complexity: O(N)
-
+    Space complexity:   O(N)
     Inplace sorting:    Yes, it uses extra space only for storing recursive function calls but not for manipulating the input
     Stable sorting:     No
 ```
