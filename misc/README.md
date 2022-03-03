@@ -1,6 +1,6 @@
 # Miscellaneous Topics
 ### Implementation Questions
-These questions are implementation heavy and will test good coding skills. Following are some problems:
+These questions are implementation heavy and will improve implementation skills. Following are some problems:
 1. [Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices/)
 
 ### Logical Questions
