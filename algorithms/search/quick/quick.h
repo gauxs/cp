@@ -27,18 +27,22 @@ int partition(
 
 int quick_select(
         std::vector<int>& nums,
-            int n, int k, int low,
+            int k, int low,
                 int high){
-                    
+
     if(low<high){
         int p = partition(nums, low, high);
 
-        // if() TODO
-        quick_select(nums, n, k, low, p-1);
-        quick_select(nums, n, k, p+1, high);
+        if((p+1)==(k))
+            return nums[p];
+        
+        if((p+1)>k)
+            return quick_select(nums, k, low, p-1);
+
+        return quick_select(nums, k-(p+1)+low, p+1, high);
     }
 
-    return INT_MAX;
+    return -1;
 }
 
 #endif // QUICK_H_INCLUDED

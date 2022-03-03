@@ -18,6 +18,11 @@ Quickselect is a selection algorithm to find the k-th smallest element in an uno
     Space Complexity:   O(1)
 ```
 
+### Practice
+1. Practice questions - 
+2. Good questions - [Wiggle Sort-II](https://leetcode.com/problems/wiggle-sort-ii/)
+
+
 ## References
 1. [GeeksForGeeks - Quick Select](https://www.geeksforgeeks.org/quickselect-algorithm/)
 2. [k-th smallest element in O(n)](https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-3-worst-case-linear-time/)
