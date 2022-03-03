@@ -1,11 +1,14 @@
-#ifndef QUICK_SELECT_H_INCLUDED
-#define QUICK_SELECT_H_INCLUDED
+#ifndef QUICK_H_INCLUDED
+#define QUICK_H_INCLUDED
 
 #include <vector>
 #include <iostream>
 #include <bits/stdc++.h>
 
-int partition(std::vector<int>& nums, int low, int high){
+int partition(
+        std::vector<int>& nums,
+            int low, int high){
+
     int j = low + 1;
     int pivot_pos = low + rand() % (high - low + 1);
     int pivot_val = nums[pivot_pos];
@@ -22,7 +25,11 @@ int partition(std::vector<int>& nums, int low, int high){
     return j-1;
 }
 
-int quick_select(std::vector<int>& nums, int n, int k, int low, int high){
+int quick_select(
+        std::vector<int>& nums,
+            int n, int k, int low,
+                int high){
+                    
     if(low<high){
         int p = partition(nums, low, high);
 
@@ -34,4 +41,4 @@ int quick_select(std::vector<int>& nums, int n, int k, int low, int high){
     return INT_MAX;
 }
 
-#endif // QUICK_SELECT_H_INCLUDED
+#endif // QUICK_H_INCLUDED
