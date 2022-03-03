@@ -1,5 +1,5 @@
 # Miscellaneous Topics
-### Implementation Heavy Questions
+### Implementation Questions
 These questions are implementation heavy and will test good coding skills. Following are some problems:
 1. [Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices/)
 
