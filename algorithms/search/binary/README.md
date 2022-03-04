@@ -12,7 +12,11 @@ At each step, the algorithm compares the median value in the search space to the
 > &emsp;mid = low + Math.floor((high - low) / 2)        &emsp;&emsp;&emsp;// left/lower mid   <br>
   &emsp;mid = low + Math.floor((high - low + 1) / 2)    &emsp;// right/upper mid  <br>
   
-4. Just remember to always test your code on a two-element set where the predicate is false for the first element and true for the second.
+4. While loop condition **low<high**, the only condition the loop exits is low == high, we can be sure that they will be pointing to the same element, and we know that element always exists:
+> while(low < high) { ... }
+
+5. Avoiding infinity loop:
+6. Just remember to always test your code on a two-element set where the predicate is false for the first element and true for the second.
 
 ### Algorithm Analysis
 ```
