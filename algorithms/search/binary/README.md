@@ -46,14 +46,14 @@ In this code too
 ```
 We have to keep in mind that, the choice of **mid** and our shrinking logic has to work together in a way that every time, at least 1 element is excluded. So when your binary search is stuck, think of the situation when there are only 2 elements left. Did the boundary shrink correctly?
 
-***NOTE: I have neglected all the points mentioned here and followed my implementation binary_iterative() because it is another way of implementing bug free  binary search and seems to work in every quetion solved till now.***
-
 ### Rule of Thumb
 1. Include ALL possible answers when initialize low & high
 2. Don't overflow the mid calculation
 3. Shrink boundary using a logic that will exclude mid
 4. Avoid infinity loop by picking the correct mid and shrinking logic
 5. Always think of the case when there are 2 elements left
+
+***NOTE: I have neglected all the points mentioned here and followed my implementation binary_iterative() because it is another way of implementing bug free  binary search and seems to work in every quetion solved till now.***
 
 ### Algorithm Analysis
 ```
