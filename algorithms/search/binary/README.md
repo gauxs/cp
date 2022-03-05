@@ -70,7 +70,7 @@ We have to keep in mind that, the choice of **mid** and our shrinking logic has 
 
 ### Practice
 1. Practice questions - [Leetcode - My Binary Search List](https://leetcode.com/list/9zvbx4we)
-2. Good questions     - [Capacity to ship packages within D days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) 
+2. Good questions     - [Capacity to ship packages within D days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | [Koko eating bananas](https://leetcode.com/problems/koko-eating-bananas/) | [Split array largest sum](https://leetcode.com/problems/split-array-largest-sum/)
 
 ## References
 1. [Topcoder - Binary Search](https://www.topcoder.com/thrive/articles/Binary%20Search)
