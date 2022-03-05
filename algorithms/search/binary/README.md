@@ -6,7 +6,7 @@ At each step, the algorithm compares the median value in the search space to the
 2. Calculating **mid** can result in overflow when the numbers are extremely big. Following are the ways of calculating mid:
 > &emsp; mid = Math.floor((low + high) / 2)         &nbsp;&nbsp;&emsp;&emsp;&emsp;// worst, very easy to overflow <br>
   &emsp; mid = low + Math.floor((high - low) / 2)   &emsp;// much better, but still possible <br>
-  &emsp; mid = (low + high) >>> 1                   &emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;// the best, but hard to understand <br>
+  &emsp; mid = (low + high) >>> 1                   &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;// the best, but hard to understand <br>
 
 3. When we are dealing with even number of elements, it is our choice to pick the left one as mid or the right one as mid, a bad choice will lead to an infinity loop.
 > &emsp; mid = low + Math.floor((high - low) / 2)        &emsp;&emsp;&emsp;// left/lower mid   <br>
