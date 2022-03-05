@@ -5,10 +5,13 @@
 
 /*
     Returns the index of the element if found, else -1
+    NOTE: I have neglected all the points mentioned in README
+    because below implementation is another way of implementing bug
+    free and seems to work in every quetion solved till now
 */
 int binary_iterative(std::vector<int> &input, int low, int high, int ele){
     while(low<=high){   // for checking low==high cases
-        int mid=low+(high-low)/2;;
+        int mid=low+(high-low)/2;
         if(input[mid]==ele){
             return mid;
         }else if(input[mid]<ele){
@@ -17,7 +20,7 @@ int binary_iterative(std::vector<int> &input, int low, int high, int ele){
             high=mid-1;
         }
     }
-
+    
     return -1;
 }
 
