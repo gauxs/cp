@@ -55,6 +55,7 @@ We have to keep in mind that, the choice of **mid** and our shrinking logic has 
 
 ***NOTE: I have neglected all the points mentioned here and followed my implementation binary_iterative() because it is another way of implementing bug free  binary search and seems to work in every quetion solved till now.***
 
+***Sometimes we won't even realize that the problem should be solved with binary search -- we might just turn to dynamic programming or DFS and get stuck for a very long time so, "When can we use binary search?",answer is, if we can discover some kind of monotonicity, for example, if condition(k) is True then condition(>k) is True OR if condition(k) is Fale then condition(>k) is False and vice-versa, then we can consider binary search.***
 ### Algorithm Analysis
 ```
     N - Size of input
