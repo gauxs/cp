@@ -70,7 +70,7 @@ We have to keep in mind that, the choice of **mid** and our shrinking logic has 
 
 ### Practice
 1. Practice questions - [Leetcode - My Binary Search List](https://leetcode.com/list/9zvbx4we)
-2. Good questions     - [Capacity to ship packages within D days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | [Koko eating bananas](https://leetcode.com/problems/koko-eating-bananas/) | [Split array largest sum](https://leetcode.com/problems/split-array-largest-sum/) | [Minimum number of days to make m bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/) | [Kth smallest number in multiplication table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/)
+2. Good questions     - [Capacity to ship packages within D days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | [Koko eating bananas](https://leetcode.com/problems/koko-eating-bananas/) | [Split array largest sum](https://leetcode.com/problems/split-array-largest-sum/) | [Minimum number of days to make m bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/) | [Kth smallest number in multiplication table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/) | [Kth smallest element in a sorted matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) | [Find kth smallest pair distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance/) | [Ugly number-III](https://leetcode.com/problems/ugly-number-iii/)
 
 ## References
 1. [Topcoder - Binary Search](https://www.topcoder.com/thrive/articles/Binary%20Search)
