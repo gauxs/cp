@@ -23,3 +23,7 @@
     N * (1 + 1) // it can be argued that for very big k, (1/2)^k approaches 0
     O(N)
 ```
+
+## Reference
+
+1. [Wikipedia - 1/2 + 1/4 + 1/8 + 1/16 + ...](https://en.wikipedia.org/wiki/1/2_%2B_1/4_%2B_1/8_%2B_1/16_%2B_%E2%8B%AF)
