@@ -69,7 +69,7 @@ Following are some important observation:
 
 ## Practice
 - [Leetcode - Dynamic Programming](https://leetcode.com/tag/dynamic-programming/)
-- Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
+- Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/) | [Interviewbit - Potions](https://www.interviewbit.com/problems/potions/)
 
 ## References
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)
