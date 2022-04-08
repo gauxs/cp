@@ -16,4 +16,4 @@ These problems doesn't require much indepth knowledge of algortihms or DS but ra
 4. [Leetcode - Iterator for cobination](https://leetcode.com/problems/iterator-for-combination/)
 5. [Leetcode - Range frequency queries](https://leetcode.com/problems/range-frequency-queries/)
 6. [Leetcode - Gas Station](https://leetcode.com/problems/gas-station/)
-7. [Lintcode - Meeting Room](https://www.lintcode.com/problem/920/) | [Lintcode - Meeting Room II](https://www.lintcode.com/problem/919/) | [Lintcode - Meeting Room III](https://www.lintcode.com/problem/1897/) | [Lintcode - Meeting Room IV](https://www.lintcode.com/problem/300/description)
+7. [Lintcode - Meeting Room](https://www.lintcode.com/problem/920/) | [Lintcode - Meeting Room II](https://www.lintcode.com/problem/919/) | [Lintcode - Meeting Room III](https://www.lintcode.com/problem/1897/) | [Leetcode - Meeting Room IV](https://leetcode.com/problems/maximum-profit-in-job-scheduling/)
