@@ -22,18 +22,15 @@ Depth First Search finds the lexicographical first path in the graph from a sour
 ### Classification of edges
 We can classify the edges using the entry and exit time of the end nodes **u** and **v** of the edges **(u, v)**. These classifications are often used for problems like finding **bridges** and **finding articulation points**. We perform a DFS and classify the encountered edges using the following rules:
 
-If **v** is not visited:
+1. If **v** is not visited:
+   - **Tree Edge** - If **v** is visited after **u** then edge (u,v) is called a tree edge. In other words, if **v** is visited for the first time and **u** is currently being visited then (u,v) is called tree edge. These edges form a DFS tree and hence the name tree edges.
 
-**Tree Edge** - If **v** is visited after **u** then edge (u,v) is called a tree edge. In other words, if **v** is visited for the first time and **u
-** is currently being visited then (u,v) is called tree edge. These edges form a DFS tree and hence the name tree edges.
+2. If **v** is visited before **u**:
+   - **Back edges** - If **v** is an ancestor of **u**, then the edge (u,v) is a back edge. **v** is an ancestor exactly if we already entered , but not exited it yet. Back edges complete a cycle as there is a path from ancestor **v** to descendant **u** (in the recursion of DFS) and an edge from descendant **u** to ancestor **v** (back edge), thus a cycle is formed. Cycles can be detected using back edges.
 
-If **v** is visited before **u**:
+   - **Forward Edges** - If **v** is a descendant of **u**, then edge (u,v) is a forward edge. In other words, if we already visited and exited **v** and time_in[u]<time_in[v] then the edge (u,v) forms a forward edge.
 
-**Back edges** - If **v** is an ancestor of **u**, then the edge (u,v) is a back edge. **v** is an ancestor exactly if we already entered , but not exited it yet. Back edges complete a cycle as there is a path from ancestor **v** to descendant **u** (in the recursion of DFS) and an edge from descendant **u** to ancestor **v** (back edge), thus a cycle is formed. Cycles can be detected using back edges.
-
-**Forward Edges** - If **v** is a descendant of **u**, then edge (u,v) is a forward edge. In other words, if we already visited and exited **v** and time_in[u]<time_in[v] then the edge (u,v) forms a forward edge.
-
-**Cross Edges** -  If **v** is neither an ancestor or descendant of **u**, then edge (u,v) is a cross edge. In other words, if we already visited and exited **v** and time_in[u]>time_in[v] then (u,v) is a cross edge.
+   - **Cross Edges** -  If **v** is neither an ancestor or descendant of **u**, then edge (u,v) is a cross edge. In other words, if we already visited and exited **v** and time_in[u]>time_in[v] then (u,v) is a cross edge.
 
 **Note:** Forward edges and cross edges only exist in directed graphs.
 
