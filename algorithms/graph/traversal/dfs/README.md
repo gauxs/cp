@@ -26,7 +26,7 @@ We can classify the edges using the entry and exit time of the end nodes **u** a
    - **Tree Edge** - If **v** is visited after **u** then edge (u,v) is called a tree edge. In other words, if **v** is visited for the first time and **u** is currently being visited then (u,v) is called tree edge. These edges form a DFS tree and hence the name tree edges.
 
 2. If **v** is visited before **u**:
-   - **Back edges** - If **v** is an ancestor of **u**, then the edge (u,v) is a back edge. **v** is an ancestor exactly if we already entered , but not exited it yet. Back edges complete a cycle as there is a path from ancestor **v** to descendant **u** (in the recursion of DFS) and an edge from descendant **u** to ancestor **v** (back edge), thus a cycle is formed. Cycles can be detected using back edges.
+   - **Back edges** - If **v** is an ancestor of **u**, then the edge (u,v) is a back edge. **v** is an ancestor exactly if we already entered, but not exited it yet. Back edges complete a cycle as there is a path from ancestor **v** to descendant **u** (in the recursion of DFS) and an edge from descendant **u** to ancestor **v** (back edge), thus a cycle is formed. Cycles can be detected using back edges.
 
    - **Forward Edges** - If **v** is a descendant of **u**, then edge (u,v) is a forward edge. In other words, if we already visited and exited **v** and time_in[u]<time_in[v] then the edge (u,v) forms a forward edge.
 
