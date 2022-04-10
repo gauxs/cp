@@ -27,8 +27,11 @@ Topological Sorting is mainly used for scheduling jobs from the given dependenci
 6. Ordering of formula cell evaluation when recomputing formula values in spreadsheets
 
 ## Practice
-1. Practice questions - [Leetcode - Topological Sort](https://leetcode.com/tag/topological-sort/)
-2. Good questions - 
+All questions - [Leetcode - Topological Sort](https://leetcode.com/tag/topological-sort/)
+| **S.No** 	|                                        **Warmup**                                        	|                                                        **Challenging**                                                       	|
+|:--------:	|:----------------------------------------------------------------------------------------:	|:----------------------------------------------------------------------------------------------------------------------------:	|
+|     1    	| [Leetcode - Parallel courses - III](https://leetcode.com/problems/parallel-courses-iii/) 	| [Leetcode - Number of ways to arrive at destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/) 	|
+|     2    	|                                                                                          	|                    [Leetcode - Minimum height trees](https://leetcode.com/problems/minimum-height-trees/)                    	|
 
 ## References
 1. [CP Algorithms - Topological sort](https://cp-algorithms.com/graph/topological-sort.html)
