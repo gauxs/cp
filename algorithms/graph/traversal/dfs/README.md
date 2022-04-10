@@ -12,17 +12,11 @@ Depth First Search finds the lexicographical first path in the graph from a sour
 
 ### Applications
 1. Find any path in the graph from source vertex **s** to all vertices.
-
 2. Find lexicographical first path in the graph from source **s** to all vertices.
-
 3. Check if a vertex in a tree is an ancestor of some other vertex:
-
 4. Find the lowest common ancestor (LCA) of two vertices.
-
 5. Topological sorting.
-
 6. Find strongly connected components in a directed graph
-
 7. Find bridges in an undirected graph
 
 ### Classification of edges
