@@ -22,7 +22,7 @@ Topological Sorting is mainly used for scheduling jobs from the given dependenci
 1. Logic synthesis
 2. Data serialization
 3. Instruction scheduling
-4. Resolving symbol dependencies in linkers\
+4. Resolving symbol dependencies in linkers
 5. Determining the order of compilation tasks to perform in make files
 6. Ordering of formula cell evaluation when recomputing formula values in spreadsheets
 
