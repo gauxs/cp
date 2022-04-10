@@ -26,8 +26,10 @@ Following are some important observation on the algorithm:
 8. Find the shortest path of even length from a source vertex **s** to a target vertex **t** in an unweighted graph.
 
 ### Practice
-1. Practice questions - [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/)
-2. Good questions - [01 Matrix](https://leetcode.com/problems/01-matrix/) | [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/)
+|                                     **Warmup**                                    	|                                               **Challenging**                                               	|
+|:---------------------------------------------------------------------------------:	|:-----------------------------------------------------------------------------------------------------------:	|
+| [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/) 	|                            [01 Matrix](https://leetcode.com/problems/01-matrix/)                            	|
+|                                                                                   	| [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/) 	|
 
 ## References
 1. [CP Algorithms - BFS](https://cp-algorithms.com/graph/breadth-first-search.html)
