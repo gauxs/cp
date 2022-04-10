@@ -18,5 +18,7 @@ For directed graphs there is the notion of strongly connected components, for wh
 The process of break down the graph into cycles is called **cycle decomposition**.
 
 ## Practice
-1. Practice questions - 
-2. Good questions - [K similar strings](https://leetcode.com/problems/k-similar-strings) | [Couples holding hands](https://leetcode.com/problems/couples-holding-hands/)
+| **S.No** 	| **Warmup** 	| **Challenging**                                                                          	|
+|----------	|------------	|------------------------------------------------------------------------------------------	|
+|     1    	|            	| [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings)          	|
+|     2    	|            	| [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/) 	|
