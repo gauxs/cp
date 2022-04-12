@@ -1,12 +1,15 @@
 # Breadth First Search
+
 Breadth first search is one of the basic and essential searching algorithms on graphs. The algorithm works on both directed and undirected graph. The path found by breadth first search to any node is the **shortest path** to that node, i.e the path that contains the smallest number of edges, in unweighted graphs.
 
 The algorithm can be understood as a fire spreading on the graph: at the zero'th step only the source vertex is on fire. At each step, the fire burning at each vertex spreads to all of its neighbors. In one iteration of the algorithm, the **ring of fire** is expanded in width by one unit (hence the name of the algorithm).
 
 Following are some important observation on the algorithm:
+
 1. The queue holding the vertex to be visited next, can only have vertices from current and next level or previous and current level. Queue will never hold vertices from more than two levels.
 
 ### Algorithm Analysis
+
 ```
     V - number of vertices
     E - number of edges
@@ -16,6 +19,7 @@ Following are some important observation on the algorithm:
 ```
 
 ### Applications
+
 1. Find the shortest path from a source to other vertices in an unweighted graph.
 2. Find all connected components in an undirected graph in O(V+E) time.
 3. Finding a solution to a problem or a game with the least number of moves, if each state of the game can be represented by a vertex of the graph, and the transitions from one state to the other are the edges of the graph.
@@ -26,10 +30,14 @@ Following are some important observation on the algorithm:
 8. Find the shortest path of even length from a source vertex **s** to a target vertex **t** in an unweighted graph.
 
 ### Practice
-| **S.No** 	|                                     **Warmup**                                    	|                                               **Challenging**                                               	|
-|:--------:	|:---------------------------------------------------------------------------------:	|:-----------------------------------------------------------------------------------------------------------:	|
-|     1    	| [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/) 	|                            [01 Matrix](https://leetcode.com/problems/01-matrix/)                            	|
-|     2    	|                                                                                   	| [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/) 	|
+
+| **S.No** |                                    **Warmup**                                     |                                               **Challenging**                                               |
+| :------: | :-------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
+|    1     | [Leetcode - Breadth First Search](https://leetcode.com/tag/breadth-first-search/) |                            [01 Matrix](https://leetcode.com/problems/01-matrix/)                            |
+|    2     |                                                                                   | [Minimum operations to convert number](https://leetcode.com/problems/minimum-operations-to-convert-number/) |
+|          |                                                                                   |               [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings)               |
+|          |                                                                                   |          [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/)           |
 
 ## References
+
 1. [CP Algorithms - BFS](https://cp-algorithms.com/graph/breadth-first-search.html)
