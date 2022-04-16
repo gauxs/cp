@@ -1,6 +1,6 @@
 ## Cycle Decomposition
 
-The process of break down the graph into cycles is called **cycle decomposition**.
+The process of breaking down the graph into cycles is called **cycle decomposition**. Cycle decomposition can be done by [cycle swapping](https://leetcode.com/problems/couples-holding-hands/discuss/113362/JavaC%2B%2B-O(N)-solution-using-cyclic-swapping).
 
 ## Practice
 
