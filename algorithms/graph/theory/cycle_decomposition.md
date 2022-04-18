@@ -16,6 +16,6 @@ The process of breaking down the graph into cycles is called **cycle decompositi
 - Swap the source at those position which will bring us to those permutation which can give us answer while discarding other needless permutation, also keep track of already visited permutations, [my submission](https://leetcode.com/submissions/detail/678713606/)
 - The problem is essentially finding maximum number of cycles in the graph, number os edges in one cycle - 1 will give us the number of swaps to decompose one cycle. Finding this for all the cycles will be minimum number os swaps. Implementing this is a bit tricky
 
-**Note**: [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) and [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/) we asked in phone screening round of Google :weary:
+**Note**: [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) and [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/) were asked in phone screening round of Google :weary:
 
 **Note**: Need more intuition buildup in this topic.
