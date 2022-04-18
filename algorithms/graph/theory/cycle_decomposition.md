@@ -4,11 +4,11 @@ The process of breaking down the graph into cycles is called **cycle decompositi
 
 ## Practice
 
-| **S.No** 	|                                            **Warmup**                                            	|                                       **Challenging**                                      	|
-|:--------:	|:------------------------------------------------------------------------------------------------:	|:------------------------------------------------------------------------------------------:	|
-|     1    	| [Leetcode - Find the duplicate number](https://leetcode.com/problems/find-the-duplicate-number/) 	| [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) 	|
-|     2    	|                                                                                                  	|       [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings)      	|
-|     3    	|                                                                                                  	|  [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/)  	|
+| **S.No** 	| **Warmup** 	|                                       **Challenging**                                      	|
+|:--------:	|:----------:	|:------------------------------------------------------------------------------------------:	|
+|     1    	|            	| [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) 	|
+|     2    	|            	|       [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings)      	|
+|     3    	|            	|  [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/)  	|
 
 **Note**: [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings) can be solved in 3 ways:
 
