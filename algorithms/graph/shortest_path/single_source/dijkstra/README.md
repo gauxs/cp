@@ -8,7 +8,7 @@ Following are some important observation on the algorithm:
 2. If we modify this algorithm and pick any vertex(instead of minimum), the algorithm will still work but time complexity will increase. This is because we can keep finding **shorter paths** to this vertex in future iterations. Why will the complexity increase?
 4. Why doesn't this algorithm work on *-ve edges* and on *-ve cycles*?
 5. For any implementation, think why we always pick minimum vertex? What if we pick random or maximum vertex? Will the algorithm still work?
-6. Think, why does this algorithm work on both directed and undirected graphs?
+6. Why does this algorithm work on both directed and undirected graphs?
 
 ### Algorithm Analysis
 ```
