@@ -42,3 +42,4 @@ We can classify the edges using the entry and exit time of the end nodes **u** a
 
 ## References
 1. [CP Algorithms - DFS](https://cp-algorithms.com/graph/depth-first-search.html)
+2. [DFS for beginners](https://leetcode.com/problems/reconstruct-itinerary/discuss/78768/Short-Ruby-Python-Java-C%2B%2B) by [StefanPochmann](https://leetcode.com/StefanPochmann/)
