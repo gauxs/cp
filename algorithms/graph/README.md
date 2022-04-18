@@ -1,4 +1,6 @@
 # Graphs
+A Graph is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph. More formally a Graph can be defined as, ***a Graph consists of a finite set of vertices(or nodes) and set of Edges which connect a pair of nodes.***
+
 Must know graph algorithms
 1. BFS
 2. DFS - [DFS for beginners](https://leetcode.com/problems/reconstruct-itinerary/discuss/78768/Short-Ruby-Python-Java-C%2B%2B) by [StefanPochmann](https://leetcode.com/StefanPochmann/)
