@@ -22,7 +22,7 @@ priority_queue<int, vector<int>, greater<int>> pq;  // creates min-heap
 
 ```
 struct mycomparator{
-    bool operation()(int const&a, int const&b){
+    bool operator()(int const&a, int const&b){
         return a<b; // max-heap
         return a>b; // min-heap
     }
