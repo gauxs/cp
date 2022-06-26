@@ -7,14 +7,28 @@
 Vector<Integer> v = new Vector<Integer>(n);
 ```
 
-## LinkedList
+## LinkedList & Queue
 1. acts as a dynamic array
 2. the elements are not stored in a continuous fashion
 3. implemented using the doubly linked list data structure
 
 ```
-LinkedList ll = new LinkedList(); 
+ LinkedList ll = new LinkedList();
+
+ll.add(2);
+ll.offerFirst(1);
+ll.offerLast(3);  // analogous to queue.push()
+
+System.out.println(ll);
+System.out.println(ll.peekFirst()); // analogous to queue.front()
 ```
+```
+OUTPUT:
+[1, 2, 3]
+1
+```
+
+## Deque
 
 ## Stack
 The class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek. The class can also be said to extend Vector and treats the class as a stack with the five mentioned functions. The class can also be referred to as the subclass of Vector.
@@ -108,7 +122,8 @@ OUTPUT:
 ## References
 1. [GFG-Vector](https://www.geeksforgeeks.org/java-util-vector-class-java/)
 2. [GFG-LinkedList](https://www.geeksforgeeks.org/linked-list-in-java/)
-3. [GFG-Stack](https://www.geeksforgeeks.org/stack-class-in-java/)
-4. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
-5. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
-6. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
+3. [GFG-Deque](https://www.geeksforgeeks.org/arraydeque-in-java/)
+4. [GFG-Stack](https://www.geeksforgeeks.org/stack-class-in-java/)
+5. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
+6. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
+7. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
