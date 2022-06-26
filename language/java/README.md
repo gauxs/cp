@@ -1,9 +1,12 @@
 # Java data structures for LLD
+## HashMap
+HashMap is the implementation of Map, but it doesn't maintain any order.
+
 ## TreeMap
+TreeMap is the implementation of Map and SortedMap. It maintains ascending order.
 1. contains only unique elements
 2. not synchronized
 3. cannot have a null key but can have multiple null values
-4. maintains ascending order
 
 ```
 NavigableMap<Integer, String> navigableTreeMap = new TreeMap<>();
