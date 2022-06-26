@@ -76,6 +76,7 @@ OUTPUT:
 {3=three, 5=five}
 ```
 **Note:** NavigableMap provides more freedom in navigation across a map
+**Note:** For concurrent environments use *ConcurrentHashMap*
 
 ## References
 1. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
