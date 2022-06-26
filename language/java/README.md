@@ -6,22 +6,26 @@
 4. maintains ascending order
 
 ```
-Map<Integer, String> treeMap = new TreeMap<>();
+NavigableMap<Integer, String> navigableTreeMap = new TreeMap<>();
 
-treeMap.put(5, "five");
-treeMap.put(1, "one");
-treeMap.put(3, "three");
-treeMap.put(10, "ten");
+navigableTreeMap.put(5, "five");
+navigableTreeMap.put(1, "one");
+navigableTreeMap.put(3, "three");
+navigableTreeMap.put(10, "ten");
 
-for(Map.Entry<Integer,String> v :treeMap.entrySet())
-    System.out.println(v.getKey() + " " + v.getValue());
+System.out.println(navigableTreeMap);
+System.out.println(navigableTreeMap.descendingMap());
+System.out.println(navigableTreeMap.headMap(5, true));
+System.out.println(navigableTreeMap.tailMap(5, true));
+System.out.println(navigableTreeMap.subMap(3, true, 5, true));
 ```    
 ```
 OUTPUT:
-1 one
-3 three
-5 five
-10 ten
+{1=one, 3=three, 5=five, 10=ten}
+{10=ten, 5=five, 3=three, 1=one}
+{1=one, 3=three, 5=five}
+{5=five, 10=ten}
+{3=three, 5=five}
 ```
 ## References
 1. [Javapoint - TreeMap](https://www.javatpoint.com/java-treemap)
