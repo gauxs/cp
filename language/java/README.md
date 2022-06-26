@@ -6,6 +6,16 @@
 ```
 Vector<Integer> v = new Vector<Integer>(n);
 ```
+
+## LinkedList
+1. acts as a dynamic array
+2. the elements are not stored in a continuous fashion
+3. implemented using the doubly linked list data structure
+
+```
+LinkedList ll = new LinkedList(); 
+```
+
 ## Stack
 The class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek. The class can also be said to extend Vector and treats the class as a stack with the five mentioned functions. The class can also be referred to as the subclass of Vector.
 
@@ -97,7 +107,8 @@ OUTPUT:
 
 ## References
 1. [GFG-Vector](https://www.geeksforgeeks.org/java-util-vector-class-java/)
-2. [GFG-Stack](https://www.geeksforgeeks.org/stack-class-in-java/)
-3. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
-4. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
-5. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
+2. [GFG-LinkedList](https://www.geeksforgeeks.org/linked-list-in-java/)
+3. [GFG-Stack](https://www.geeksforgeeks.org/stack-class-in-java/)
+4. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
+5. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
+6. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
