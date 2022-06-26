@@ -29,6 +29,13 @@ OUTPUT:
 ```
 
 ## Deque
+1. have no capacity restrictions and they grow as necessary to support usage
+2. not thread-safe 
+3. Null elements are prohibited
+4. ArrayDeque class is likely to be faster than Stack when used as a stack
+5. ArrayDeque class is likely to be faster than LinkedList when used as a queue
+
+
 
 ## Stack
 The class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek. The class can also be said to extend Vector and treats the class as a stack with the five mentioned functions. The class can also be referred to as the subclass of Vector.
