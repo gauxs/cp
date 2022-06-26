@@ -1,12 +1,19 @@
 # Java data structures for LLD
 ## HashMap
 HashMap is the implementation of Map, but it doesn't maintain any order.
+1. contains values based on the key
+2. contains only unique keys
+3. may have one null key and multiple null values
+4. is non synchronized
+5. maintains no order
+6. initial default capacity of Java HashMap class is 16 with a load factor of 0.75
 
 ## TreeMap
 TreeMap is the implementation of Map and SortedMap. It maintains ascending order.
-1. contains only unique elements
-2. not synchronized
-3. cannot have a null key but can have multiple null values
+1. red-black tree based implementation
+2. contains only unique elements
+3. not synchronized
+4. cannot have a null key but can have multiple null values
 
 ```
 NavigableMap<Integer, String> navigableTreeMap = new TreeMap<>();
