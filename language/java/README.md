@@ -75,7 +75,7 @@ OUTPUT:
 {5=five, 10=ten}
 {3=three, 5=five}
 ```
-**Note:** NavigableMap provides more freedom in navigation across a map
+**Note:** NavigableMap provides more freedom in navigation across a map <br>
 **Note:** For concurrent environments use *ConcurrentHashMap*
 
 ## References
