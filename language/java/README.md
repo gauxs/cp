@@ -1,4 +1,12 @@
-# Java data structures for LLD
+## Vector
+1. Vector implements a dynamic array which means it can grow or shrink as required. Like an array, it contains components that can be accessed using an integer index.
+2. They are very similar to ArrayList, but Vector is synchronized and has some legacy methods that the collection framework does not contain.
+3. It also maintains an insertion order like an ArrayList. Still, it is rarely used in a non-thread environment as it is synchronized, and due to this, it gives a poor performance in adding, searching, deleting, and updating its elements.
+
+```
+Vector<Integer> v = new Vector<Integer>(n);
+```
+
 ## HashMap
 HashMap is the implementation of Map, but it doesn't maintain any order.
 1. contains values based on the key
@@ -79,6 +87,8 @@ OUTPUT:
 **Note:** For concurrent environments use *ConcurrentHashMap*
 
 ## References
-1. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
-2. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
-3. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
+1. [GFG-Vector](https://www.geeksforgeeks.org/java-util-vector-class-java/)
+2. [GFG-Stack](https://www.geeksforgeeks.org/stack-class-in-java/)
+3. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
+4. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
+5. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
