@@ -27,5 +27,7 @@ OUTPUT:
 {5=five, 10=ten}
 {3=three, 5=five}
 ```
+**Note:** NavigableMap provides more freedom in navigation across a map
+
 ## References
 1. [Javapoint - TreeMap](https://www.javatpoint.com/java-treemap)
