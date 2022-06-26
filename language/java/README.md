@@ -177,6 +177,27 @@ OUTPUT:
 **Note:** NavigableMap provides more freedom in navigation across a map <br>
 **Note:** For concurrent environments use *ConcurrentHashMap*
 
+## HashSet
+1. implements Set Interface
+2. underlying data structure for HashSet is Hashtable
+3. implements the Set Interface, duplicate values are not allowed
+4. objects inserted in HashSet are not guaranteed to be inserted in the same order. Objects are inserted based on their hash code
+5. NULL elements are allowed in HashSet
+
+```
+HashSet<Integer> set = new HashSet<>();
+
+set.add(1);
+set.add(1);
+set.add(3);
+
+System.out.println(set);
+```
+```
+OUTPUT:
+[1, 3]
+```
+
 ## References
 1. [GFG-Vector](https://www.geeksforgeeks.org/java-util-vector-class-java/)
 2. [GFG-LinkedList](https://www.geeksforgeeks.org/linked-list-in-java/)
@@ -186,3 +207,4 @@ OUTPUT:
 6. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
 7. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
 8. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
+9. [GFG-HashSet](https://www.geeksforgeeks.org/hashset-in-java/)
