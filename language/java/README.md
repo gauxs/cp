@@ -22,6 +22,30 @@ OUTPUT:
 {1=one, 3=three, 5=five, 10=ten}
 ```
 
+## LinkedHashMap
+Java LinkedHashMap class is Hashtable and Linked list implementation of the Map interface, with predictable iteration order. It inherits HashMap class and implements the Map interface.
+1. contains values based on the key.
+2. contains unique elements.
+3. may have one null key and multiple null values.
+4. non synchronized.
+5. maintains insertion order.
+6. initial default capacity of Java HashMap class is 16 with a load factor of 0.75.
+
+```
+Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>();
+
+linkedHashMap.put(5, "five");
+linkedHashMap.put(1, "one");
+linkedHashMap.put(3, "three");
+linkedHashMap.put(10, "ten");
+
+System.out.println(linkedHashMap);
+```
+```
+OUTPUT:
+{5=five, 1=one, 3=three, 10=ten}
+```
+
 ## TreeMap
 TreeMap is the implementation of Map and SortedMap. It maintains ascending order.
 1. red-black tree based implementation
@@ -55,4 +79,5 @@ OUTPUT:
 
 ## References
 1. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
-2. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
+2. [Javapoint-LinkedHashMap](https://www.javatpoint.com/java-linkedhashmap)
+3. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
