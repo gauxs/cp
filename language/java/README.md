@@ -51,7 +51,24 @@ System.out.println(dq);
 OUTPUT:
 [0, 1, 2, 3, 4]
 ```
+## Priority Queue
+1. doesn’t permit null.
+2. are unbound queues.
+3. head of this queue is the least element with respect to the specified ordering. If multiple elements are tied for the least value, the head is one of those elements — ties are broken arbitrarily.
+4. PriorityQueue is not thread-safe, java provides PriorityBlockingQueue class that implements the BlockingQueue interface to use in a java multithreading environment.
+5. queue retrieval operations poll,  remove,  peek, and element access the element at the head of the queue.
+6. provides O(log(n)) time for add and poll methods.
 
+```
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+pq.add(1);
+pq.add(2);
+pq.add(3);
+
+System.out.println(pq.poll());
+System.out.println(pq.peek());
+```
 
 ## Stack
 The class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek. The class can also be said to extend Vector and treats the class as a stack with the five mentioned functions. The class can also be referred to as the subclass of Vector.
