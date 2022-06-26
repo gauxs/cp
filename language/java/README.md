@@ -6,6 +6,15 @@
 ```
 Vector<Integer> v = new Vector<Integer>(n);
 ```
+## Stack
+The class is based on the basic principle of last-in-first-out. In addition to the basic push and pop operations, the class provides three more functions of empty, search, and peek. The class can also be said to extend Vector and treats the class as a stack with the five mentioned functions. The class can also be referred to as the subclass of Vector.
+
+```
+Stack<E> stack = new Stack<E>();
+stack.push(i);
+stack.peek();
+stack.pop()
+```
 
 ## HashMap
 HashMap is the implementation of Map, but it doesn't maintain any order.
