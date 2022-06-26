@@ -33,4 +33,5 @@ OUTPUT:
 **Note:** NavigableMap provides more freedom in navigation across a map
 
 ## References
-1. [Javapoint - TreeMap](https://www.javatpoint.com/java-treemap)
+1. [Javapoint-HashMap](https://www.javatpoint.com/java-hashmap)
+2. [Javapoint-TreeMap](https://www.javatpoint.com/java-treemap)
