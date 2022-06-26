@@ -68,6 +68,24 @@ pq.add(3);
 
 System.out.println(pq.poll());
 System.out.println(pq.peek());
+
+System.out.println("########");
+
+PriorityQueue<Integer> maxPQ = new PriorityQueue<>(Collections.reverseOrder());
+maxPQ.add(1);
+maxPQ.add(2);
+maxPQ.add(3);
+
+System.out.println(maxPQ.poll());
+System.out.println(maxPQ.peek());
+```
+```
+OUTPUT:
+1
+2
+########
+3
+2
 ```
 
 ## Stack
