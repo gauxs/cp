@@ -35,6 +35,22 @@ OUTPUT:
 4. ArrayDeque class is likely to be faster than Stack when used as a stack
 5. ArrayDeque class is likely to be faster than LinkedList when used as a queue
 
+```
+ArrayDeque<Integer> dq = new ArrayDeque<>();
+
+dq.add(1);
+dq.add(2);
+dq.add(3);
+
+dq.addFirst(0);
+dq.addLast(4);
+
+System.out.println(dq);
+```
+```
+OUTPUT:
+[0, 1, 2, 3, 4]
+```
 
 
 ## Stack
