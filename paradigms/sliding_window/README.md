@@ -50,8 +50,6 @@ public:
 };
 ```
 
-Problem which **_seems_** like a sliding window but **_isn't_**: [Contiguous Array](https://leetcode.com/problems/contiguous-array/)
-
 ## Practice Problems
 
 1. Warmup
@@ -60,7 +58,9 @@ Problem which **_seems_** like a sliding window but **_isn't_**: [Contiguous Arr
 2. Quality
    - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
    - https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
-3. All: https://leetcode.com/tag/sliding-window/
+3. All Problems: https://leetcode.com/tag/sliding-window/
+4. Problem which **_seems_** like a sliding window but **_isn't_**
+   - [Contiguous Array](https://leetcode.com/problems/contiguous-array/)
 
 ## References
 
