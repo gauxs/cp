@@ -32,7 +32,20 @@ std::priority_queue<int, std::vector<int>, Compare> customPQ;
 
 ---
 
-## ➕ 2. Inserting Elements
+## 2. User Defined Comparator
+
+```cpp
+struct mycomparator{
+    bool operator()(int const&a, int const&b){
+        return a<b; // max-heap
+        return a>b; // min-heap
+    }
+}
+
+priority_queue<int, vector<int>, mycomparator> pq;
+```
+
+## ➕ 3. Inserting Elements
 
 ```cpp
 pq.push(10);
@@ -43,7 +56,7 @@ pq.push(20);
 
 ---
 
-## ➖ 3. Removing Elements
+## ➖ 4. Removing Elements
 
 ```cpp
 pq.pop(); // Removes the element with the highest priority (top element)
@@ -51,7 +64,7 @@ pq.pop(); // Removes the element with the highest priority (top element)
 
 ---
 
-## 👀 4. Accessing the Top Element
+## 👀 5. Accessing the Top Element
 
 ```cpp
 pq.top(); // Returns the element with the highest priority
@@ -59,7 +72,7 @@ pq.top(); // Returns the element with the highest priority
 
 ---
 
-## 📏 5. Size and Capacity
+## 📏 6. Size and Capacity
 
 ```cpp
 pq.size();  // Number of elements in the queue
