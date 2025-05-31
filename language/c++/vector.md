@@ -1,7 +1,6 @@
 # C++ STL
 
-## 📦 1. Creating a Vector
-
+## 1. Creating a Vector
 ```cpp
 std::vector<int> v;                  // Empty vector
 std::vector<int> v(5);               // 5 elements, default-initialized (0)
@@ -9,7 +8,7 @@ std::vector<int> v(5, 10);           // 5 elements, all 10
 std::vector<int> v = {1, 2, 3};      // Initialize using initializer list
 ```
 
-## 🎯 2. Accessing Elements
+## 2. Accessing Elements
 ``` cpp
 int x = v[2];            // No bounds check
 int y = v.at(2);         // With bounds check
@@ -20,7 +19,7 @@ int last = v.back();     // Last element
 int* arr = v.data();     // Pointer to underlying array
 ```
 
-## 📏 3. Size and Capacity
+## 3. Size and Capacity
 ``` cpp
 v.size();            // Current size
 v.capacity();        // Current capacity
@@ -33,7 +32,7 @@ v.reserve(20);       // Pre-allocate capacity
 v.shrink_to_fit();   // Reduce capacity to match size
 ```
 
-## 🛠️ 4. Modifiers
+## 4. Modifiers
 ``` cpp
 v.push_back(10);               // Add at end
 v.insert(v.begin() + 1, 15);   // Insert at index 1
@@ -52,7 +51,7 @@ std::vector<int> v2 = {7, 8};
 v.swap(v2);                    // Swap contents
 ```
 
-## 🔁 5. Iterators
+## 5. Iterators
 
 ``` cpp
 auto it = v.begin();           // Start iterator
@@ -65,6 +64,11 @@ auto cit = v.cbegin();         // Const start
 auto crit = v.crbegin();       // Const reverse start
 ```
 
+## 6. Reverse a vector
+
+```cp
+reverse(v.begin(), v.end());
+```
 ## 📚 References
 
 1. [GeeksforGeeks – Vector in C++ STL](https://www.geeksforgeeks.org/vector-in-cpp-stl/)
