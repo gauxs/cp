@@ -13,3 +13,6 @@ Algorithms i learned and implemented while solving competitive programming  ques
 - [ ] stl library primer readme - https://github.com/MAZHARMIK/Cpp-STL-Quick-Help
 - [ ] graph/lca/preprocess
 - [ ] use data_structre/heap in sorting/heap_sort
+
+git config user.name "gauxs"
+git config user.email "sgau0522@gmail.com"
