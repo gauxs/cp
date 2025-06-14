@@ -34,7 +34,7 @@ int quick_select(
     int high)
 {
 
-    if (low < high)
+    if (k > 0 && k <= high - low + 1)
     {
         int p = partition(nums, low, high);
 
