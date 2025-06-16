@@ -97,7 +97,6 @@ std::cout << m.at(1);        // Access value at key 1 (throws if not found)
 map<int, int> m;
 auto it = m.find(2)
 
-// Check if key1 is found
 if (it != mp.end()) {
     cout << "Key '" << it->first << "' found with";
     cout << " value: " << it->second << endl;
