@@ -94,8 +94,13 @@ std::cout << m.at(1);        // Access value at key 1 (throws if not found)
 ## 🔍 Finding and Checking
 
 ```cpp
-if (m.find(2) != m.end()) {
-    std::cout << "Key 2 exists";
+map<int, int> m;
+auto it = m.find(2)
+
+// Check if key1 is found
+if (it != mp.end()) {
+    cout << "Key '" << it->first << "' found with";
+    cout << " value: " << it->second << endl;
 }
 
 if (m.count(3)) {
