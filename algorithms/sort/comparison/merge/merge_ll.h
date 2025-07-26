@@ -31,23 +31,6 @@ public:
         return slow;
     }
 
-    int findLen(ListNode *left, ListNode *right)
-    {
-        if (left == NULL)
-        {
-            return 0;
-        }
-
-        int len = 1;
-        while (left != right)
-        {
-            len++;
-            left = left->next;
-        }
-
-        return len;
-    }
-
     ListNode *mergeArray(ListNode *leftList, ListNode *rightList)
     {
         ListNode *dummyNode = new ListNode();
