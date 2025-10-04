@@ -58,11 +58,45 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 | Large integer data | Radix Sort | Linear time for large datasets |
 | External sorting | Merge Sort | Good for disk-based sorting |
 
-## Practice
-1. Practice questions - [Leetcode - Sorting](https://leetcode.com/tag/sorting/)
-2. Good questions - [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) | [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/) | [Wiggle Sort-II](https://leetcode.com/problems/wiggle-sort-ii/)
+## Practice Problems
 
-## Reference
-1. [GeeksForGeeks - Sorting](https://www.geeksforgeeks.org/sorting-algorithms/)
-2. [Afteracademy - Comparison of sorting algorithms](https://afteracademy.com/blog/comparison-of-sorting-algorithms)
-3. [GeeksForGeeks - Making sorting stable](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
+### Beginner Level
+- **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
+- **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
+- **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
+
+### Intermediate Level
+- **[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)** 
+- **[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)**
+- **[Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)** 
+- **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
+
+### Advanced Level
+- **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
+- **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
+- **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
+
+### Complete Problem Set
+- **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
+
+## References
+
+### Comprehensive Guides
+- **[GeeksForGeeks - Sorting Algorithms](https://www.geeksforgeeks.org/sorting-algorithms/)** - Complete overview of all sorting algorithms with implementations
+- **[Afteracademy - Comparison of Sorting Algorithms](https://afteracademy.com/blog/comparison-of-sorting-algorithms)** - Detailed comparison and analysis of sorting algorithms
+- **[VisuAlgo - Sorting](https://visualgo.net/en/sorting)** - Interactive visualizations of sorting algorithms
+
+### Algorithm Properties & Theory
+- **[GeeksForGeeks - Stability in Sorting Algorithms](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)** - Understanding stable vs unstable sorting
+- **[Khan Academy - Sorting Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms)** - Educational content with step-by-step explanations
+- **[MIT OpenCourseWare - Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)** - Comprehensive algorithm course including sorting
+
+### Implementation Resources
+- **[Algorithm Visualizer](https://algorithm-visualizer.org/)** - Interactive sorting algorithm demonstrations
+- **[Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)** - Visual comparison of sorting algorithm performance
+- **[C++ Reference - Sorting](https://en.cppreference.com/w/cpp/algorithm/sort)** - C++ standard library sorting functions
+
+### Advanced Topics
+- **[External Sorting](https://en.wikipedia.org/wiki/External_sorting)** - Wikipedia article on external sorting techniques
+- **[In-place Algorithm](https://en.wikipedia.org/wiki/In-place_algorithm)** - Understanding in-place algorithms
+- **[Comparison Sort](https://en.wikipedia.org/wiki/Comparison_sort)** - Theory behind comparison-based sorting
