@@ -18,7 +18,8 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 | **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) | ✅ | ❌ | Divide and conquer, good for external sorting |
 | **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) | ❌ | ✅ | Average case is efficient, worst case rare |
 | **Heap Sort** | O(n log n) | O(n log n) | O(n log n) | O(1) | ❌ | ✅ | Guaranteed O(n log n) performance |
-| **Shell Sort** | O(n log n) | O(n^1.3) | O(n²) | O(1) | ❌ | ✅ | Improved insertion sort with gaps |
+| **Shell Sort** | O(n log n) | O(n^1.5)* | O(n²) | O(1) | ❌ | ✅ | Improved insertion sort with gaps / *Depends on gap sequence |
+*Depends on gap sequence
 
 ## Non-Comparison based sorting algorithms
 
