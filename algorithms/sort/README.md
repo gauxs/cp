@@ -1,6 +1,13 @@
 # Sorting
 A Sorting Algorithm is used to rearrange a given array or list elements according to a comparison operator on the elements. The comparison operator is used to decide the new order of element in the respective data structure.
 
+## Algorithm Characteristics
+
+### In-place & Stable sorting algorithms
+1. **In-place sorting algorithm**: Uses constant space for producing the output (modifies the given array only). It sorts the list only by modifying the order of the elements within the list.
+
+2. **Stable sorting algorithm**: Two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. Any unstable sorting algorithm can be made stable via specific implementation [GeeksForGeeks - Making sorting stable](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
+
 ## Comparison based sorting algorithms
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity | Stable | In-place | Notes |
@@ -20,16 +27,6 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 | **Counting Sort** | O(n + k) | O(n + k) | O(n + k) | O(k) | ✅ | ❌ | k = range of input values |
 | **Radix Sort** | O(d × (n + k)) | O(d × (n + k)) | O(d × (n + k)) | O(n + k) | ✅ | ❌ | d = number of digits, k = base |
 | **Bucket Sort** | O(n + k) | O(n + k) | O(n²) | O(n + k) | ✅ | ❌ | k = number of buckets |
-
-## Algorithm Characteristics
-
-### In-place & Stable sorting algorithms
-1. **In-place sorting algorithm**: Uses constant space for producing the output (modifies the given array only). It sorts the list only by modifying the order of the elements within the list.
-
-2. **Stable sorting algorithm**: Two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. Any unstable sorting algorithm can be made stable via specific implementation [GeeksForGeeks - Making sorting stable](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
-
-### In-place & Stable sorting algorithms visualization
-<img src="https://github.com/gauxs/cp/blob/master/media/images/sorting_stable_inplace.png?raw=true" width="800" height="400">
 
 ## Complexity Analysis Summary
 
