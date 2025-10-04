@@ -33,7 +33,7 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 ### Time Complexity Comparison
 - **Best for small datasets**: Insertion Sort (O(n) best case)
 - **Best average performance**: Quick Sort (O(n log n) average)
-- **Most consistent**: Merge Sort (O(n log n) guaranteed)
+- **Most consistent**: Merge Sort (O(n log n) guaranteed, no surprises or performance spikes)
 - **Best for large datasets**: Heap Sort (O(n log n) guaranteed, in-place)
 - **Best for specific ranges**: Counting/Radix Sort (O(n + k))
 
