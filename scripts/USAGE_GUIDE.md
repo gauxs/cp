@@ -11,10 +11,7 @@ This guide explains how to use the interactive checklist system for tracking you
 This clears all checkboxes and resets progress counters to 0. Perfect for starting a new preparation cycle!
 
 ### 2. Check Your Progress
-```bash
-./scripts/progress_report.sh
-```
-Generates a detailed report showing completed, skipped, and remaining problems.
+Use GitHub Projects UI to view your progress with visual charts and metrics.
 
 
 ## 📊 How to Use Checkboxes
@@ -68,22 +65,24 @@ The main README shows:
 | Script | Purpose | Usage |
 |--------|---------|-------|
 | `reset_progress.sh` | Clear all checkboxes | `./scripts/reset_progress.sh` |
-| `progress_report.sh` | Generate detailed report | `./scripts/progress_report.sh` |
+| `sync_to_github.sh` | Create GitHub issues | `./scripts/sync_to_github.sh` |
+| `reset_github_progress.sh` | Reset GitHub issues | `./scripts/reset_github_progress.sh` |
 | `progress_tracker.html` | Visual progress tracker | Open in browser |
 
 ## 📈 Best Practices
 
 ### 1. Preparation Cycle Workflow
 1. **Start**: Run `./scripts/reset_progress.sh`
-2. **Study**: Work through problems systematically
-3. **Track**: Mark completed problems with `[x]`
-4. **Skip**: Mark difficult problems with `[-]` if needed
-5. **Review**: Use `./scripts/progress_report.sh` regularly
+2. **Sync**: Run `./scripts/sync_to_github.sh` to create GitHub issues
+3. **Study**: Work through problems systematically using GitHub Projects
+4. **Track**: Drag issues between columns (To Do → In Progress → Done)
+5. **Review**: Use GitHub Projects UI for progress visualization
 
-### 2. Marking Problems
-- ✅ **Complete (`[x]`)**: You solved it and understand the solution
-- ⏭️ **Skip (`[-]`)**: Too difficult for current level, revisit later
-- ⏳ **Not Done (`[ ]`)**: Haven't attempted yet
+### 2. Tracking Progress in GitHub Projects
+- ✅ **Done Column**: Problem solved and understood
+- ⏭️ **Skipped Column**: Too difficult, revisit later
+- 🔄 **In Progress Column**: Currently working on
+- 📋 **To Do Column**: Haven't attempted yet
 
 ### 3. Study Recommendations
 - Start with **Beginner** level problems

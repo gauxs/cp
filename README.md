@@ -35,7 +35,8 @@ Algorithms and data structures I learned and implemented while solving competiti
 
 ### Quick Actions
 - 🔄 **[Reset All Progress](scripts/reset_progress.sh)** - Clear all checkboxes for fresh start
-- 📊 **[View Detailed Progress](scripts/progress_report.sh)** - Generate detailed progress report
+- 🎯 **[Sync to GitHub Projects](scripts/sync_to_github.sh)** - Create interactive GitHub issues
+- 🔄 **[Reset GitHub Progress](scripts/reset_github_progress.sh)** - Reset GitHub project issues
 
 ---
 
