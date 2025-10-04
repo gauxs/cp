@@ -61,23 +61,29 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 ## Practice Problems
 
 ### Beginner Level
-- **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
-- **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
-- **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
+- [ ] **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
+- [ ] **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
+- [ ] **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
 
 ### Intermediate Level
-- **[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)** 
-- **[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)**
-- **[Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)** 
-- **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
+- [ ] **[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)** 
+- [ ] **[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)**
+- [ ] **[Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)** 
+- [ ] **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
 
 ### Advanced Level
-- **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
-- **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
-- **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
+- [ ] **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
+- [ ] **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
+- [ ] **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
 
 ### Complete Problem Set
-- **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
+- [ ] **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
+
+### Progress Tracking
+- **Beginner Level**: 0/3 completed
+- **Intermediate Level**: 0/4 completed  
+- **Advanced Level**: 0/3 completed
+- **Overall Progress**: 0/10 completed (0%)
 
 ## References
 
