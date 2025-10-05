@@ -69,7 +69,6 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 1. [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 2. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 3. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
-4. [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)
 
 ### Advanced Level
 1. [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)
