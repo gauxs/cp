@@ -61,23 +61,23 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 ## Practice Problems
 
 ### Beginner Level
-- [ ] **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
-- [ ] **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
-- [ ] **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
+1. **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
+2. **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
+3. **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
 
 ### Intermediate Level
-- [ ] **[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)**
-- [ ] **[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)**
-- [ ] **[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)**
-- [ ] **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
+1. **[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)**
+2. **[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)**
+3. **[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)**
+4. **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
 
 ### Advanced Level
-- [ ] **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
-- [ ] **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
-- [ ] **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
+1. **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
+2. **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
+3. **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
 
 ### Complete Problem Set
-- [ ] **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
+1. **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
 
 ### Progress Tracking
 - **Beginner Level**: 0/3 completed
