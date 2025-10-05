@@ -61,43 +61,43 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 ## Practice Problems
 
 ### Beginner Level
-1. **[Sort an Array](https://leetcode.com/problems/sort-an-array/)** - Perfect for validating sorting algorithm implementations
-2. **[Valid Anagram](https://leetcode.com/problems/valid-anagram/)** 
-3. **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
+1. [Sort an Array](https://leetcode.com/problems/sort-an-array/) - Perfect for validating sorting algorithm implementations
+2. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) 
+3. [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) 
 
 ### Intermediate Level
-1. **[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)**
-2. **[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)**
-3. **[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)**
-4. **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
+1. [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+2. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+3. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+4. [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)
 
 ### Advanced Level
-1. **[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)
-2. **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)
-3. **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
-4. **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
-5. **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
+1. [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)
+2. [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)
+3. [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) 
+4. [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/) 
+5. [Sort Colors](https://leetcode.com/problems/sort-colors/) 
 
-#### Complete Problem Set: **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)**
+#### Complete Problem Set: [LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)
 
 ## References
 
 ### Comprehensive Guides
-- **[GeeksForGeeks - Sorting Algorithms](https://www.geeksforgeeks.org/sorting-algorithms/)** - Complete overview of all sorting algorithms with implementations
-- **[Afteracademy - Comparison of Sorting Algorithms](https://afteracademy.com/blog/comparison-of-sorting-algorithms)** - Detailed comparison and analysis of sorting algorithms
-- **[VisuAlgo - Sorting](https://visualgo.net/en/sorting)** - Interactive visualizations of sorting algorithms
+- [GeeksForGeeks - Sorting Algorithms](https://www.geeksforgeeks.org/sorting-algorithms/) - Complete overview of all sorting algorithms with implementations
+- [Afteracademy - Comparison of Sorting Algorithms](https://afteracademy.com/blog/comparison-of-sorting-algorithms) - Detailed comparison and analysis of sorting algorithms
+- [VisuAlgo - Sorting](https://visualgo.net/en/sorting) - Interactive visualizations of sorting algorithms
 
 ### Algorithm Properties & Theory
-- **[GeeksForGeeks - Stability in Sorting Algorithms](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)** - Understanding stable vs unstable sorting
-- **[Khan Academy - Sorting Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms)** - Educational content with step-by-step explanations
-- **[MIT OpenCourseWare - Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)** - Comprehensive algorithm course including sorting
+- [GeeksForGeeks - Stability in Sorting Algorithms](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/) - Understanding stable vs unstable sorting
+- [Khan Academy - Sorting Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms) - Educational content with step-by-step explanations
+- [MIT OpenCourseWare - Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/) - Comprehensive algorithm course including sorting
 
 ### Implementation Resources
-- **[Algorithm Visualizer](https://algorithm-visualizer.org/)** - Interactive sorting algorithm demonstrations
-- **[Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)** - Visual comparison of sorting algorithm performance
-- **[C++ Reference - Sorting](https://en.cppreference.com/w/cpp/algorithm/sort)** - C++ standard library sorting functions
+- [Algorithm Visualizer](https://algorithm-visualizer.org/) - Interactive sorting algorithm demonstrations
+- [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms) - Visual comparison of sorting algorithm performance
+- [C++ Reference - Sorting](https://en.cppreference.com/w/cpp/algorithm/sort) - C++ standard library sorting functions
 
 ### Advanced Topics
-- **[External Sorting](https://en.wikipedia.org/wiki/External_sorting)** - Wikipedia article on external sorting techniques
-- **[In-place Algorithm](https://en.wikipedia.org/wiki/In-place_algorithm)** - Understanding in-place algorithms
-- **[Comparison Sort](https://en.wikipedia.org/wiki/Comparison_sort)** - Theory behind comparison-based sorting
+- [External Sorting](https://en.wikipedia.org/wiki/External_sorting) - Wikipedia article on external sorting techniques
+- [In-place Algorithm](https://en.wikipedia.org/wiki/In-place_algorithm) - Understanding in-place algorithms
+- [Comparison Sort](https://en.wikipedia.org/wiki/Comparison_sort) - Theory behind comparison-based sorting
