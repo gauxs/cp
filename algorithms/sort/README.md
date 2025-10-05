@@ -76,14 +76,7 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 2. **[Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)** 
 3. **[Sort Colors](https://leetcode.com/problems/sort-colors/)** 
 
-### Complete Problem Set
-1. **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)** - Comprehensive list of all sorting problems
-
-### Progress Tracking
-- **Beginner Level**: 0/3 completed
-- **Intermediate Level**: 0/4 completed  
-- **Advanced Level**: 0/3 completed
-- **Overall Progress**: 0/10 completed (0%)
+#### Complete Problem Set: **[LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)**
 
 ## References
 
