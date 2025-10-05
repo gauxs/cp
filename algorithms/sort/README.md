@@ -66,10 +66,10 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 - [ ] **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** 
 
 ### Intermediate Level
-- [ ] **[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)** - Quickselect algorithm
-- [ ] **[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)** - Sorting with frequency
-- [ ] **[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)** - Sorting intervals
-- [ ] **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)** - Advanced sorting with constraints
+- [ ] **[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)**
+- [ ] **[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)**
+- [ ] **[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)**
+- [ ] **[Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/)**
 
 ### Advanced Level
 - [ ] **[Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)** 
