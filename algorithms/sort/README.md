@@ -58,26 +58,7 @@ When all data that needs to be sorted cannot be placed in-memory at a time, the 
 | Large integer data | Radix Sort | Linear time for large datasets |
 | External sorting | Merge Sort | Good for disk-based sorting |
 
-## Practice Problems
-
-### Beginner Level
-1. [Sort an Array](https://leetcode.com/problems/sort-an-array/) - Perfect for validating sorting algorithm implementations
-2. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) 
-3. [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) 
-
-### Intermediate Level
-1. [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-2. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
-3. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
-
-### Advanced Level
-1. [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)
-2. [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)
-3. [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) 
-4. [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/) 
-5. [Sort Colors](https://leetcode.com/problems/sort-colors/) 
-
-#### Complete Problem Set: [LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)
+### Complete Problem Set: [LeetCode - Sorting Category](https://leetcode.com/tag/sorting/)
 
 ## References
 
