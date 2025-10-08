@@ -1,1 +1,30 @@
+# Compiled Object files
 *.obj
+*.o
+
+# Executable files
+*.exe
+*.out
+*.app
+main
+a.out
+
+# IDE and Editor files
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build directories
+build/
+bin/
+obj/

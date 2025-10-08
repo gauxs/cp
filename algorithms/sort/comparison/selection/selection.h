@@ -7,22 +7,24 @@
 #include "utils/basic.h"
 
 void selection_sort(
-        std::vector<int> &arr,
-            int n){
-                
-    for(int i=0; i<n; i++){
-        int min_index=-1;
-        int min_v=INT_MAX;
-        for(int j=i; j<n; j++){
-            if(arr[j]<min_v){
-                min_v=arr[j];
-                min_index=j;
+    std::vector<int> &arr,
+    int n)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+        int minIndex = i;
+        for (int j = i; j < n; j++)
+        {
+            if (arr[j] < arr[minIndex])
+            {
+                minIndex = j;
             }
         }
 
-        // replace swap with shifting to make this stable sort
-        std::swap(arr[i], arr[min_index]);
+        std::swap(arr[i], arr[minIndex]);
     }
+
     return;
 }
 

@@ -1,15 +1,56 @@
-# Algorithms
-Algorithms i learned and implemented while solving competitive programming  questions.
+# Competitive Programming & Interview Preparation
 
-# Overall helpfull links
-1. https://leetcode.com/discuss/general-discussion/665604/Important-and-Useful-links-from-all-over-the-LeetCode
-2. https://leetcode.com/discuss/general-discussion/1563880/all-you-need-this-for-better-preparation
+Algorithms and data structures I learned and implemented while solving competitive programming questions.
 
-# Finish
-1. https://www.techinterviewhandbook.org/grind75
-2. Top-X | DP, Greedy, Graph, Interview etc (https://www.geeksforgeeks.org/top-20-dynamic-programming-interview-questions/)
+## 🎯 Preparation Progress Tracker
 
-# TODO
-- [ ] stl library primer readme - https://github.com/MAZHARMIK/Cpp-STL-Quick-Help
-- [ ] graph/lca/preprocess
-- [ ] use data_structre/heap in sorting/heap_sort
+### Core Algorithm Topics
+- [ ] **Sorting** - [View Progress](algorithms/sort/README.md) (0/10 completed)
+- [ ] **Search** - Binary, Exponential, Jump, Quick Search
+- [ ] **Graph** - BFS, DFS, Shortest Path, MST, Topological Sort
+- [ ] **Dynamic Programming** - Various DP patterns and techniques
+- [ ] **Greedy** - Greedy algorithm strategies
+- [ ] **String** - KMP, Rabin-Karp, Z-Algorithm, Hashing
+- [ ] **Math** - Number theory, combinatorics, geometry
+- [ ] **Misc** - Kadane's algorithm, sliding window, etc.
+
+### Data Structures
+- [ ] **Binary Search Trees** - AVL, Treap
+- [ ] **Heaps** - Priority queues, heap operations
+- [ ] **Segment Trees** - Range queries and updates
+- [ ] **Union Find** - Disjoint set operations
+- [ ] **Trie** - String prefix operations
+- [ ] **Monotonic** - Monotonic stack/queue
+- [ ] **Misc** - Difference arrays, sparse tables, sqrt decomposition
+
+### Language-Specific Resources
+- [ ] **C++** - STL containers, algorithms, and techniques
+- [ ] **Go** - Go-specific implementations
+- [ ] **Java** - Java collections and algorithms
+
+### Overall Progress
+- **Completed Topics**: 0/15 (0%)
+- **Total Problems Solved**: 0
+- **Last Reset**: Not set
+
+### Quick Actions
+- 🔄 **[Reset All Progress](scripts/reset_progress.sh)** - Clear all checkboxes for fresh start
+- 🎯 **[Sync to GitHub Projects](scripts/sync_to_github.sh)** - Create interactive GitHub issues
+- 🔄 **[Reset GitHub Progress](scripts/reset_github_progress.sh)** - Reset GitHub project issues
+
+---
+
+## 📚 Helpful Resources
+
+### Essential Links
+1. [LeetCode Important Links](https://leetcode.com/discuss/general-discussion/665604/Important-and-Useful-links-from-all-over-the-LeetCode)
+2. [LeetCode Preparation Guide](https://leetcode.com/discuss/general-discussion/1563880/all-you-need-this-for-better-preparation)
+
+### Recommended Study Paths
+1. [Grind75](https://www.techinterviewhandbook.org/grind75) - 75 essential problems
+2. [Top Interview Questions](https://www.geeksforgeeks.org/top-20-dynamic-programming-interview-questions/) - DP, Greedy, Graph, Interview prep
+
+### TODO
+- [ ] STL library primer readme - [C++ STL Quick Help](https://github.com/MAZHARMIK/Cpp-STL-Quick-Help)
+- [ ] Graph/LCA preprocessing
+- [ ] Use data structure/heap in sorting/heap sort
