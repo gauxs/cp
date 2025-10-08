@@ -32,8 +32,6 @@ A bipartite graph is a graph whose vertices can be divided into two disjoint set
 2. [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) - Graph partitioning
 
 ### Advanced Level
-1. [Maximum Bipartite Matching](https://www.geeksforgeeks.org/maximum-bipartite-matching/) - Advanced bipartite algorithms
-2. [Minimum Vertex Cover](https://www.geeksforgeeks.org/vertex-cover-problem-set-1-introduction-approximate-algorithm-2/) - Bipartite graph applications
 
 ### Complete Problem Set: [LeetCode - Graph Bipartite](https://leetcode.com/tag/bipartite/)
 
