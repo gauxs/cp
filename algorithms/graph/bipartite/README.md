@@ -23,16 +23,6 @@ A bipartite graph is a graph whose vertices can be divided into two disjoint set
 
 ## Practice Problems
 
-### Beginner Level
-1. [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) - Basic bipartite checking
-2. [Possible Bipartition](https://leetcode.com/problems/possible-bipartition/) - Bipartite with constraints
-
-### Intermediate Level
-1. [Divide Array Into Equal Pairs](https://leetcode.com/problems/divide-array-into-equal-pairs/) - Bipartite matching concept
-2. [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) - Graph partitioning
-
-### Advanced Level
-
 ### Complete Problem Set: [LeetCode - Graph Bipartite](https://leetcode.com/tag/bipartite/)
 
 ## Applications
