@@ -1,41 +1,136 @@
-# Dijkstra
-You are given a directed or undirected weighted graph with **V** vertices and **E** edges. The weights of all edges are **non-negative**. You are also given a starting vertex **s**. Find the lengths of the shortest paths from a starting vertex **s** to all other vertices. The basics and working of the algorithm can be learned from ***references*** below.
+# Dijkstra's Algorithm
+
+Dijkstra's algorithm is a greedy algorithm that finds the shortest paths from a source vertex to all other vertices in a weighted graph with **non-negative** edge weights. It's one of the most efficient algorithms for single-source shortest path problems.
 
 <img src="https://github.com/gauxs/cp/blob/master/media/images/dijkstra.jpg?raw=true" width="800" height="600">
 
-Following are some important observation on the algorithm:
-1. Once a vertex is **relaxed** it will not be picked again (by design and not by implementation). This means that algorithm is sure that there are no other **shorter path** to this vertex present in graph. Why can't we find a more shorter path?
-2. If we modify this algorithm and pick any vertex(instead of minimum), the algorithm will still work but time complexity will increase. This is because we can keep finding **shorter paths** to this vertex in future iterations. Why will the complexity increase?
-4. Why doesn't this algorithm work on *-ve edges* and on *-ve cycles*?
-5. Why does this algorithm work on both directed and undirected graphs?
+## Algorithm Overview
 
-### Algorithm Analysis
-```
-N - number of graph nodes
-M - number of edges
+### Purpose
+- **Single-source shortest path**: Find shortest distances from source to all vertices
+- **Non-negative weights**: Works only with non-negative edge weights
+- **Greedy approach**: Always processes the closest unvisited vertex first
+- **Optimal solution**: Guarantees shortest paths when weights are non-negative
 
-Time Complexity - dijkstra:         O(V^2 + E)                              // for dense graph E ≈ V^2
-Space Complexity - dijkstra:        O(V)
+### Key Characteristics
+- **Greedy algorithm**: Makes locally optimal choices
+- **Priority queue based**: Uses heap/priority queue for efficient minimum extraction
+- **Works on both directed and undirected graphs**
+- **Cannot handle negative weights**: Fails with negative edge weights
 
-Time Complexity - dijkstra_set:     O(Vlog(V) + Elog(V)) = O(Elog(V))       // for dense graph E ≈ V^2
-Space Complexity - dijkstra_set:    O(V)
-```
+## How It Works
 
-Dijkstra is a **greedy** algorithm. It is clear, that the complexity of first algorithm i.e. dijkstra() is optimal for a dense graph, i.e. when E ≈ V^2. However in sparse graphs, when **E** is much smaller than **V^2**, the complexity gets less optimal because of the first term **V^2**. Thus it is necessary to improve the execution time of **finding minimum distance vertex**.
+### Core Idea
+The algorithm maintains a set of vertices whose shortest distances are known and a priority queue of vertices with tentative distances. At each step, it:
+1. Selects the vertex with minimum tentative distance
+2. Relaxes all its outgoing edges
+3. Updates distances to neighbors if shorter paths are found
 
-To accomplish this we can use a variation of multiple auxiliary data structures like set (implemented in dijkstra_set()), priority queue, fibonacci heaps.
-1. If we implement this algorithm via **min heap**, it will not be trivial to remove a vertex from min heap once its distance is further reduced. To do this we will have to implement **custom min heap** with delete operation, which is not trivial. When implementing this algorithm generally deleting a node which is further relaxed is **SKIPPED**, thus allowing us to use standard library implementations of min heap. These undeleted nodes are called **dead nodes**, and their existense in the min heap **practically** increases the complexity. **Think, how do we handle a case when a *dead node* is picked for relaxation?**
+### Algorithm Steps
+1. **Initialize**: Set distance to source as 0, all others as infinity
+2. **Process**: While priority queue is not empty:
+   - Extract vertex with minimum distance
+   - For each neighbor, relax the edge
+   - Update neighbor's distance if shorter path found
+3. **Result**: Shortest distances to all vertices
 
-2. Since we need to store vertices ordered by their values **distances[]**, it is convenient to store actual pairs: the distance and the index of the vertex. As a result in set implementation, pairs are automatically sorted by their distances.
+### Why It Works
+- **Greedy choice**: Always picking minimum distance vertex is optimal
+- **Non-negative weights**: Ensures no shorter path can be found later
+- **Relaxation**: Updates distances when better paths are discovered
 
-3. In set implementation, We don't need the vector **picked**. We will use the set to store that information, and also find the vertex with the shortest distance with it.
+## Important Algorithm Observations
 
-## Practice
-| **S.No** 	|                                **Warmup**                               	|                                                  **Challenging**                                                  	|
-|:--------:	|:-----------------------------------------------------------------------:	|:-----------------------------------------------------------------------------------------------------------------:	|
-|     1    	| [Network delay time](https://leetcode.com/problems/network-delay-time/) 	|         [Cheapest flights within k stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)         	|
-|     2    	|                                                                         	| [Number of ways to arrive at destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/) 	|
+### Critical Thinking Questions
+1. **Once a vertex is relaxed, why won't it be picked again?**
+   - **Greedy property**: When we pick a vertex, we've found its shortest path
+   - **Non-negative weights**: No future relaxation can provide a shorter path
+   - **Optimal substructure**: Shortest path to any vertex is optimal
+
+2. **If we pick any vertex instead of minimum, why does complexity increase?**
+   - **Multiple relaxations**: A vertex might be relaxed multiple times
+   - **No guarantee**: We can't be sure we've found the shortest path
+   - **Inefficient**: Leads to unnecessary work and higher complexity
+
+3. **Why doesn't this work on negative edges and negative cycles?**
+   - **Negative edges**: Can create shorter paths after a vertex is "finalized"
+   - **Negative cycles**: Can make distances infinitely small
+   - **Greedy assumption fails**: Local optimal choice isn't globally optimal
+
+4. **Why does this work on both directed and undirected graphs?**
+   - **Edge direction**: Doesn't affect the shortest path property
+   - **Relaxation**: Works the same way for both graph types
+   - **Non-negative weights**: The key requirement, not graph direction
+
+## Algorithm Analysis
+
+| Implementation | Time Complexity | Space Complexity | Best For |
+|----------------|----------------|------------------|----------|
+| **Array-based** | O(V² + E) | O(V) | Dense graphs (E ≈ V²) |
+| **Priority Queue** | O((V + E) log V) | O(V) | Sparse graphs (E << V²) |
+| **Fibonacci Heap** | O(E + V log V) | O(V) | Theoretical optimal |
+
+### Complexity Breakdown
+
+#### Array-based Implementation
+- **Finding minimum**: O(V) for each of V vertices
+- **Edge relaxation**: O(E) total
+- **Total**: O(V² + E)
+- **Best for**: Dense graphs where E ≈ V²
+
+#### Priority Queue Implementation
+- **Heap operations**: O(log V) for each of V extractions
+- **Edge relaxation**: O(log V) for each of E updates
+- **Total**: O((V + E) log V)
+- **Best for**: Sparse graphs where E << V²
+
+## Implementation Considerations
+
+### Priority Queue Challenges
+1. **Dead nodes problem**: 
+   - **Issue**: Hard to remove nodes from standard heap when distance decreases
+   - **Solution**: Allow duplicate entries, skip "dead" nodes when extracted
+   - **Handling**: Check if extracted node's distance matches current distance
+
+2. **Pair storage**:
+   - **Structure**: Store (distance, vertex) pairs for automatic sorting
+   - **Efficiency**: Enables efficient minimum extraction
+   - **Memory**: Minimal overhead compared to separate arrays
+
+3. **Set implementation**:
+   - **Advantage**: Automatically handles duplicates and sorting
+   - **Efficiency**: O(log V) for insert/delete operations
+   - **Simplicity**: No need for separate "picked" array
+
+### Data Structure Trade-offs
+- **Array**: Simple but O(V²) time complexity
+- **Binary Heap**: O(log V) operations, good for most cases
+- **Fibonacci Heap**: Theoretical O(1) decrease-key, complex implementation
+
+## When to Use Dijkstra's
+
+**Best for:**
+- **Non-negative weights**: Graph has only positive or zero edge weights
+- **Single-source queries**: Need shortest paths from one source
+- **Dense graphs**: When E ≈ V², array implementation is optimal
+- **Sparse graphs**: When E << V², priority queue is better
+
+**Not ideal for:**
+- **Negative weights**: Use Bellman-Ford algorithm
+- **All-pairs queries**: Use Floyd-Warshall algorithm
+- **Binary weights**: Use 0-1 BFS for better performance
+
+## Applications
+
+- **Network routing**: Finding shortest paths in computer networks
+- **GPS navigation**: Route planning with non-negative costs
+- **Social networks**: Finding shortest connection paths
+- **Game AI**: Pathfinding in games with positive costs
+- **Resource allocation**: Optimizing resource distribution
 
 ## References
-1. [A noob's guide to Djikstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/)
-2. [CP Algorithms - Dijkstra](https://cp-algorithms.com/graph/dijkstra.html)
+
+1. [A noob's guide to Dijkstra's algorithm](https://leetcode.com/discuss/general-discussion/1059477/A-noob's-guide-to-Djikstra's-Algorithm) by [@bliss14b](https://leetcode.com/bliss14b/) - Beginner-friendly explanation
+2. [CP Algorithms - Dijkstra](https://cp-algorithms.com/graph/dijkstra.html) - Detailed algorithm explanation
+3. [Wikipedia - Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) - Mathematical properties
+4. [GeeksforGeeks - Dijkstra's Algorithm](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/) - Implementation guide

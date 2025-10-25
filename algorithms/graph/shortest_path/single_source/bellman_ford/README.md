@@ -1,30 +1,121 @@
-# Bellman Ford
-Given a weighted directed graph G with **V** vertices and **E** edges, and some specified vertex **s**, find the length of shortest paths from vertex **s** to every other vertex.
+# Bellman-Ford Algorithm
 
-Unlike the Dijkstra algorithm, this algorithm can also be applied to graphs containing **negative weight edges**.
+The Bellman-Ford algorithm is a single-source shortest path algorithm that finds the shortest paths from a source vertex to all other vertices in a weighted directed graph. Unlike Dijkstra's algorithm, it can handle **negative weight edges** and detect **negative weight cycles**.
 
-If the graph contains a **negative cycle**, then, clearly, the shortest path to some vertices may not exist (due to the fact that the weight of the shortest path must be equal to minus infinity), however this algorithm can be modified to signal the presence of a cycle of negative weight, or even deduce this cycle.
+## Algorithm Overview
 
-Following are some important observation on the algorithm:
-1. **Think, why does this algorithm work on -ve edges?**
-2. **Think, will this algorithm work on graph with undirected edges if edges can have both -ve and +ve weights? If not, why?**
-3. **Think, will this algorithm work on graph with undirected edges if edges have only +ve weights?**
-4. **If -ve cycle exists, after N iterations will the last_relaxed_vertex always be inside the -ve cycle? If not, why?**
-5. **While finding -ve cycle, we go back N times to come inside the -ve cycle? Why does this work?**
-6. **After going back N times, the vertex on which we land, will its previous edge always be -ve? If not, why?**
+### Purpose
+- **Single-source shortest path**: Find shortest distances from source to all vertices
+- **Negative edge handling**: Works with graphs containing negative weights
+- **Negative cycle detection**: Identifies if the graph contains negative weight cycles
+- **Path reconstruction**: Can be extended to reconstruct actual shortest paths
 
-### Algorithm Analysis
+### Key Characteristics
+- **Relaxation-based**: Uses edge relaxation technique
+- **Handles negative edges**: Unlike Dijkstra's algorithm
+- **Detects negative cycles**: Can identify impossible shortest paths
+- **Works on directed graphs**: Primarily designed for directed graphs
+
+## How It Works
+
+### Core Idea
+The algorithm uses **relaxation** - repeatedly updating distance estimates by considering all edges. It performs V-1 iterations, where in each iteration, it relaxes all edges. If no negative cycles exist, the shortest paths are found after V-1 iterations.
+
+### Algorithm Steps
+1. **Initialize**: Set distance to source as 0, all others as infinity
+2. **Relax**: For V-1 iterations, relax all edges
+3. **Check**: After V-1 iterations, check for negative cycles
+4. **Result**: Shortest distances found (if no negative cycles)
+
+### Relaxation Process
+For each edge (u, v) with weight w:
 ```
-V - number of graph nodes
-E - number of edges
-
-Time Complexity:    O(V * E) = O(V^3)     // for dense graph E ≈ V^2
-Space Complexity:   O(V)
+if distance[u] + w < distance[v]:
+    distance[v] = distance[u] + w
+    parent[v] = u
 ```
 
-## Practice
-1. Practice questions - [Network delay time](https://leetcode.com/problems/network-delay-time/)
-2. Good questions - 
+## Negative Cycle Detection
+
+### Detection Method
+After V-1 iterations, perform one more iteration. If any distance can still be improved, a negative cycle exists.
+
+### Why It Works
+- **V-1 iterations**: Sufficient to find shortest paths in graphs without negative cycles
+- **Additional iteration**: If distances still improve, there's a negative cycle
+- **Impossible paths**: Vertices reachable through negative cycles have distance = -∞
+
+## Important Algorithm Observations
+
+### Critical Thinking Questions
+1. **Why does this algorithm work on negative edges?**
+   - Unlike Dijkstra's greedy approach, Bellman-Ford considers all edges in each iteration
+   - This allows it to "undo" previous decisions when negative edges provide better paths
+
+2. **Will this work on undirected graphs with both negative and positive weights?**
+   - **No** - negative edges in undirected graphs create negative cycles of length 2
+   - Example: edge (u,v) with weight -5 creates cycle u→v→u with total weight -10
+
+3. **Will this work on undirected graphs with only positive weights?**
+   - **Yes** - no negative cycles exist, so algorithm works correctly
+
+4. **If negative cycle exists, will the last relaxed vertex always be inside the cycle?**
+   - **Not necessarily** - depends on the order of edge processing
+   - The vertex that gets relaxed in the V-th iteration may not be directly in the cycle
+
+5. **Why do we go back N times to find the negative cycle?**
+   - Ensures we reach a vertex that's definitely part of the negative cycle
+   - Going back N times guarantees we enter the cycle from any starting point
+
+6. **After going back N times, will the previous edge always be negative?**
+   - **Not always** - the edge might be positive, but the cycle as a whole has negative weight
+   - The negative cycle detection relies on the total cycle weight, not individual edges
+
+## Algorithm Analysis
+
+| Aspect | Complexity | Notes |
+|--------|------------|-------|
+| **Time Complexity** | O(V × E) | V-1 iterations, each relaxing E edges |
+| **Dense Graph** | O(V³) | When E ≈ V² |
+| **Space Complexity** | O(V) | For distance and parent arrays |
+
+### Complexity Breakdown
+- **Initialization**: O(V) for distance array
+- **Main algorithm**: O(V × E) for V-1 iterations
+- **Negative cycle check**: O(E) for one additional iteration
+- **Total**: O(V × E) dominates
+
+## When to Use Bellman-Ford
+
+**Best for:**
+- **Negative edges**: Graph contains negative weights
+- **Negative cycle detection**: Need to identify impossible paths
+- **Small graphs**: When V × E is manageable
+- **Single-source queries**: Need shortest paths from one source
+
+**Not ideal for:**
+- **Large graphs**: O(V × E) can be slow
+- **Positive weights only**: Dijkstra's algorithm is more efficient
+- **All-pairs queries**: Floyd-Warshall might be better
+
+## Comparison with Other Algorithms
+
+| Algorithm | Time Complexity | Handles Negative Edges | Detects Negative Cycles |
+|-----------|----------------|----------------------|------------------------|
+| **Dijkstra's** | O((V + E) log V) | No | No |
+| **Bellman-Ford** | O(V × E) | Yes | Yes |
+| **Floyd-Warshall** | O(V³) | Yes | Yes |
+
+## Applications
+
+- **Network routing**: Finding shortest paths in networks with negative costs
+- **Arbitrage detection**: Finding profitable currency exchange cycles
+- **Game theory**: Optimal strategies in games with negative outcomes
+- **Circuit analysis**: Electrical networks with negative resistances
+- **Financial modeling**: Risk analysis with negative correlations
 
 ## References
-1. [CP Algorithms - Bellman Ford](https://cp-algorithms.com/graph/bellman_ford.html)
+
+1. [CP Algorithms - Bellman-Ford](https://cp-algorithms.com/graph/bellman_ford.html) - Detailed algorithm explanation
+2. [Wikipedia - Bellman-Ford Algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) - Mathematical properties
+3. [GeeksforGeeks - Bellman-Ford](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/) - Implementation guide
