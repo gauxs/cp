@@ -1,38 +1,95 @@
-# Floyd Warshall
-Given a **directed** or an **undirected** weighted graph with vertices. The task is to find the length of the shortest path between each pair of vertices. The graph may have negative weight edges, but **NO** negative weight cycles.
+# Floyd-Warshall Algorithm
 
-This algorithm can also be used to detect the presence of negative cycles. **The graph has a negative cycle if at the end of the algorithm, the distance from a vertex v to itself is negative.**
+The Floyd-Warshall algorithm is a dynamic programming approach that finds the shortest paths between all pairs of vertices in a weighted graph. It works on both **directed** and **undirected** graphs and can handle negative weight edges, but **NOT** negative weight cycles.
 
-For the pair of vertices for which the answer does not exist (due to the presence of a negative cycle in the path between them), the Floyd algorithm will store any number (perhaps highly negative, but not necessarily) in the distance matrix. However it is possible to improve the Floyd-Warshall algorithm, so that it carefully treats such pair of vertices, and outputs them, for example as **−INF**.
+## Algorithm Overview
 
-This can be done in the following way: run the usual Floyd-Warshall algorithm for a given graph. Then a shortest path between vertices **i** and **j** does not exist, if and only if, there is a vertex **t** that is reachable from **i** and also from **j**, for which **distances[t][t]<0**.
+### Purpose
+- **All-pairs shortest path**: Find shortest distance between every pair of vertices
+- **Negative cycle detection**: Identify if the graph contains negative weight cycles
+- **Path reconstruction**: Can be extended to reconstruct actual shortest paths
 
-### Finding negative cycle
-Run Floyd-Warshall algorithm on the graph. Initially **distances[v][v]=0** for each **v**. But after running the algorithm **distances[v][v]** will be smaller than 0 if there exists a negative length path from **v** to **v**.
+### Key Characteristics
+- **Dynamic Programming**: Uses optimal substructure property
+- **Handles negative edges**: Unlike Dijkstra's algorithm
+- **Detects negative cycles**: Can identify impossible shortest paths
+- **Dense graph friendly**: O(V³) complexity makes it suitable for dense graphs
 
-We can use this to also find all pairs of vertices that don't have a shortest path between them. We iterate over all pairs of vertices **(i,j)** and for each pair we check whether they have a shortest path between them.
+## How It Works
 
-To do this try all possibilities for an intermediate vertex **t**. **(i,j)** doesn't have a shortest path, if one of the intermediate vertices **t** has **distances[t][t]<0** (i.e. t is part of a cycle of negative weight), **t** can be reached from **i** and **j** can be reached from **t**. Then the path from **i** to **j** can have arbitrarily small weight. We will denote this with **-INF**.
+### Core Idea
+The algorithm uses the principle of **relaxation through intermediate vertices**. For each pair of vertices (i, j), it considers all possible intermediate vertices k and updates the shortest path if going through k yields a better result.
 
-Following are some important observation on the algorithm:
-1. Before k-th phase, for any vertices **i** and **j** stores the length of the shortest path between the vertex **i** and vertex **j**, which contains only the vertices **1,2,3,4....k-1** as internal vertices in the path. **This means the outer most loop will be **k**, and inner loop will be i and j.**
+### Algorithm Steps
+1. **Initialize**: Create distance matrix with direct edge weights
+2. **Relaxation**: For each intermediate vertex k, update all pairs (i, j)
+3. **Update rule**: `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])`
 
-### Algorithm Analysis
-```
-V - number of graph nodes
+### Important Observation
+Before the k-th phase, the distance matrix stores the shortest path between vertices i and j that contains only vertices **1, 2, 3, ..., k-1** as internal vertices. This means:
+- **Outer loop**: k (intermediate vertices)
+- **Inner loops**: i and j (all pairs)
 
-Time Complexity:    O(V^3)
-Space Complexity:   O(V^2)      // if storing ancestors
-```
+## Negative Cycle Detection
 
-## Practice
-1. Practice questions - [Find the city with the smallest number of neighbors at a threshold distance](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) | [Network delay time](https://leetcode.com/problems/network-delay-time/)
-2. Good questions - 
+### Detection Method
+Run Floyd-Warshall algorithm on the graph. Initially `distances[v][v] = 0` for each vertex v. After running the algorithm, `distances[v][v] < 0` if there exists a negative length path from v to v.
+
+### Finding Affected Pairs
+For pairs of vertices where shortest path doesn't exist (due to negative cycles):
+1. Run the usual Floyd-Warshall algorithm
+2. A shortest path between vertices i and j doesn't exist if and only if there's a vertex t that is:
+   - Reachable from i
+   - Can reach j  
+   - Has `distances[t][t] < 0` (part of negative cycle)
+
+### Handling Impossible Paths
+For vertices affected by negative cycles, the algorithm can be improved to output **-INF** instead of arbitrary negative values. This indicates that the path can have arbitrarily small weight.
+
+## Algorithm Analysis
+
+| Aspect | Complexity | Notes |
+|--------|------------|-------|
+| **Time Complexity** | O(V³) | Three nested loops over all vertices |
+| **Space Complexity** | O(V²) | Distance matrix storage |
+| **Path Reconstruction** | O(V²) additional | If storing parent/ancestor information |
+
+### Complexity Breakdown
+- **Initialization**: O(V²) for distance matrix
+- **Main algorithm**: O(V³) for three nested loops
+- **Negative cycle check**: O(V) additional
+- **Total**: O(V³) dominates
+
+## When to Use Floyd-Warshall
+
+**Best for:**
+- **Dense graphs**: When E ≈ V²
+- **All-pairs queries**: Need shortest path between many pairs
+- **Negative edges**: Graph contains negative weights
+- **Negative cycle detection**: Need to identify impossible paths
+
+**Not ideal for:**
+- **Sparse graphs**: Dijkstra's or Bellman-Ford more efficient
+- **Single-source queries**: Dijkstra's algorithm is better
+- **Large graphs**: O(V³) can be prohibitive
+
+## Applications
+
+- **Network routing**: Finding optimal routes between all nodes
+- **Social network analysis**: Shortest connection paths
+- **Game theory**: Optimal strategies in graph-based games
+- **Circuit analysis**: Electrical network analysis
+- **Image processing**: Distance transforms
 
 ## References
-1. [CP Algorithms - Floyd Warshall](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html)
-2. [CP Algorithms - Finding -ve cycle via Floyd Warshall](https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html)
 
-## Pending
-- [ ] Fix the logic of `print_path`
-- [ ] How to print negative cycle vertices in `floyd_warshal`? We only found -ve length path exists from v to v iff d[v][v]<0, so v is present on a negative cycle but we dont the path itslef.
+1. [CP Algorithms - Floyd-Warshall](https://cp-algorithms.com/graph/all-pair-shortest-path-floyd-warshall.html) - Detailed algorithm explanation
+2. [CP Algorithms - Finding Negative Cycles](https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html) - Negative cycle detection
+3. [Wikipedia - Floyd-Warshall Algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) - Mathematical properties
+4. [GeeksforGeeks - Floyd-Warshall](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/) - Implementation guide
+
+## Implementation Notes
+
+### Pending Improvements
+- [ ] Fix the logic of `print_path` function
+- [ ] Implement negative cycle vertex detection: Currently we only detect if negative cycle exists (d[v][v] < 0), but need to find the actual cycle vertices and path

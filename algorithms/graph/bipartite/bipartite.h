@@ -5,27 +5,35 @@
 #include <queue>
 #include <bits/stdc++.h>
 
-bool is_bipartite(
-    std::vector<std::vector<int>> &adj,
-        std::vector<bool> &picked,
-            std::vector<char> &color,
-                int n, int source){
+bool is_bipartite(std::vector<std::vector<int>> &adj, int n)
+{
+    std::vector<char> color(n, 0); // 0 = uncolored, 1/2 = colors
 
-    std::queue<int> q;
-    picked[source] = true;
-    color[source] = 1;
-    q.push(source);
-    while(!q.empty()){
-        int cur_vertex = q.front();
-        q.pop();
-        for(int i=0; i<n; i++){
-            if(i!=cur_vertex && color[i]==color[cur_vertex])
-                return false;
+    for (int start = 0; start < n; start++)
+    {
+        if (color[start] != 0)
+            continue;
 
-            if(!picked[i] && adj[cur_vertex][i]!=0){
-                picked[i] = true;
-                color[i] = color[cur_vertex]==1?2:1;
-                q.push(i);
+        std::queue<int> q;
+        q.push(start);
+        color[start] = 1;
+
+        while (!q.empty())
+        {
+            int u = q.front();
+            q.pop();
+
+            for (int v : adj[u])
+            {
+                if (color[v] == 0)
+                {
+                    color[v] = (color[u] == 1 ? 2 : 1);
+                    q.push(v);
+                }
+                else if (color[v] == color[u])
+                {
+                    return false;
+                }
             }
         }
     }
