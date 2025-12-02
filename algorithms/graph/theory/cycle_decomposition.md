@@ -1,21 +1,21 @@
 ## Cycle Decomposition
 
-The process of breaking down the graph into cycles is called **cycle decomposition**. Cycle decomposition can be done by [cycle swapping](https://leetcode.com/problems/couples-holding-hands/discuss/113362/JavaC%2B%2B-O(N)-solution-using-cyclic-swapping), do read [cycle swapping](https://leetcode.com/problems/couples-holding-hands/discuss/113362/JavaC%2B%2B-O(N)-solution-using-cyclic-swapping) before attempting these questions.
+Cycle decomposition is the process of breaking a permutation or graph into disjoint cycles so that each cycle can be handled independently. Many array/permutation problems reduce to counting or transforming these cycles. A common technique is **cycle swapping**, described in the [Couples Holding Hands editorial](https://leetcode.com/problems/couples-holding-hands/discuss/113362/JavaC%2B%2B-O(N)-solution-using-cyclic-swapping). Read that explanation before attempting the practice problems.
 
-## Practice
+### Key Idea: Cycle Swapping
+1. Model the permutation as a graph where indices are connected to their target positions.
+2. Each connected component forms a cycle.
+3. The cost to fix a cycle of length `k` is typically `k - 1` swaps.
+4. Solve the problem by repeating this process for all cycles (or by strategically swapping within each cycle).
 
-| **S.No** 	| **Warmup** 	|                                       **Challenging**                                      	|
-|:--------:	|:----------:	|:------------------------------------------------------------------------------------------:	|
-|     1    	|            	| [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) 	|
-|     2    	|            	|       [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings)      	|
-|     3    	|            	|  [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/)  	|
+### Practice
+- **Challenging**
+  1. [LeetCode - First Missing Positive](https://leetcode.com/problems/first-missing-positive/)
+  2. [LeetCode - Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/)
 
-**Note**: [Leetcode - K similar strings](https://leetcode.com/problems/k-similar-strings) can be solved in 3 ways:
-
-- Generate a graph from each possible permutation of source string where each edge will represent 1 swap, then run bfs from start node to destination, the path length will be shortest swaps
-- Swap the source at those position which will bring us to those permutation which can give us answer while discarding other needless permutation, also keep track of already visited permutations, [my submission](https://leetcode.com/submissions/detail/678713606/)
-- The problem is essentially finding maximum number of cycles in the graph, number os edges in one cycle - 1 will give us the number of swaps to decompose one cycle. Finding this for all the cycles will be minimum number os swaps. Implementing this is a bit tricky
-
-**Note**: [Leetcode - First missing positive](https://leetcode.com/problems/first-missing-positive/) and [Leetcode - Couples holding hands](https://leetcode.com/problems/couples-holding-hands/) were asked in phone screening round of Google :weary:
-
-**Note**: Need more intuition buildup in this topic.
+### Notes
+- [LeetCode - K Similar Strings](https://leetcode.com/problems/k-similar-strings) **looks** like a cycle-decomposition problem (you are transforming one permutation into another), but it is **not** solved by a simple "each cycle of length `k` costs `k - 1` swaps" formula.
+  - The standard approaches treat each permutation as a node and run BFS / DFS with pruning over the state space to find the minimum number of swaps.
+  - Cycle-decomposition is useful only as intuition here; the real toolkit you need is graph search on permutations.
+- [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) and [Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/) appeared in Google phone screenings.
+- Need more intuition buildup in this topic.
