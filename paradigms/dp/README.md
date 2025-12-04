@@ -3,73 +3,40 @@ Dynamic Programming is mainly an optimization over plain recursion. Wherever we 
 
 [A very important article describing how to look at (not how to solve) dynamic programming](https://stackoverflow.com/questions/6164629/what-is-the-difference-between-bottom-up-and-top-down)
 
-Following are some important observation:
-1. Some DP questions require us **NOT** to bring previous state(previous recursions result) to current recursion, instead always try to start fresh state from each recursion. Example: [Decode ways](https://leetcode.com/problems/decode-ways/)
+## Key Observations
 
-2. While some DP questions **WANTS** us to bring previous state(previous recursions results) to current recursion and use it memoize. Example: [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/). Do go through [my submission](https://leetcode.com/submissions/detail/609838238/) for **Partition equal subset sum** question as it is very intuitive(compared to other solution), int this i have directly converted top-down to bottom-up without much modification, since deviation is less, chances of solving in interview is higher along with better intuition.
+Following are some important observations (original content, lightly reorganized):
 
-3. [Leetcode - Iterative subset sum approach](https://leetcode.com/problems/target-sum/discuss/97334/java-15-ms-c-3-ms-ons-iterative-dp-solution-using-subset-sum-with-explanation) by [@yuxiangmusic](https://leetcode.com/yuxiangmusic) and [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/) teaches important concept which require us to use previous state variables in memoizing current state. Its recommended to go through these question and all its solution i.e. top-dow, bottom-up(2d), bottom-up(1d) and bit set. 
+1. Some DP questions require us **NOT** to bring previous state (previous recursion results) to the current recursion, and instead always try to start a fresh state from each recursion.  
+   - Example: [Decode Ways](https://leetcode.com/problems/decode-ways/)
 
-4. The complexity of DP problems is **NOT** always **O(size of memoization array)**, it can sometimes be higher as it can be seen in following question, the memoization array is **O(N)** but the worst case runtime is still **O(N^2)**. Example: [Longest increasing subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+2. Some DP questions **WANT** us to bring previous state (previous recursion results) to the current recursion and use it to memoize / transition.  
+   - Example: [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)  
+     Do go through [my submission](https://leetcode.com/submissions/detail/609838238/) for **Partition Equal Subset Sum**; it directly converts top-down to bottom-up with minimal changes, which helps intuition and interview performance.
 
-5. Top-down approach can be converted to bottom-up approach just by mimicing the recursion and base case(even for DP questions which require us to bring previous state variables in current state like [Partition equal subset sum](https://leetcode.com/problems/partition-equal-subset-sum/)), if we have a weak base case(s) in top-down, same will work for bottom-up too.
+3. [Leetcode - Iterative subset sum approach](https://leetcode.com/problems/target-sum/discuss/97334/java-15-ms-c-3-ms-ons-iterative-dp-solution-using-subset-sum-with-explanation) by [@yuxiangmusic](https://leetcode.com/yuxiangmusic) and [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) teach an important concept: using previous state variables when memoizing the current state.  
+   It is recommended to go through these questions and all their solutions: top-down, bottom-up (2D), bottom-up (1D), and bitset.
 
-6. What are **WEAK** and **TIGHT** base case(s)? Weak base case generally, fills all cells of a memoization array, whereas tighter base case(s) tends to minimise filling all the cells.
-    - **Weak base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/) for a state(recursion) when index1==n1 && index2 is much lesser than n2, then all the **insert** branches will still open till index2==n2 and then return. Another way of Imagine filling the memoization array's last row moving column by column.
-        ```cpp
-        int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
-            if(index1==n1 && index2==n2)
-                return 0;
+4. The complexity of DP problems is **NOT** always **O(size of memoization array)**. It can be higher. For example, the memoization array can be **O(N)** but the worst-case runtime **O(N²)**.  
+   - Example: [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 
-            if(index1>n1 || index2>n2)
-                return 10000;
-            ...
-            ...
-            if(word1[index1]==word2[index2]){
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem));
-            }else{
-                // insert
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1, word2, n2, index2+1, mem) + 1);
-                // delete
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2, mem) + 1);
-                // replace
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem) + 1);
-            ...
-            ...
-        }
-        ```
-    - **Tight base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/) for a state(recursion) index1==n1 && index2 is much lesser than n2, in this base case we **don't open** insert branches(i.e. avoids filling some of the last row cells) but instead return (n2-index2).
-        ```cpp
-        int answer(string& word1, int n1, int index1, string& word2, int n2, int index2, vector<vector<int>>& mem){
-            if(index1==n1 && index2==n2)
-                return 0;
-            if(index1!=n1 && index2==n2)
-                return n1-index1;
-            if(index1==n1 && index2!=n2)
-                return n2-index2;
-            ...
-            ...
-            if(word1[index1]==word2[index2]){
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem));
-            }else{
-                // insert
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1, word2, n2, index2+1, mem) + 1);
-                // delete
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2, mem) + 1);
-                // replace
-                min_edit_distance = min(min_edit_distance, answer(word1, n1, index1+1, word2, n2, index2+1, mem) + 1);
-            ...
-            ...
-        }
-        ```
+5. Top-down approach can be converted to bottom-up approach just by mimicking the recursion and base case (even for DP questions that require us to bring previous state variables into the current state, like [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)). If the top-down base cases are good, the same structure works for bottom-up too.
 
-6. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) / [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern is not trivial and requires good amount of practice.
+6. What are **WEAK** and **TIGHT** base case(s)?  
+   Weak base cases generally fill many cells of a memoization array, whereas tighter base cases tend to minimise how many cells you touch.
+    - **Weak base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/), for a state (recursion) when `index1 == n1` and `index2` is much less than `n2`, all the **insert** branches still open until `index2 == n2` and then return. You can imagine this as filling the memoization array's last row cell-by-cell.
+    - **Tight base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/), for a state (recursion) where `index1 == n1` and `index2` is much less than `n2`, we **do not open** insert branches (avoiding filling some last-row cells) and instead return `(n2 - index2)` immediately.
 
-7. **Memory optimization DP**, problems in which we have to optimise memory - [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
+7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) / [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern is not trivial and requires good amount of practice.
+
+8. **Memory optimization DP**: problems in which we have to optimise memory while keeping the same DP logic.  
+   - Examples: [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 
 ## Practice
+
 - [Leetcode - Dynamic Programming](https://leetcode.com/tag/dynamic-programming/)
-- Good questions - [Last Stone Weight-II](https://leetcode.com/problems/last-stone-weight-ii/) | [Paint House-II](https://www.lintcode.com/problem/516) | [Maximum profit in job scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [Burst Balloons](https://leetcode.com/problems/burst-balloons/) | [Russian doll envelopes](https://leetcode.com/problems/russian-doll-envelopes/) | [Interviewbit - Potions](https://www.interviewbit.com/problems/potions/)
+- Good questions (not in leetcode):
+    - [Potions](https://www.interviewbit.com/problems/potions/)
 
 ## References
 1. [Leetcode - How to approach Dynamic Programming](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems) by [@heroes3001](https://leetcode.com/heroes3001)
