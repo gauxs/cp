@@ -27,7 +27,10 @@ Following are some important observations (original content, lightly reorganized
     - **Weak base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/), for a state (recursion) when `index1 == n1` and `index2` is much less than `n2`, all the **insert** branches still open until `index2 == n2` and then return. You can imagine this as filling the memoization array's last row cell-by-cell.
     - **Tight base case**: In [Edit Distance](https://leetcode.com/problems/edit-distance/), for a state (recursion) where `index1 == n1` and `index2` is much less than `n2`, we **do not open** insert branches (avoiding filling some last-row cells) and instead return `(n2 - index2)` immediately.
 
-7. [DP - Merge Intervals](https://leetcode.com/list/55aj8s16/) / [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary) pattern is not trivial and requires good amount of practice.
+7. Patterns which needs more practice:
+    - [Pre selected problems on DP - Merge Intervals](https://leetcode.com/list/55aj8s16/)
+    - [Interval DP](https://leetcode.com/discuss/general-discussion/592146/dynamic-programming-summary)
+    - [Tree DP](https://leetcode.com/discuss/post/592146/dynamic-programming-summary-by-richenyun-2n0j/)
 
 8. **Memory optimization DP**: problems in which we have to optimise memory while keeping the same DP logic.  
    - Examples: [Maximum score from performing multiplication operations](https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/) | [Ones & Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
