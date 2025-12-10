@@ -1,5 +1,17 @@
 # Sliding Window
 
+The sliding window technique is a method for efficiently solving problems involving contiguous subarrays or substrings. It maintains a "window" of elements and slides it across the array/string, typically using two pointers (left and right) to represent the window boundaries.
+
+## Algorithm Overview
+
+The sliding window technique works by:
+1. **Expanding the window**: Move the right pointer to include new elements
+2. **Updating state**: Track relevant information about elements in the current window (frequencies, sums, etc.)
+3. **Shrinking the window**: Move the left pointer when the window violates the problem's constraints
+4. **Recording results**: Update the answer when the window satisfies the condition
+
+## Basic Template
+
 Basic template to solve sliding window problems (below example is based on [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)):
 
 ```
@@ -50,19 +62,37 @@ public:
 };
 ```
 
+## Key Components
+
+1. **Window State Storage**: Track relevant information about elements in the current window (e.g., character frequencies, running sum)
+2. **Left and Right Pointers**: Represent the window boundaries
+3. **Condition Function**: Determines if the current window satisfies the problem's constraints
+4. **Expansion Logic**: Move right pointer to include new elements
+5. **Shrinking Logic**: Move left pointer when window violates constraints
+
+## When to Use Sliding Window
+
+- Problems involving **contiguous subarrays/substrings**
+- Need to find **longest/shortest** subarray satisfying a condition
+- Need to count subarrays with certain properties
+- Window size can be **fixed** or **variable**
+- Condition has **monotonicity** (if window [i, j] is valid, then [i, j+1] might be valid)
+
 ## Practice Problems
 
-1. Warmup
-   - https://leetcode.com/problems/max-consecutive-ones-iii/
-   - https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
-2. Quality
-   - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
-   - https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
-3. All Problems: https://leetcode.com/tag/sliding-window/
-4. Problem which **_seems_** like a sliding window but **_isn't_**
-   - [Contiguous Array](https://leetcode.com/problems/contiguous-array/)
+For detailed practice problems organized by difficulty level, see:
+- [Beginner Level](practice/1. beginner.md) - Basic sliding window problems
+- [Intermediate Level](practice/2. intermediate.md) - Advanced sliding window applications
+- [Advanced Level](practice/3. advanced.md) - Complex sliding window variations
+- [Patterns & Techniques](practice/0. patterns.md) - Common sliding window patterns and problem-solving strategies
+
+### Quick Reference
+- **Warmup Problems**: [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/), [Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/)
+- **Quality Problems**: [Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/), [Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/)
+- **All Problems**: [LeetCode - Sliding Window Tag](https://leetcode.com/tag/sliding-window/)
+- **Problem which seems like a sliding window but isn't**: [Contiguous Array](https://leetcode.com/problems/contiguous-array/) (uses prefix sum + hash map instead)
 
 ## References
 
 1. [Sliding Window algorithm template to solve all the Leetcode substring search problem](https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.) by [@chaoyanghe](https://leetcode.com/chaoyanghe/)
-2. ~~[Sliding window for beginners template](https://leetcode.com/discuss/general-discussion/657507/sliding-window-for-beginners-problems-template-sample-solutions/) by [@wh0ami](https://leetcode.com/wh0ami/)~~
+2. [Sliding window for beginners template](https://leetcode.com/discuss/general-discussion/657507/sliding-window-for-beginners-problems-template-sample-solutions/) by [@wh0ami](https://leetcode.com/wh0ami/)
