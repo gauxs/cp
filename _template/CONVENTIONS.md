@@ -63,16 +63,17 @@ Organized **by pattern**. Each pattern is one section:
 **Pattern:** ...
 **Key insight:** ...
 
-### Problems
-1. [Title](url)
-
 ### Key skills
 - skill one
+
+### Problems
+1. [Title](url)
 ```
 
 Rules:
 
 - Heading must start with `## Pattern: ` - the rest is the pattern name used in the **by-pattern** tab
+- Section order within a pattern: **Use when → Pattern → Key insight → Key skills → Problems** (matches the site UI)
 - Problems under a pattern can be any difficulty - do not split by tier here
 - Separate patterns with `---`
 - Pattern names should be reusable wording (e.g. "Binary Search on Answer", "Sliding Window - Fixed Size")

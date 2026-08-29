@@ -96,6 +96,12 @@
   display: none;
 }
 
+.VPNavBarTitle .title :deep(.logo) {
+  width: var(--vp-nav-logo-height);
+  height: var(--vp-nav-logo-height);
+  flex-shrink: 0;
+}
+
 /*
  * Brand sits in VPNavBarTitle (top-left, over the sidebar).
  * VitePress draws two separate rules by default:

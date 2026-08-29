@@ -30,7 +30,8 @@ export function parsePatterns(markdown) {
         section.match(new RegExp(`\\*\\*${label}:\\*\\*\\s*(.+)`))?.[1]?.trim() ??
         "";
 
-      const skillsBlock = section.match(/### Key skills\n([\s\S]*?)(?=\n---|$)/)?.[1] ?? "";
+      const skillsBlock =
+        section.match(/### Key skills\n([\s\S]*?)(?=\n### |\n---|$)/)?.[1] ?? "";
       const skills = skillsBlock
         .split("\n")
         .map((line) => line.replace(/^-\s*/, "").trim())

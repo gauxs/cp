@@ -110,6 +110,9 @@ export default defineConfig({
     siteConfig.site?.description ??
     "Patterns, theory, and practice for algorithms and data structures",
   base: `${BASE}/`,
+  head: [
+    ["link", { rel: "icon", type: "image/svg+xml", href: `${BASE}/favicon.svg` }],
+  ],
   cleanUrls: true,
   vite: {
     plugins: [legacyRedirectPlugin()],
@@ -124,6 +127,10 @@ export default defineConfig({
   },
   themeConfig: {
     // Brand sits in the top-left nav (aligned with the toolbar divider).
+    logo: {
+      src: "/favicon.svg",
+      alt: siteConfig.site?.name ?? "MyGrindSheet",
+    },
     logoLink: "/",
     nav: [],
     sidebar: loadSidebar(),
