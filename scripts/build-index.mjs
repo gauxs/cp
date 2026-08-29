@@ -177,7 +177,9 @@ aside: false
 }
 
 function buildSidebar(categories, topicBundles) {
-  const items = [{ text: "Dashboard", link: "/" }];
+  const config = loadConfig();
+  const homeLabel = config.site?.home_title ?? "Home";
+  const items = [{ text: homeLabel, link: "/" }];
   const topLevel = categories.filter((category) => !category.parent);
 
   for (const parent of topLevel) {
@@ -186,11 +188,7 @@ function buildSidebar(categories, topicBundles) {
       .sort((a, b) => a.label.localeCompare(b.label));
 
     if (subcategories.length > 0) {
-      const sectionItems = [
-        { text: "Overview", link: `/${parent.topic_id}` },
-      ];
-
-      for (const subcategory of subcategories) {
+      const sectionItems = subcategories.map((subcategory) => {
         const topics = topicBundles
           .filter((topic) => topic.topic_id.startsWith(`${subcategory.topic_id}/`))
           .sort((a, b) => a.order - b.order)
@@ -199,19 +197,18 @@ function buildSidebar(categories, topicBundles) {
             link: `/${topic.topic_id}`,
           }));
 
-        sectionItems.push({
+        return {
           text: subcategory.label,
-          collapsed: false,
-          items: [
-            { text: "Overview", link: `/${subcategory.topic_id}` },
-            ...topics,
-          ],
-        });
-      }
+          link: `/${subcategory.topic_id}`,
+          collapsed: true,
+          items: topics,
+        };
+      });
 
       items.push({
         text: parent.label,
-        collapsed: false,
+        link: `/${parent.topic_id}`,
+        collapsed: true,
         items: sectionItems,
       });
       continue;
@@ -227,12 +224,19 @@ function buildSidebar(categories, topicBundles) {
 
     items.push({
       text: parent.label,
-      collapsed: false,
-      items: [{ text: "Overview", link: `/${parent.topic_id}` }, ...topics],
+      link: `/${parent.topic_id}`,
+      collapsed: true,
+      items: topics,
     });
   }
 
-  return items;
+  return [
+    {
+      // Single wrapper so VitePress doesn't split leaf links (Dashboard) and
+      // sections (Algorithms) into separate padded .group blocks.
+      items,
+    },
+  ];
 }
 
 async function main() {
@@ -310,6 +314,13 @@ async function main() {
 
   const site = {
     generated_at: new Date().toISOString(),
+    site: {
+      name: config.site?.name ?? "MyGrindSheet",
+      description:
+        config.site?.description ??
+        "Patterns, theory, and practice for algorithms and data structures",
+      home_title: config.site?.home_title ?? "Home",
+    },
     config: {
       default_view: config.homepage?.default_view ?? "global",
       views: config.views ?? ["global", "byTopic", "byPattern", "byDifficulty"],
@@ -332,7 +343,7 @@ async function main() {
     path.join(DOCS, "index.md"),
     `---
 cpLayout: home
-title: CP Dashboard
+title: ${config.site?.home_title ?? "Home"}
 pageClass: cp-custom
 outline: false
 aside: false

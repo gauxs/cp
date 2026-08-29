@@ -1,5 +1,162 @@
 /* pageClass cp-custom hides the empty markdown shell on app pages. */
 
+:root {
+  --cp-content-max-width: 920px;
+  --vp-layout-max-width: 1200px;
+  /* Fallback; useSidebarWidthSync replaces this from measured nav labels. */
+  --vp-sidebar-width: 15vw;
+}
+
+/*
+ * Sidebar sizing
+ * ──────────────
+ * VitePress (default theme) is the blocker: at ≥1440px it expands .VPSidebar
+ * with a centering gutter calc, so the rail looks half-screen wide on a 17"
+ * Mac even when labels are short. Vue scoped styles beat normal overrides, so
+ * width/padding need !important here. Layout then uses --vp-sidebar-width,
+ * which JS sets from label intrinsic width clamped to ~12–22vw (scales with
+ * the viewport — no per-breakpoint px table).
+ */
+@media (max-width: 959px) {
+  .VPSidebar {
+    width: min(80vw, calc(100vw - 2rem)) !important;
+    max-width: min(80vw, calc(100vw - 2rem)) !important;
+    padding: 1.5rem 1.25rem 4rem !important;
+  }
+
+  .cp-custom .VPLocalNav {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPSidebar {
+    width: var(--vp-sidebar-width) !important;
+    max-width: 22vw !important;
+    padding: var(--vp-nav-height) 0.75rem 4rem 1rem !important;
+  }
+
+  .VPSidebar .curtain {
+    margin-left: -1rem !important;
+    margin-right: -0.75rem !important;
+  }
+
+  .VPSidebar .nav {
+    width: 100%;
+    padding-top: 0.85rem;
+  }
+
+  .VPSidebar .group {
+    width: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .VPSidebar .group + .group {
+    border-top: none !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .VPSidebar .VPSidebarItem.level-0 {
+    padding-bottom: 0 !important;
+  }
+
+  .VPContent.has-sidebar {
+    padding-left: var(--vp-sidebar-width) !important;
+    padding-right: 0 !important;
+  }
+
+  .VPLocalNav.has-sidebar {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+}
+
+/* Kill VitePress wide-screen gutter stretch (scoped theme rule at 1440px). */
+@media (min-width: 1440px) {
+  .VPSidebar {
+    width: var(--vp-sidebar-width) !important;
+    max-width: 22vw !important;
+    padding-left: 1rem !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .Layout.cp-custom .VPDoc.has-sidebar .content {
+    max-width: var(--cp-content-max-width);
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .Layout.cp-custom .VPDoc.has-sidebar .content-container {
+    width: 100%;
+  }
+}
+
+.cp-custom .VPLocalNav.empty {
+  display: none;
+}
+
+/*
+ * Brand sits in VPNavBarTitle (top-left, over the sidebar).
+ * VitePress draws two separate rules by default:
+ *   - title border-bottom over the sidebar
+ *   - .divider only over the content (padding-left: sidebar-width)
+ * That desyncs on custom sidebar widths. Use the single nav divider across
+ * the full bar so brand underline and toolbar are the same line.
+ */
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar .title {
+    width: var(--vp-sidebar-width) !important;
+    padding: 0 0.75rem 0 1rem !important;
+  }
+
+  .VPNavBar.has-sidebar .content {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+
+  .VPNavBarTitle.has-sidebar .title {
+    border-bottom-color: transparent !important;
+  }
+
+  .VPNavBar.has-sidebar .divider {
+    padding-left: 0 !important;
+  }
+
+  .VPNavBar.has-sidebar .divider-line {
+    background-color: var(--vp-c-gutter);
+  }
+}
+
+@media (min-width: 1440px) {
+  .VPNavBar.has-sidebar .title {
+    width: var(--vp-sidebar-width) !important;
+    padding-left: 1rem !important;
+  }
+
+  .VPNavBar.has-sidebar .content {
+    padding-left: var(--vp-sidebar-width) !important;
+    padding-right: 32px !important;
+  }
+
+  .VPNavBar.has-sidebar .divider {
+    padding-left: 0 !important;
+  }
+}
+
+.VPSidebar .VPSidebarItem.level-0 {
+  padding-bottom: 0 !important;
+}
+
+.VPSidebar .group {
+  padding-top: 0 !important;
+}
+
+.VPSidebar .group + .group {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 .cp-custom .aside {
   display: none;
 }
@@ -22,8 +179,8 @@
 }
 
 .page-shell {
-  max-width: 820px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: 24px 24px 64px;
 }
 
@@ -421,7 +578,8 @@
 
 .topic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+  justify-content: start;
   gap: 24px;
   margin-top: 28px;
 }

@@ -1,11 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import yaml from "js-yaml";
 import { defineConfig } from "vitepress";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, "../..");
 const sidebarPath = path.join(__dirname, "sidebar.json");
 const BASE = "/cp";
+
+function loadSiteConfig() {
+  const raw = fs.readFileSync(path.join(ROOT, "site.config.yaml"), "utf8");
+  return yaml.load(raw);
+}
+
+const siteConfig = loadSiteConfig();
 
 const LEGACY_REDIRECTS = [
   { from: "/algorithms-search", to: "/algorithms/search" },
@@ -96,15 +105,27 @@ function legacyRedirectPlugin() {
 }
 
 export default defineConfig({
-  title: "CP Notes",
-  description: "Competitive programming notes and practice tracker",
+  title: siteConfig.site?.name ?? "MyGrindSheet",
+  description:
+    siteConfig.site?.description ??
+    "Patterns, theory, and practice for algorithms and data structures",
   base: `${BASE}/`,
   cleanUrls: true,
   vite: {
     plugins: [legacyRedirectPlugin()],
+    resolve: {
+      alias: [
+        {
+          find: /\/theme-default\/components\/VPSidebarItem\.vue$/,
+          replacement: path.join(__dirname, "theme/components/VPSidebarItem.vue"),
+        },
+      ],
+    },
   },
   themeConfig: {
-    nav: [{ text: "Dashboard", link: "/" }],
+    // Brand sits in the top-left nav (aligned with the toolbar divider).
+    logoLink: "/",
+    nav: [],
     sidebar: loadSidebar(),
   },
 });

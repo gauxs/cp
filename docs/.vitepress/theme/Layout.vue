@@ -1,13 +1,21 @@
 <script setup>
-import { computed } from "vue";
-import { useData } from "vitepress";
+import { computed, nextTick, watch } from "vue";
+import { useData, useRoute } from "vitepress";
 import DefaultLayout from "vitepress/dist/client/theme-default/Layout.vue";
 import ProblemDashboard from "./components/ProblemDashboard.vue";
 import CategoryView from "./components/CategoryView.vue";
 import TopicView from "./components/TopicView.vue";
+import { useSidebarWidthSync } from "./composables/useSidebarWidth.js";
 
 const { frontmatter, page } = useData();
+const route = useRoute();
 const pageKey = computed(() => page.value.relativePath);
+const { sync: syncSidebarWidth } = useSidebarWidthSync();
+
+watch(
+  () => route.path,
+  () => nextTick(() => syncSidebarWidth()),
+);
 </script>
 
 <template>

@@ -1,6 +1,11 @@
 # Thin site config - conventions handle the rest.
 # Expand `include` when more categories are migrated.
 
+site:
+  name: MyGrindSheet
+  description: Patterns, theory, and practice for algorithms and data structures
+  home_title: Dashboard
+
 include:
   - "algorithms/search/**/practice/*.md"
 
