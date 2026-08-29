@@ -1,0 +1,177 @@
+/* pageClass cp-custom hides the empty markdown shell on app pages. */
+
+.cp-custom .aside {
+  display: none;
+}
+
+.cp-custom .content-container > .main {
+  display: none;
+}
+
+.cp-custom .VPDocFooter {
+  display: none;
+}
+
+.status-msg {
+  color: var(--vp-c-text-2);
+  padding: 16px 0;
+}
+
+.status-msg.error {
+  color: var(--vp-c-danger-1);
+}
+
+.page-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+.page-header h1 {
+  margin: 0.2rem 0 0.5rem;
+  border: none;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+.stats {
+  font-size: 1.1rem;
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.tab-btn {
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.content-panel,
+.group-stack {
+  margin-top: 8px;
+}
+
+.group-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--vp-c-bg-soft);
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.group-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  border: none;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.topic-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--vp-c-bg-soft);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.topic-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+}
+
+.topic-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  border: none;
+}
+
+.muted {
+  color: var(--vp-c-text-2);
+  font-size: 0.85rem;
+}
+
+.problem-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.problem-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+}
+
+.problem-row input {
+  margin-top: 4px;
+}
+
+.problem-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.problem-meta small {
+  color: var(--vp-c-text-2);
+}
+
+.file-label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+
+.topic-page pre {
+  overflow-x: auto;
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--vp-code-block-bg);
+}
+
+.markdown-body :is(h2, h3) {
+  margin-top: 1.5rem;
+}
+
+.markdown-body :is(h2, h3):first-child {
+  margin-top: 0;
+}

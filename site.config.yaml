@@ -1,0 +1,35 @@
+# Thin site config — conventions handle the rest.
+# Expand `include` when more categories are migrated.
+
+include:
+  - "algorithms/search/**/practice/*.md"
+
+categories:
+  - topic_id: algorithms/search
+    label: Search
+
+homepage:
+  default_view: global
+
+views:
+  - global
+  - byTopic
+  - byPattern
+  - byDifficulty
+
+progress:
+  dedupe: slug
+
+topics:
+  algorithms/search/binary:
+    label: Binary Search
+    order: 10
+  algorithms/search/jump:
+    label: Jump Search
+    order: 20
+  algorithms/search/quick_select:
+    label: Quick Select
+    order: 30
+  algorithms/search/exponential:
+    label: Exponential Search
+    order: 40

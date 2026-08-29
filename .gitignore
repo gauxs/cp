@@ -24,6 +24,14 @@ a.out
 ehthumbs.db
 Thumbs.db
 
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/public/data/
+docs/.vitepress/sidebar.json
+docs/algorithms-search/
+docs/index.md
+
 # Build directories
 build/
 bin/
