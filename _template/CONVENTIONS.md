@@ -34,7 +34,7 @@ Use markdown links to LeetCode only in `practice/` files:
 
 The site uses `problem-slug` as the canonical id. One checkbox state per slug everywhere.
 
-Problems may appear in **both** a pattern section and a difficulty tier — that is intentional (two views, one progress state).
+Problems may appear in **both** a pattern section and a difficulty tier - that is intentional (two views, one progress state).
 
 ## Theory (`README.md`, `kind: theory`)
 
@@ -42,10 +42,13 @@ Problems may appear in **both** a pattern section and a difficulty tier — that
 | --- | --- | --- |
 | `# Title` | yes | Matches `title` in frontmatter |
 | `## Overview` | yes | What the technique is |
-| `## Key Observations` | recommended | Numbered insights, edge cases |
+| `## Notes` | recommended | `> **Title:**` callouts for tips and personal notes |
+| `## Key Observations` | recommended | Numbered list (`1.` …) |
+| `## Rule of Thumb` | optional | Numbered list (`1.` …) |
 | `## Algorithm Analysis` | recommended | Time / space in a fenced block |
-| `## Practice` | yes | Links to `practice/` files only — patterns first |
-| `## References` | recommended | External links |
+| `## References` | recommended | External links (include LeetCode lists here) |
+
+Do **not** add a `## Practice` section - the site shows practice under **Patterns** and **Practice** tabs.
 
 Do **not** list LeetCode problems in theory except as conceptual examples inside observations (avoid duplicate maintenance).
 
@@ -69,10 +72,10 @@ Organized **by pattern**. Each pattern is one section:
 
 Rules:
 
-- Heading must start with `## Pattern: ` — the rest is the pattern name used in the **by-pattern** tab
-- Problems under a pattern can be any difficulty — do not split by tier here
+- Heading must start with `## Pattern: ` - the rest is the pattern name used in the **by-pattern** tab
+- Problems under a pattern can be any difficulty - do not split by tier here
 - Separate patterns with `---`
-- Pattern names should be reusable wording (e.g. "Binary Search on Answer", "Sliding Window — Fixed Size")
+- Pattern names should be reusable wording (e.g. "Binary Search on Answer", "Sliding Window - Fixed Size")
 
 ## Difficulty tiers (`1./2./3. *.md`, `kind: practice`)
 
@@ -87,7 +90,8 @@ Organized **by difficulty**. Flat numbered list only:
 Rules:
 
 - Heading `## Beginner` / `## Intermediate` / `## Advanced` must match `tier` in frontmatter
-- Problems only — no pattern prose
+- Problems only - no pattern prose
+- On the site, all tiers appear under a single **Practice** tab as collapsible sections (not separate tabs)
 - Same problem may also appear under a pattern in `0. patterns.md`
 
 ## Code (`<topic>.h`)
@@ -103,7 +107,9 @@ Optional. Keep next to `README.md`. Not indexed as problems.
 | By pattern | Group by `## Pattern: …` headings in `0. patterns.md` |
 | By difficulty | Group by `tier` in `1./2./3. *.md` |
 
-Progress counts: **unique slugs ticked / unique slugs total** — never count duplicate list entries.
+Topic pages use four sections: **Theory → Code → Patterns → Practice**. Patterns and practice tiers render as collapsible lists (collapsed by default).
+
+Progress counts: **unique slugs ticked / unique slugs total** - never count duplicate list entries.
 
 ## Filename rules
 

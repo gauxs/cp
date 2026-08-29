@@ -17,7 +17,7 @@ Jump Search works on sorted data by jumping ahead in fixed blocks, then performi
 3. Worst case: `N/M` jumps; when the last checked value is greater than the search element, linear search does `(M-1)` comparisons.
 4. Total comparisons `(N/M) + (M-1)` is minimized when `M = sqrt(N)`.
 5. Time complexity is between Binary Search and Linear Search.
-6. Binary Search is generally better, but Jump Search traverses back only once (Binary Search may require up to `O(log n)` jumps — e.g. when the target is the smallest element or smaller). In systems where backward traversal is costly, Jump Search can be preferable.
+6. Binary Search is generally better, but Jump Search traverses back only once (Binary Search may require up to `O(log n)` jumps - e.g. when the target is the smallest element or smaller). In systems where backward traversal is costly, Jump Search can be preferable.
 
 ## Algorithm Analysis
 

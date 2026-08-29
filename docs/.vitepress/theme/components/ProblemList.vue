@@ -1,41 +1,39 @@
 <script setup>
 import { computed } from "vue";
 import { useProgress } from "../composables/useProgress.js";
+import { extractProblems } from "../utils/content.js";
+import LeetCodeProblemRow from "./LeetCodeProblemRow.vue";
 
 const props = defineProps({
   markdown: { type: String, required: true },
+  heading: { type: String, default: "" },
 });
 
 const { isDone, toggle } = useProgress();
 
-const LEETCODE_RE =
-  /\[([^\]]+)\]\(https:\/\/leetcode\.com\/problems\/([^/)]+)\/?\)/g;
+const problems = computed(() => extractProblems(props.markdown));
 
-const problems = computed(() => {
-  const items = [];
-  let match;
-  const re = new RegExp(LEETCODE_RE.source, "g");
-  while ((match = re.exec(props.markdown)) !== null) {
-    items.push({
-      slug: match[2],
-      title: match[1].trim(),
-      url: `https://leetcode.com/problems/${match[2]}/`,
-    });
-  }
-  return items;
-});
+const doneCount = computed(
+  () => problems.value.filter((p) => isDone(p.slug)).length,
+);
 </script>
 
 <template>
-  <div v-if="problems.length" class="problem-checklist">
-    <h3>Progress</h3>
-    <label v-for="problem in problems" :key="problem.slug" class="problem-row">
-      <input
-        type="checkbox"
-        :checked="isDone(problem.slug)"
-        @change="toggle(problem.slug)"
+  <section v-if="problems.length" class="lc-tier-block">
+    <div v-if="heading" class="lc-tier-header">
+      <h3>{{ heading }}</h3>
+      <span>{{ doneCount }} / {{ problems.length }}</span>
+    </div>
+    <div class="lc-problem-list">
+      <LeetCodeProblemRow
+        v-for="problem in problems"
+        :key="problem.slug"
+        :slug="problem.slug"
+        :title="problem.title"
+        :url="problem.url"
+        :done="isDone(problem.slug)"
+        @toggle="toggle(problem.slug)"
       />
-      <a :href="problem.url" target="_blank" rel="noopener">{{ problem.title }}</a>
-    </label>
-  </div>
+    </div>
+  </section>
 </template>

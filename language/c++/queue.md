@@ -2,7 +2,7 @@
 
 ## 📦 What is a `queue`?
 
-A **First-In-First-Out (FIFO)** data structure where elements are inserted at the back and removed from the front — like a line at a ticket counter.
+A **First-In-First-Out (FIFO)** data structure where elements are inserted at the back and removed from the front - like a line at a ticket counter.
 
 Implemented as a **container adaptor** (default container is `deque`, but can also use `list`).
 

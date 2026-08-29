@@ -29,7 +29,7 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 docs/public/data/
 docs/.vitepress/sidebar.json
-docs/algorithms-search/
+docs/algorithms/
 docs/index.md
 
 # Build directories

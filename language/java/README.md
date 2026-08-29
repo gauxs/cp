@@ -54,7 +54,7 @@ OUTPUT:
 ## Priority Queue
 1. doesn’t permit null.
 2. are unbound queues.
-3. head of this queue is the least element with respect to the specified ordering. If multiple elements are tied for the least value, the head is one of those elements — ties are broken arbitrarily.
+3. head of this queue is the least element with respect to the specified ordering. If multiple elements are tied for the least value, the head is one of those elements - ties are broken arbitrarily.
 4. PriorityQueue is not thread-safe, java provides PriorityBlockingQueue class that implements the BlockingQueue interface to use in a java multithreading environment.
 5. queue retrieval operations poll,  remove,  peek, and element access the element at the head of the queue.
 6. provides O(log(n)) time for add and poll methods.

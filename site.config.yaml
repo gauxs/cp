@@ -1,12 +1,15 @@
-# Thin site config — conventions handle the rest.
+# Thin site config - conventions handle the rest.
 # Expand `include` when more categories are migrated.
 
 include:
   - "algorithms/search/**/practice/*.md"
 
 categories:
+  - topic_id: algorithms
+    label: Algorithms
   - topic_id: algorithms/search
     label: Search
+    parent: algorithms
 
 homepage:
   default_view: global
@@ -14,7 +17,6 @@ homepage:
 views:
   - global
   - byTopic
-  - byPattern
   - byDifficulty
 
 progress:

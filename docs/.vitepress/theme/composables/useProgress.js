@@ -1,22 +1,21 @@
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 const STORAGE_KEY = "cp-progress";
+const progress = ref({});
+
+function load() {
+  try {
+    progress.value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch {
+    progress.value = {};
+  }
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress.value));
+}
 
 export function useProgress() {
-  const progress = ref({});
-
-  function load() {
-    try {
-      progress.value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    } catch {
-      progress.value = {};
-    }
-  }
-
-  function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress.value));
-  }
-
   function isDone(slug) {
     return Boolean(progress.value[slug]?.done);
   }
@@ -34,7 +33,9 @@ export function useProgress() {
     return slugs.filter((slug) => isDone(slug)).length;
   }
 
-  onMounted(load);
+  if (typeof window !== "undefined" && !Object.keys(progress.value).length) {
+    load();
+  }
 
   return { progress, isDone, toggle, doneCount, load };
 }

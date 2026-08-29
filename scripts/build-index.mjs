@@ -125,10 +125,20 @@ function slugifyTopicId(topicId) {
   return topicId.replace(/\//g, "-");
 }
 
+function docsDirForTopicId(topicId) {
+  return path.join(DOCS, ...topicId.split("/"));
+}
+
+function cleanLegacyGeneratedDocs() {
+  const legacyDir = path.join(DOCS, "algorithms-search");
+  if (fs.existsSync(legacyDir)) {
+    fs.rmSync(legacyDir, { recursive: true, force: true });
+  }
+}
+
 function writeTopicPages(topicBundles, categories) {
   for (const category of categories) {
-    const categorySlug = slugifyTopicId(category.topic_id);
-    const categoryDir = path.join(DOCS, categorySlug);
+    const categoryDir = docsDirForTopicId(category.topic_id);
     ensureDir(categoryDir);
 
     fs.writeFileSync(
@@ -148,8 +158,7 @@ aside: false
   for (const topic of topicBundles) {
     const parts = topic.topic_id.split("/");
     const slug = parts[parts.length - 1];
-    const categorySlug = slugifyTopicId(parts.slice(0, -1).join("/"));
-    const pageDir = path.join(DOCS, categorySlug);
+    const pageDir = docsDirForTopicId(parts.slice(0, -1).join("/"));
     ensureDir(pageDir);
 
     fs.writeFileSync(
@@ -169,21 +178,57 @@ aside: false
 
 function buildSidebar(categories, topicBundles) {
   const items = [{ text: "Dashboard", link: "/" }];
+  const topLevel = categories.filter((category) => !category.parent);
 
-  for (const category of categories) {
-    const categorySlug = slugifyTopicId(category.topic_id);
-    const children = topicBundles
-      .filter((t) => t.topic_id.startsWith(`${category.topic_id}/`))
-      .sort((a, b) => a.order - b.order)
-      .map((t) => {
-        const slug = t.topic_id.split("/").pop();
-        return { text: t.title, link: `/${categorySlug}/${slug}` };
+  for (const parent of topLevel) {
+    const subcategories = categories
+      .filter((category) => category.parent === parent.topic_id)
+      .sort((a, b) => a.label.localeCompare(b.label));
+
+    if (subcategories.length > 0) {
+      const sectionItems = [
+        { text: "Overview", link: `/${parent.topic_id}` },
+      ];
+
+      for (const subcategory of subcategories) {
+        const topics = topicBundles
+          .filter((topic) => topic.topic_id.startsWith(`${subcategory.topic_id}/`))
+          .sort((a, b) => a.order - b.order)
+          .map((topic) => ({
+            text: topic.title,
+            link: `/${topic.topic_id}`,
+          }));
+
+        sectionItems.push({
+          text: subcategory.label,
+          collapsed: false,
+          items: [
+            { text: "Overview", link: `/${subcategory.topic_id}` },
+            ...topics,
+          ],
+        });
+      }
+
+      items.push({
+        text: parent.label,
+        collapsed: false,
+        items: sectionItems,
       });
+      continue;
+    }
+
+    const topics = topicBundles
+      .filter((topic) => topic.topic_id.startsWith(`${parent.topic_id}/`))
+      .sort((a, b) => a.order - b.order)
+      .map((topic) => ({
+        text: topic.title,
+        link: `/${topic.topic_id}`,
+      }));
 
     items.push({
-      text: category.label,
+      text: parent.label,
       collapsed: false,
-      items: [{ text: "Overview", link: `/${categorySlug}/` }, ...children],
+      items: [{ text: "Overview", link: `/${parent.topic_id}` }, ...topics],
     });
   }
 
@@ -296,6 +341,7 @@ aside: false
   );
 
   writeTopicPages(topicBundles, config.categories ?? []);
+  cleanLegacyGeneratedDocs();
   fs.writeFileSync(
     path.join(DOCS, ".vitepress", "sidebar.json"),
     JSON.stringify(buildSidebar(config.categories ?? [], topicBundles), null, 2),

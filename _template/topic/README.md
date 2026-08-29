@@ -10,11 +10,20 @@ topic_id: category/path/topic
 
 One paragraph: what this technique is and when it applies.
 
+## Notes
+
+> **Note title:** Optional callout content - tips, personal notes, or when to use this technique.
+
 ## Key Observations
 
 1. First important insight or edge case.
 2. Second observation.
 3. Third observation.
+
+## Rule of Thumb
+
+1. First rule
+2. Second rule
 
 ## Algorithm Analysis
 
@@ -29,17 +38,8 @@ Time Complexity:
 Space Complexity: O(?)
 ```
 
-## Practice
-
-Problems live in `practice/` only. Study flow: patterns → difficulty tiers.
-
-- [Patterns & Techniques](practice/0.%20patterns.md)
-- [Beginner](practice/1.%20beginner.md)
-- [Intermediate](practice/2.%20intermediate.md)
-- [Advanced](practice/3.%20advanced.md)
-
-Remove links to tiers you have not created yet.
-
 ## References
 
 1. [Reference title](https://example.com)
+
+Practice problems live in `practice/` - the site shows them under Patterns and Practice tabs.

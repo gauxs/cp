@@ -2,20 +2,30 @@
 import { computed, onMounted, ref } from "vue";
 import { useData, withBase } from "vitepress";
 import MarkdownContent from "./MarkdownContent.vue";
-import ProblemList from "./ProblemList.vue";
+import PatternPanel from "./PatternPanel.vue";
+import PracticePanel from "./PracticePanel.vue";
+import CodePanel from "./CodePanel.vue";
+import TopicStepNav from "./TopicStepNav.vue";
+import TopicBreadcrumb from "./TopicBreadcrumb.vue";
+import { topicDataSlug } from "../utils/routes.js";
 
 const { frontmatter } = useData();
 const topic = ref(null);
+const site = ref(null);
 const activeTab = ref("theory");
 const loading = ref(true);
 const error = ref("");
 
 onMounted(async () => {
   try {
-    const slug = frontmatter.value.topic_id.replace(/\//g, "-");
-    const res = await fetch(withBase(`/data/topics/${slug}.json`));
-    if (!res.ok) throw new Error(`topic data (${res.status})`);
-    topic.value = await res.json();
+    const slug = topicDataSlug(frontmatter.value.topic_id);
+    const [topicRes, siteRes] = await Promise.all([
+      fetch(withBase(`/data/topics/${slug}.json`)),
+      fetch(withBase("/data/site.json")),
+    ]);
+    if (!topicRes.ok) throw new Error(`topic data (${topicRes.status})`);
+    topic.value = await topicRes.json();
+    if (siteRes.ok) site.value = await siteRes.json();
   } catch (err) {
     error.value = err.message ?? "Failed to load topic";
   } finally {
@@ -25,29 +35,29 @@ onMounted(async () => {
 
 const tabs = computed(() => {
   if (!topic.value) return [{ id: "theory", label: "Theory" }];
+
   const items = [{ id: "theory", label: "Theory" }];
   if (topic.value.code) items.push({ id: "code", label: "Code" });
-  for (const file of topic.value.practice) {
-    if (file.kind === "patterns") {
-      items.push({ id: "patterns", label: "Patterns" });
-    } else if (file.tier) {
-      items.push({ id: file.tier, label: titleCase(file.tier) });
-    }
+  if (topic.value.practice.some((f) => f.kind === "patterns")) {
+    items.push({ id: "patterns", label: "Patterns" });
+  }
+  if (topic.value.practice.some((f) => f.kind === "practice")) {
+    items.push({ id: "practice", label: "Practice" });
   }
   return items;
 });
 
-const activePractice = computed(() => {
-  if (!topic.value) return null;
-  if (activeTab.value === "patterns") {
-    return topic.value.practice.find((f) => f.kind === "patterns");
-  }
-  return topic.value.practice.find((f) => f.tier === activeTab.value);
-});
+const activeTabMeta = computed(() =>
+  tabs.value.find((tab) => tab.id === activeTab.value),
+);
 
-function titleCase(value) {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-}
+const patternsFile = computed(() =>
+  topic.value?.practice.find((f) => f.kind === "patterns"),
+);
+
+const tierFiles = computed(() =>
+  topic.value?.practice.filter((f) => f.kind === "practice") ?? [],
+);
 </script>
 
 <template>
@@ -57,35 +67,59 @@ function titleCase(value) {
 
     <template v-else-if="topic">
       <header class="page-header">
-        <p class="eyebrow">{{ topic.topic_id }}</p>
-        <h1>{{ topic.title }}</h1>
+        <TopicBreadcrumb
+          v-if="site"
+          :topic-id="topic.topic_id"
+          :title="topic.title"
+          :categories="site.categories"
+        />
+        <h1>
+          {{ topic.title
+          }}<template v-if="activeTabMeta">
+            <span class="topic-title-sep"> - </span
+            ><span class="topic-title-section">{{ activeTabMeta.label }}</span>
+          </template>
+        </h1>
       </header>
 
-      <nav class="tab-bar">
-        <button
-          v-for="tab in tabs"
-          :key="tab.id"
-          class="tab-btn"
-          :class="{ active: activeTab === tab.id }"
-          @click="activeTab = tab.id"
-        >
-          {{ tab.label }}
-        </button>
-      </nav>
+      <TopicStepNav
+        class="topic-stepper-top"
+        :active-tab="activeTab"
+        :tabs="tabs"
+        show-track
+        @update:active-tab="activeTab = $event"
+      />
 
       <section v-if="activeTab === 'theory'" class="content-panel">
-        <MarkdownContent :source="topic.theory.content" />
+        <MarkdownContent :source="topic.theory.content" strip-leading-h1 />
       </section>
 
-      <section v-else-if="activeTab === 'code'" class="content-panel">
-        <p class="file-label">{{ topic.code.name }}</p>
-        <pre><code>{{ topic.code.content }}</code></pre>
+      <section v-else-if="activeTab === 'code' && topic.code" class="content-panel">
+        <CodePanel
+          :filename="topic.code.name"
+          :content="topic.code.content"
+          language="cpp"
+        />
       </section>
 
-      <section v-else-if="activePractice" class="content-panel">
-        <MarkdownContent :source="activePractice.content" />
-        <ProblemList :markdown="activePractice.content" />
+      <section
+        v-else-if="activeTab === 'patterns' && patternsFile"
+        class="content-panel"
+      >
+        <PatternPanel :markdown="patternsFile.content" />
       </section>
+
+      <section v-else-if="activeTab === 'practice'" class="content-panel">
+        <PracticePanel :tiers="tierFiles" />
+      </section>
+
+      <TopicStepNav
+        class="topic-stepper-bottom"
+        :active-tab="activeTab"
+        :tabs="tabs"
+        show-footer
+        @update:active-tab="activeTab = $event"
+      />
     </template>
   </div>
 </template>

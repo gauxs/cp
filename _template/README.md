@@ -33,7 +33,7 @@ Create only the `practice/` files you need. Numeric prefix controls order.
 
 1. Copy `_template/topic/` → e.g. `algorithms/search/binary/`
 2. Rename `topic.h` → `binary.h`
-3. Fill frontmatter (`title`, `topic_id`) — keep `topic_id` stable for progress tracking
+3. Fill frontmatter (`title`, `topic_id`) - keep `topic_id` stable for progress tracking
 4. Add problems using `[Title](https://leetcode.com/problems/slug/)` links only in `practice/`
 
 See [CONVENTIONS.md](CONVENTIONS.md) for how problems map to **global / by-topic / by-pattern / by-difficulty** views.
