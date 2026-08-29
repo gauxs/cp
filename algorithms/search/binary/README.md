@@ -1,84 +1,102 @@
+---
+kind: theory
+title: Binary Search
+topic_id: algorithms/search/binary
+---
+
 # Binary Search
-At each step, the algorithm compares the median value in the search space to the target value. Based on the comparison and because the sequence is sorted, it can then eliminate half of the search space. By doing this repeatedly, it will eventually be left with a search space consisting of a single element, the target value. Following are some important observation on the algorithm:
-1. Choice of **low** and **high** i.e. the boundary:
-> Normally, we set the initial boundary to the number of elements in the array i.e. low=0 and high=n-1, but this is not always the case. We need to remember: the boundary is the range of elements we will be searching from. The initial boundary should include ALL the elements, meaning all the possible answers should be included. Binary search can be applied to none array problems, such as Math, and this statement is still valid. For example, in [Search insert position](https://leetcode.com/problems/search-insert-position/), the question asks us to find an index to insert into the array. It is possible that we insert after the last element of the array, thus the complete range of boundary becomes low=0 and high=n.
 
-2. Calculating **mid** can result in overflow when the numbers are extremely big. Following are the ways of calculating mid:
-> &emsp; mid = Math.floor((low + high) / 2)         &nbsp;&nbsp;&emsp;&emsp;&emsp;// worst, very easy to overflow <br>
-  &emsp; mid = low + Math.floor((high - low) / 2)   &emsp;// much better, but still possible <br>
-  &emsp; mid = (low + high) >>> 1                   &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;// the best, but hard to understand <br>
+## Overview
 
-3. When we are dealing with even number of elements, it is our choice to pick the left one as mid or the right one as mid, a bad choice will lead to an infinity loop.
-> &emsp; mid = low + Math.floor((high - low) / 2)        &emsp;&emsp;&emsp;// left/lower mid   <br>
-  &emsp; mid = low + Math.floor((high - low + 1) / 2)    &emsp;// right/upper mid  <br>
-  
-4. While loop condition **low<high**, the only condition the loop exits is low == high, we can be sure that they will be pointing to the same element, and we know that element always exists:
-> &emsp; while(low < high) { ... }
+At each step, the algorithm compares the median value in the search space to the target value. Based on the comparison and because the sequence is sorted, it can then eliminate half of the search space. By doing this repeatedly, it will eventually be left with a search space consisting of a single element, the target value.
 
-5. Avoiding infinity loop:
-In this we code, suppose we have two element in searchspace, and low>target, then we will be stuck in infinite loop.
+Sometimes we won't even realize that the problem should be solved with binary search — we might turn to dynamic programming or DFS and get stuck for a very long time. **When can we use binary search?** If we can discover some kind of monotonicity, for example, if `condition(k)` is True then `condition(>k)` is True, or if `condition(k)` is False then `condition(>k)` is False (and vice-versa), then we can consider binary search.
 
-```
-  int mid = low+(high-low)/2;   // choosing left one as mid causing infinite loop
-  while(low<high){
-    ...
-    if(target<nums[mid]){
-      high = mid-1;
-    }else{
-      low = mid;
-    }
-    ...
-  }
-```
+## Key Observations
 
-In this code too
-```
-  int mid = low+(high-low+1)/2;   // choosing right one as mid causing infinite loop
-  while(low<high){
-    ...
-    if(target>nums[mid]){
-      low = mid+1;
-    }else{
-      high = mid;
-    }
-    ...
-  }
-```
-We have to keep in mind that, the choice of **mid** and our shrinking logic has to work together in a way that every time, at least 1 element is excluded. So when your binary search is stuck, think of the situation when there are only 2 elements left. Did the boundary shrink correctly?
+1. **Choice of `low` and `high` (the boundary):** Normally we set the initial boundary to the number of elements in the array (`low=0`, `high=n-1`), but this is not always the case. The boundary is the range of elements we will be searching from. The initial boundary should include ALL possible answers. Binary search applies to non-array problems too (e.g. math). For example, Search Insert Position asks for an index to insert into the array — it is possible to insert after the last element, so the boundary becomes `low=0` and `high=n`.
+
+2. **Calculating `mid` can overflow** when numbers are extremely big:
+   - `mid = (low + high) / 2` — worst, very easy to overflow
+   - `mid = low + (high - low) / 2` — much better, but still possible
+   - `mid = (low + high) >>> 1` — the best, but harder to understand
+
+3. **Left vs right mid:** With an even number of elements, we choose the left or right mid. A bad choice leads to an infinite loop:
+   - `mid = low + (high - low) / 2` — left/lower mid
+   - `mid = low + (high - low + 1) / 2` — right/upper mid
+
+4. **While loop condition `low < high`:** The loop exits only when `low == high`. They point to the same element, and we know that element always exists:
+   ```cpp
+   while (low < high) { ... }
+   ```
+
+5. **Avoiding infinite loops:** The choice of `mid` and shrinking logic must work together so at least one element is excluded each step. When stuck, think about the case when only 2 elements remain. Did the boundary shrink correctly?
+
+   Choosing left mid with `low = mid` when `target > nums[mid]`:
+   ```cpp
+   int mid = low + (high - low) / 2;
+   while (low < high) {
+     ...
+     if (target < nums[mid]) {
+       high = mid - 1;
+     } else {
+       low = mid;  // infinite loop risk with left mid
+     }
+     ...
+   }
+   ```
+
+   Choosing right mid with `high = mid` when `target > nums[mid]`:
+   ```cpp
+   int mid = low + (high - low + 1) / 2;
+   while (low < high) {
+     ...
+     if (target > nums[mid]) {
+       low = mid + 1;
+     } else {
+       high = mid;  // infinite loop risk with right mid
+     }
+     ...
+   }
+   ```
 
 ### Rule of Thumb
-1. Include ALL possible answers when initialize low & high
+
+1. Include ALL possible answers when initializing `low` and `high`
 2. Don't overflow the mid calculation
-3. Shrink boundary using a logic that will exclude mid
-4. Avoid infinity loop by picking the correct mid and shrinking logic
+3. Shrink boundary using logic that excludes `mid`
+4. Avoid infinite loops by picking the correct mid and shrinking logic
 5. Always think of the case when there are 2 elements left
 
-***NOTE: I have neglected all the points mentioned here and followed my implementation binary_iterative() because it is another way of implementing bug free  binary search and seems to work in every quetion solved till now.***
+> **Note:** I have neglected all the points mentioned here and followed my implementation `binary_iterative()` because it is another way of implementing bug-free binary search and seems to work in every question solved till now.
 
-***Sometimes we won't even realize that the problem should be solved with binary search -- we might just turn to dynamic programming or DFS and get stuck for a very long time so, "When can we use binary search?", answer is, if we can discover some kind of monotonicity, for example, if condition(k) is True then condition(>k) is True OR if condition(k) is Fale then condition(>k) is False and vice-versa, then we can consider binary search.***
-### Algorithm Analysis
+## Algorithm Analysis
+
 ```
-    N - Size of input
+N - size of input
 
-    Time Complexity:   
-    1.  Worst:          O(logN)
-    2.  Average:        O(logN)
-    3.  Best:           O(logN)
+Time Complexity:
+    Worst:   O(log N)
+    Average: O(log N)
+    Best:    O(log N)
 
-    Space Complexity:   O(1)
+Space Complexity: O(1)
 ```
 
-## Practice Problems
+## Practice
 
-For detailed practice problems organized by difficulty level, see:
-- [Beginner Level](practice/1. beginner.md) - Basic binary search problems
-- [Intermediate Level](practice/2. intermediate.md) - Advanced binary search applications
-- [Advanced Level](practice/3. advanced.md) - Complex binary search variations
-- [Patterns & Techniques](practice/0. patterns.md) - Common binary search patterns and problem-solving strategies
+Problems live in `practice/` only. Study flow: patterns → difficulty tiers.
 
-Additional Resources:
+- [Patterns & Techniques](practice/0.%20patterns.md)
+- [Beginner](practice/1.%20beginner.md)
+- [Intermediate](practice/2.%20intermediate.md)
+- [Advanced](practice/3.%20advanced.md)
+
+Additional resources:
+
 - [Leetcode - My Binary Search List](https://leetcode.com/list/9zvbx4we)
 
 ## References
+
 1. [Topcoder - Binary Search](https://www.topcoder.com/thrive/articles/Binary%20Search)
 2. [Leetcode - Binary Search 101](https://leetcode.com/problems/binary-search/discuss/423162/Binary-Search-101-The-Ultimate-Binary-Search-Handbook)

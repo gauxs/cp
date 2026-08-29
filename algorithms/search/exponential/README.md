@@ -1,19 +1,37 @@
+---
+kind: theory
+title: Exponential Search
+topic_id: algorithms/search/exponential
+---
+
 # Exponential Search
-Following are some important observation on the algorithm:
-1. Exponential Binary Search is particularly useful for unbounded searches, where size of array is infinite.
-2. It works better than Binary Search for bounded arrays, and also when the element to be searched is closer to the first element.
 
-### Algorithm Analysis
+## Overview
+
+Exponential Search (also called exponential binary search) finds a range where the target may exist by doubling the index, then runs binary search within that range. It is especially useful when the search space is unbounded or when the target lies near the start of a bounded array.
+
+## Key Observations
+
+1. Particularly useful for **unbounded** searches where array size is effectively infinite.
+2. On **bounded** arrays, it can outperform plain binary search when the target is closer to the first element.
+
+## Algorithm Analysis
+
 ```
-    N - Size of input
+N - size of input
 
-    Time Complexity:   
-    1.  Worst:          O(logN)
-    2.  Average:        O(logN)
-    3.  Best:           O(logN)
+Time Complexity:
+    Worst:   O(log N)
+    Average: O(log N)
+    Best:    O(log N)
 
-    Space Complexity:   O(1)
+Space Complexity: O(1)
 ```
+
+## Practice
+
+No practice files yet.
 
 ## References
+
 1. [GeeksForGeeks - Exponential Search](https://www.geeksforgeeks.org/exponential-search/)

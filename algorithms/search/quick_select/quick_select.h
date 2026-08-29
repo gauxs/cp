@@ -1,5 +1,5 @@
-#ifndef QUICK_H_INCLUDED
-#define QUICK_H_INCLUDED
+#ifndef QUICK_SELECT_H_INCLUDED
+#define QUICK_SELECT_H_INCLUDED
 
 #include <vector>
 #include <iostream>
@@ -50,4 +50,4 @@ int quick_select(
     return -1;
 }
 
-#endif // QUICK_H_INCLUDED
+#endif // QUICK_SELECT_H_INCLUDED

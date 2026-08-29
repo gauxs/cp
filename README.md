@@ -6,7 +6,7 @@ Algorithms and data structures I learned and implemented while solving competiti
 
 ### Core Algorithm Topics
 - [ ] **Sorting** - [View Progress](algorithms/sort/README.md) (0/10 completed)
-- [ ] **Search** - Binary, Exponential, Jump, Quick Search
+- [ ] **Search** - Binary, Exponential, Jump, Quick Select
 - [ ] **Graph** - BFS, DFS, Shortest Path, MST, Topological Sort
 - [ ] **Dynamic Programming** - Various DP patterns and techniques
 - [ ] **Greedy** - Greedy algorithm strategies
