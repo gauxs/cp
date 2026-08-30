@@ -23,14 +23,8 @@ onMounted(async () => {
     if (!res.ok) throw new Error(`site.json (${res.status})`);
     site.value = await res.json();
 
-    const subcategories = site.value.categories.filter(
-      (category) => category.parent === frontmatter.value.topic_id,
-    );
-
-    if (subcategories.length > 0) {
-      return;
-    }
-
+    // Always load direct child topics; category cards come from childCategories.
+    // Parent categories may have both (e.g. Patterns → Optimization + Divide and Conquer).
     const prefix = `${frontmatter.value.topic_id}/`;
     const childTopics = site.value.topics
       .filter((t) => {
@@ -99,7 +93,10 @@ function problemCountLabel(count) {
     <p v-if="loading" class="status-msg">Loading…</p>
     <p v-else-if="error" class="status-msg error">{{ error }}</p>
 
-    <div v-else-if="childCategories.length" class="topic-grid">
+    <div
+      v-else-if="childCategories.length || topics.length"
+      class="topic-grid"
+    >
       <a
         v-for="category in childCategories"
         :key="category.topic_id"
@@ -111,9 +108,6 @@ function problemCountLabel(count) {
           {{ problemCountLabel(problemCountUnder(category.topic_id)) }}
         </p>
       </a>
-    </div>
-
-    <div v-else-if="topics.length" class="topic-grid">
       <a
         v-for="topic in topics"
         :key="topic.topic_id"

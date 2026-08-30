@@ -10,6 +10,7 @@ include:
   - "algorithms/search/**/practice/*.md"
   - "algorithms/sort/**/practice/*.md"
   - "data_structures/**/practice/*.md"
+  - "patterns/**/practice/*.md"
 
 categories:
   - topic_id: algorithms
@@ -26,6 +27,14 @@ categories:
   - topic_id: algorithms/sort/non_comparison
     label: Non-Comparison Sort
     parent: algorithms/sort
+  - topic_id: patterns
+    label: Patterns
+  - topic_id: patterns/optimization
+    label: Optimization
+    parent: patterns
+  - topic_id: patterns/scanning
+    label: Scanning
+    parent: patterns
   - topic_id: data_structures
     label: Data Structures
 
@@ -70,5 +79,15 @@ topics:
     label: Radix Sort
   algorithms/sort/non_comparison/bucket:
     label: Bucket Sort
+  patterns/optimization/dp:
+    label: Dynamic Programming
+  patterns/optimization/greedy:
+    label: Greedy
+  patterns/scanning/sliding_window:
+    label: Sliding Window
+  patterns/scanning/intervals:
+    label: Intervals
+  patterns/divide_and_conquer:
+    label: Divide and Conquer
   data_structures/heap:
     label: Heap (Priority Queue)

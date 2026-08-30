@@ -247,13 +247,14 @@ function directChildTopics(parentTopicId, topicBundles) {
 }
 
 function buildCategoryNode(category, categories, topicBundles) {
-  const subcategories = childCategories(category.topic_id, categories);
-  const items =
-    subcategories.length > 0
-      ? subcategories.map((subcategory) =>
-          buildCategoryNode(subcategory, categories, topicBundles),
-        )
-      : directChildTopics(category.topic_id, topicBundles);
+  // Mix child categories and direct topics so trees like Patterns can have
+  // Optimization/Scanning groups plus a leaf sibling (e.g. Divide and Conquer).
+  const items = [
+    ...childCategories(category.topic_id, categories).map((subcategory) =>
+      buildCategoryNode(subcategory, categories, topicBundles),
+    ),
+    ...directChildTopics(category.topic_id, topicBundles),
+  ];
 
   return {
     text: category.label,
@@ -271,24 +272,18 @@ function buildSidebar(categories, topicBundles) {
 
   for (const parent of topLevel) {
     const subcategories = childCategories(parent.topic_id, categories);
-
-    if (subcategories.length > 0) {
-      items.push({
-        text: parent.label,
-        link: `/${parent.topic_id}`,
-        collapsed: true,
-        items: subcategories.map((subcategory) =>
-          buildCategoryNode(subcategory, categories, topicBundles),
-        ),
-      });
-      continue;
-    }
+    const sectionItems = [
+      ...subcategories.map((subcategory) =>
+        buildCategoryNode(subcategory, categories, topicBundles),
+      ),
+      ...directChildTopics(parent.topic_id, topicBundles),
+    ];
 
     items.push({
       text: parent.label,
       link: `/${parent.topic_id}`,
       collapsed: true,
-      items: directChildTopics(parent.topic_id, topicBundles),
+      items: sectionItems,
     });
   }
 

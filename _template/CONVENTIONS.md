@@ -28,7 +28,27 @@ Use markdown links to LeetCode only in `practice/` files:
 
 The site uses `problem-slug` as the canonical id. One checkbox state per slug everywhere.
 
-Problems may appear in **both** a pattern section and a difficulty tier - that is intentional (two views, one progress state).
+Problems may appear in **both** a pattern section and a difficulty tier within the **same** topic — that is intentional (two views, one progress state).
+
+Do **not** list the same problem under two different `topic_id`s. One primary home only.
+
+## Topic roots (mutually exclusive)
+
+| Root | Use for |
+| --- | --- |
+| `algorithms/` | Named algorithm is the lesson (merge sort, BFS, binary search) |
+| `patterns/` | Recognition family (DP, greedy, sliding window, intervals, …) |
+| `data_structures/` | Structure / ADT is the lesson (heap, trie, …) |
+
+### Placement (first match wins)
+
+1. Named algorithm is the lesson → `algorithms/…`
+2. Data structure is the lesson → `data_structures/…`
+3. DP state / transitions are the hard part → `patterns/optimization/dp`
+4. Greedy choice is the hard part → `patterns/optimization/greedy`
+5. Contiguous subarray / substring window → `patterns/scanning/sliding_window`
+6. Intervals / scheduling on `[start, end]` → `patterns/scanning/intervals`
+7. Split + combine (not a concrete algorithm folder) → `patterns/divide_and_conquer`
 
 ## Theory (`README.md`, `kind: theory`)
 
