@@ -73,6 +73,9 @@ Organized **by pattern**. Each pattern is one section:
 Rules:
 
 - Heading must start with `## Pattern: ` - the rest is the pattern name used in the **by-pattern** tab
+- **Keep patterns few** - one pattern per recognition-level approach, not per validation trick or problem shape
+- Validation hooks, counting tricks, and helper routines belong in **Key skills**, not new patterns
+- Do not add "Hybrid / Advanced" patterns - harder problems still use the same parent pattern with a richer `check(mid)`
 - Section order within a pattern: **Use when → Pattern → Key insight → Key skills → Problems** (matches the site UI)
 - Problems under a pattern can be any difficulty - do not split by tier here
 - Separate patterns with `---`
