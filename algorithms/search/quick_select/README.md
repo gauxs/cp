@@ -29,10 +29,6 @@ Time Complexity:
 Space Complexity: O(1)
 ```
 
-## Practice
-
-- [Intermediate](practice/2.%20intermediate.md)
-
 ## References
 
 1. [GeeksForGeeks - Quick Select](https://www.geeksforgeeks.org/quickselect-algorithm/)

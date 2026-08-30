@@ -32,10 +32,6 @@ Time Complexity:
 Space Complexity: O(1)
 ```
 
-## Practice
-
-No practice files yet.
-
 ## References
 
 1. [GeeksForGeeks - Jump Search](https://www.geeksforgeeks.org/jump-search/)

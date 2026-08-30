@@ -10,12 +10,6 @@ topic_id: algorithms/search/binary
 
 At each step, the algorithm compares the median value in the search space to the target value. Based on the comparison and because the sequence is sorted, it can then eliminate half of the search space. By doing this repeatedly, it will eventually be left with a search space consisting of a single element, the target value.
 
-## Notes
-
-> **When to use binary search:** Sometimes we won't even realize that the problem should be solved with binary search - we might turn to dynamic programming or DFS and get stuck for a very long time. If we can discover some kind of monotonicity, for example, if `condition(k)` is True then `condition(>k)` is True, or if `condition(k)` is False then `condition(>k)` is False (and vice-versa), then we can consider binary search.
-
-> **Personal note:** I have neglected all the points mentioned here and followed my implementation `binary_iterative()` because it is another way of implementing bug-free binary search and seems to work in every question solved till now.
-
 ## Key Observations
 
 1. **Choice of `low` and `high` (the boundary):** Normally we set the initial boundary to the number of elements in the array (`low=0`, `high=n-1`), but this is not always the case. The boundary is the range of elements we will be searching from. The initial boundary should include ALL possible answers. Binary search applies to non-array problems too (e.g. math). For example, Search Insert Position asks for an index to insert into the array - it is possible to insert after the last element, so the boundary becomes `low=0` and `high=n`.

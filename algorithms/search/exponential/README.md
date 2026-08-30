@@ -28,10 +28,6 @@ Time Complexity:
 Space Complexity: O(1)
 ```
 
-## Practice
-
-No practice files yet.
-
 ## References
 
 1. [GeeksForGeeks - Exponential Search](https://www.geeksforgeeks.org/exponential-search/)

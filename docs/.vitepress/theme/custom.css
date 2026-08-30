@@ -840,12 +840,24 @@
   color: #abb2bf;
 }
 
-.lc-code-lang {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.lc-code-lang-wrap {
+  flex-shrink: 0;
+}
+
+/* Native <select> — system dropdown, no custom flyout (avoids janky open animation). */
+.lc-code-lang-select {
+  margin: 0;
+  padding: 4px 8px;
+  border: 1px solid #3e4451;
+  border-radius: 6px;
+  background-color: #2c313a;
   color: #61afef;
-  font-weight: 700;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  color-scheme: dark;
 }
 
 .lc-code-block {
