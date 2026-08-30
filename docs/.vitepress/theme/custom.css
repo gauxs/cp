@@ -1324,6 +1324,18 @@ details[open] > summary .lc-chevron {
   padding: 0.15rem 0;
 }
 
+.lc-content .katex {
+  font-size: 1em;
+  line-height: normal;
+  text-indent: 0;
+}
+
+.lc-content td .katex,
+.lc-content li .katex {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .lc-content ol {
   list-style: decimal;
   margin: 0.75rem 0;
@@ -1373,21 +1385,29 @@ details[open] > summary .lc-chevron {
   border: 1px solid var(--vp-c-divider);
 }
 
-.lc-content pre {
+.lc-content pre,
+.lc-content pre.lc-markdown-code {
   margin: 0.75rem 0;
-  padding: 14px 16px;
-  border-radius: 8px;
+  padding: 18px 20px;
+  border-radius: 12px;
   overflow-x: auto;
-  background: var(--vp-code-block-bg);
-  border: 1px solid var(--vp-c-divider);
+  background: #282c34;
+  border: 1px solid #181a1f;
+  tab-size: 4;
 }
 
 .lc-content pre code {
   padding: 0;
   border: none;
   background: none;
+  font-family: var(--vp-font-family-mono);
   font-size: 0.86rem;
-  line-height: 1.55;
+  line-height: 1.65;
+  color: #abb2bf;
+}
+
+.lc-content pre code.hljs {
+  background: transparent;
 }
 
 .lc-content a {
@@ -1403,6 +1423,7 @@ details[open] > summary .lc-chevron {
 .lc-content .hljs {
   background: transparent;
   padding: 0;
+  color: #abb2bf;
 }
 
 .lc-practice-panel {

@@ -22,7 +22,7 @@ Let $N$ be the input size.
 
 | Case | Time | Space |
 | --- | --- | --- |
-| Worst | $O(N^2)$ | $O(1)$ |
+| Worst | $O(N^{2})$ | $O(1)$ |
 | Average | $O(N)$ | $O(1)$ |
 | Best | $O(1)$ | $O(1)$ |
 

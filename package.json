@@ -15,7 +15,9 @@
     "js-yaml": "^4.1.0",
     "katex": "^0.18.4",
     "markdown-it": "^14.1.0",
-    "markdown-it-katex": "^2.0.3",
     "vitepress": "^1.5.0"
+  },
+  "dependencies": {
+    "markdown-it-texmath": "^1.0.0"
   }
 }

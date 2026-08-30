@@ -35,6 +35,8 @@ Let $N$ be the input size.
 | Average | $O(?)$ | $O(?)$ |
 | Best | $O(?)$ | $O(?)$ |
 
+Use `$O(\log N)$`, `$O(N^{2})$` — brace exponents (`N^{2}`) for squared complexity.
+
 Use `$...$` for inline math (e.g. $O(\log N)$) in markdown. The site renders via [KaTeX](https://katex.org/).
 
 ## References

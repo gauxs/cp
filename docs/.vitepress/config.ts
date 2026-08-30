@@ -3,8 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 import { defineConfig } from "vitepress";
-import markdownItKatex from "markdown-it-katex";
 import { SITE_ICON_LIGHT, SITE_ICON_DARK } from "./site-assets";
+import { useTexMath } from "./math-plugin.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -134,7 +134,7 @@ export default defineConfig({
   ],
   markdown: {
     config(md) {
-      md.use(markdownItKatex);
+      useTexMath(md);
     },
   },
   cleanUrls: true,

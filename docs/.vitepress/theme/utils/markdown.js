@@ -1,24 +1,21 @@
 import MarkdownIt from "markdown-it";
-import markdownItKatex from "markdown-it-katex";
-import hljs from "highlight.js";
+import { highlightCode, DEFAULT_CODE_LANG } from "./highlight.js";
+import { useTexMath } from "../../math-plugin.mjs";
 
 const md = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: false,
-  highlight(str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return hljs.highlight(str, { language: lang }).value;
-      } catch {
-        /* fall through */
-      }
-    }
-    return hljs.highlightAuto(str).value;
-  },
 });
 
-md.use(markdownItKatex);
+useTexMath(md);
+
+md.renderer.rules.fence = (tokens, idx) => {
+  const token = tokens[idx];
+  const lang = (token.info || "").trim() || DEFAULT_CODE_LANG;
+  const highlighted = highlightCode(token.content, lang);
+  return `<pre class="lc-markdown-code"><code class="hljs language-${lang}">${highlighted}</code></pre>\n`;
+};
 
 const defaultLinkOpen =
   md.renderer.rules.link_open ||
