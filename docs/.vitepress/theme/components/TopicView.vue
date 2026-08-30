@@ -38,6 +38,7 @@ const tabs = computed(() => {
 
   const items = [{ id: "theory", label: "Theory" }];
   if (topic.value.code) items.push({ id: "code", label: "Code" });
+  if (topic.value.library) items.push({ id: "library", label: "Library" });
   if (topic.value.practice.some((f) => f.kind === "patterns")) {
     items.push({ id: "patterns", label: "Patterns" });
   }
@@ -100,6 +101,13 @@ const tierFiles = computed(() =>
           :content="topic.code.content"
           language="cpp"
         />
+      </section>
+
+      <section
+        v-else-if="activeTab === 'library' && topic.library"
+        class="content-panel"
+      >
+        <MarkdownContent :source="topic.library.content" strip-leading-h1 />
       </section>
 
       <section

@@ -8,7 +8,7 @@ Every content file starts with YAML frontmatter:
 
 ```yaml
 ---
-kind: theory | patterns | practice | category
+kind: theory | library | patterns | practice | category
 title: Human-readable title
 topic_id: category/path/topic    # stable id, e.g. algorithms/search/binary
 ---
@@ -105,9 +105,25 @@ Rules:
 
 ## Code (`<topic>.h`)
 
-Optional. Keep next to `README.md`. Not indexed as problems.
+Optional. Manual implementation next to `README.md`. Shown under the **Code** tab. Not indexed as problems.
 
-## Site views (future)
+Prefer one primary `.h` per topic (the indexer currently picks the first `*.h` in the folder).
+
+## Library (`library.md`, `kind: library`)
+
+Optional. Language / STL / standard-library usage for the topic (cheatsheet with snippets). Shown under the **Library** tab when present.
+
+| Section | Required | Notes |
+| --- | --- | --- |
+| `# Title` | yes | Matches `title` in frontmatter |
+| Creating / Operations / Sample | recommended | Short code fences; keep runnable where useful |
+| `## References` | recommended | cppreference, language docs |
+
+Do **not** list LeetCode problems here — those belong in `practice/`.
+
+Omit this file for topics with no library surface (typical for many algorithms). Data-structure topics often migrate content from `language/<lang>/…` into `library.md`, then remove the language file.
+
+## Site views
 
 | View | Source |
 | --- | --- |
@@ -116,7 +132,7 @@ Optional. Keep next to `README.md`. Not indexed as problems.
 | By pattern | Group by `## Pattern: …` headings in `0. patterns.md` |
 | By difficulty | Group by `## Beginner` / `## Intermediate` / `## Advanced` in `1. practice.md` |
 
-Topic pages use four sections: **Theory → Code → Patterns → Practice**. Patterns and practice tiers render as collapsible lists (collapsed by default).
+Topic pages use presence-based sections: **Theory → Code → Library → Patterns → Practice**. A tab appears only when that content exists for the topic.
 
 Progress counts: **unique slugs ticked / unique slugs total** - never count duplicate list entries.
 
@@ -124,7 +140,8 @@ Progress counts: **unique slugs ticked / unique slugs total** - never count dupl
 
 | File | Prefix | Purpose |
 | --- | --- | --- |
+| `library.md` | — | Library / STL usage (optional) |
 | `0. patterns.md` | `0.` | Patterns cheat sheet |
 | `1. practice.md` | `1.` | Practice by difficulty (all tiers in one file) |
 
-Skip `1. practice.md` if the topic has no tiered practice yet.
+Skip `library.md`, `0. patterns.md`, or `1. practice.md` when not needed.

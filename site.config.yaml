@@ -9,6 +9,7 @@ site:
 include:
   - "algorithms/search/**/practice/*.md"
   - "algorithms/sort/**/practice/*.md"
+  - "data_structures/**/practice/*.md"
 
 categories:
   - topic_id: algorithms
@@ -25,6 +26,8 @@ categories:
   - topic_id: algorithms/sort/non_comparison
     label: Non-Comparison Sort
     parent: algorithms/sort
+  - topic_id: data_structures
+    label: Data Structures
 
 homepage:
   default_view: global
@@ -67,3 +70,5 @@ topics:
     label: Radix Sort
   algorithms/sort/non_comparison/bucket:
     label: Bucket Sort
+  data_structures/heap:
+    label: Heap (Priority Queue)

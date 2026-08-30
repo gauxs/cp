@@ -107,6 +107,21 @@ function findCodeFile(topicDir) {
   };
 }
 
+function findLibraryFile(topicDir) {
+  const libraryPath = path.join(topicDir, "library.md");
+  if (!fs.existsSync(libraryPath)) return null;
+
+  const rel = path.relative(ROOT, libraryPath);
+  const parsed = matter(readFile(rel));
+  if (parsed.data.kind !== "library") return null;
+
+  return {
+    path: rel,
+    title: parsed.data.title ?? "Library",
+    content: parsed.content.trim(),
+  };
+}
+
 function buildTopicBundle(topicId, config) {
   const topicDir = path.join(ROOT, topicId);
   if (!fs.existsSync(topicDir)) return null;
@@ -146,6 +161,7 @@ function buildTopicBundle(topicId, config) {
       content: readme.content.trim(),
     },
     code: findCodeFile(topicDir),
+    library: findLibraryFile(topicDir),
     practice: practiceFiles,
   };
 }
