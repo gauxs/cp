@@ -14,6 +14,8 @@ const TOPICS_DIR = path.join(DATA_DIR, "topics");
 const LEETCODE_RE =
   /\[([^\]]+)\]\(https:\/\/leetcode\.com\/problems\/([^/)]+)\/?\)/g;
 const PATTERN_HEADING_RE = /^## Pattern:\s*(.+)$/m;
+const PRACTICE_TIER_HEADING_RE = /^## (Beginner|Intermediate|Advanced)\s*$/gm;
+const PRACTICE_TIER_ORDER = ["beginner", "intermediate", "advanced"];
 
 function loadConfig() {
   const raw = fs.readFileSync(path.join(ROOT, "site.config.yaml"), "utf8");
@@ -53,6 +55,33 @@ function parsePatternSections(markdown) {
   }
 
   return patterns;
+}
+
+function parsePracticeTierSections(markdown) {
+  const body = matter(markdown).content;
+  const headings = [];
+  let match;
+  const re = new RegExp(PRACTICE_TIER_HEADING_RE.source, "gm");
+  while ((match = re.exec(body)) !== null) {
+    headings.push({
+      tier: match[1].toLowerCase(),
+      index: match.index,
+      length: match[0].length,
+    });
+  }
+
+  const sections = [];
+  for (let i = 0; i < headings.length; i++) {
+    const start = headings[i].index + headings[i].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index : body.length;
+    const sectionBody = body.slice(start, end).trim();
+    sections.push({
+      tier: headings[i].tier,
+      problems: extractProblems(sectionBody),
+    });
+  }
+
+  return sections;
 }
 
 function topicLabel(topicId, config, frontmatterTitle) {
@@ -264,11 +293,17 @@ async function main() {
       }
     }
 
-    if (data.kind === "practice" && data.tier) {
-      for (const problem of extractProblems(content)) {
-        upsertProblem(problemMap, problem, topicId, label, {
-          difficulty: data.tier,
-        });
+    if (data.kind === "practice") {
+      const tierSections = data.tier
+        ? [{ tier: data.tier, problems: extractProblems(content) }]
+        : parsePracticeTierSections(raw);
+
+      for (const section of tierSections) {
+        for (const problem of section.problems) {
+          upsertProblem(problemMap, problem, topicId, label, {
+            difficulty: section.tier,
+          });
+        }
       }
     }
   }

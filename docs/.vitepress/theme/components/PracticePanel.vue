@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useProgress } from "../composables/useProgress.js";
-import { extractProblems } from "../utils/content.js";
+import { extractProblems, parsePracticeTiers } from "../utils/content.js";
 import { formatTier } from "../utils/tiers.js";
 import LeetCodeProblemRow from "./LeetCodeProblemRow.vue";
 
@@ -13,11 +13,17 @@ const { isDone, toggle, doneCount } = useProgress();
 
 const tierOrder = ["beginner", "intermediate", "advanced"];
 
-const sortedTiers = computed(() =>
-  [...props.tiers].sort(
-    (a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier),
-  ),
-);
+const sortedTiers = computed(() => {
+  const files = props.tiers;
+  if (files.length === 1 && !files[0].tier) {
+    const parsed = parsePracticeTiers(files[0].content);
+    if (parsed.length) return parsed;
+  }
+
+  return [...files]
+    .filter((f) => f.tier)
+    .sort((a, b) => tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier));
+});
 
 function tierProblems(tier) {
   return extractProblems(tier.content);

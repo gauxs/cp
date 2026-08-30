@@ -10,9 +10,7 @@ Reference layout for every algorithm / paradigm topic in this repo. Copy `topic/
 ├── <topic>.h              # implementation (optional)
 └── practice/
     ├── 0. patterns.md     # by-pattern index (kind: patterns)
-    ├── 1. beginner.md     # by-difficulty (kind: practice, tier: beginner)
-    ├── 2. intermediate.md
-    └── 3. advanced.md
+    └── 1. practice.md     # by-difficulty tiers (kind: practice)
 ```
 
 Create only the `practice/` files you need. Numeric prefix controls order.
@@ -25,9 +23,7 @@ Create only the `practice/` files you need. Numeric prefix controls order.
 | [topic/README.md](topic/README.md) | Theory template |
 | [topic/topic.h](topic/topic.h) | Code stub |
 | [topic/practice/0. patterns.md](topic/practice/0.%20patterns.md) | Patterns template |
-| [topic/practice/1. beginner.md](topic/practice/1.%20beginner.md) | Beginner tier template |
-| [topic/practice/2. intermediate.md](topic/practice/2.%20intermediate.md) | Intermediate tier template |
-| [topic/practice/3. advanced.md](topic/practice/3.%20advanced.md) | Advanced tier template |
+| [topic/practice/1. practice.md](topic/practice/1.%20practice.md) | Practice tiers template |
 
 ## Quick start
 

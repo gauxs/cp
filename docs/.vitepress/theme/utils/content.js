@@ -52,3 +52,26 @@ export function parsePatterns(markdown) {
 export function stripFrontmatter(markdown) {
   return markdown.replace(/^---[\s\S]*?---\n/, "");
 }
+
+const PRACTICE_TIER_ORDER = ["beginner", "intermediate", "advanced"];
+
+/** Split a single practice file into tier sections (## Beginner / Intermediate / Advanced). */
+export function parsePracticeTiers(markdown) {
+  const body = stripFrontmatter(markdown);
+  const tiers = [];
+  const parts = body.split(/(?=^## (?:Beginner|Intermediate|Advanced)\s*$)/m);
+
+  for (const part of parts) {
+    const match = part.match(/^## (Beginner|Intermediate|Advanced)\s*\n/m);
+    if (!match) continue;
+    tiers.push({
+      tier: match[1].toLowerCase(),
+      content: part.trim(),
+    });
+  }
+
+  return tiers.sort(
+    (a, b) =>
+      PRACTICE_TIER_ORDER.indexOf(a.tier) - PRACTICE_TIER_ORDER.indexOf(b.tier),
+  );
+}

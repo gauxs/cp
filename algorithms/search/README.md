@@ -27,7 +27,7 @@ Each topic follows [_template/topic/](../../_template/topic/):
 ├── <topic>.h           # implementation
 └── practice/           # optional
     ├── 0. patterns.md  # kind: patterns
-    └── N. <tier>.md    # kind: practice
+    └── 1. practice.md  # kind: practice (tier sections)
 ```
 
 See [_template/CONVENTIONS.md](../../_template/CONVENTIONS.md) for content rules.

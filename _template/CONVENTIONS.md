@@ -16,13 +16,7 @@ topic_id: category/path/topic    # stable id, e.g. algorithms/search/binary
 
 Category index files (e.g. `algorithms/search/README.md`) use `kind: category` and `topic_id: algorithms/search`. They list child topics; they do not contain practice problems.
 
-Practice tier files also include:
-
-```yaml
-tier: beginner | intermediate | advanced
-```
-
-`topic_id` should match the folder path from repo root (without leading slash).
+Practice tier files use section headings inside a single file (see Difficulty tiers below). Legacy per-tier files with `tier:` in frontmatter are still supported.
 
 ## Problem links (required format)
 
@@ -81,21 +75,32 @@ Rules:
 - Separate patterns with `---`
 - Pattern names should be reusable wording (e.g. "Binary Search on Answer", "Sliding Window - Fixed Size")
 
-## Difficulty tiers (`1./2./3. *.md`, `kind: practice`)
+## Difficulty tiers (`1. practice.md`, `kind: practice`)
 
-Organized **by difficulty**. Flat numbered list only:
+Organized **by difficulty** in one file. Use `## Beginner`, `## Intermediate`, `## Advanced` sections:
 
 ```markdown
+---
+kind: practice
+title: Practice
+topic_id: category/path/topic
+---
+
 ## Beginner
+
+1. [Title](url)
+
+## Intermediate
 
 1. [Title](url)
 ```
 
 Rules:
 
-- Heading `## Beginner` / `## Intermediate` / `## Advanced` must match `tier` in frontmatter
-- Problems only - no pattern prose
-- On the site, all tiers appear under a single **Practice** tab as collapsible sections (not separate tabs)
+- One `1. practice.md` per topic (omit sections you do not need)
+- Headings must be exactly `## Beginner`, `## Intermediate`, or `## Advanced`
+- Problems only under each heading - no pattern prose
+- On the site, all tiers appear under a single **Practice** tab as collapsible sections
 - Same problem may also appear under a pattern in `0. patterns.md`
 
 ## Code (`<topic>.h`)
@@ -109,7 +114,7 @@ Optional. Keep next to `README.md`. Not indexed as problems.
 | Global | All unique slugs from included `practice/` files |
 | By topic | Group by `topic_id` |
 | By pattern | Group by `## Pattern: …` headings in `0. patterns.md` |
-| By difficulty | Group by `tier` in `1./2./3. *.md` |
+| By difficulty | Group by `## Beginner` / `## Intermediate` / `## Advanced` in `1. practice.md` |
 
 Topic pages use four sections: **Theory → Code → Patterns → Practice**. Patterns and practice tiers render as collapsible lists (collapsed by default).
 
@@ -120,8 +125,6 @@ Progress counts: **unique slugs ticked / unique slugs total** - never count dupl
 | File | Prefix | Purpose |
 | --- | --- | --- |
 | `0. patterns.md` | `0.` | Patterns cheat sheet |
-| `1. beginner.md` | `1.` | Beginner tier |
-| `2. intermediate.md` | `2.` | Intermediate tier |
-| `3. advanced.md` | `3.` | Advanced tier |
+| `1. practice.md` | `1.` | Practice by difficulty (all tiers in one file) |
 
-Skip files you do not need (e.g. only `0.` and `2.` is fine).
+Skip `1. practice.md` if the topic has no tiered practice yet.
