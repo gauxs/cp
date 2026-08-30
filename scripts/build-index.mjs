@@ -209,6 +209,44 @@ aside: false
   }
 }
 
+function childCategories(parentTopicId, categories) {
+  return categories
+    .filter((category) => category.parent === parentTopicId)
+    .sort((a, b) => compareTopicIds({ topic_id: a.topic_id }, { topic_id: b.topic_id }));
+}
+
+function directChildTopics(parentTopicId, topicBundles) {
+  const prefix = `${parentTopicId}/`;
+  return topicBundles
+    .filter((topic) => {
+      if (!topic.topic_id.startsWith(prefix)) return false;
+      const rest = topic.topic_id.slice(prefix.length);
+      return rest.length > 0 && !rest.includes("/");
+    })
+    .sort(compareTopicIds)
+    .map((topic) => ({
+      text: topic.title,
+      link: `/${topic.topic_id}`,
+    }));
+}
+
+function buildCategoryNode(category, categories, topicBundles) {
+  const subcategories = childCategories(category.topic_id, categories);
+  const items =
+    subcategories.length > 0
+      ? subcategories.map((subcategory) =>
+          buildCategoryNode(subcategory, categories, topicBundles),
+        )
+      : directChildTopics(category.topic_id, topicBundles);
+
+  return {
+    text: category.label,
+    link: `/${category.topic_id}`,
+    collapsed: true,
+    items,
+  };
+}
+
 function buildSidebar(categories, topicBundles) {
   const config = loadConfig();
   const homeLabel = config.site?.home_title ?? "Home";
@@ -216,50 +254,25 @@ function buildSidebar(categories, topicBundles) {
   const topLevel = categories.filter((category) => !category.parent);
 
   for (const parent of topLevel) {
-    const subcategories = categories
-      .filter((category) => category.parent === parent.topic_id)
-      .sort((a, b) => a.label.localeCompare(b.label));
+    const subcategories = childCategories(parent.topic_id, categories);
 
     if (subcategories.length > 0) {
-      const sectionItems = subcategories.map((subcategory) => {
-        const topics = topicBundles
-          .filter((topic) => topic.topic_id.startsWith(`${subcategory.topic_id}/`))
-          .sort(compareTopicIds)
-          .map((topic) => ({
-            text: topic.title,
-            link: `/${topic.topic_id}`,
-          }));
-
-        return {
-          text: subcategory.label,
-          link: `/${subcategory.topic_id}`,
-          collapsed: true,
-          items: topics,
-        };
-      });
-
       items.push({
         text: parent.label,
         link: `/${parent.topic_id}`,
         collapsed: true,
-        items: sectionItems,
+        items: subcategories.map((subcategory) =>
+          buildCategoryNode(subcategory, categories, topicBundles),
+        ),
       });
       continue;
     }
-
-    const topics = topicBundles
-      .filter((topic) => topic.topic_id.startsWith(`${parent.topic_id}/`))
-      .sort(compareTopicIds)
-      .map((topic) => ({
-        text: topic.title,
-        link: `/${topic.topic_id}`,
-      }));
 
     items.push({
       text: parent.label,
       link: `/${parent.topic_id}`,
       collapsed: true,
-      items: topics,
+      items: directChildTopics(parent.topic_id, topicBundles),
     });
   }
 

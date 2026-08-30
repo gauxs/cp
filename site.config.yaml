@@ -8,6 +8,7 @@ site:
 
 include:
   - "algorithms/search/**/practice/*.md"
+  - "algorithms/sort/**/practice/*.md"
 
 categories:
   - topic_id: algorithms
@@ -15,6 +16,15 @@ categories:
   - topic_id: algorithms/search
     label: Search
     parent: algorithms
+  - topic_id: algorithms/sort
+    label: Sort
+    parent: algorithms
+  - topic_id: algorithms/sort/comparison
+    label: Comparison Sort
+    parent: algorithms/sort
+  - topic_id: algorithms/sort/non_comparison
+    label: Non-Comparison Sort
+    parent: algorithms/sort
 
 homepage:
   default_view: global
@@ -37,3 +47,23 @@ topics:
     label: Jump Search
   algorithms/search/quick_select:
     label: Quick Select
+  algorithms/sort/comparison/bubble:
+    label: Bubble Sort
+  algorithms/sort/comparison/selection:
+    label: Selection Sort
+  algorithms/sort/comparison/insertion:
+    label: Insertion Sort
+  algorithms/sort/comparison/merge:
+    label: Merge Sort
+  algorithms/sort/comparison/quick:
+    label: Quick Sort
+  algorithms/sort/comparison/heap:
+    label: Heap Sort
+  algorithms/sort/comparison/shell:
+    label: Shell Sort
+  algorithms/sort/non_comparison/counting:
+    label: Counting Sort
+  algorithms/sort/non_comparison/radix:
+    label: Radix Sort
+  algorithms/sort/non_comparison/bucket:
+    label: Bucket Sort

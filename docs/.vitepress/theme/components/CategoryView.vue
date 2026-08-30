@@ -14,7 +14,7 @@ const childCategories = computed(() => {
   if (!site.value) return [];
   return site.value.categories
     .filter((category) => category.parent === frontmatter.value.topic_id)
-    .sort((a, b) => a.label.localeCompare(b.label));
+    .sort(compareTopicIds);
 });
 
 onMounted(async () => {
@@ -33,7 +33,11 @@ onMounted(async () => {
 
     const prefix = `${frontmatter.value.topic_id}/`;
     const childTopics = site.value.topics
-      .filter((t) => t.topic_id.startsWith(prefix))
+      .filter((t) => {
+        if (!t.topic_id.startsWith(prefix)) return false;
+        const rest = t.topic_id.slice(prefix.length);
+        return rest.length > 0 && !rest.includes("/");
+      })
       .sort(compareTopicIds);
 
     for (const child of childTopics) {
