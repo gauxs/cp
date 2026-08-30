@@ -39,7 +39,7 @@ Problems may appear in **both** a pattern section and a difficulty tier - that i
 | `## Notes` | recommended | `> **Title:**` callouts for tips and personal notes |
 | `## Key Observations` | recommended | Numbered list (`1.` …) |
 | `## Rule of Thumb` | optional | Numbered list (`1.` …) |
-| `## Algorithm Analysis` | recommended | Time / space in a fenced block |
+| `## Algorithm Analysis` | recommended | KaTeX math: use `$O(n)$` inline or `$$...$$` for display |
 | `## References` | recommended | External links (include LeetCode lists here) |
 
 Do **not** add a `## Practice` section - the site shows practice under **Patterns** and **Practice** tabs.

@@ -92,6 +92,10 @@ function topicOrder(topicId, config) {
   return config.topics?.[topicId]?.order ?? 999;
 }
 
+function compareTopicIds(a, b) {
+  return a.topic_id.localeCompare(b.topic_id);
+}
+
 function findCodeFile(topicDir) {
   const files = fs.readdirSync(topicDir).filter((f) => f.endsWith(".h"));
   if (files.length === 0) return null;
@@ -220,7 +224,7 @@ function buildSidebar(categories, topicBundles) {
       const sectionItems = subcategories.map((subcategory) => {
         const topics = topicBundles
           .filter((topic) => topic.topic_id.startsWith(`${subcategory.topic_id}/`))
-          .sort((a, b) => a.order - b.order)
+          .sort(compareTopicIds)
           .map((topic) => ({
             text: topic.title,
             link: `/${topic.topic_id}`,
@@ -245,7 +249,7 @@ function buildSidebar(categories, topicBundles) {
 
     const topics = topicBundles
       .filter((topic) => topic.topic_id.startsWith(`${parent.topic_id}/`))
-      .sort((a, b) => a.order - b.order)
+      .sort(compareTopicIds)
       .map((topic) => ({
         text: topic.title,
         link: `/${topic.topic_id}`,
@@ -337,7 +341,7 @@ async function main() {
   const topicBundles = [...topicIds]
     .map((id) => buildTopicBundle(id, config))
     .filter(Boolean)
-    .sort((a, b) => a.order - b.order);
+    .sort(compareTopicIds);
 
   ensureDir(TOPICS_DIR);
   for (const topic of topicBundles) {

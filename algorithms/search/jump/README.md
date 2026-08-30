@@ -21,16 +21,13 @@ Jump Search works on sorted data by jumping ahead in fixed blocks, then performi
 
 ## Algorithm Analysis
 
-```
-N - size of input
+Let $N$ be the input size.
 
-Time Complexity:
-    Worst:   O(sqrt N)
-    Average: O(sqrt N)
-    Best:    O(1)
-
-Space Complexity: O(1)
-```
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(\sqrt{N})$ | $O(1)$ |
+| Average | $O(\sqrt{N})$ | $O(1)$ |
+| Best | $O(1)$ | $O(1)$ |
 
 ## References
 

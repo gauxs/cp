@@ -3,6 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 import { defineConfig } from "vitepress";
+import markdownItKatex from "markdown-it-katex";
+import { SITE_ICON_LIGHT, SITE_ICON_DARK } from "./site-assets";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -111,8 +113,30 @@ export default defineConfig({
     "Patterns, theory, and practice for algorithms and data structures",
   base: `${BASE}/`,
   head: [
-    ["link", { rel: "icon", type: "image/svg+xml", href: `${BASE}/favicon.svg` }],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: `${BASE}${SITE_ICON_LIGHT}`,
+        media: "(prefers-color-scheme: light)",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: `${BASE}${SITE_ICON_DARK}`,
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
   ],
+  markdown: {
+    config(md) {
+      md.use(markdownItKatex);
+    },
+  },
   cleanUrls: true,
   vite: {
     plugins: [legacyRedirectPlugin()],
@@ -128,7 +152,8 @@ export default defineConfig({
   themeConfig: {
     // Brand sits in the top-left nav (aligned with the toolbar divider).
     logo: {
-      src: "/favicon.svg",
+      light: SITE_ICON_LIGHT,
+      dark: SITE_ICON_DARK,
       alt: siteConfig.site?.name ?? "MyGrindSheet",
     },
     logoLink: "/",

@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import { useData, withBase } from "vitepress";
-import { topicDataSlug, topicPageUrl, categoryPageUrl } from "../utils/routes.js";
+import { topicDataSlug, topicPageUrl, categoryPageUrl, compareTopicIds } from "../utils/routes.js";
 import TopicBreadcrumb from "./TopicBreadcrumb.vue";
 
 const { frontmatter } = useData();
@@ -34,7 +34,7 @@ onMounted(async () => {
     const prefix = `${frontmatter.value.topic_id}/`;
     const childTopics = site.value.topics
       .filter((t) => t.topic_id.startsWith(prefix))
-      .sort((a, b) => a.order - b.order);
+      .sort(compareTopicIds);
 
     for (const child of childTopics) {
       const slug = topicDataSlug(child.topic_id);

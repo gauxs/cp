@@ -21,3 +21,8 @@ export function topicPageUrl(topicId) {
 export function categoryPageUrl(categoryId) {
   return withBase(categoryPagePath(categoryId));
 }
+
+/** Sort topics by repo folder path (`topic_id`), matching GitHub directory order. */
+export function compareTopicIds(a, b) {
+  return a.topic_id.localeCompare(b.topic_id);
+}

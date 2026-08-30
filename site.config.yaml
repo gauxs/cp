@@ -22,6 +22,7 @@ homepage:
 views:
   - global
   - byTopic
+  - byPattern
   - byDifficulty
 
 progress:
@@ -30,13 +31,9 @@ progress:
 topics:
   algorithms/search/binary:
     label: Binary Search
-    order: 10
-  algorithms/search/jump:
-    label: Jump Search
-    order: 20
-  algorithms/search/quick_select:
-    label: Quick Select
-    order: 30
   algorithms/search/exponential:
     label: Exponential Search
-    order: 40
+  algorithms/search/jump:
+    label: Jump Search
+  algorithms/search/quick_select:
+    label: Quick Select

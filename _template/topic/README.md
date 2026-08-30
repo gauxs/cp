@@ -27,16 +27,15 @@ One paragraph: what this technique is and when it applies.
 
 ## Algorithm Analysis
 
-```
-N - size of input
+Let $N$ be the input size.
 
-Time Complexity:
-    Worst:   O(?)
-    Average: O(?)
-    Best:    O(?)
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(?)$ | $O(?)$ |
+| Average | $O(?)$ | $O(?)$ |
+| Best | $O(?)$ | $O(?)$ |
 
-Space Complexity: O(?)
-```
+Use `$...$` for inline math (e.g. $O(\log N)$) in markdown. The site renders via [KaTeX](https://katex.org/).
 
 ## References
 

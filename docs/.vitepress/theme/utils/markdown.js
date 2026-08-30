@@ -1,4 +1,5 @@
 import MarkdownIt from "markdown-it";
+import markdownItKatex from "markdown-it-katex";
 import hljs from "highlight.js";
 
 const md = new MarkdownIt({
@@ -16,6 +17,8 @@ const md = new MarkdownIt({
     return hljs.highlightAuto(str).value;
   },
 });
+
+md.use(markdownItKatex);
 
 const defaultLinkOpen =
   md.renderer.rules.link_open ||

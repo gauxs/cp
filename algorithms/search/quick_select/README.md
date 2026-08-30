@@ -18,16 +18,13 @@ Quickselect finds the k-th smallest element in an unordered list. It is related 
 
 ## Algorithm Analysis
 
-```
-N - size of input
+Let $N$ be the input size.
 
-Time Complexity:
-    Worst:   O(N^2)
-    Average: O(N)
-    Best:    O(1)
-
-Space Complexity: O(1)
-```
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(N^2)$ | $O(1)$ |
+| Average | $O(N)$ | $O(1)$ |
+| Best | $O(1)$ | $O(1)$ |
 
 ## References
 

@@ -17,16 +17,13 @@ Exponential Search (also called exponential binary search) finds a range where t
 
 ## Algorithm Analysis
 
-```
-N - size of input
+Let $N$ be the input size.
 
-Time Complexity:
-    Worst:   O(log N)
-    Average: O(log N)
-    Best:    O(log N)
-
-Space Complexity: O(1)
-```
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(\log N)$ | $O(1)$ |
+| Average | $O(\log N)$ | $O(1)$ |
+| Best | $O(\log N)$ | $O(1)$ |
 
 ## References
 
