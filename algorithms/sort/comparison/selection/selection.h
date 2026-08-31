@@ -1,23 +1,18 @@
 #ifndef SELECTION_H_INCLUDED
 #define SELECTION_H_INCLUDED
 
-#include <vector>
-#include <iostream>
 #include <bits/stdc++.h>
+
+#include <iostream>
+#include <vector>
+
 #include "utils/basic.h"
 
-void selection_sort(
-    std::vector<int> &arr,
-    int n)
-{
-
-    for (int i = 0; i < n; i++)
-    {
+void selection_sort(std::vector<int>& arr, int n) {
+    for (int i = 0; i < n; i++) {
         int minIndex = i;
-        for (int j = i; j < n; j++)
-        {
-            if (arr[j] < arr[minIndex])
-            {
+        for (int j = i; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
                 minIndex = j;
             }
         }
@@ -28,4 +23,4 @@ void selection_sort(
     return;
 }
 
-#endif // SELECTION_H_INCLUDED
+#endif  // SELECTION_H_INCLUDED
