@@ -7,7 +7,7 @@ const props = defineProps({
   filename: { type: String, required: true },
   content: { type: String, required: true },
   language: { type: String, default: "cpp" },
-  /** Future: per-language files — [{ language, label?, filename, content }] */
+  /** Future: per-language files - [{ language, label?, filename, content }] */
   variants: { type: Array, default: null },
   languages: { type: Array, default: () => CODE_LANGUAGES },
 });

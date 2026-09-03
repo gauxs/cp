@@ -1,10 +1,10 @@
 ---
 kind: library
-title: Heap — std::priority_queue
+title: Heap - std::priority_queue
 topic_id: data_structures/heap
 ---
 
-# Heap — `std::priority_queue`
+# Heap - `std::priority_queue`
 
 A **max-heap** by default: the largest element has the highest priority and is always at the top. Customize to a **min-heap** or custom order with a comparator.
 
@@ -89,7 +89,7 @@ Size: 2
 
 > **Default is max-heap:** For Dijkstra / “smallest first,” use `std::greater<T>` (or an equivalent comparator).
 
-> **No decrease-key:** `priority_queue` does not support efficient arbitrary updates — use lazy deletion, a set, or an indexed heap when needed.
+> **No decrease-key:** `priority_queue` does not support efficient arbitrary updates - use lazy deletion, a set, or an indexed heap when needed.
 
 ## References
 

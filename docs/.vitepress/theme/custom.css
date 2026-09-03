@@ -16,7 +16,7 @@
  * Mac even when labels are short. Vue scoped styles beat normal overrides, so
  * width/padding need !important here. Layout then uses --vp-sidebar-width,
  * which JS sets from label intrinsic width clamped to ~12–22vw (scales with
- * the viewport — no per-breakpoint px table).
+ * the viewport - no per-breakpoint px table).
  */
 @media (max-width: 959px) {
   .VPSidebar {
@@ -52,7 +52,7 @@
     padding-top: 0 !important;
   }
 
-  .VPSidebar .group + .group {
+  .VPSidebar .group+.group {
     border-top: none !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
@@ -158,7 +158,7 @@
   padding-top: 0 !important;
 }
 
-.VPSidebar .group + .group {
+.VPSidebar .group+.group {
   border-top: none !important;
   padding-top: 0 !important;
   margin-top: 0 !important;
@@ -168,7 +168,7 @@
   display: none;
 }
 
-.cp-custom .content-container > .main {
+.cp-custom .content-container>.main {
   display: none;
 }
 
@@ -845,7 +845,7 @@
   flex-shrink: 0;
 }
 
-/* Native <select> — system dropdown, no custom flyout (avoids janky open animation). */
+/* Native <select> - system dropdown, no custom flyout (avoids janky open animation). */
 .lc-code-lang-select {
   margin: 0;
   padding: 4px 8px;
@@ -903,7 +903,7 @@
   flex-shrink: 0;
 }
 
-details[open] > summary .lc-chevron {
+details[open]>summary .lc-chevron {
   transform: rotate(-135deg);
 }
 
@@ -1059,7 +1059,7 @@ details[open] > summary .lc-chevron {
   background: var(--vp-c-bg);
 }
 
-.lc-tier-block + .lc-tier-block {
+.lc-tier-block+.lc-tier-block {
   margin-top: 28px;
 }
 
@@ -1373,7 +1373,7 @@ details[open] > summary .lc-chevron {
   margin: 0;
 }
 
-.lc-content .lc-notes-heading + blockquote {
+.lc-content .lc-notes-heading+blockquote {
   margin-top: 0.5rem;
 }
 

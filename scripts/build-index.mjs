@@ -262,7 +262,7 @@ function buildCategoryNode(category, categories, topicBundles) {
     items,
   };
 
-  // Parents with children expand in the sidebar only — no category overview navigation.
+  // Parents with children expand in the sidebar only - no category overview navigation.
   if (items.length === 0) {
     node.link = `/${category.topic_id}`;
   }

@@ -12,7 +12,7 @@ Divide and conquer: pick a pivot, partition so elements $\lt$ pivot are left and
 
 ## Key Observations
 
-1. Partition is the core — places pivot in its final position in linear time.
+1. Partition is the core - places pivot in its final position in linear time.
 2. Preferred over merge sort for arrays; merge sort is often better for linked lists.
 3. Worst-case space can be reduced to $O(\log N)$ with tail-call optimization on recursion.
 

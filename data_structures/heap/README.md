@@ -14,8 +14,8 @@ A **priority queue** is the ADT (insert, extract-min/max, peek). A binary heap i
 
 ## Key Observations
 
-1. Array-backed complete tree needs no explicit child pointers — parent of $i$ is $\lfloor (i-1)/2 \rfloor$.
-2. Insert bubbles up; extract replaces root with last leaf and heapifies down — both $O(\log N)$.
+1. Array-backed complete tree needs no explicit child pointers - parent of $i$ is $\lfloor (i-1)/2 \rfloor$.
+2. Insert bubbles up; extract replaces root with last leaf and heapifies down - both $O(\log N)$.
 3. `build_heap` from $N$ elements is $O(N)$ by heapifying from the last non-leaf upward (not $N$ inserts).
 4. Default `std::priority_queue` is a **max-heap**; use `greater<>` (or a custom comparator) for a min-heap.
 5. Prefer the library in contests unless you need decrease-key, indexed heap, or a custom layout.

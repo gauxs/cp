@@ -1,12 +1,12 @@
 ---
 kind: library
-title: Topic Name — Library
+title: Topic Name - Library
 topic_id: category/path/topic
 ---
 
-# Topic Name — Library
+# Topic Name - Library
 
-Optional. Language / STL / standard-library usage for this data structure (or algorithm API). Omit this file for topics that have no library surface — the site only shows a **Library** tab when the file exists.
+Optional. Language / STL / standard-library usage for this data structure (or algorithm API). Omit this file for topics that have no library surface - the site only shows a **Library** tab when the file exists.
 
 ## Creating
 

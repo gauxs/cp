@@ -28,7 +28,7 @@ Use markdown links to LeetCode only in `practice/` files:
 
 The site uses `problem-slug` as the canonical id. One checkbox state per slug everywhere.
 
-Problems may appear in **both** a pattern section and a difficulty tier within the **same** topic — that is intentional (two views, one progress state).
+Problems may appear in **both** a pattern section and a difficulty tier within the **same** topic - that is intentional (two views, one progress state).
 
 Do **not** list the same problem under two different `topic_id`s. One primary home only.
 
@@ -59,7 +59,7 @@ Do **not** list the same problem under two different `topic_id`s. One primary ho
 | `## Notes` | recommended | `> **Title:**` callouts for tips and personal notes |
 | `## Key Observations` | recommended | Numbered list (`1.` …) |
 | `## Rule of Thumb` | optional | Numbered list (`1.` …) |
-| `## Algorithm Analysis` | recommended | Table + KaTeX (`$O(N^{2})$`, `$O(\log N)$`) — use `markdown-it-texmath` + katex 0.18 |
+| `## Algorithm Analysis` | recommended | Table + KaTeX (`$O(N^{2})$`, `$O(\log N)$`) - use `markdown-it-texmath` + katex 0.18 |
 | `## References` | recommended | External links (include LeetCode lists here) |
 
 Do **not** add a `## Practice` section - the site shows practice under **Patterns** and **Practice** tabs.
@@ -139,7 +139,7 @@ Optional. Language / STL / standard-library usage for the topic (cheatsheet with
 | Creating / Operations / Sample | recommended | Short code fences; keep runnable where useful |
 | `## References` | recommended | cppreference, language docs |
 
-Do **not** list LeetCode problems here — those belong in `practice/`.
+Do **not** list LeetCode problems here - those belong in `practice/`.
 
 Omit this file for topics with no library surface (typical for many algorithms). Data-structure topics often migrate content from `language/<lang>/…` into `library.md`, then remove the language file.
 
@@ -160,7 +160,7 @@ Progress counts: **unique slugs ticked / unique slugs total** - never count dupl
 
 | File | Prefix | Purpose |
 | --- | --- | --- |
-| `library.md` | — | Library / STL usage (optional) |
+| `library.md` | - | Library / STL usage (optional) |
 | `0. patterns.md` | `0.` | Patterns cheat sheet |
 | `1. practice.md` | `1.` | Practice by difficulty (all tiers in one file) |
 

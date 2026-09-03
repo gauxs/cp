@@ -12,7 +12,7 @@ Make locally optimal choices when an exchange argument or structural proof shows
 
 ## Key Observations
 
-1. Greedy fails when local choices need future rollback — use DP instead.
+1. Greedy fails when local choices need future rollback - use DP instead.
 2. Interval scheduling by earliest end is a classic greedy proof.
 3. **Capacity to Ship Packages Within D Days** and similar feasibility problems → Binary Search on Answer (`algorithms/search/binary`), not greedy primary home.
 4. Meeting-room style range problems → Scanning → Intervals when input is `[start, end]`.

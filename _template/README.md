@@ -31,7 +31,7 @@ Create only the optional files you need. The site shows a tab only when that con
 
 1. Copy `_template/topic/` → e.g. `data_structures/heap/` or `algorithms/search/binary/`
 2. Rename `topic.h` → matching name (e.g. `priority_queue.h`); delete `library.md` if unused
-3. Fill frontmatter (`title`, `topic_id`) — keep `topic_id` stable for progress tracking
+3. Fill frontmatter (`title`, `topic_id`) - keep `topic_id` stable for progress tracking
 4. Add problems using `[Title](https://leetcode.com/problems/slug/)` links only in `practice/`
 
 See [CONVENTIONS.md](CONVENTIONS.md) for how problems map to **global / by-topic / by-pattern / by-difficulty** views.

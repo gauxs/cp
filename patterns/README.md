@@ -6,7 +6,7 @@ topic_id: patterns
 
 # Patterns
 
-Interview recognition families. Every problem has **one primary home** — either under Patterns or under Algorithms / Data Structures.
+Interview recognition families. Every problem has **one primary home** - either under Patterns or under Algorithms / Data Structures.
 
 ## Groups
 
