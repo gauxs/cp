@@ -5,6 +5,7 @@
   --vp-layout-max-width: 1200px;
   /* Fallback; useSidebarWidthSync replaces this from measured nav labels. */
   --vp-sidebar-width: 15vw;
+  --cp-sidebar-max-width: 320px;
 }
 
 /*
@@ -32,7 +33,7 @@
 @media (min-width: 960px) {
   .VPSidebar {
     width: var(--vp-sidebar-width) !important;
-    max-width: 22vw !important;
+    max-width: var(--cp-sidebar-max-width) !important;
     padding: var(--vp-nav-height) 0.75rem 4rem 1rem !important;
   }
 
@@ -75,7 +76,7 @@
 @media (min-width: 1440px) {
   .VPSidebar {
     width: var(--vp-sidebar-width) !important;
-    max-width: 22vw !important;
+    max-width: var(--cp-sidebar-max-width) !important;
     padding-left: 1rem !important;
   }
 }

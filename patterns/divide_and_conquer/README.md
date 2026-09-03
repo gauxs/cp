@@ -8,14 +8,20 @@ topic_id: patterns/divide_and_conquer
 
 ## Overview
 
-Split the input, solve subproblems recursively, then combine. Distinct from a named algorithm folder when the lesson is the *pattern*, not a specific sort / search implementation. Practice content will migrate from `paradigms/divide_and_conquer/`.
+Break the problem into independent subproblems, solve recursively, then combine. Recognition axes: split by midpoint, split on bad elements, partition on a pivot, or divide the **answer space** (often overlaps Binary Search on Answer — see `algorithms/search/binary`).
 
 ## Key Observations
 
-1. Prefer `algorithms/…` when studying a concrete algorithm (e.g. merge sort implementation).
-2. Prefer this topic when the interview recognition is “split mid, recurse, merge answers.”
-3. Counting inversions via merge is merge-sort technique → stay under Merge Sort if that is the lesson.
+1. **Mid-split + combine:** cross-mid cases dominate merge-sort-style counting (e.g. range sums).
+2. **Split on property:** invalid characters force cuts; recurse on segments.
+3. **Pivot / quickselect:** partition and recurse one side — primary home is `algorithms/search/quick_select`.
+4. **Binary search on answer:** divide answer range, not the array — primary home is `algorithms/search/binary`.
+5. **Trees:** each node splits into subtrees; tree DP often owns path-sum style problems.
+
+## Rule of Thumb
+
+Ask: split by **mid**, **bad element**, **pivot**, or **answer value**? Named merge / quickselect implementations live under `algorithms/sort` and `algorithms/search`.
 
 ## References
 
-1. [LeetCode - Divide and Conquer](https://leetcode.com/tag/divide-and-conquer/)
+1. [LeetCode - Divide and Conquer tag](https://leetcode.com/tag/divide-and-conquer/)

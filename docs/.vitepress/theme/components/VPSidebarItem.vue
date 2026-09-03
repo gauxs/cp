@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from "vue";
-import { useRouter } from "vitepress";
 import { useSidebarControl } from "vitepress/dist/client/theme-default/composables/sidebar.js";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
@@ -9,8 +8,6 @@ const props = defineProps({
   depth: { type: Number, required: true },
 });
 
-const router = useRouter();
-
 const {
   collapsed,
   collapsible,
@@ -18,7 +15,6 @@ const {
   isActiveLink,
   hasActiveLink,
   hasChildren,
-  toggle,
 } = useSidebarControl(computed(() => props.item));
 
 const sectionTag = computed(() => (hasChildren.value ? "section" : "div"));
@@ -36,16 +32,12 @@ const classes = computed(() => [
 function onParentClick(event) {
   if ("key" in event && event.key !== "Enter") return;
 
-  if (collapsible.value) {
-    collapsed.value = false;
-  }
+  event.preventDefault();
+  event.stopPropagation();
 
-  if (props.item.link) {
-    router.go(props.item.link);
-    return;
+  if (hasChildren.value) {
+    collapsed.value = !collapsed.value;
   }
-
-  toggle();
 }
 </script>
 
@@ -67,7 +59,7 @@ function onParentClick(event) {
       <span v-else class="text" v-html="item.text" />
 
       <span
-        v-if="item.collapsed != null && item.items && item.items.length"
+        v-if="hasChildren && item.items && item.items.length"
         class="caret"
         aria-hidden="true"
       >
@@ -151,6 +143,7 @@ function onParentClick(event) {
   font-weight: 500;
   color: var(--vp-c-text-2);
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .VPSidebarItem.level-0 .text {

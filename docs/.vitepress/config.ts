@@ -143,7 +143,10 @@ export default defineConfig({
     resolve: {
       alias: [
         {
-          find: /\/theme-default\/components\/VPSidebarItem\.vue$/,
+          find: path.resolve(
+            __dirname,
+            "../../node_modules/vitepress/dist/client/theme-default/components/VPSidebarItem.vue",
+          ),
           replacement: path.join(__dirname, "theme/components/VPSidebarItem.vue"),
         },
       ],

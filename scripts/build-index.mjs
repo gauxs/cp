@@ -256,12 +256,18 @@ function buildCategoryNode(category, categories, topicBundles) {
     ...directChildTopics(category.topic_id, topicBundles),
   ];
 
-  return {
+  const node = {
     text: category.label,
-    link: `/${category.topic_id}`,
-    collapsed: true,
+    collapsed: items.length > 0 ? true : undefined,
     items,
   };
+
+  // Parents with children expand in the sidebar only — no category overview navigation.
+  if (items.length === 0) {
+    node.link = `/${category.topic_id}`;
+  }
+
+  return node;
 }
 
 function buildSidebar(categories, topicBundles) {
@@ -279,12 +285,17 @@ function buildSidebar(categories, topicBundles) {
       ...directChildTopics(parent.topic_id, topicBundles),
     ];
 
-    items.push({
+    const sectionNode = {
       text: parent.label,
-      link: `/${parent.topic_id}`,
-      collapsed: true,
+      collapsed: sectionItems.length > 0 ? true : undefined,
       items: sectionItems,
-    });
+    };
+
+    if (sectionItems.length === 0) {
+      sectionNode.link = `/${parent.topic_id}`;
+    }
+
+    items.push(sectionNode);
   }
 
   return [

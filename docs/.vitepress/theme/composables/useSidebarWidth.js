@@ -3,14 +3,12 @@ import { onMounted, onUnmounted, nextTick } from "vue";
 const DESKTOP_MQ = "(min-width: 960px)";
 
 /**
- * VitePress sizes the main column from --vp-sidebar-width, but its own
- * sidebar is stretched on wide screens (empty gutter). Measuring that box
- * locks the stretch in. We briefly unlock width, measure label content, then
- * publish a viewport-relative clamp as --vp-sidebar-width.
+ * VitePress sizes the main column from --vp-sidebar-width. Measure once using
+ * the widest label at any depth (including collapsed branches) so expanding
+ * sections does not change sidebar width.
  */
 export function useSidebarWidthSync() {
   let resizeObserver = null;
-  let mutationObserver = null;
   let mediaQuery = null;
   let raf = 0;
   let measuring = false;
@@ -20,6 +18,13 @@ export function useSidebarWidthSync() {
     sidebar.style.setProperty("width", "max-content", "important");
     sidebar.style.setProperty("max-width", "none", "important");
 
+    const hiddenItems = sidebar.querySelectorAll(
+      ".VPSidebarItem.collapsed > .items",
+    );
+    for (const el of hiddenItems) {
+      el.style.setProperty("display", "block", "important");
+    }
+
     const nav = sidebar.querySelector("#VPSidebarNav");
     let content = 0;
     if (nav) {
@@ -27,6 +32,10 @@ export function useSidebarWidthSync() {
         content = Math.max(content, el.scrollWidth);
       }
       content = Math.max(content, nav.scrollWidth);
+    }
+
+    for (const el of hiddenItems) {
+      el.style.removeProperty("display");
     }
 
     const styles = getComputedStyle(sidebar);
@@ -56,9 +65,8 @@ export function useSidebarWidthSync() {
 
     const vw = window.innerWidth;
     const minPx = Math.round(vw * 0.12);
-    const maxPx = Math.round(vw * 0.22);
     const measured = measureContentWidth(sidebar);
-    const width = Math.min(maxPx, Math.max(minPx, measured));
+    const width = Math.max(minPx, measured);
     root.style.setProperty("--vp-sidebar-width", `${width}px`);
   }
 
@@ -79,17 +87,6 @@ export function useSidebarWidthSync() {
     const nav = sidebar.querySelector("#VPSidebarNav") ?? sidebar;
     resizeObserver.observe(nav);
 
-    mutationObserver?.disconnect();
-    mutationObserver = new MutationObserver(() => {
-      if (!measuring) scheduleSync();
-    });
-    mutationObserver.observe(nav, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
     scheduleSync();
   }
 
@@ -107,7 +104,6 @@ export function useSidebarWidthSync() {
   onUnmounted(() => {
     cancelAnimationFrame(raf);
     resizeObserver?.disconnect();
-    mutationObserver?.disconnect();
     mediaQuery?.removeEventListener("change", onMediaChange);
     window.removeEventListener("resize", scheduleSync);
   });

@@ -8,14 +8,19 @@ topic_id: patterns/optimization/greedy
 
 ## Overview
 
-Make a locally optimal choice at each step when a proof / exchange argument shows it yields a global optimum. Practice content will migrate from `paradigms/greedy/`.
+Make locally optimal choices when an exchange argument or structural proof shows they yield a global optimum. Often preceded by sorting.
 
 ## Key Observations
 
-1. Sorting often enables a single greedy pass.
-2. If local choices need revisiting with state, prefer DP.
-3. Interval scheduling with “earliest end first” is greedy — primary home is still Intervals when the input is ranges.
+1. Greedy fails when local choices need future rollback — use DP instead.
+2. Interval scheduling by earliest end is a classic greedy proof.
+3. **Capacity to Ship Packages Within D Days** and similar feasibility problems → Binary Search on Answer (`algorithms/search/binary`), not greedy primary home.
+4. Meeting-room style range problems → Scanning → Intervals when input is `[start, end]`.
+
+## Rule of Thumb
+
+Can you prove that picking the “best looking” option now never hurts? If not, try DP or BS on answer.
 
 ## References
 
-1. [LeetCode - Greedy](https://leetcode.com/tag/greedy/)
+1. [LeetCode - Greedy tag](https://leetcode.com/tag/greedy/)
