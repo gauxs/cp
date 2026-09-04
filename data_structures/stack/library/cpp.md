@@ -1,4 +1,11 @@
-# 📚 C++ std::stack
+---
+kind: library
+lang: cpp
+title: Stack - std::stack
+topic_id: data_structures/stack
+---
+
+# Stack - `std::stack`
 
 ## 🧱 What is a `stack`?
 

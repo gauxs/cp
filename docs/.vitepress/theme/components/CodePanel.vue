@@ -1,7 +1,14 @@
 <script setup>
 import { computed, ref, watch } from "vue";
 import { highlightCodeLines } from "../utils/highlight.js";
-import { CODE_LANGUAGES, languageLabel } from "../utils/codeLanguages.js";
+import {
+  CODE_LANGUAGES,
+  DEFAULT_SITE_LANGUAGE,
+  languageLabel,
+} from "../utils/codeLanguages.js";
+import { useSiteLanguage } from "../composables/useSiteLanguage.js";
+
+const { language: siteLanguage } = useSiteLanguage();
 
 const props = defineProps({
   filename: { type: String, required: true },
@@ -13,7 +20,10 @@ const props = defineProps({
 });
 
 const selectedLanguage = ref(
-  props.variants?.[0]?.language ?? props.language ?? props.languages[0]?.id ?? "cpp",
+  props.variants?.[0]?.language ??
+    props.language ??
+    siteLanguage.value ??
+    DEFAULT_SITE_LANGUAGE,
 );
 
 watch(
@@ -21,6 +31,15 @@ watch(
   (variants) => {
     if (variants?.length) {
       selectedLanguage.value = variants[0].language;
+    }
+  },
+);
+
+watch(
+  siteLanguage,
+  (lang) => {
+    if (!props.variants?.length) {
+      selectedLanguage.value = lang;
     }
   },
 );

@@ -129,9 +129,19 @@ Optional. Manual implementation next to `README.md`. Shown under the **Code** ta
 
 Prefer one primary `.h` per topic (the indexer currently picks the first `*.h` in the folder).
 
-## Library (`library.md`, `kind: library`)
+## Library (`library/<lang>.md` or `library.md`, `kind: library`)
 
-Optional. Language / STL / standard-library usage for the topic (cheatsheet with snippets). Shown under the **Library** tab when present.
+Optional. Language / STL / standard-library usage for the topic (cheatsheet with snippets). Shown under the **Library** tab when present. Use the site **Language** dropdown (C++ / Java / Go) to switch variants.
+
+Preferred layout:
+
+```
+<topic>/library/cpp.md
+<topic>/library/java.md
+<topic>/library/go.md
+```
+
+Legacy single file `library.md` is treated as C++. Each file should set `lang: cpp | java | go` in frontmatter.
 
 | Section | Required | Notes |
 | --- | --- | --- |

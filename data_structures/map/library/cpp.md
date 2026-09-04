@@ -1,4 +1,11 @@
-# 📚 C++ std::map
+---
+kind: library
+lang: cpp
+title: Map - std::map / std::unordered_map
+topic_id: data_structures/map
+---
+
+# Map - `std::map / std::unordered_map`
 
 ## 🧱 What is a `map`?
 

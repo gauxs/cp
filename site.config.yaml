@@ -91,3 +91,17 @@ topics:
     label: Divide and Conquer
   data_structures/heap:
     label: Heap (Priority Queue)
+  data_structures/vector:
+    label: Vector
+  data_structures/map:
+    label: Map
+  data_structures/stack:
+    label: Stack
+  data_structures/queue:
+    label: Queue
+  data_structures/deque:
+    label: Deque
+  data_structures/bitset:
+    label: Bitset
+  data_structures/string:
+    label: String

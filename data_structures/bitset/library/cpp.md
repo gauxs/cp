@@ -1,4 +1,11 @@
-# C++ std::bitset
+---
+kind: library
+lang: cpp
+title: Bitset - std::bitset
+topic_id: data_structures/bitset
+---
+
+# Bitset - `std::bitset`
 
 In C++, `std::bitset` is a container that represents a fixed-size sequence of bits. It allows for efficient manipulation of individual bits, making it useful in problems involving bitwise operations, such as managing flags or representing binary numbers.
 

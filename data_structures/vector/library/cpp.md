@@ -1,4 +1,11 @@
-# C++ STL
+---
+kind: library
+lang: cpp
+title: Vector - std::vector
+topic_id: data_structures/vector
+---
+
+# Vector - `std::vector`
 
 ## 1. Creating a Vector
 ```cpp

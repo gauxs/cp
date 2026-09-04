@@ -1,4 +1,5 @@
 ---
+lang: cpp
 kind: library
 title: Heap - std::priority_queue
 topic_id: data_structures/heap

@@ -107,19 +107,59 @@ function findCodeFile(topicDir) {
   };
 }
 
-function findLibraryFile(topicDir) {
-  const libraryPath = path.join(topicDir, "library.md");
-  if (!fs.existsSync(libraryPath)) return null;
-
-  const rel = path.relative(ROOT, libraryPath);
-  const parsed = matter(readFile(rel));
+function parseLibraryEntry(relPath) {
+  const parsed = matter(readFile(relPath));
   if (parsed.data.kind !== "library") return null;
 
+  const lang =
+    parsed.data.lang ??
+    path.basename(relPath, ".md").replace(/^library\.?/, "") ??
+    "cpp";
+
   return {
-    path: rel,
+    path: relPath,
+    lang,
     title: parsed.data.title ?? "Library",
     content: parsed.content.trim(),
   };
+}
+
+function findLibraryFiles(topicDir) {
+  const entries = [];
+  const seen = new Set();
+
+  const libraryDir = path.join(topicDir, "library");
+  if (fs.existsSync(libraryDir)) {
+    for (const file of fs
+      .readdirSync(libraryDir)
+      .filter((f) => f.endsWith(".md"))
+      .sort()) {
+      const rel = path.relative(ROOT, path.join(libraryDir, file));
+      const entry = parseLibraryEntry(rel);
+      if (!entry || seen.has(entry.lang)) continue;
+      seen.add(entry.lang);
+      entries.push(entry);
+    }
+  }
+
+  const legacyPath = path.join(topicDir, "library.md");
+  if (fs.existsSync(legacyPath) && !seen.has("cpp")) {
+    const rel = path.relative(ROOT, legacyPath);
+    const entry = parseLibraryEntry(rel);
+    if (entry) {
+      entry.lang = entry.lang === "library" ? "cpp" : entry.lang;
+      entries.push({ ...entry, lang: "cpp" });
+    }
+  }
+
+  const langOrder = ["cpp", "java", "go"];
+  entries.sort(
+    (a, b) =>
+      (langOrder.indexOf(a.lang) === -1 ? 99 : langOrder.indexOf(a.lang)) -
+      (langOrder.indexOf(b.lang) === -1 ? 99 : langOrder.indexOf(b.lang)),
+  );
+
+  return entries.length ? entries : null;
 }
 
 function buildTopicBundle(topicId, config) {
@@ -161,7 +201,7 @@ function buildTopicBundle(topicId, config) {
       content: readme.content.trim(),
     },
     code: findCodeFile(topicDir),
-    library: findLibraryFile(topicDir),
+    library: findLibraryFiles(topicDir),
     practice: practiceFiles,
   };
 }

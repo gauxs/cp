@@ -1,4 +1,11 @@
-# 🚚 C++ std::deque
+---
+kind: library
+lang: cpp
+title: Deque - std::deque
+topic_id: data_structures/deque
+---
+
+# Deque - `std::deque`
 
 ## 🧱 What is a `deque`?
 

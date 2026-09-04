@@ -8,8 +8,11 @@ import CodePanel from "./CodePanel.vue";
 import TopicStepNav from "./TopicStepNav.vue";
 import TopicBreadcrumb from "./TopicBreadcrumb.vue";
 import { topicDataSlug } from "../utils/routes.js";
+import { useSiteLanguage } from "../composables/useSiteLanguage.js";
+import { languageLabel } from "../utils/codeLanguages.js";
 
 const { frontmatter } = useData();
+const { language } = useSiteLanguage();
 const topic = ref(null);
 const site = ref(null);
 const activeTab = ref("theory");
@@ -78,7 +81,7 @@ const tabs = computed(() => {
 
   const items = [{ id: "theory", label: "Theory" }];
   if (topic.value.code) items.push({ id: "code", label: "Code" });
-  if (topic.value.library) items.push({ id: "library", label: "Library" });
+  if (topic.value.library?.length) items.push({ id: "library", label: "Library" });
   if (topic.value.practice.some((f) => f.kind === "patterns")) {
     items.push({ id: "patterns", label: "Patterns" });
   }
@@ -101,6 +104,16 @@ function setActiveSection(section) {
 const activeTabMeta = computed(() =>
   tabs.value.find((tab) => tab.id === activeTab.value),
 );
+
+const activeLibrary = computed(() => {
+  const libs = topic.value?.library;
+  if (!libs?.length) return null;
+  return (
+    libs.find((entry) => entry.lang === language.value) ??
+    libs.find((entry) => entry.lang === "cpp") ??
+    libs[0]
+  );
+});
 
 const patternsFile = computed(() =>
   topic.value?.practice.find((f) => f.kind === "patterns"),
@@ -149,15 +162,22 @@ const tierFiles = computed(() =>
         <CodePanel
           :filename="topic.code.name"
           :content="topic.code.content"
-          language="cpp"
+          :language="language"
         />
       </section>
 
       <section
-        v-else-if="activeTab === 'library' && topic.library"
+        v-else-if="activeTab === 'library' && topic.library?.length"
         class="content-panel"
       >
-        <MarkdownContent :source="topic.library.content" strip-leading-h1 />
+        <p v-if="!activeLibrary" class="status-msg">
+          No {{ languageLabel(language) }} library notes for this topic yet.
+        </p>
+        <MarkdownContent
+          v-else
+          :source="activeLibrary.content"
+          strip-leading-h1
+        />
       </section>
 
       <section

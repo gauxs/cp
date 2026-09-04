@@ -1,4 +1,11 @@
-# 📚 C++ std::queue
+---
+kind: library
+lang: cpp
+title: Queue - std::queue
+topic_id: data_structures/queue
+---
+
+# Queue - `std::queue`
 
 ## 📦 What is a `queue`?
 
