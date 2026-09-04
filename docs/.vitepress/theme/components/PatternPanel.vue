@@ -3,6 +3,7 @@ import { computed } from "vue";
 import { parsePatterns } from "../utils/content.js";
 import { useProgress } from "../composables/useProgress.js";
 import LeetCodeProblemRow from "./LeetCodeProblemRow.vue";
+import InlineMarkdown from "./InlineMarkdown.vue";
 
 const props = defineProps({
   markdown: { type: String, required: true },
@@ -38,15 +39,15 @@ function patternDoneCount(pattern) {
         <dl class="lc-pattern-fields">
           <template v-if="pattern.useWhen">
             <dt>Use when</dt>
-            <dd>{{ pattern.useWhen }}</dd>
+            <dd><InlineMarkdown :source="pattern.useWhen" /></dd>
           </template>
           <template v-if="pattern.pattern">
             <dt>Pattern</dt>
-            <dd>{{ pattern.pattern }}</dd>
+            <dd><InlineMarkdown :source="pattern.pattern" /></dd>
           </template>
           <template v-if="pattern.insight">
             <dt>Key insight</dt>
-            <dd>{{ pattern.insight }}</dd>
+            <dd><InlineMarkdown :source="pattern.insight" /></dd>
           </template>
         </dl>
 
@@ -59,7 +60,7 @@ function patternDoneCount(pattern) {
               class="lc-skill-item"
             >
               <span class="lc-skill-num">{{ skillIndex + 1 }}</span>
-              <span class="lc-skill-text">{{ skill }}</span>
+              <span class="lc-skill-text"><InlineMarkdown :source="skill" /></span>
             </li>
           </ol>
         </div>

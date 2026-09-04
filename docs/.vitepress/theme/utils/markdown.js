@@ -75,6 +75,10 @@ export function renderMarkdown(source, options = {}) {
   return md.render(text, { notesMode });
 }
 
+export function renderInlineMarkdown(source) {
+  return md.renderInline(source ?? "");
+}
+
 export function renderCodeMarkdown(filename, content, lang = "cpp") {
   return renderMarkdown(`\`${filename}\`\n\n\`\`\`${lang}\n${content}\n\`\`\``);
 }
