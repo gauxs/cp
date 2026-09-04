@@ -1,6 +1,6 @@
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { useData, withBase } from "vitepress";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { useData, withBase, inBrowser } from "vitepress";
 import MarkdownContent from "./MarkdownContent.vue";
 import PatternPanel from "./PatternPanel.vue";
 import PracticePanel from "./PracticePanel.vue";
@@ -16,7 +16,42 @@ const activeTab = ref("theory");
 const loading = ref(true);
 const error = ref("");
 
+function readQuerySection() {
+  if (!inBrowser) return null;
+  return new URLSearchParams(window.location.search).get("section");
+}
+
+function writeQuerySection(section) {
+  if (!inBrowser) return;
+
+  const url = new URL(window.location.href);
+  if (!section || section === "theory") {
+    url.searchParams.delete("section");
+  } else {
+    url.searchParams.set("section", section);
+  }
+
+  const next = `${url.pathname}${url.search}${url.hash}`;
+  history.replaceState(history.state, "", next);
+}
+
+function resolveSection(section, tabIds) {
+  if (section && tabIds.includes(section)) return section;
+  return "theory";
+}
+
+function syncSectionFromUrl() {
+  if (!topic.value) return;
+  activeTab.value = resolveSection(readQuerySection(), tabIds.value);
+}
+
+function onPopState() {
+  syncSectionFromUrl();
+}
+
 onMounted(async () => {
+  window.addEventListener("popstate", onPopState);
+
   try {
     const slug = topicDataSlug(frontmatter.value.topic_id);
     const [topicRes, siteRes] = await Promise.all([
@@ -26,11 +61,16 @@ onMounted(async () => {
     if (!topicRes.ok) throw new Error(`topic data (${topicRes.status})`);
     topic.value = await topicRes.json();
     if (siteRes.ok) site.value = await siteRes.json();
+    syncSectionFromUrl();
   } catch (err) {
     error.value = err.message ?? "Failed to load topic";
   } finally {
     loading.value = false;
   }
+});
+
+onUnmounted(() => {
+  if (inBrowser) window.removeEventListener("popstate", onPopState);
 });
 
 const tabs = computed(() => {
@@ -47,6 +87,16 @@ const tabs = computed(() => {
   }
   return items;
 });
+
+const tabIds = computed(() => tabs.value.map((tab) => tab.id));
+
+watch([topic, tabIds], syncSectionFromUrl, { immediate: true });
+
+function setActiveSection(section) {
+  const next = resolveSection(section, tabIds.value);
+  activeTab.value = next;
+  writeQuerySection(next);
+}
 
 const activeTabMeta = computed(() =>
   tabs.value.find((tab) => tab.id === activeTab.value),
@@ -88,7 +138,7 @@ const tierFiles = computed(() =>
         :active-tab="activeTab"
         :tabs="tabs"
         show-track
-        @update:active-tab="activeTab = $event"
+        @update:active-tab="setActiveSection"
       />
 
       <section v-if="activeTab === 'theory'" class="content-panel">
@@ -126,7 +176,7 @@ const tierFiles = computed(() =>
         :active-tab="activeTab"
         :tabs="tabs"
         show-footer
-        @update:active-tab="activeTab = $event"
+        @update:active-tab="setActiveSection"
       />
     </template>
   </div>
