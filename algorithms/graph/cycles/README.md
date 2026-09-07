@@ -12,7 +12,7 @@ Consider a directed or undirected graph without self-loops and multiple edges. W
 
 We can use DFS to find cycles. But why do we need 2 colors in undirected graphs but 3 colors in directed graphs?
 
-<img src="https://github.com/gauxs/cp/blob/master/media/images/find_cycle.jpg?raw=true" width="600" height="400">
+<img src="https://github.com/gauxs/cp/blob/master/algorithms/graph/cycles/find_cycle.jpg?raw=true" width="600" height="400" alt="Directed and undirected DFS cycle-state comparison">
 
 ## Algorithm Analysis
 
