@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Topological Sort
+topic_id: algorithms/graph/topological_sort
+---
+
 # Topological Sort
 
 Topological sorting is an algorithm that finds a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering. It's a fundamental algorithm for dependency resolution and scheduling problems.

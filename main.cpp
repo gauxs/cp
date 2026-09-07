@@ -1,11 +1,11 @@
-#include <vector>
-#include <iostream>
 #include <limits.h>
+
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-int main()
-{
+int main() {
     cout << "Hello World" << endl;
     return 0;
 }
