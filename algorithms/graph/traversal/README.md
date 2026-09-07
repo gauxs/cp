@@ -1,4 +1,10 @@
-# Graph Traversal Algorithms
+---
+kind: category
+title: Graph Traversal
+topic_id: algorithms/graph/traversal
+---
+
+# Graph Traversal
 
 Graph traversal algorithms are fundamental techniques for exploring and visiting all vertices in a graph. The two main approaches are Breadth-First Search (BFS) and Depth-First Search (DFS), each with distinct characteristics and use cases.
 
@@ -52,14 +58,12 @@ Graph traversal algorithms are fundamental techniques for exploring and visiting
 - **Edge classification**: Tree, back, forward, cross edges
 - **Component finding**: Mark connected components
 
-## Practice Problems
+## Topics
 
-For detailed practice problems organized by algorithm and difficulty:
-- [BFS Practice](bfs/practice/) - Breadth-first search problems
-- [DFS Practice](dfs/practice/) - Depth-first search problems
+Practice is organized under each algorithm:
+- [Breadth-First Search](bfs/README.md) - Level-order and shortest unweighted paths
+- [Depth-First Search](dfs/README.md) - Components, path exploration, and recursive traversal
 
 ## References
 
-- [BFS Algorithm](bfs/README.md) - Detailed BFS explanation
-- [DFS Algorithm](dfs/README.md) - Detailed DFS explanation
 - [CP Algorithms - Graph Traversal](https://cp-algorithms.com/graph/traversal-algorithms.html) - Comprehensive guide

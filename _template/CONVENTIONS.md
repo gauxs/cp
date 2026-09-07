@@ -174,4 +174,6 @@ Progress counts: **unique slugs ticked / unique slugs total** - never count dupl
 | `0. patterns.md` | `0.` | Patterns cheat sheet |
 | `1. practice.md` | `1.` | Practice by difficulty (all tiers in one file) |
 
+> **Legacy migration exception:** A migrated topic may temporarily use `0. curated.md` as its indexed patterns file when an older `0. patterns.md` must be retained. Document which file is authoritative and keep the exception explicit in `site.config.yaml`.
+
 Skip `library.md`, `0. patterns.md`, or `1. practice.md` when not needed.

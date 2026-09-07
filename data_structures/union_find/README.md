@@ -5,6 +5,9 @@ topic_id: data_structures/union_find
 ---
 
 # Disjoint Set Union
+
+## Overview
+
 Often it is also called **Union Find** because of its two main operations. This data structure provides the following capabilities. We are given several elements, each of which is a separate set. A DSU will have an operation to combine any two sets, and it will be able to tell in which set a specific element is. The classical version also introduces a third operation, it can create a set from a new element.
 
 Thus the basic interface of this data structure consists of only three operations:
@@ -12,7 +15,7 @@ Thus the basic interface of this data structure consists of only three operation
 2. union_sets
 3. find_set
 
-**Applications** of this data structure are mentioned in one of the refrences.
+**Applications** of this data structure are mentioned in the references.
 
 ## Algorithm Analysis
 ```
