@@ -11,6 +11,8 @@ include:
   - "algorithms/sort/**/practice/*.md"
   - "algorithms/backtracking/practice/*.md"
   - "algorithms/bit_manipulation/practice/*.md"
+  - "algorithms/kadane/practice/*.md"
+  - "algorithms/math/practice/*.md"
   - "algorithms/graph/**/practice/0. curated.md"
   - "algorithms/graph/**/practice/1. practice.md"
   - "data_structures/**/practice/*.md"
@@ -65,6 +67,10 @@ topics:
     label: Backtracking
   algorithms/bit_manipulation:
     label: Bit Manipulation
+  algorithms/graph/bipartite:
+    label: Bipartite Graph
+  algorithms/graph/cycles:
+    label: Cycle Detection
   algorithms/graph/mst:
     label: Minimum Spanning Tree
   algorithms/graph/shortest_path:
@@ -75,6 +81,10 @@ topics:
     label: Breadth-First Search
   algorithms/graph/traversal/dfs:
     label: Depth-First Search
+  algorithms/kadane:
+    label: Kadane's Algorithm
+  algorithms/math:
+    label: Mathematics
   algorithms/search/binary:
     label: Binary Search
   algorithms/search/exponential:
@@ -111,6 +121,8 @@ topics:
     label: Sliding Window
   patterns/scanning/intervals:
     label: Intervals
+  patterns/scanning/matrix:
+    label: Matrix Scanning
   patterns/scanning/two_pointers:
     label: Two Pointers
   patterns/scanning/prefix_sum:

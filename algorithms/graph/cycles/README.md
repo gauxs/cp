@@ -1,4 +1,12 @@
-# Cycle Detection in Graphs
+---
+kind: theory
+title: Cycle Detection
+topic_id: algorithms/graph/cycles
+---
+
+# Cycle Detection
+
+## Overview
 
 Consider a directed or undirected graph without self-loops and multiple edges. We need to check whether it is acyclic, and if it is not, then find any cycle.
 

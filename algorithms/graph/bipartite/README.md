@@ -1,4 +1,12 @@
+---
+kind: theory
+title: Bipartite Graph
+topic_id: algorithms/graph/bipartite
+---
+
 # Bipartite Graph
+
+## Overview
 
 A bipartite graph is a graph whose vertices can be divided into two disjoint sets so that every edge connects two vertices from different sets (i.e. there are no edges which connect vertices from the same set). These sets are usually called **sides** or **partitions**.
 
@@ -42,10 +50,6 @@ The bipartite structure (two distinct partitions) enables specialized algorithms
 | **DFS-based** | Unweighted | O(VE) | Simple implementation, good for small graphs |
 
 **Key point**: These algorithms are specifically designed for bipartite graphs and would not work efficiently (or at all) for general graphs.
-
-## Practice Problems
-
-### Complete Problem Set: [LeetCode - Graph Bipartite](https://leetcode.com/tag/bipartite/)
 
 ## Applications
 
@@ -133,6 +137,10 @@ The bipartite structure (two distinct partitions) enables specialized algorithms
 **Use Cases**: Maximum matching, assignment problems, transportation optimization
 
 **Why bipartite helps**: Natural source-sink separation simplifies flow network construction
+
+## Further Study
+
+### Complete Problem Set: [LeetCode - Graph Bipartite](https://leetcode.com/tag/bipartite/)
 
 ## References
 
