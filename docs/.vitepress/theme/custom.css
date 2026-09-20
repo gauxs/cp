@@ -794,6 +794,10 @@
 
 /* ── Code panel ── */
 
+.code-panels-stack .code-panel-section + .code-panel-section {
+  margin-top: 1.5rem;
+}
+
 .lc-code-panel {
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;

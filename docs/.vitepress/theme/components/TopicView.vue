@@ -80,7 +80,7 @@ const tabs = computed(() => {
   if (!topic.value) return [{ id: "theory", label: "Theory" }];
 
   const items = [{ id: "theory", label: "Theory" }];
-  if (topic.value.code) items.push({ id: "code", label: "Code" });
+  if (topic.value.code?.files?.length) items.push({ id: "code", label: "Code" });
   if (topic.value.library?.length) items.push({ id: "library", label: "Library" });
   if (topic.value.practice.some((f) => f.kind === "patterns")) {
     items.push({ id: "patterns", label: "Patterns" });
@@ -122,6 +122,8 @@ const patternsFile = computed(() =>
 const tierFiles = computed(() =>
   topic.value?.practice.filter((f) => f.kind === "practice") ?? [],
 );
+
+const codeFiles = computed(() => topic.value?.code?.files ?? []);
 </script>
 
 <template>
@@ -158,10 +160,16 @@ const tierFiles = computed(() =>
         <MarkdownContent :source="topic.theory.content" strip-leading-h1 />
       </section>
 
-      <section v-else-if="activeTab === 'code' && topic.code" class="content-panel">
+      <section
+        v-else-if="activeTab === 'code' && codeFiles.length"
+        class="content-panel code-panels-stack"
+      >
         <CodePanel
-          :filename="topic.code.name"
-          :content="topic.code.content"
+          v-for="file in codeFiles"
+          :key="file.name"
+          class="code-panel-section"
+          :filename="file.name"
+          :content="file.content"
           :language="language"
         />
       </section>

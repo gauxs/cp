@@ -13,8 +13,8 @@ For migrated graph topics, `practice/0. curated.md` and `practice/1. practice.md
 
 ## Todos
 Some algorithms which are not implemented but might get added later when i find questions on these.
-- [ ] Kosarajus
-- [ ] Tarjans
+- [x] Kosaraju (SCC) — `traversal/dfs/kosaraju.h`
+- [x] Tarjan bridges — `traversal/dfs/tarjan.h`
 - [ ] Flood fill algorithm
 - [ ] Euler's and Hamilton's algo
 - [ ] Ford-Fulkerson Algorithm

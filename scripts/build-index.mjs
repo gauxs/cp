@@ -97,13 +97,18 @@ function compareTopicIds(a, b) {
 }
 
 function findCodeFile(topicDir) {
-  const files = fs.readdirSync(topicDir).filter((f) => f.endsWith(".h"));
+  const files = fs
+    .readdirSync(topicDir)
+    .filter((f) => f.endsWith(".h"))
+    .sort();
   if (files.length === 0) return null;
-  const file = files[0];
+
   return {
-    path: path.relative(ROOT, path.join(topicDir, file)),
-    name: file,
-    content: fs.readFileSync(path.join(topicDir, file), "utf8"),
+    files: files.map((file) => ({
+      path: path.relative(ROOT, path.join(topicDir, file)),
+      name: file,
+      content: fs.readFileSync(path.join(topicDir, file), "utf8"),
+    })),
   };
 }
 
