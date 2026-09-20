@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Segment Tree
+topic_id: data_structures/segment_tree
+---
+
 # Segment Tree
 A Segment Tree is a data structure that allows answering range queries over an array effectively, while still being flexible enough to allow modifying the array. One important property of Segment Trees is that they require only a linear amount of memory. The standard Segment Tree requires 4*N vertices for working on an array of size N.
 

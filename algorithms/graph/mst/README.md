@@ -1,5 +1,5 @@
 ---
-kind: theory
+kind: category
 title: Minimum Spanning Tree
 topic_id: algorithms/graph/mst
 ---

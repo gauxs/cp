@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Kruskal's Algorithm
+topic_id: algorithms/graph/mst/kruskal
+---
+
 # Kruskal's Algorithm
 
 Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree by building the MST edge by edge, always choosing the smallest weight edge that doesn't create a cycle.

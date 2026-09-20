@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Bellman-Ford
+topic_id: algorithms/graph/shortest_path/single_source/bellman_ford
+---
+
 # Bellman-Ford Algorithm
 
 The Bellman-Ford algorithm is a single-source shortest path algorithm that finds the shortest paths from a source vertex to all other vertices in a weighted directed graph. Unlike Dijkstra's algorithm, it can handle **negative weight edges** and detect **negative weight cycles**.

@@ -176,10 +176,17 @@ function buildTopicBundle(topicId, config) {
   const practiceFiles = [];
 
   if (fs.existsSync(practiceDir)) {
-    for (const file of fs
+    const allPractice = fs
       .readdirSync(practiceDir)
       .filter((f) => f.endsWith(".md"))
-      .sort()) {
+      .sort();
+    const curatedPractice = allPractice.filter(
+      (f) => f === "0. curated.md" || f === "1. practice.md",
+    );
+    const practiceList =
+      curatedPractice.length > 0 ? curatedPractice : allPractice;
+
+    for (const file of practiceList) {
       const rel = path.relative(ROOT, path.join(practiceDir, file));
       const parsed = matter(readFile(rel));
       practiceFiles.push({
@@ -227,6 +234,16 @@ function cleanLegacyGeneratedDocs() {
 
 function writeTopicPages(topicBundles, categories) {
   for (const category of categories) {
+    const parts = category.topic_id.split("/");
+    const slug = parts[parts.length - 1];
+    const conflictingTopicPage = path.join(
+      docsDirForTopicId(parts.slice(0, -1).join("/")),
+      `${slug}.md`,
+    );
+    if (fs.existsSync(conflictingTopicPage)) {
+      fs.rmSync(conflictingTopicPage);
+    }
+
     const categoryDir = docsDirForTopicId(category.topic_id);
     ensureDir(categoryDir);
 
@@ -271,10 +288,16 @@ function childCategories(parentTopicId, categories) {
     .sort((a, b) => compareTopicIds({ topic_id: a.topic_id }, { topic_id: b.topic_id }));
 }
 
-function directChildTopics(parentTopicId, topicBundles) {
+function directChildTopics(parentTopicId, topicBundles, categories = []) {
+  const childCategoryIds = new Set(
+    categories
+      .filter((category) => category.parent === parentTopicId)
+      .map((category) => category.topic_id),
+  );
   const prefix = `${parentTopicId}/`;
   return topicBundles
     .filter((topic) => {
+      if (childCategoryIds.has(topic.topic_id)) return false;
       if (!topic.topic_id.startsWith(prefix)) return false;
       const rest = topic.topic_id.slice(prefix.length);
       return rest.length > 0 && !rest.includes("/");
@@ -293,7 +316,7 @@ function buildCategoryNode(category, categories, topicBundles) {
     ...childCategories(category.topic_id, categories).map((subcategory) =>
       buildCategoryNode(subcategory, categories, topicBundles),
     ),
-    ...directChildTopics(category.topic_id, topicBundles),
+    ...directChildTopics(category.topic_id, topicBundles, categories),
   ];
 
   const node = {
@@ -322,7 +345,7 @@ function buildSidebar(categories, topicBundles) {
       ...subcategories.map((subcategory) =>
         buildCategoryNode(subcategory, categories, topicBundles),
       ),
-      ...directChildTopics(parent.topic_id, topicBundles),
+      ...directChildTopics(parent.topic_id, topicBundles, categories),
     ];
 
     const sectionNode = {
@@ -418,6 +441,7 @@ async function main() {
     .filter(Boolean)
     .sort(compareTopicIds);
 
+  fs.rmSync(TOPICS_DIR, { recursive: true, force: true });
   ensureDir(TOPICS_DIR);
   for (const topic of topicBundles) {
     fs.writeFileSync(

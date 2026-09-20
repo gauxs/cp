@@ -13,6 +13,7 @@ include:
   - "algorithms/bit_manipulation/practice/*.md"
   - "algorithms/kadane/practice/*.md"
   - "algorithms/math/practice/*.md"
+  - "algorithms/string/**/practice/*.md"
   - "algorithms/graph/**/practice/0. curated.md"
   - "algorithms/graph/**/practice/1. practice.md"
   - "data_structures/**/practice/*.md"
@@ -30,6 +31,24 @@ categories:
   - topic_id: algorithms/graph/traversal
     label: Graph Traversal
     parent: algorithms/graph
+  - topic_id: algorithms/graph/shortest_path
+    label: Shortest Path
+    parent: algorithms/graph
+  - topic_id: algorithms/graph/shortest_path/single_source
+    label: Single Source
+    parent: algorithms/graph/shortest_path
+  - topic_id: algorithms/graph/shortest_path/all_pair
+    label: All Pairs
+    parent: algorithms/graph/shortest_path
+  - topic_id: algorithms/graph/mst
+    label: Minimum Spanning Tree
+    parent: algorithms/graph
+  - topic_id: algorithms/graph/lca
+    label: Lowest Common Ancestor
+    parent: algorithms/graph
+  - topic_id: algorithms/string
+    label: String Algorithms
+    parent: algorithms
   - topic_id: algorithms/sort
     label: Sort
     parent: algorithms
@@ -71,10 +90,20 @@ topics:
     label: Bipartite Graph
   algorithms/graph/cycles:
     label: Cycle Detection
-  algorithms/graph/mst:
-    label: Minimum Spanning Tree
-  algorithms/graph/shortest_path:
-    label: Shortest Path
+  algorithms/graph/mst/prims:
+    label: Prim's Algorithm
+  algorithms/graph/mst/kruskal:
+    label: Kruskal's Algorithm
+  algorithms/graph/lca/preprocess:
+    label: LCA Preprocessing
+  algorithms/graph/shortest_path/single_source/dijkstra:
+    label: Dijkstra
+  algorithms/graph/shortest_path/single_source/bellman_ford:
+    label: Bellman-Ford
+  algorithms/graph/shortest_path/single_source/bfs_01:
+    label: 0-1 BFS
+  algorithms/graph/shortest_path/all_pair/floyd_warshall:
+    label: Floyd-Warshall
   algorithms/graph/topological_sort:
     label: Topological Sort
   algorithms/graph/traversal/bfs:
@@ -85,6 +114,8 @@ topics:
     label: Kadane's Algorithm
   algorithms/math:
     label: Mathematics
+  algorithms/string/z:
+    label: Z Algorithm
   algorithms/search/binary:
     label: Binary Search
   algorithms/search/exponential:
@@ -159,3 +190,5 @@ topics:
     label: Bitset
   data_structures/string:
     label: String
+  data_structures/segment_tree:
+    label: Segment Tree

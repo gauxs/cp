@@ -1,4 +1,5 @@
 import MarkdownIt from "markdown-it";
+import { withBase } from "vitepress";
 import { highlightCode, DEFAULT_CODE_LANG } from "./highlight.js";
 import { useTexMath } from "../../math-plugin.mjs";
 
@@ -32,6 +33,17 @@ const defaultHeadingOpen =
 const defaultBlockquoteOpen =
   md.renderer.rules.blockquote_open ||
   ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+
+md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+  const hrefIndex = tokens[idx].attrIndex("href");
+  if (hrefIndex >= 0) {
+    const href = tokens[idx].attrs[hrefIndex][1];
+    if (href.startsWith("/") && !href.startsWith("//")) {
+      tokens[idx].attrs[hrefIndex][1] = withBase(href);
+    }
+  }
+  return defaultLinkOpen(tokens, idx, options, env, self);
+};
 
 md.renderer.rules.blockquote_open = (tokens, idx, options, env, self) => {
   if (env?.notesMode) {

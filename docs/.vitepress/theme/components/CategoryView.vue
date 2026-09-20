@@ -25,9 +25,13 @@ onMounted(async () => {
 
     // Always load direct child topics; category cards come from childCategories.
     // Parent categories may have both (e.g. Patterns → Optimization + Divide and Conquer).
+    const childCategoryIds = new Set(
+      childCategories.value.map((category) => category.topic_id),
+    );
     const prefix = `${frontmatter.value.topic_id}/`;
     const childTopics = site.value.topics
       .filter((t) => {
+        if (childCategoryIds.has(t.topic_id)) return false;
         if (!t.topic_id.startsWith(prefix)) return false;
         const rest = t.topic_id.slice(prefix.length);
         return rest.length > 0 && !rest.includes("/");

@@ -1,5 +1,5 @@
 ---
-kind: theory
+kind: category
 title: Shortest Path
 topic_id: algorithms/graph/shortest_path
 ---

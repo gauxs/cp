@@ -1,3 +1,9 @@
+---
+kind: theory
+title: 0-1 BFS
+topic_id: algorithms/graph/shortest_path/single_source/bfs_01
+---
+
 # 0-1 BFS Algorithm
 
 The 0-1 BFS algorithm is an optimized version of BFS that finds shortest paths in graphs where edges have weights of only 0 or 1. It achieves O(V + E) time complexity, making it more efficient than Dijkstra's algorithm for this specific case.
