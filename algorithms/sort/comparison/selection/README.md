@@ -1,23 +1,33 @@
+---
+kind: theory
+title: Selection Sort
+topic_id: algorithms/sort/comparison/selection
+---
+
 # Selection Sort
-Sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. Following are some important observation on the algorithm:
-1. The good thing about selection sort is it never makes more than O(n) swaps and can be useful when memory write is a costly operation. 
 
-### Algorithm Analysis
-```
-    N - Size of input
+## Overview
 
-    Time complexity:
-    1. Worst:           O(N^2)
-    2. Average:         O(N^2)
-    3. Best:            O(N^2)
+Repeatedly selects the minimum from the unsorted portion and places it at the front. Performs at most $O(N)$ swaps.
 
-    Space complexity:   O(1)
-    Inplace sorting:    yes
-    Stable sorting:     No, but can be made stable
-```
+## Key Observations
 
-### Stablity of selection sort
-Selection sort can be made Stable if instead of swapping, the minimum element is placed in its position without swapping i.e. by placing the number in its position by pushing every element one step forward. Example: 4A 5 3 2 4B 1 | First minimum element is 1, now instead of swapping. Insert 1 in its correct place and pushing every element one step forward i.e forward pushing.
+1. Useful when memory writes are expensive (few swaps).
+2. Not stable by default; can be made stable by shifting instead of swapping.
+3. Always $\Theta(N^{2})$ comparisons regardless of input order.
+
+## Algorithm Analysis
+
+Let $N$ be the input size.
+
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(N^{2})$ | $O(1)$ |
+| Average | $O(N^{2})$ | $O(1)$ |
+| Best | $O(N^{2})$ | $O(1)$ |
+
+In-place; not stable by default.
 
 ## References
+
 1. [GeeksForGeeks - Selection Sort](https://www.geeksforgeeks.org/selection-sort/)

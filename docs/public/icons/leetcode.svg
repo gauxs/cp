@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="LeetCode">
+  <rect width="24" height="24" rx="5" fill="#FFA116"/>
+  <path fill="#1a1a1a" d="M7 6.5h10v2.2H12.4v8.8H7V6.5zm2.4 2.2v6.6h2.8V8.7H9.4z"/>
+  <path fill="#1a1a1a" d="M14.8 8.7h2.2v6.6h-2.2V8.7z"/>
+</svg>

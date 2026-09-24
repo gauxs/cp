@@ -6,7 +6,7 @@ Algorithms and data structures I learned and implemented while solving competiti
 
 ### Core Algorithm Topics
 - [ ] **Sorting** - [View Progress](algorithms/sort/README.md) (0/10 completed)
-- [ ] **Search** - Binary, Exponential, Jump, Quick Search
+- [ ] **Search** - Binary, Exponential, Jump, Quick Select
 - [ ] **Graph** - BFS, DFS, Shortest Path, MST, Topological Sort
 - [ ] **Dynamic Programming** - Various DP patterns and techniques
 - [ ] **Greedy** - Greedy algorithm strategies
@@ -15,18 +15,17 @@ Algorithms and data structures I learned and implemented while solving competiti
 - [ ] **Misc** - Kadane's algorithm, sliding window, etc.
 
 ### Data Structures
+- [ ] **Sequential** - Vector, string, deque, bitset
+- [ ] **Associative** - Map / hash map
+- [ ] **Adapters** - Stack, queue, heap (priority queue)
 - [ ] **Binary Search Trees** - AVL, Treap
-- [ ] **Heaps** - Priority queues, heap operations
 - [ ] **Segment Trees** - Range queries and updates
 - [ ] **Union Find** - Disjoint set operations
 - [ ] **Trie** - String prefix operations
 - [ ] **Monotonic** - Monotonic stack/queue
 - [ ] **Misc** - Difference arrays, sparse tables, sqrt decomposition
 
-### Language-Specific Resources
-- [ ] **C++** - STL containers, algorithms, and techniques
-- [ ] **Go** - Go-specific implementations
-- [ ] **Java** - Java collections and algorithms
+Library API notes (C++ / Java / Go) live under [data_structures/](data_structures/README.md) on each topic's **Library** tab.
 
 ### Overall Progress
 - **Completed Topics**: 0/15 (0%)

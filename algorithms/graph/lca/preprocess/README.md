@@ -1,3 +1,9 @@
+---
+kind: theory
+title: LCA Preprocessing
+topic_id: algorithms/graph/lca/preprocess
+---
+
 # Lowest Common Ancestor - Pre Processing
 Before answering the queries, we need to preprocess the tree. 
 

@@ -4,7 +4,7 @@ In graph theory, a component of an **undirected graph** is an induced subgraph i
 
 A vertex with no incident edges is itself a component. A graph that is itself connected has exactly one component, consisting of the whole graph. Components are also sometimes called **connected components**. For undirected graphs there is the notion of connected components, which you find by performing a DFS on the undirected graph.
 
-<img src="https://github.com/gauxs/cp/blob/master/media/images/component_graph.png?raw=true" width="600" height="300">
+<img src="https://github.com/gauxs/cp/blob/master/algorithms/graph/theory/component_graph.png?raw=true" width="600" height="300" alt="Undirected graph with three connected components">
 
 ## Strongly Connected Components
 

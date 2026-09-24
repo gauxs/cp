@@ -1,4 +1,7 @@
 # Kadane's Algorithm
+
+> **Migrated:** The indexed version of this material is [Kadane's Algorithm](../../kadane/README.md). This legacy note is retained under the no-deletion migration policy.
+
 Maximum sum subarray problem is the task of finding a contiguous subarray with the largest sum, within a given one-dimensional array A[1...n] of numbers. This algorithm is one of the way of solving maximum sum subarray problems.
 
 ## Algorithm Analysis

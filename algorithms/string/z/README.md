@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Z Algorithm
+topic_id: algorithms/string/z
+---
+
 # Z Algorithm
 
 Z-function for a string is an array of length n where the i-th element is equal to the greatest number of characters starting from the position i that coincide with the first characters of s.

@@ -1,4 +1,10 @@
-# Depth-First Search (DFS)
+---
+kind: theory
+title: Depth-First Search
+topic_id: algorithms/graph/traversal/dfs
+---
+
+# Depth-First Search
 
 Depth-First Search is a fundamental graph traversal algorithm that explores as far as possible along each branch before backtracking. It finds the lexicographical first path from a source vertex to each vertex and is particularly useful for path finding, cycle detection, and topological sorting.
 

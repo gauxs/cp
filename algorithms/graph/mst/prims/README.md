@@ -1,3 +1,9 @@
+---
+kind: theory
+title: Prim's Algorithm
+topic_id: algorithms/graph/mst/prims
+---
+
 # Prim's Algorithm
 
 Prim's algorithm is a greedy algorithm that finds a minimum spanning tree by growing the MST one vertex at a time, always adding the minimum weight edge that connects a vertex in the tree to a vertex outside the tree.

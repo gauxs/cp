@@ -1,27 +1,33 @@
+---
+kind: theory
+title: Merge Sort
+topic_id: algorithms/sort/comparison/merge
+---
+
 # Merge Sort
-Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves.
 
-### Algorithm Analysis
-```
-    N - Size of input
+## Overview
 
-    Time Complexity:   
-    1.  Worst:      θ(NLogN)
-    2.  Average:    θ(NLogN)
-    3.  Best:       θ(NLogN)
+Divide and conquer: split the array in half, sort recursively, then merge two sorted halves in linear time.
 
-    Space complexity:   O(N)
-    Inplace sorting:    No
-    Stable sorting:     yes 
-```
+## Key Observations
 
-### Applications and Drawbacks:
-1. Slower comparative to the other sort algorithms for smaller tasks.
-2. Merge sort algorithm requires additional memory space of 0(N) for the temporary array .
-3. It goes through the whole process even if the array is sorted.
+1. Guaranteed $O(N \log N)$ regardless of input.
+2. Stable; requires $O(N)$ extra space for the merge buffer.
+3. Preferred for linked lists and external sorting; slower constant factors than quick sort on arrays.
 
-### Practice
-1. Good questions - [Sort List](https://leetcode.com/problems/sort-list/)
+## Algorithm Analysis
+
+Let $N$ be the input size.
+
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(N \log N)$ | $O(N)$ |
+| Average | $O(N \log N)$ | $O(N)$ |
+| Best | $O(N \log N)$ | $O(N)$ |
+
+Stable; not in-place.
 
 ## References
+
 1. [GeeksForGeeks - Merge Sort](https://www.geeksforgeeks.org/merge-sort/)

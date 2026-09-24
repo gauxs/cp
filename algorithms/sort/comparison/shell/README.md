@@ -1,21 +1,33 @@
+---
+kind: theory
+title: Shell Sort
+topic_id: algorithms/sort/comparison/shell
+---
+
 # Shell Sort
-ShellSort is mainly a variation of Insertion Sort. In insertion sort, we move elements only one position ahead. When an element has to be moved far ahead, many movements are involved. The idea of shellSort is to allow exchange of far items.
 
-In shellSort, we make the array **H-sorted** for a large value of **H**. We keep reducing the value of **H** until it becomes 1. An array is said to be **H-sorted** if all sublists of every **H’th** element is sorted.
+## Overview
 
-### Algorithm Analysis
-```
-    N - Size of input
+Generalized insertion sort with a gap sequence: sort subarrays of elements $H$ apart, then reduce $H$ until $H = 1$.
 
-    Time complexity:
-    1.  Worst:          O(N^2)      // sorted in reverse order
-    2.  Average:        O(N^2)
-    3.  Best:           O(N)        // sorted in-order
+## Key Observations
 
-    Space complexity:   O(1)
-    Inplace sorting:    yes
-    Stable sorting:     yes
-```
+1. Allows exchanges of far-apart elements early (unlike plain insertion sort).
+2. An array is $H$-sorted when every sublist of $H$-separated elements is sorted.
+3. Performance depends heavily on the gap sequence.
+
+## Algorithm Analysis
+
+Let $N$ be the input size.
+
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(N^{2})$ | $O(1)$ |
+| Average | $O(N^{1.5})$* | $O(1)$ |
+| Best | $O(N \log N)$* | $O(1)$ |
+
+\*Depends on gap sequence. In-place; not stable.
 
 ## References
+
 1. [GeeksForGeeks - Shell Sort](https://www.geeksforgeeks.org/shellsort/)

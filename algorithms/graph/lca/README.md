@@ -1,3 +1,9 @@
+---
+kind: category
+title: Lowest Common Ancestor
+topic_id: algorithms/graph/lca
+---
+
 # Lowest Common Ancestor
 Given a tree G. Given queries of the form (v1,v2), for each query you need to find the lowest common ancestor (or least common ancestor), i.e. a vertex v that lies on the path from the root to v1 and the path from the root to v2, and the vertex should be the lowest.
 

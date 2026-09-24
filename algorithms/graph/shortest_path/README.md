@@ -1,4 +1,10 @@
-# Shortest Path Algorithms
+---
+kind: category
+title: Shortest Path
+topic_id: algorithms/graph/shortest_path
+---
+
+# Shortest Path
 
 You are given a directed or undirected weighted graph with **V** vertices and **E** edges. 
 

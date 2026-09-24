@@ -1,0 +1,23 @@
+{
+  "name": "cp-notes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:index": "node scripts/build-index.mjs",
+    "docs:dev": "rm -rf docs/.vitepress/cache && npm run build:index && vitepress dev docs",
+    "docs:build": "npm run build:index && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.12.0",
+    "js-yaml": "^4.1.0",
+    "katex": "^0.18.4",
+    "markdown-it": "^14.1.0",
+    "vitepress": "^1.5.0"
+  },
+  "dependencies": {
+    "markdown-it-texmath": "^1.0.0"
+  }
+}

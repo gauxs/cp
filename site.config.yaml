@@ -1,0 +1,194 @@
+# Thin site config - conventions handle the rest.
+# Expand `include` when more categories are migrated.
+
+site:
+  name: MyGrindSheet
+  description: Patterns, theory, and practice for algorithms and data structures
+  home_title: Dashboard
+
+include:
+  - "algorithms/search/**/practice/*.md"
+  - "algorithms/sort/**/practice/*.md"
+  - "algorithms/backtracking/practice/*.md"
+  - "algorithms/bit_manipulation/practice/*.md"
+  - "algorithms/kadane/practice/*.md"
+  - "algorithms/math/practice/*.md"
+  - "algorithms/string/**/practice/*.md"
+  - "algorithms/graph/**/practice/0. curated.md"
+  - "algorithms/graph/**/practice/1. practice.md"
+  - "data_structures/**/practice/*.md"
+  - "patterns/**/practice/*.md"
+
+categories:
+  - topic_id: algorithms
+    label: Algorithms
+  - topic_id: algorithms/search
+    label: Search
+    parent: algorithms
+  - topic_id: algorithms/graph
+    label: Graph
+    parent: algorithms
+  - topic_id: algorithms/graph/traversal
+    label: Graph Traversal
+    parent: algorithms/graph
+  - topic_id: algorithms/graph/shortest_path
+    label: Shortest Path
+    parent: algorithms/graph
+  - topic_id: algorithms/graph/shortest_path/single_source
+    label: Single Source
+    parent: algorithms/graph/shortest_path
+  - topic_id: algorithms/graph/shortest_path/all_pair
+    label: All Pairs
+    parent: algorithms/graph/shortest_path
+  - topic_id: algorithms/graph/mst
+    label: Minimum Spanning Tree
+    parent: algorithms/graph
+  - topic_id: algorithms/graph/lca
+    label: Lowest Common Ancestor
+    parent: algorithms/graph
+  - topic_id: algorithms/string
+    label: String Algorithms
+    parent: algorithms
+  - topic_id: algorithms/sort
+    label: Sort
+    parent: algorithms
+  - topic_id: algorithms/sort/comparison
+    label: Comparison Sort
+    parent: algorithms/sort
+  - topic_id: algorithms/sort/non_comparison
+    label: Non-Comparison Sort
+    parent: algorithms/sort
+  - topic_id: patterns
+    label: Patterns
+  - topic_id: patterns/optimization
+    label: Optimization
+    parent: patterns
+  - topic_id: patterns/scanning
+    label: Scanning
+    parent: patterns
+  - topic_id: data_structures
+    label: Data Structures
+
+homepage:
+  default_view: global
+
+views:
+  - global
+  - byTopic
+  - byPattern
+  - byDifficulty
+
+progress:
+  dedupe: slug
+
+topics:
+  algorithms/backtracking:
+    label: Backtracking
+  algorithms/bit_manipulation:
+    label: Bit Manipulation
+  algorithms/graph/bipartite:
+    label: Bipartite Graph
+  algorithms/graph/cycles:
+    label: Cycle Detection
+  algorithms/graph/mst/prims:
+    label: Prim's Algorithm
+  algorithms/graph/mst/kruskal:
+    label: Kruskal's Algorithm
+  algorithms/graph/lca/preprocess:
+    label: LCA Preprocessing
+  algorithms/graph/shortest_path/single_source/dijkstra:
+    label: Dijkstra
+  algorithms/graph/shortest_path/single_source/bellman_ford:
+    label: Bellman-Ford
+  algorithms/graph/shortest_path/single_source/bfs_01:
+    label: 0-1 BFS
+  algorithms/graph/shortest_path/all_pair/floyd_warshall:
+    label: Floyd-Warshall
+  algorithms/graph/topological_sort:
+    label: Topological Sort
+  algorithms/graph/traversal/bfs:
+    label: Breadth-First Search
+  algorithms/graph/traversal/dfs:
+    label: Depth-First Search
+  algorithms/kadane:
+    label: Kadane's Algorithm
+  algorithms/math:
+    label: Mathematics
+  algorithms/string/z:
+    label: Z Algorithm
+  algorithms/search/binary:
+    label: Binary Search
+  algorithms/search/exponential:
+    label: Exponential Search
+  algorithms/search/jump:
+    label: Jump Search
+  algorithms/search/quick_select:
+    label: Quick Select
+  algorithms/sort/comparison/bubble:
+    label: Bubble Sort
+  algorithms/sort/comparison/selection:
+    label: Selection Sort
+  algorithms/sort/comparison/insertion:
+    label: Insertion Sort
+  algorithms/sort/comparison/merge:
+    label: Merge Sort
+  algorithms/sort/comparison/quick:
+    label: Quick Sort
+  algorithms/sort/comparison/heap:
+    label: Heap Sort
+  algorithms/sort/comparison/shell:
+    label: Shell Sort
+  algorithms/sort/non_comparison/counting:
+    label: Counting Sort
+  algorithms/sort/non_comparison/radix:
+    label: Radix Sort
+  algorithms/sort/non_comparison/bucket:
+    label: Bucket Sort
+  patterns/optimization/dp:
+    label: Dynamic Programming
+  patterns/optimization/greedy:
+    label: Greedy
+  patterns/scanning/sliding_window:
+    label: Sliding Window
+  patterns/scanning/intervals:
+    label: Intervals
+  patterns/scanning/matrix:
+    label: Matrix Scanning
+  patterns/scanning/two_pointers:
+    label: Two Pointers
+  patterns/scanning/prefix_sum:
+    label: Prefix Sum
+  patterns/scanning/difference_array:
+    label: Difference Array
+  patterns/divide_and_conquer:
+    label: Divide and Conquer
+  data_structures/bst:
+    label: Binary Search Tree
+  data_structures/heap:
+    label: Heap (Priority Queue)
+  data_structures/linked_list:
+    label: Linked List
+  data_structures/monotonic:
+    label: Monotonic Stack and Queue
+  data_structures/tree:
+    label: Binary Tree
+  data_structures/trie:
+    label: Trie
+  data_structures/union_find:
+    label: Disjoint Set Union
+  data_structures/vector:
+    label: Vector
+  data_structures/map:
+    label: Map
+  data_structures/stack:
+    label: Stack
+  data_structures/queue:
+    label: Queue
+  data_structures/deque:
+    label: Deque
+  data_structures/bitset:
+    label: Bitset
+  data_structures/string:
+    label: String
+  data_structures/segment_tree:
+    label: Segment Tree

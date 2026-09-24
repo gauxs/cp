@@ -1,24 +1,33 @@
+---
+kind: theory
+title: Bubble Sort
+topic_id: algorithms/sort/comparison/bubble
+---
+
 # Bubble Sort
-This algorithm works by repeatedly swapping the adjacent elements if they are in wrong order. Following are some important observation on the algorithm:
-1. One pass gives an impression of bringing the largest(smallest if sorting in decreasing order) element towards the end of the list(if we traverse from 0).
 
-2. After first pass we know that last index element is at right place.
+## Overview
 
-3. In computer graphics it is popular for its capability to detect a very small error (like swap of just two elements) in almost-sorted arrays and fix it with just linear complexity O(2*N). 
+Repeatedly swaps adjacent elements if they are in the wrong order. One pass moves the largest element to the end; after $i$ passes, the last $i$ elements are in place.
 
-### Algorithm Analysis
-```
-    N - Size of input
+## Key Observations
 
-    Time Complexity:   
-    1.  Worst:          O(N^2)
-    2.  Average:        O(N^2)
-    3.  Best:           O(N)        // when the input is sorted  
+1. After the first pass, the last index is in its final position.
+2. Useful in graphics for detecting tiny errors in nearly sorted arrays (linear extra work).
+3. Simple but $O(N^{2})$ in typical cases.
 
-    Space Complexity:   O(1)
-    Inplace Sorting:    yes
-    Stable Sorting:     yes 
-```
+## Algorithm Analysis
+
+Let $N$ be the input size.
+
+| Case | Time | Space |
+| --- | --- | --- |
+| Worst | $O(N^{2})$ | $O(1)$ |
+| Average | $O(N^{2})$ | $O(1)$ |
+| Best | $O(N)$ | $O(1)$ |
+
+Stable and in-place.
 
 ## References
+
 1. [GeeksForGeeks - Bubble Sort](https://www.geeksforgeeks.org/bubble-sort/)

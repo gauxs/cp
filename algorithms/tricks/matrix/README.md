@@ -1,4 +1,7 @@
 # Tricks on Matrix
+
+> **Migrated:** The indexed version of this material is [Matrix Scanning](../../../patterns/scanning/matrix/README.md). This legacy note is retained under the no-deletion migration policy.
+
 ## Rotating a matrix
 All rotations are composite reflections (in fact, all transformations are composite reflections); in case of ***Clockwise rotation(90 degrees)***, a reflection across the horizontal line of symmetry, then a reflection across the diagonal. 
 

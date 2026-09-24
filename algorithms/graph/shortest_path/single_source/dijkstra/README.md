@@ -1,8 +1,14 @@
+---
+kind: theory
+title: Dijkstra
+topic_id: algorithms/graph/shortest_path/single_source/dijkstra
+---
+
 # Dijkstra's Algorithm
 
 Dijkstra's algorithm is a greedy algorithm that finds the shortest paths from a source vertex to all other vertices in a weighted graph with **non-negative** edge weights. It's one of the most efficient algorithms for single-source shortest path problems.
 
-<img src="https://github.com/gauxs/cp/blob/master/media/images/dijkstra.jpg?raw=true" width="800" height="600">
+<img src="https://github.com/gauxs/cp/blob/master/algorithms/graph/shortest_path/single_source/dijkstra/dijkstra.jpg?raw=true" width="800" height="600" alt="Dijkstra edge-relaxation example">
 
 ## Algorithm Overview
 

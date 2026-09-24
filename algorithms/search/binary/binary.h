@@ -5,41 +5,38 @@
 
 /*
     Returns the index of the element if found, else -1
-    NOTE: I have neglected all the points mentioned in README
-    because below implementation is another way of implementing bug
-    free and seems to work in every quetion solved till now
 */
-int binary_iterative(std::vector<int> &input, int low, int high, int ele){
-    while(low<=high){   // for checking low==high cases
-        int mid=low+(high-low)/2;
-        if(input[mid]==ele){
+int binary_iterative(std::vector<int>& input, int low, int high, int ele) {
+    while (low <= high) {  // for checking low==high cases
+        int mid = low + (high - low) / 2;
+        if (input[mid] == ele) {
             return mid;
-        }else if(input[mid]<ele){
-            low=mid+1;
-        }else{
-            high=mid-1;
+        } else if (input[mid] < ele) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
         }
     }
-    
+
     return -1;
 }
 
 /*
     Returns the index of the element if found, else -1
 */
-int binary_recursive(std::vector<int> &input, int left, int right, int ele){
-    if(left<=right){
-        int mid = left + (right - left)/2;
-        if(input[mid] == ele){
+int binary_recursive(std::vector<int>& input, int left, int right, int ele) {
+    if (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (input[mid] == ele) {
             return mid;
-        }else if(input[mid] > ele){
-            return binary_recursive(input, left, mid-1, ele);
-        }else{
-            return binary_recursive(input, mid+1, right, ele);
+        } else if (input[mid] > ele) {
+            return binary_recursive(input, left, mid - 1, ele);
+        } else {
+            return binary_recursive(input, mid + 1, right, ele);
         }
     }
 
     return -1;
 }
 
-#endif // BINARY_H_INCLUDED
+#endif  // BINARY_H_INCLUDED

@@ -1,10 +1,20 @@
+---
+kind: category
+title: Graphs
+topic_id: algorithms/graph
+---
+
 # Graphs
 A Graph is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph. More formally a Graph can be defined as, ***a Graph consists of a finite set of vertices(or nodes) and set of Edges which connect a pair of nodes.***
 
+## Practice file status
+
+For migrated graph topics, `practice/0. curated.md` and `practice/1. practice.md` are the authoritative site-indexed files. The older per-tier files are retained as legacy source material during migration and are not indexed.
+
 ## Todos
 Some algorithms which are not implemented but might get added later when i find questions on these.
-- [ ] Kosarajus
-- [ ] Tarjans
+- [x] Kosaraju (SCC) — `traversal/dfs/kosaraju.h`
+- [x] Tarjan bridges — `traversal/dfs/tarjan.h`
 - [ ] Flood fill algorithm
 - [ ] Euler's and Hamilton's algo
 - [ ] Ford-Fulkerson Algorithm
