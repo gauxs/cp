@@ -2,7 +2,7 @@
 # Expand `include` when more categories are migrated.
 
 site:
-  name: MyGrindSheet
+  name: DSAZen
   description: Patterns, theory, and practice for algorithms and data structures
   home_title: Dashboard
 

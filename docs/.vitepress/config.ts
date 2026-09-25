@@ -76,7 +76,14 @@ function legacyRedirectPlugin() {
     name: "cp-legacy-redirects",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        const target = redirectTarget(req.url?.split("?")[0] ?? "");
+        const pathname = req.url?.split("?")[0] ?? "";
+        if (pathname === "/" || pathname === "") {
+          res.statusCode = 302;
+          res.setHeader("Location", `${BASE}/`);
+          res.end();
+          return;
+        }
+        const target = redirectTarget(pathname);
         if (!target) {
           next();
           return;
@@ -107,7 +114,7 @@ function legacyRedirectPlugin() {
 }
 
 export default defineConfig({
-  title: siteConfig.site?.name ?? "MyGrindSheet",
+  title: siteConfig.site?.name ?? "DSAZen",
   description:
     siteConfig.site?.description ??
     "Patterns, theory, and practice for algorithms and data structures",
@@ -149,6 +156,13 @@ export default defineConfig({
           ),
           replacement: path.join(__dirname, "theme/components/VPSidebarItem.vue"),
         },
+        {
+          find: path.resolve(
+            __dirname,
+            "../../node_modules/vitepress/dist/client/theme-default/components/VPNavBarTitle.vue",
+          ),
+          replacement: path.join(__dirname, "theme/components/VPNavBarTitle.vue"),
+        },
       ],
     },
   },
@@ -157,10 +171,11 @@ export default defineConfig({
     logo: {
       light: SITE_ICON_LIGHT,
       dark: SITE_ICON_DARK,
-      alt: siteConfig.site?.name ?? "MyGrindSheet",
+      alt: siteConfig.site?.name ?? "DSAZen",
     },
     logoLink: "/",
     nav: [],
     sidebar: loadSidebar(),
+    socialLinks: [{ icon: "github", link: "https://github.com/gauxs/cp" }],
   },
 });

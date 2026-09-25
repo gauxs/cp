@@ -458,7 +458,7 @@ async function main() {
   const site = {
     generated_at: new Date().toISOString(),
     site: {
-      name: config.site?.name ?? "MyGrindSheet",
+      name: config.site?.name ?? "DSAZen",
       description:
         config.site?.description ??
         "Patterns, theory, and practice for algorithms and data structures",
