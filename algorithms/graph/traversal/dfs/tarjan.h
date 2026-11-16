@@ -30,6 +30,9 @@ void tarjan_bridges_dfs(
                 bridges.emplace_back(u, v);
             }
         } else {
+            // we have encountered an already visited node v, we have found a back edge directly connecting u to v.
+            // we will check disc[v] and not low[v] because we want to record the discovery time of the node this back edge reaches,
+            // not the lowest node reachable from that node.
             low[u] = std::min(low[u], disc[v]);
         }
     }
